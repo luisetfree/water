@@ -110,7 +110,7 @@
         <div class="grid-container" >
        
             <select id="" name="hora" class="form-group" required=""> 
-
+                    
                 <option value="00:00" selected>00:00</option>
                 <option value="01:00">01:00</option>
                 <option value="02:00">02:00</option>
@@ -421,16 +421,6 @@
   </div>
 
 </div>
-
-
-
-
- 
-
-
-@foreach ($datos as $dat)
-                <td> {{ $dat->id_equipo}}</td>
-@endforeach 
 
 
 </body>

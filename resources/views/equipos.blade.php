@@ -7,6 +7,10 @@
     <!-- Libreria para iconos -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<!-- otros iconos -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+
     <style>
         table {
           font-family: times, sans-serif;
@@ -30,19 +34,15 @@
 .grid-container {
   display: grid;
   /*auto representa cada columna*/
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto auto;
   grid-template-rows: 35px 70px;
   gap: 10px;
   
   padding: 10px;
+  
 }
 
-.grid-container {
-  
-  
-  padding: 20px 0;
-  font-size: 15px;
-}
+
 .checkbox{
   font-size: 15px;
 }
@@ -64,6 +64,17 @@
     <a href="/"><button class="btn"><i class="fa fa-home" ></i></button> </a>
     <!-- fin Boton Home -->
 
+<div class="container">
+  
+  <i class="fas fa-cloud"></i>
+  <i class="fas fa-calendar"></i>
+  
+  <i class="fas fa-file"></i>
+  <i class="fas fa-bars"></i>
+</div>
+
+
+
   <div class="container mt-4">
   @if(session('status'))
     <div class="alert alert-success">
@@ -72,14 +83,9 @@
   @endif
   <div class="card">
     <div class="card-header text-center font-weight-bold">
-      Operación de Equipos 
+      <h5>Operación de Equipos </h5> 
 
-      <!-- Muestra el nombre de la estacion -->
-            @foreach ($estacion as $nombre)
-               
-             <h4>{{ $nombre->nombre}} </h4>   
-
-            @endforeach 
+     
       
     </div>
     <div class="card-body">
@@ -89,7 +95,7 @@
 
 <!-- Contiene los controles de busqueda  -->
        <div class="grid-container">
-              <label for="">Estación:
+              <!-- <label for="">Estación:
                   <select id="" name="id_estacion">
                     <option value="1" selected>Bocatoma</option>
                     <option value="2">EB1</option>
@@ -97,14 +103,18 @@
                     <option value="4">EB3</option>        
                            
                   </select>
-              </label>
+
+
+              </label> -->
 
              
               <!-- Filtra la fecha que se desea ver -->
-               <input type="date" class="form-control"  name="fecha" required="" value=""/>
+
+              
+                <input type="date" class=" form-control"  name="fecha" required="" value="{{$fechas}}"/>
+              
+               <button type="submit" class="btn btn-outline-primary">Ver</button>
                
-               <button type="submit" class="btn btn-primary button">Ver</button>
-               <label>{{$fechas}}</label>
 
         </div>
        
@@ -129,7 +139,17 @@
                 <th>Hora   </th>
                 
                 
-                <th>Equipos</th>
+                <th>Equipos  
+                    @foreach ($estacion as $nombre)
+               
+                         {{ $nombre->nombre}} 
+
+                     @endforeach 
+                </th>
+
+                <th>EB1</th>
+                <th>EB2</th>
+                <th>EB3</th>
                
             </tr>
             <!-- Fin Encabezado de la tabla -->
@@ -147,19 +167,19 @@
 
                         <td>
                         
-                            <!-- Controla los casos en las horas 00:00 a las 09:00-->
+                            <!-- Controla los casos en las horas 00:00 a las 09:00 para BT-->
                         @switch($i)
                                  @case(0)
                                     @foreach ($equipo_0 as $eq)
 
-                                         {{ $eq->nombre}}
+                                         {{ $eq->nombre}}-
 
                                      @endforeach 
                                 @break
                                 @case(1)
                                     @foreach ($equipo_1 as $eqi)
 
-                                         {{ $eqi->nombre}}
+                                         {{ $eqi->nombre}}-
 
                                      @endforeach 
                                 @break
@@ -167,56 +187,56 @@
                                 @case(2)
                                      @foreach ($equipo_2 as $eq2)
 
-                                        {{ $eq2->nombre}}
+                                        {{ $eq2->nombre}}-
 
                                     @endforeach 
                                 @break
                                 @case(3)
                                      @foreach ($equipo_3 as $eq3)
 
-                                        {{ $eq3->nombre}}
+                                        {{ $eq3->nombre}}-
 
                                     @endforeach 
                                 @break
                                  @case(4)
                                      @foreach ($equipo_4 as $eq4)
 
-                                        {{ $eq4->nombre}}
+                                        {{ $eq4->nombre}}-
 
                                     @endforeach 
                                 @break
                                  @case(5)
                                      @foreach ($equipo_5 as $eq5)
 
-                                        {{ $eq5->nombre}}
+                                        {{ $eq5->nombre}}-
 
                                     @endforeach 
                                 @break
                                 @case(6)
                                      @foreach ($equipo_6 as $eq6)
 
-                                        {{ $eq6->nombre}}
+                                        {{ $eq6->nombre}}-
 
                                     @endforeach 
                                 @break
                                 @case(7)
                                      @foreach ($equipo_7 as $eq7)
 
-                                        {{ $eq7->nombre}}
+                                        {{ $eq7->nombre}}-
 
                                     @endforeach 
                                 @break
                                 @case(8)
                                      @foreach ($equipo_8 as $eq8)
 
-                                        {{ $eq8->nombre}}
+                                        {{ $eq8->nombre}}-
 
                                     @endforeach 
                                 @break
                                 @case(9)
                                      @foreach ($equipo_9 as $eq9)
 
-                                        {{ $eq9->nombre}}
+                                        {{ $eq9->nombre}}-
 
                                     @endforeach 
                                 @break
@@ -228,18 +248,190 @@
 
 
                         </td>
+    <!-- Controla los casos en las horas 00:00 a las 09:00 para EB1-->
+                        <td>
+                        @switch($i)
+                                 @case(0)
+                                    @foreach ($eq_eb1_0 as $eb1_0)
+
+                                         {{ $eb1_0->nombre}}-
+
+                                     @endforeach 
+                                @break
+                                @case(1)
+                                    @foreach ($eq_eb1_1 as $eb1_1)
+
+                                         {{ $eb1_1->nombre}}-
+
+                                     @endforeach 
+                                @break
+                             
+                                @case(2)
+                                     @foreach ($eq_eb1_2 as $eb1_2)
+
+                                        {{ $eb1_2->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(3)
+                                     @foreach ($eq_eb1_3 as $eb1_3)
+
+                                        {{ $eb1_3->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                 @case(4)
+                                     @foreach ($eq_eb1_4 as $eb1_4)
+
+                                        {{ $eb1_4->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                 @case(5)
+                                     @foreach ($eq_eb1_5 as $eb1_5)
+
+                                        {{ $eb1_5->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(6)
+                                     @foreach ($eq_eb1_6 as $eb1_6)
+
+                                        {{ $eb1_6->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(7)
+                                     @foreach ($eq_eb1_7 as $eb1_7)
+
+                                        {{ $eb1_7->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(8)
+                                     @foreach ($eq_eb1_8 as $eb1_8)
+
+                                        {{ $eb1_8->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(9)
+                                     @foreach ($eq_eb1_9 as $eb1_9)
+
+                                        {{ $eb1_9->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                
+                             
+                                @default
+                                    ------
+                        @endswitch
+
+
+
+
+
+
+                        </td>
+                        <!-- Controla los casos en las horas 00:00 a las 09:00 para EB2-->
+                        <td>
+
+                            @switch($i)
+                                 @case(0)
+                                    @foreach ($eq_eb2_0 as $eb2_0)
+
+                                         {{ $eb2_0->nombre}}-
+
+                                     @endforeach 
+                                @break
+                                @case(1)
+                                    @foreach ($eq_eb2_1 as $eb2_1)
+
+                                         {{ $eb2_1->nombre}}-
+
+                                     @endforeach 
+                                @break
+                             
+                                @case(2)
+                                     @foreach ($eq_eb2_2 as $eb2_2)
+
+                                        {{ $eb2_2->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(3)
+                                     @foreach ($eq_eb2_3 as $eb2_3)
+
+                                        {{ $eb2_3->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                 @case(4)
+                                     @foreach ($eq_eb2_4 as $eb2_4)
+
+                                        {{ $eb2_4->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                 @case(5)
+                                     @foreach ($eq_eb2_5 as $eb2_5)
+
+                                        {{ $eb2_5->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(6)
+                                     @foreach ($eq_eb2_6 as $eb2_6)
+
+                                        {{ $eb2_6->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(7)
+                                     @foreach ($eq_eb2_7 as $eb2_7)
+
+                                        {{ $eb2_7->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(8)
+                                     @foreach ($eq_eb2_8 as $eb2_8)
+
+                                        {{ $eb2_8->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(9)
+                                     @foreach ($eq_eb2_9 as $eb2_9)
+
+                                        {{ $eb2_9->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                
+                             
+                                @default
+                                    ------
+                        @endswitch
+
+
+
+
+                        </td>
+                        <td>Eq d eb3 0-9hrs</td>
 
                     @else
-                    <!-- Conteo de las 10:00 hrs a las 23:00 hrs -->
+                    <!-- Bloque de Conteo de las 10:00 hrs a las 23:00 hrs de todas las estaciones-->
                         <td>{{ $i}}:00</td><!-- muestra las horas de las 10:00 a 23:00 hrs en la tabla-->
                         <td>
                         
-                            <!-- Controla los casos en las horas 00:00 a las 09:00-->
+                            <!-- Controla los casos en las horas 00:00 a las 09:00 de BT-->
                         @switch($i)
                                 @case(10)
                                     @foreach ($equipo_10 as $eq10)
 
-                                         {{ $eq10->nombre}}
+                                         {{ $eq10->nombre}}-
 
                                      @endforeach 
                                 @break
@@ -247,91 +439,91 @@
                                 @case(11)
                                      @foreach ($equipo_11 as $eq11)
 
-                                        {{ $eq11->nombre}}
+                                        {{ $eq11->nombre}}-
 
                                     @endforeach 
                                 @break
                                 @case(12)
                                      @foreach ($equipo_12 as $eq12)
 
-                                        {{ $eq12->nombre}}
+                                        {{ $eq12->nombre}}-
 
                                     @endforeach 
                                 @break
                                  @case(13)
                                      @foreach ($equipo_13 as $eq13)
 
-                                        {{ $eq13->nombre}}
+                                        {{ $eq13->nombre}}-
 
                                     @endforeach 
                                 @break
                                  @case(14)
                                      @foreach ($equipo_14 as $eq14)
 
-                                        {{ $eq14->nombre}}
+                                        {{ $eq14->nombre}}-
 
                                     @endforeach 
                                 @break
                                 @case(15)
                                      @foreach ($equipo_15 as $eq15)
 
-                                        {{ $eq15->nombre}}
+                                        {{ $eq15->nombre}}-
 
                                     @endforeach 
                                 @break
                                 @case(16)
                                      @foreach ($equipo_16 as $eq16)
 
-                                        {{ $eq16->nombre}}
+                                        {{ $eq16->nombre}}-
 
                                     @endforeach 
                                 @break
                                 @case(17)
                                      @foreach ($equipo_17 as $eq17)
 
-                                        {{ $eq17->nombre}}
+                                        {{ $eq17->nombre}}-
 
                                     @endforeach 
                                 @break
                                 @case(18)
                                      @foreach ($equipo_18 as $eq18)
 
-                                        {{ $eq18->nombre}}
+                                        {{ $eq18->nombre}}-
 
                                     @endforeach 
                                 @break
                                 @case(19)
                                      @foreach ($equipo_19 as $eq19)
 
-                                        {{ $eq19->nombre}}
+                                        {{ $eq19->nombre}}-
 
                                     @endforeach 
                                 @break
                                 @case(20)
                                      @foreach ($equipo_20 as $eq20)
 
-                                        {{ $eq20->nombre}}
+                                        {{ $eq20->nombre}}-
 
                                     @endforeach 
                                 @break
                                 @case(21)
                                      @foreach ($equipo_21 as $eq21)
 
-                                        {{ $eq21->nombre}}
+                                        {{ $eq21->nombre}}-
 
                                     @endforeach 
                                 @break
                                 @case(22)
                                      @foreach ($equipo_22 as $eq22)
 
-                                        {{ $eq22->nombre}}
+                                        {{ $eq22->nombre}}-
 
                                     @endforeach 
                                 @break
                                 @case(23)
                                      @foreach ($equipo_23 as $eq23)
 
-                                        {{ $eq23->nombre}}
+                                        {{ $eq23->nombre}}-
 
                                     @endforeach 
                                 @break
@@ -343,6 +535,237 @@
 
 
                         </td>
+                        <!-- Conteo de las 10:00 hrs a las 23:00 hrs de EB1-->
+                        <td>
+
+                            <!-- Controla los casos en las horas 10:00 a las 23:00 de EB1-->
+                        @switch($i)
+                                @case(10)
+                                    @foreach ($eq_eb1_10 as $eb1_10)
+
+                                         {{ $eb1_10->nombre}}-
+
+                                     @endforeach 
+                                @break
+                             
+                                @case(11)
+                                     @foreach ($eq_eb1_11 as $eb1_11)
+
+                                        {{ $eb1_11->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(12)
+                                     @foreach ($eq_eb1_12 as $eb1_12)
+
+                                        {{ $eb1_12->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                 @case(13)
+                                     @foreach ($eq_eb1_13 as $eb1_13)
+
+                                        {{ $eb1_13->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                 @case(14)
+                                     @foreach ($eq_eb1_14 as $eb1_14)
+
+                                        {{ $eb1_14->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(15)
+                                     @foreach ($eq_eb1_15 as $eb1_15)
+
+                                        {{ $eb1_15->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(16)
+                                     @foreach ($eq_eb1_16 as $eb1_16)
+
+                                        {{ $eb1_16->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(17)
+                                     @foreach ($eq_eb1_17 as $eb1_17)
+
+                                        {{ $eb1_17->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(18)
+                                     @foreach ($eq_eb1_18 as $eb1_18)
+
+                                        {{ $eb1_18->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(19)
+                                     @foreach ($eq_eb1_19 as $eb1_19)
+
+                                        {{ $eb1_19->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(20)
+                                     @foreach ($eq_eb1_20 as $eb1_20)
+
+                                        {{ $eb1_20->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(21)
+                                     @foreach ($eq_eb1_21 as $eb1_21)
+
+                                        {{ $eb1_21->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(22)
+                                     @foreach ($eq_eb1_22 as $eb1_22)
+
+                                        {{ $eb1_22->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(23)
+                                     @foreach ($eq_eb1_23 as $eb1_23)
+
+                                        {{ $eb1_23->nombre}}-
+
+                                    @endforeach 
+                                @break
+                             
+                                @default
+                                    ------
+                        @endswitch
+
+
+
+
+
+
+                        </td>
+                        <!-- Conteo de las 10:00 hrs a las 23:00 hrs de EB2-->
+                        <td>
+                                <!-- Controla los casos en las horas 10:00 a las 23:00 de EB2-->
+                        @switch($i)
+                                @case(10)
+                                    @foreach ($eq_eb2_10 as $eb2_10)
+
+                                         {{ $eb2_10->nombre}}-
+
+                                     @endforeach 
+                                @break
+                             
+                                @case(11)
+                                     @foreach ($eq_eb2_11 as $eb2_11)
+
+                                        {{ $eb2_11->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(12)
+                                     @foreach ($eq_eb2_12 as $eb2_12)
+
+                                        {{ $eb2_12->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                 @case(13)
+                                     @foreach ($eq_eb2_13 as $eb2_13)
+
+                                        {{ $eb2_13->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                 @case(14)
+                                     @foreach ($eq_eb2_14 as $eb2_14)
+
+                                        {{ $eb2_14->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(15)
+                                     @foreach ($eq_eb2_15 as $eb2_15)
+
+                                        {{ $eb2_15->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(16)
+                                     @foreach ($eq_eb2_16 as $eb2_16)
+
+                                        {{ $eb1_16->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(17)
+                                     @foreach ($eq_eb2_17 as $eb2_17)
+
+                                        {{ $eb2_17->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(18)
+                                     @foreach ($eq_eb2_18 as $eb2_18)
+
+                                        {{ $eb2_18->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(19)
+                                     @foreach ($eq_eb2_19 as $eb2_19)
+
+                                        {{ $eb2_19->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(20)
+                                     @foreach ($eq_eb2_20 as $eb2_20)
+
+                                        {{ $eb2_20->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(21)
+                                     @foreach ($eq_eb2_21 as $eb2_21)
+
+                                        {{ $eb2_21->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(22)
+                                     @foreach ($eq_eb2_22 as $eb2_22)
+
+                                        {{ $eb2_22->nombre}}-
+
+                                    @endforeach 
+                                @break
+                                @case(23)
+                                     @foreach ($eq_eb2_23 as $eb2_23)
+
+                                        {{ $eb2_23->nombre}}-
+
+                                    @endforeach 
+                                @break
+                             
+                                @default
+                                    ------
+                        @endswitch
+
+
+
+
+
+
+
+                        </td>
+                        <td>Eq d eb3</td>
                     @endif
 
 

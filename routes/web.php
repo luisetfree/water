@@ -42,6 +42,8 @@ Route::get('/resumen', [ProduccionController::class, 'index']);
 /*Maneja la vista del historial de los equipos trabajando por estacion */
 Route::get('/operacion', [OperacionController::class, 'store']);
 
+/*Maneja las calidades de agua*/
+Route::get('/calidad', [CalidadController::class, 'index']);
 
 Route::get('/agua/{tipo}', [AguaController::class, 'store']);
 
