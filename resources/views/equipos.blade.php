@@ -87,6 +87,7 @@
            <form name="formulario-mostrar" id="" method="post" action="{{url('operacion') }}">
        @csrf
 
+<!-- Contiene los controles de busqueda  -->
        <div class="grid-container">
               <label for="">Estación:
                   <select id="" name="id_estacion">
