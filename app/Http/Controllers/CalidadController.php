@@ -95,6 +95,11 @@ class CalidadController extends Controller
  
         $tratada->save();
 
+        /*Fecha temporal solamente para hacer la busqueda*/
+        $fecha='2022-10-11';
+        $hora0='00:00';
+        $a_cruda= $this->show($request->id_agua_c,$fecha,$hora0);
+        $prueba='hola';
 
 
 
@@ -102,19 +107,28 @@ class CalidadController extends Controller
 
 
 
-
-   return redirect('/calidad')->with('status', 'Guardado');
+         //return view ('calidad', compact('prueba'));
+         //return view ('calidad', compact ('prueba','a_cruda'));
+  return redirect('/calidad')->with('status', 'Guardado');
     }
 
     /**
-     * Display the specified resource.
+     * Busca y extrae los datos del tipo de agua que se requiere segun fecha y hora
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_aguas,$fecha,$horas)
     {
         //
+        $dato= DB::table('calidads')
+        ->select('calidads.*')
+        ->whereDate('created_at','=',$fecha)
+        ->where('hora','=',$horas)
+        ->where('id_agua','=',$id_aguas)
+                            ->get();
+
+                            return $dato;
     }
 
     /**

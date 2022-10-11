@@ -73,7 +73,6 @@
 
 
 
-   
 
 
 
@@ -192,7 +191,7 @@
     </thead>
     <tbody>
         <!-- For para imprimir las horas y llevar la secuencia del tiempo -->
-        @for ($i = 0; $i < 24; $i++)
+    @for ($i = 0; $i < 24; $i++)
       <tr>
         @if ($i < 10)
         <td>0{{ $i}}:00</td><!-- conteo de 0 a 9 hrs -->
@@ -200,7 +199,24 @@
         <td>{{ $i}}:00</td><!-- conteo de 10 a 23 hrs -->
         @endif
         
-        <td>cr</td>
+        <td>
+            @switch($i)
+                                @case(0)
+
+                                     
+                               
+
+                                     
+                                 
+                                @break
+                                
+                             
+                                @default
+                                    ------
+            @endswitch
+
+
+        </td>
         <td>cr</td>
         <td>cr</td>
         <td>cr</td>
@@ -222,9 +238,9 @@
         <td>tt</td>
         <td>tt</td>
       </tr>
-      
+      @endfor
     </tbody>
-    @endfor
+    
   </table>
 
 
