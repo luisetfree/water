@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AguaController;
 use App\Http\Controllers\ProduccionController;
 use App\Http\Controllers\OperacionController;
+use App\Http\Controllers\CalidadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,3 +58,6 @@ Route::post('mostrar', [ProduccionController::class, 'mostrar']);
 
 //Recibe los parametros del formulario en la vista Equipos, para filtrar y buscar la estacion que se necesita mostrar
 Route::post('/operacion', [OperacionController::class, 'store']);
+
+/*Maneja y guarda las calidades del agua*/
+Route::post('/calidades', [CalidadController::class, 'store']);

@@ -37,12 +37,7 @@
   padding: 10px;
 }
 
-.grid-container {
-  
-  
-  padding: 20px 0;
-  font-size: 15px;
-}
+
 .checkbox{
   font-size: 15px;
 }
@@ -106,10 +101,8 @@
 
       <form name="add-blog-post-form" id="add-blog-post-form" method="post" action="{{url('store-form')}}">
        @csrf
-       
-        <div class="grid-container" >
-       
-            <select id="" name="hora" class="form-group" required=""> 
+       <label for="hora">Hora</label>
+            <select id="" name="hora" class="" required=""> 
                     
                 <option value="00:00" selected>00:00</option>
                 <option value="01:00">01:00</option>
@@ -137,6 +130,14 @@
                 <option value="23:00">23:00</option>
                        
             </select>
+
+
+
+
+       
+        <div class="grid-container" >
+       
+           
 
 
             <div class="form-group" >

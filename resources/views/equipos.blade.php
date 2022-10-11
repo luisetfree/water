@@ -64,6 +64,8 @@
     <a href="/"><button class="btn"><i class="fa fa-home" ></i></button> </a>
     <!-- fin Boton Home -->
 
+    <!-- Botones-->
+
 <div class="container">
   
   <i class="fas fa-cloud"></i>
@@ -119,6 +121,7 @@
 
         
          <!-- Tabla que muestra los equipos operando -->
+         <label class="form-control">Equipos operando</label>
         <table>
             <!-- Encabezado de la tabla -->
             <tr>
@@ -129,7 +132,7 @@
                 <th>Hora   </th>
                 
                 
-                <th>Equipos  
+                <th> 
                     @foreach ($estacion as $nombre)
                
                          {{ $nombre->nombre}} 
