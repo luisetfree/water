@@ -23,6 +23,7 @@
 
         tr:nth-child(even) {
           background-color: #dddddd;
+
         }
 
 
@@ -42,6 +43,7 @@
 .checkbox{
   font-size: 15px;
 }
+
 
 
 
@@ -84,8 +86,8 @@
        <label for="hora">Hora</label>
             <select id="" name="hora" class="" required=""> 
                     
-                <option value="00:00" selected>00:00</option>
-                <option value="01:00">01:00</option>
+                
+                <option value="01:00" selected>01:00</option>
                 <option value="02:00">02:00</option>
                 <option value="03:00">03:00</option>        
                 <option value="04:00">04:00</option>
@@ -108,6 +110,7 @@
                 <option value="21:00">21:00</option>
                 <option value="22:00">22:00</option>
                 <option value="23:00">23:00</option>
+                <option value="24:00">24:00</option>
                        
             </select>
             <div class="grid-container">
@@ -166,11 +169,13 @@
 
       </form>
 
+<div class="container">
+
+    <!-- para filtrar por fecha -->
+    <input type="date" name="fecha_calidad">
 
 
-
-
-     
+</div>     
 
 
 
@@ -183,18 +188,43 @@
       <tr>
         <th>Hora</th>
 
-        <th colspan="4">Cruda         
-        </th>
+        <th colspan="4">Cruda</th>
         <th colspan="4" >Clarificada</th>
         <th colspan="4" >Filtrada</th>
         <th colspan="4" >Tratada</th>
+      </tr>
+     <tr>
+        
+            <th></th>
+            <th>NTU</th>
+            <th>PH</th>
+            <th>°C</th>
+            <th>Color</th>
+
+             <th>NTU</th>
+            <th>PH</th>
+            <th>°C</th>
+            <th>Color</th>
+
+             <th>NTU</th>
+            <th>PH</th>
+            <th>°C</th>
+            <th>Color</th>
+
+             <th>NTU</th>
+            <th>PH</th>
+            <th>°C</th>
+            <th>Color</th>
+        
+
       </tr>
     </thead>
     <tbody>
 
         <!-- For para imprimir las horas y llevar la secuencia del tiempo -->
-    @for ($i = 0; $i < 24; $i++)
+    @for ($i = 1; $i < 25; $i++)
       <tr>
+
         @if ($i < 10)
         <td>0{{ $i}}:00</td><!-- conteo de 0 a 9 hrs -->
         @else
@@ -203,19 +233,7 @@
         
         <td>
             @switch($i)
-                                @case(0)
-
-                                     
-                               @foreach ($a_cruda_0 as $c0)
-               
-                                          {{ $c0->turbidez}} 
-
-                                @endforeach               
-                                   
-
-                                     
-                                 
-                                @break
+                               
                                 @case(1)
 
                                      
@@ -510,6 +528,19 @@
                                               {{ $c23->turbidez}} 
 
                                     @endforeach               
+                                   
+
+                                     
+                                 
+                                @break
+                                @case(24)
+
+                                     
+                               @foreach ($a_cruda_24 as $c24)
+               
+                                          {{ $c24->turbidez}} 
+
+                                @endforeach               
                                    
 
                                      

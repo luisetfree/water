@@ -74,8 +74,8 @@ class OperacionController extends Controller
 
 /*Busca los equipos por hora. Este corresponde a la hora 00:00 */
 
-       $hora='00:00';
-        $equipo_0=$this->equiposOperando($fechas,$hora,$id_estacion);
+       $hora='24:00';
+        $equipo_0=$this->equiposOperando($fechas,$hora,$id_bocatoma);
         $eq_eb1_0=$this->equiposOperando($fechas,$hora,$id_eb1);
         $eq_eb2_0=$this->equiposOperando($fechas,$hora,$id_eb2);
         $eq_eb3_0=$this->equiposOperando($fechas,$hora,$id_eb3);

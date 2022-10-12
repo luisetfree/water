@@ -148,7 +148,7 @@
             <!-- Fin Encabezado de la tabla -->
 
             <!-- Conteo para mostrar las horas de 00:00 a 23:00 hrs-->
-@for ($i = 0; $i < 24; $i++)
+@for ($i = 1; $i < 25; $i++)
               <tr>
 
                  
@@ -160,15 +160,9 @@
 
                         <td>
                         
-                            <!-- Controla los casos en las horas 00:00 a las 09:00 para BT-->
+                            <!-- Controla los casos en las horas 01:00 a las 09:00 para BT-->
                         @switch($i)
-                                 @case(0)
-                                    @foreach ($equipo_0 as $eq)
-
-                                         {{ $eq->nombre}}-
-
-                                     @endforeach 
-                                @break
+                                 
                                 @case(1)
                                     @foreach ($equipo_1 as $eqi)
 
@@ -241,16 +235,10 @@
 
 
                         </td>
-    <!-- Controla los casos en las horas 00:00 a las 09:00 para EB1-->
+    <!-- Controla los casos en las horas 01:00 a las 09:00 para EB1-->
                         <td>
                         @switch($i)
-                                 @case(0)
-                                    @foreach ($eq_eb1_0 as $eb1_0)
-
-                                         {{ $eb1_0->nombre}}-
-
-                                     @endforeach 
-                                @break
+                                 
                                 @case(1)
                                     @foreach ($eq_eb1_1 as $eb1_1)
 
@@ -327,17 +315,11 @@
 
 
                         </td>
-                        <!-- Controla los casos en las horas 00:00 a las 09:00 para EB2-->
+                        <!-- Controla los casos en las horas 01:00 a las 09:00 para EB2-->
                         <td>
 
                             @switch($i)
-                                 @case(0)
-                                    @foreach ($eq_eb2_0 as $eb2_0)
-
-                                         {{ $eb2_0->nombre}}-
-
-                                     @endforeach 
-                                @break
+                                 
                                 @case(1)
                                     @foreach ($eq_eb2_1 as $eb2_1)
 
@@ -412,16 +394,10 @@
 
 
                         </td>
-                        <!-- Controla los casos en las horas 00:00 a las 09:00 para EB3-->
+                        <!-- Controla los casos en las horas 01:00 a las 09:00 para EB3-->
                         <td>
  @switch($i)
-                                 @case(0)
-                                    @foreach ($eq_eb3_0 as $eb3_0)
-
-                                         {{ $eb3_0->nombre}}-
-
-                                     @endforeach 
-                                @break
+                                 
                                 @case(1)
                                     @foreach ($eq_eb3_1 as $eb3_1)
 
@@ -501,10 +477,10 @@
 
                     @else
                     <!-- Bloque de Conteo de las 10:00 hrs a las 23:00 hrs de todas las estaciones-->
-                        <td>{{ $i}}:00</td><!-- muestra las horas de las 10:00 a 23:00 hrs en la tabla-->
+                        <td>{{ $i}}:00</td><!-- muestra las horas de las 10:00 a 24:00 hrs en la tabla-->
                         <td>
                         
-                            <!-- Controla los casos en las horas 00:00 a las 09:00 de BT-->
+                            <!-- Controla los casos en las horas 10:00 a las 24:00 de BT-->
                         @switch($i)
                                 @case(10)
                                     @foreach ($equipo_10 as $eq10)
@@ -605,6 +581,14 @@
 
                                     @endforeach 
                                 @break
+                                <!-- Verificar, no se muestra este dato -->
+                                @case(24)
+                                    @foreach ($equipo_0 as $eq)
+
+                                         {{ $eq->nombre}}-
+
+                                     @endforeach 
+                                @break
                              
                                 @default
                                     ------
@@ -616,7 +600,7 @@
                         <!-- Conteo de las 10:00 hrs a las 23:00 hrs de EB1-->
                         <td>
 
-                            <!-- Controla los casos en las horas 10:00 a las 23:00 de EB1-->
+                            <!-- Controla los casos en las horas 10:00 a las 24:00 de EB1-->
                         @switch($i)
                                 @case(10)
                                     @foreach ($eq_eb1_10 as $eb1_10)
@@ -716,6 +700,13 @@
                                         {{ $eb1_23->nombre}}-
 
                                     @endforeach 
+                                @break
+                                @case(24)
+                                    @foreach ($eq_eb1_0 as $eb1_0)
+
+                                         {{ $eb1_0->nombre}}-
+
+                                     @endforeach 
                                 @break
                              
                                 @default
@@ -831,6 +822,13 @@
 
                                     @endforeach 
                                 @break
+                                @case(24)
+                                    @foreach ($eq_eb2_0 as $eb2_0)
+
+                                         {{ $eb2_0->nombre}}-
+
+                                     @endforeach 
+                                @break
                              
                                 @default
                                     ------
@@ -843,7 +841,7 @@
 
 
                         </td>
-                        <!-- Conteo de las 10:00 hrs a las 23:00 hrs de EB3-->
+                        <!-- Conteo de las 10:00 hrs a las 24:00 hrs de EB3-->
                         <td>
 @switch($i)
                                 @case(10)
@@ -944,6 +942,13 @@
                                         {{ $eb3_23->nombre}}-
 
                                     @endforeach 
+                                @break
+                                @case(24)
+                                    @foreach ($eq_eb3_0 as $eb3_0)
+
+                                         {{ $eb3_0->nombre}}-
+
+                                     @endforeach 
                                 @break
                              
                                 @default

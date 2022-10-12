@@ -17,11 +17,13 @@ class CalidadController extends Controller
     public function index()
     {
         //
-        /*Fecha temporal solamente para hacer la busqueda*/
-        $fecha='2022-10-12';
+        /*Obteniendo la fecha del dia actual, para que en la tabla se muestre por defecto estos datos*/
+        $fecha=date("Y-m-d");
+        //$fechaActual = date('d-m-Y');
 
 
-        $hora0='00:00';
+
+        $hora24='24:00';
         $hora1='01:00';
         $hora2='02:00';
         $hora3='03:00';
@@ -46,8 +48,11 @@ class CalidadController extends Controller
         $hora22='22:00';
         $hora23='23:00';
 
+/*Filtra turbidez cruda*/
         $id_cruda=1;
-        $a_cruda_0= $this->show($id_cruda,$fecha,$hora0);
+        
+
+        $a_cruda_24= $this->show($id_cruda,$fecha,$hora24);
         $a_cruda_1= $this->show($id_cruda,$fecha,$hora1);
         $a_cruda_2= $this->show($id_cruda,$fecha,$hora2);
         $a_cruda_3= $this->show($id_cruda,$fecha,$hora3);
@@ -72,9 +77,44 @@ class CalidadController extends Controller
         $a_cruda_22= $this->show($id_cruda,$fecha,$hora22);
         $a_cruda_23= $this->show($id_cruda,$fecha,$hora23);
 
+/*Filtra turbidez clarificada*/
+
+         $id_clarificada=2;
+
+        $a_clari_24= $this->show($id_clarificada,$fecha,$hora24);
+        $a_clari_1= $this->show($id_clarificada,$fecha,$hora1);
+        $a_clari_2= $this->show($id_clarificada,$fecha,$hora2);
+        $a_clari_3= $this->show($id_clarificada,$fecha,$hora3);
+        $a_clari_4= $this->show($id_clarificada,$fecha,$hora4);
+        $a_clari_5= $this->show($id_clarificada,$fecha,$hora5);
+        $a_clari_6= $this->show($id_clarificada,$fecha,$hora6);
+        $a_clari_7= $this->show($id_clarificada,$fecha,$hora7);
+        $a_clari_8= $this->show($id_clarificada,$fecha,$hora8);
+        $a_clari_9= $this->show($id_clarificada,$fecha,$hora9);
+        $a_clari_10= $this->show($id_clarificada,$fecha,$hora10);
+        $a_clari_11= $this->show($id_clarificada,$fecha,$hora11);
+        $a_clari_12= $this->show($id_clarificada,$fecha,$hora12);
+        $a_clari_13= $this->show($id_clarificada,$fecha,$hora13);
+        $a_clari_14= $this->show($id_clarificada,$fecha,$hora14);
+        $a_clari_15= $this->show($id_clarificada,$fecha,$hora15);
+        $a_clari_16= $this->show($id_clarificada,$fecha,$hora16);
+        $a_clari_17= $this->show($id_clarificada,$fecha,$hora17);
+        $a_clari_18= $this->show($id_clarificada,$fecha,$hora18);
+        $a_clari_19= $this->show($id_clarificada,$fecha,$hora19);
+        $a_clari_20= $this->show($id_clarificada,$fecha,$hora20);
+        $a_clari_21= $this->show($id_clarificada,$fecha,$hora21);
+        $a_clari_22= $this->show($id_clarificada,$fecha,$hora22);
+        $a_clari_23= $this->show($id_clarificada,$fecha,$hora23);
+
+
+
+
+
+
+
 
         /*Se retorna a la vista calidad y se pasan las variables con los datos que se mostraran en la tabla*/
-        return view('calidad', compact('a_cruda_0','a_cruda_1','a_cruda_2','a_cruda_3','a_cruda_4','a_cruda_5','a_cruda_6','a_cruda_7','a_cruda_8','a_cruda_9','a_cruda_10','a_cruda_11','a_cruda_12','a_cruda_13','a_cruda_14','a_cruda_15','a_cruda_16','a_cruda_17','a_cruda_18','a_cruda_19','a_cruda_20','a_cruda_21','a_cruda_22','a_cruda_23'));
+        return view('calidad', compact('a_cruda_24','a_cruda_1','a_cruda_2','a_cruda_3','a_cruda_4','a_cruda_5','a_cruda_6','a_cruda_7','a_cruda_8','a_cruda_9','a_cruda_10','a_cruda_11','a_cruda_12','a_cruda_13','a_cruda_14','a_cruda_15','a_cruda_16','a_cruda_17','a_cruda_18','a_cruda_19','a_cruda_20','a_cruda_21','a_cruda_22','a_cruda_23'));
     }
 
     /**

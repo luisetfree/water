@@ -104,8 +104,8 @@
        <label for="hora">Hora</label>
             <select id="" name="hora" class="" required=""> 
                     
-                <option value="00:00" selected>00:00</option>
-                <option value="01:00">01:00</option>
+                
+                <option value="01:00" selected>01:00</option>
                 <option value="02:00">02:00</option>
                 <option value="03:00">03:00</option>        
                 <option value="04:00">04:00</option>
@@ -128,6 +128,7 @@
                 <option value="21:00">21:00</option>
                 <option value="22:00">22:00</option>
                 <option value="23:00">23:00</option>
+                <option value="24:00">24:00</option>
                        
             </select>
 
