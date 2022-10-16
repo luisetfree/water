@@ -339,7 +339,7 @@
         </div>
 
     
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-outline-primary">Guardar</button>
         <!-- <input type="date" class="date" id="date" name="date"> -->
 
 

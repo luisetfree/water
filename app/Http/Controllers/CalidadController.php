@@ -82,30 +82,7 @@ class CalidadController extends Controller
         $a_cruda_23= $this->show($id_cruda,$fecha,$hora23);
 
          
-        $ph_cruda_1= $this->show($id_cruda,$fecha,$hora1);
-        $ph_cruda_2= $this->show($id_cruda,$fecha,$hora2);
-        $ph_cruda_3= $this->show($id_cruda,$fecha,$hora3);
-        $ph_cruda_4= $this->show($id_cruda,$fecha,$hora4);
-        $ph_cruda_5= $this->show($id_cruda,$fecha,$hora5);
-        $ph_cruda_6= $this->show($id_cruda,$fecha,$hora6);
-        $ph_cruda_7= $this->show($id_cruda,$fecha,$hora7);
-        $ph_cruda_8= $this->show($id_cruda,$fecha,$hora8);
-        $ph_cruda_9= $this->show($id_cruda,$fecha,$hora9);
-        $ph_cruda_10= $this->show($id_cruda,$fecha,$hora10);
-        $ph_cruda_11= $this->show($id_cruda,$fecha,$hora11);
-        $ph_cruda_12= $this->show($id_cruda,$fecha,$hora12);
-        $ph_cruda_13= $this->show($id_cruda,$fecha,$hora13);
-        $ph_cruda_14= $this->show($id_cruda,$fecha,$hora14);
-        $ph_cruda_15= $this->show($id_cruda,$fecha,$hora15);
-        $ph_cruda_16= $this->show($id_cruda,$fecha,$hora16);
-        $ph_cruda_17= $this->show($id_cruda,$fecha,$hora17);
-        $ph_cruda_18= $this->show($id_cruda,$fecha,$hora18);
-        $ph_cruda_19= $this->show($id_cruda,$fecha,$hora19);
-        $ph_cruda_20= $this->show($id_cruda,$fecha,$hora20);
-        $ph_cruda_21= $this->show($id_cruda,$fecha,$hora21);
-        $ph_cruda_22= $this->show($id_cruda,$fecha,$hora22);
-        $ph_cruda_23= $this->show($id_cruda,$fecha,$hora23);
-        $ph_cruda_24= $this->show($id_cruda,$fecha,$hora24);
+        
 
 
 
@@ -196,8 +173,8 @@ class CalidadController extends Controller
         $a_trat_23= $this->show($id_tratada,$fecha,$hora23);
         $a_trat_24= $this->show($id_tratada,$fecha,$hora24);
 
-/*--------------------------------PH---------------------*/
-/*-------------------------PH CRUDA---------------------*/
+
+
 
 
 

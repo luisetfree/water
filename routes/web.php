@@ -40,8 +40,8 @@ resumen todos los valores almacenados en la tabla Produccion.*/
 Route::get('/resumen', [ProduccionController::class, 'index']);
 
 
-/*Maneja la vista del historial de los equipos trabajando por estacion */
-Route::get('/operacion', [OperacionController::class, 'store']);
+/*Maneja la vista del historial de los equipos trabajando por estacion, muestra por defecto los equipos operando del dia actual*/
+Route::get('/operacion', [OperacionController::class, 'index']);
 
 /*Maneja las calidades de agua*/
 Route::get('/calidad', [CalidadController::class, 'index']);
