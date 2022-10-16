@@ -21,9 +21,12 @@ class CalidadController extends Controller
         $fecha=date("Y-m-d");
         //$fechaActual = date('d-m-Y');
 
+        
+        
+        
 
 
-        $hora24='24:00';
+
         $hora1='01:00';
         $hora2='02:00';
         $hora3='03:00';
@@ -47,9 +50,10 @@ class CalidadController extends Controller
         $hora21='21:00';
         $hora22='22:00';
         $hora23='23:00';
+        $hora24='24:00';
 
 /*Filtra turbidez cruda*/
-        $id_cruda=1;
+        $id_cruda=1;//ID por defecto, si se modifica hay que cambiarlo aqui
         
 
         $a_cruda_24= $this->show($id_cruda,$fecha,$hora24);
@@ -76,6 +80,34 @@ class CalidadController extends Controller
         $a_cruda_21= $this->show($id_cruda,$fecha,$hora21);
         $a_cruda_22= $this->show($id_cruda,$fecha,$hora22);
         $a_cruda_23= $this->show($id_cruda,$fecha,$hora23);
+
+         
+        $ph_cruda_1= $this->show($id_cruda,$fecha,$hora1);
+        $ph_cruda_2= $this->show($id_cruda,$fecha,$hora2);
+        $ph_cruda_3= $this->show($id_cruda,$fecha,$hora3);
+        $ph_cruda_4= $this->show($id_cruda,$fecha,$hora4);
+        $ph_cruda_5= $this->show($id_cruda,$fecha,$hora5);
+        $ph_cruda_6= $this->show($id_cruda,$fecha,$hora6);
+        $ph_cruda_7= $this->show($id_cruda,$fecha,$hora7);
+        $ph_cruda_8= $this->show($id_cruda,$fecha,$hora8);
+        $ph_cruda_9= $this->show($id_cruda,$fecha,$hora9);
+        $ph_cruda_10= $this->show($id_cruda,$fecha,$hora10);
+        $ph_cruda_11= $this->show($id_cruda,$fecha,$hora11);
+        $ph_cruda_12= $this->show($id_cruda,$fecha,$hora12);
+        $ph_cruda_13= $this->show($id_cruda,$fecha,$hora13);
+        $ph_cruda_14= $this->show($id_cruda,$fecha,$hora14);
+        $ph_cruda_15= $this->show($id_cruda,$fecha,$hora15);
+        $ph_cruda_16= $this->show($id_cruda,$fecha,$hora16);
+        $ph_cruda_17= $this->show($id_cruda,$fecha,$hora17);
+        $ph_cruda_18= $this->show($id_cruda,$fecha,$hora18);
+        $ph_cruda_19= $this->show($id_cruda,$fecha,$hora19);
+        $ph_cruda_20= $this->show($id_cruda,$fecha,$hora20);
+        $ph_cruda_21= $this->show($id_cruda,$fecha,$hora21);
+        $ph_cruda_22= $this->show($id_cruda,$fecha,$hora22);
+        $ph_cruda_23= $this->show($id_cruda,$fecha,$hora23);
+        $ph_cruda_24= $this->show($id_cruda,$fecha,$hora24);
+
+
 
 /*Filtra turbidez clarificada*/
 
@@ -106,15 +138,74 @@ class CalidadController extends Controller
         $a_clari_22= $this->show($id_clarificada,$fecha,$hora22);
         $a_clari_23= $this->show($id_clarificada,$fecha,$hora23);
 
+      /* turbidez de agua filtrada*/  
+        $id_filtrada=3;
+
+        
+        $a_fil_1= $this->show($id_filtrada,$fecha,$hora1);
+        $a_fil_2= $this->show($id_filtrada,$fecha,$hora2);
+        $a_fil_3= $this->show($id_filtrada,$fecha,$hora3);
+        $a_fil_4= $this->show($id_filtrada,$fecha,$hora4);
+        $a_fil_5= $this->show($id_filtrada,$fecha,$hora5);
+        $a_fil_6= $this->show($id_filtrada,$fecha,$hora6);
+        $a_fil_7= $this->show($id_filtrada,$fecha,$hora7);
+        $a_fil_8= $this->show($id_filtrada,$fecha,$hora8);
+        $a_fil_9= $this->show($id_filtrada,$fecha,$hora9);
+        $a_fil_10= $this->show($id_filtrada,$fecha,$hora10);
+        $a_fil_11= $this->show($id_filtrada,$fecha,$hora11);
+        $a_fil_12= $this->show($id_filtrada,$fecha,$hora12);
+        $a_fil_13= $this->show($id_filtrada,$fecha,$hora13);
+        $a_fil_14= $this->show($id_filtrada,$fecha,$hora14);
+        $a_fil_15= $this->show($id_filtrada,$fecha,$hora15);
+        $a_fil_16= $this->show($id_filtrada,$fecha,$hora16);
+        $a_fil_17= $this->show($id_filtrada,$fecha,$hora17);
+        $a_fil_18= $this->show($id_filtrada,$fecha,$hora18);
+        $a_fil_19= $this->show($id_filtrada,$fecha,$hora19);
+        $a_fil_20= $this->show($id_filtrada,$fecha,$hora20);
+        $a_fil_21= $this->show($id_filtrada,$fecha,$hora21);
+        $a_fil_22= $this->show($id_filtrada,$fecha,$hora22);
+        $a_fil_23= $this->show($id_filtrada,$fecha,$hora23);
+        $a_fil_24= $this->show($id_filtrada,$fecha,$hora24);
+
+ /* turbidez de agua tratada*/  
+        $id_tratada=4;
+
+        
+        $a_trat_1= $this->show($id_tratada,$fecha,$hora1);
+        $a_trat_2= $this->show($id_tratada,$fecha,$hora2);
+        $a_trat_3= $this->show($id_tratada,$fecha,$hora3);
+        $a_trat_4= $this->show($id_tratada,$fecha,$hora4);
+        $a_trat_5= $this->show($id_tratada,$fecha,$hora5);
+        $a_trat_6= $this->show($id_tratada,$fecha,$hora6);
+        $a_trat_7= $this->show($id_tratada,$fecha,$hora7);
+        $a_trat_8= $this->show($id_tratada,$fecha,$hora8);
+        $a_trat_9= $this->show($id_tratada,$fecha,$hora9);
+        $a_trat_10= $this->show($id_tratada,$fecha,$hora10);
+        $a_trat_11= $this->show($id_tratada,$fecha,$hora11);
+        $a_trat_12= $this->show($id_tratada,$fecha,$hora12);
+        $a_trat_13= $this->show($id_tratada,$fecha,$hora13);
+        $a_trat_14= $this->show($id_tratada,$fecha,$hora14);
+        $a_trat_15= $this->show($id_tratada,$fecha,$hora15);
+        $a_trat_16= $this->show($id_tratada,$fecha,$hora16);
+        $a_trat_17= $this->show($id_tratada,$fecha,$hora17);
+        $a_trat_18= $this->show($id_tratada,$fecha,$hora18);
+        $a_trat_19= $this->show($id_tratada,$fecha,$hora19);
+        $a_trat_20= $this->show($id_tratada,$fecha,$hora20);
+        $a_trat_21= $this->show($id_tratada,$fecha,$hora21);
+        $a_trat_22= $this->show($id_tratada,$fecha,$hora22);
+        $a_trat_23= $this->show($id_tratada,$fecha,$hora23);
+        $a_trat_24= $this->show($id_tratada,$fecha,$hora24);
+
+/*--------------------------------PH---------------------*/
+/*-------------------------PH CRUDA---------------------*/
 
 
 
 
-
-
+               
 
         /*Se retorna a la vista calidad y se pasan las variables con los datos que se mostraran en la tabla*/
-        return view('calidad', compact('a_cruda_24','a_cruda_1','a_cruda_2','a_cruda_3','a_cruda_4','a_cruda_5','a_cruda_6','a_cruda_7','a_cruda_8','a_cruda_9','a_cruda_10','a_cruda_11','a_cruda_12','a_cruda_13','a_cruda_14','a_cruda_15','a_cruda_16','a_cruda_17','a_cruda_18','a_cruda_19','a_cruda_20','a_cruda_21','a_cruda_22','a_cruda_23'));
+        return view('calidad', compact('a_cruda_24','a_cruda_1','a_cruda_2','a_cruda_3','a_cruda_4','a_cruda_5','a_cruda_6','a_cruda_7','a_cruda_8','a_cruda_9','a_cruda_10','a_cruda_11','a_cruda_12','a_cruda_13','a_cruda_14','a_cruda_15','a_cruda_16','a_cruda_17','a_cruda_18','a_cruda_19','a_cruda_20','a_cruda_21','a_cruda_22','a_cruda_23','a_clari_24','a_clari_1','a_clari_2','a_clari_3','a_clari_4','a_clari_5','a_clari_6','a_clari_7','a_clari_8','a_clari_9','a_clari_10','a_clari_11','a_clari_12','a_clari_13','a_clari_14','a_clari_15','a_clari_16','a_clari_17','a_clari_18','a_clari_19','a_clari_20','a_clari_21','a_clari_22','a_clari_23','a_fil_24','a_fil_1','a_fil_2','a_fil_3','a_fil_4','a_fil_5','a_fil_6','a_fil_7','a_fil_8','a_fil_9','a_fil_10','a_fil_11','a_fil_12','a_fil_13','a_fil_14','a_fil_15','a_fil_16','a_fil_17','a_fil_18','a_fil_19','a_fil_20','a_fil_21','a_fil_22','a_fil_23','a_trat_24','a_trat_1','a_trat_2','a_trat_3','a_trat_4','a_trat_5','a_trat_6','a_trat_7','a_trat_8','a_trat_9','a_trat_10','a_trat_11','a_trat_12','a_trat_13','a_trat_14','a_trat_15','a_trat_16','a_trat_17','a_trat_18','a_trat_19','a_trat_20','a_trat_21','a_trat_22','a_trat_23'));
     }
 
     /**
@@ -264,4 +355,10 @@ class CalidadController extends Controller
     {
         //
     }
+
+
+
+   
+
+
 }

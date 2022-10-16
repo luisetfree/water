@@ -231,6 +231,7 @@
         <td>{{ $i}}:00</td><!-- conteo de 10 a 23 hrs -->
         @endif
         
+        <!-- Turbidez agua cruda -->
         <td>
             @switch($i)
                                
@@ -242,9 +243,6 @@
                                               {{ $c1->turbidez}} 
 
                                     @endforeach               
-                                   
-
-                                     
                                  
                                 @break
                                  @case(2)
@@ -255,10 +253,7 @@
                                               {{ $c2->turbidez}} 
 
                                     @endforeach               
-                                   
-
-                                     
-                                 
+                                  
                                 @break
                                 @case(3)
 
@@ -268,10 +263,7 @@
                                               {{ $c3->turbidez}} 
 
                                     @endforeach               
-                                   
-
-                                     
-                                 
+                                  
                                 @break
                                 @case(4)
 
@@ -281,9 +273,6 @@
                                               {{ $c4->turbidez}} 
 
                                     @endforeach               
-                                   
-
-                                     
                                  
                                 @break
                                 @case(5)
@@ -294,10 +283,7 @@
                                               {{ $c5->turbidez}} 
 
                                     @endforeach               
-                                   
-
-                                     
-                                 
+                                  
                                 @break
                                 @case(6)
 
@@ -307,9 +293,6 @@
                                               {{ $c6->turbidez}} 
 
                                     @endforeach               
-                                   
-
-                                     
                                  
                                 @break
                                  @case(7)
@@ -320,9 +303,6 @@
                                               {{ $c7->turbidez}} 
 
                                     @endforeach               
-                                   
-
-                                     
                                  
                                 @break
                                  @case(8)
@@ -333,9 +313,6 @@
                                               {{ $c8->turbidez}} 
 
                                     @endforeach               
-                                   
-
-                                     
                                  
                                 @break
                                  @case(9)
@@ -346,10 +323,7 @@
                                               {{ $c9->turbidez}} 
 
                                     @endforeach               
-                                   
-
-                                     
-                                 
+                                  
                                 @break
                                  @case(10)
 
@@ -359,10 +333,7 @@
                                               {{ $c10->turbidez}} 
 
                                     @endforeach               
-                                   
-
-                                     
-                                 
+                                  
                                 @break
                                 @case(11)
 
@@ -372,9 +343,6 @@
                                               {{ $c11->turbidez}} 
 
                                     @endforeach               
-                                   
-
-                                     
                                  
                                 @break
                                 @case(12)
@@ -385,9 +353,6 @@
                                               {{ $c12->turbidez}} 
 
                                     @endforeach               
-                                   
-
-                                     
                                  
                                 @break
                                 @case(13)
@@ -398,9 +363,6 @@
                                               {{ $c13->turbidez}} 
 
                                     @endforeach               
-                                   
-
-                                     
                                  
                                 @break
                                 @case(14)
@@ -411,10 +373,7 @@
                                               {{ $c14->turbidez}} 
 
                                     @endforeach               
-                                   
-
-                                     
-                                 
+                                  
                                 @break
                                 @case(15)
 
@@ -424,9 +383,6 @@
                                               {{ $c15->turbidez}} 
 
                                     @endforeach               
-                                   
-
-                                     
                                  
                                 @break
                                 @case(16)
@@ -437,9 +393,6 @@
                                               {{ $c16->turbidez}} 
 
                                     @endforeach               
-                                   
-
-                                     
                                  
                                 @break
                                 @case(17)
@@ -450,9 +403,6 @@
                                               {{ $c17->turbidez}} 
 
                                     @endforeach               
-                                   
-
-                                     
                                  
                                 @break
                                 @case(18)
@@ -463,9 +413,6 @@
                                               {{ $c18->turbidez}} 
 
                                     @endforeach               
-                                   
-
-                                     
                                  
                                 @break
                                 @case(19)
@@ -477,9 +424,6 @@
 
                                     @endforeach               
                                    
-
-                                     
-                                 
                                 @break
                                 @case(20)
 
@@ -489,10 +433,7 @@
                                               {{ $c20->turbidez}} 
 
                                     @endforeach               
-                                   
-
-                                     
-                                 
+                                  
                                 @break
                                 @case(21)
 
@@ -502,10 +443,7 @@
                                               {{ $c21->turbidez}} 
 
                                     @endforeach               
-                                   
-
-                                     
-                                 
+                                  
                                 @break
                                 @case(22)
 
@@ -515,9 +453,6 @@
                                               {{ $c22->turbidez}} 
 
                                     @endforeach               
-                                   
-
-                                     
                                  
                                 @break
                                 @case(23)
@@ -528,9 +463,6 @@
                                               {{ $c23->turbidez}} 
 
                                     @endforeach               
-                                   
-
-                                     
                                  
                                 @break
                                 @case(24)
@@ -541,10 +473,7 @@
                                           {{ $c24->turbidez}} 
 
                                 @endforeach               
-                                   
-
-                                     
-                                 
+                                
                                 @break
                              
                                 @default
@@ -553,26 +482,3759 @@
 
 
         </td>
-        <td>cr</td>
-        <td>cr</td>
-        <td>cr</td>
+        <!-- Ph cruda -->
+        <td>
+            @switch($i)
+                               
+                                @case(1)
 
-        <td>cl</td>
-        <td>cl</td>
-        <td>cl</td>
-        <td>cl</td>
+                                     
+                                   @foreach ($a_cruda_1 as $c1)
+                   
+                                              {{ $c1->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(2)
+
+                                     
+                                   @foreach ($a_cruda_2 as $c2)
+                   
+                                              {{ $c2->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(3)
+
+                                     
+                                   @foreach ($a_cruda_3 as $c3)
+                   
+                                              {{ $c3->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(4)
+
+                                     
+                                   @foreach ($a_cruda_4 as $c4)
+                   
+                                              {{ $c4->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(5)
+
+                                     
+                                   @foreach ($a_cruda_5 as $c5)
+                   
+                                              {{ $c5->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(6)
+
+                                     
+                                   @foreach ($a_cruda_6 as $c6)
+                   
+                                              {{ $c6->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(7)
+
+                                     
+                                   @foreach ($a_cruda_7 as $c7)
+                   
+                                              {{ $c7->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(8)
+
+                                     
+                                   @foreach ($a_cruda_8 as $c8)
+                   
+                                              {{ $c8->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(9)
+
+                                     
+                                   @foreach ($a_cruda_9 as $c9)
+                   
+                                              {{ $c9->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                 @case(10)
+
+                                     
+                                   @foreach ($a_cruda_10 as $c10)
+                   
+                                              {{ $c10->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(11)
+
+                                     
+                                   @foreach ($a_cruda_11 as $c11)
+                   
+                                              {{ $c11->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(12)
+
+                                     
+                                   @foreach ($a_cruda_12 as $c12)
+                   
+                                              {{ $c12->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(13)
+
+                                     
+                                   @foreach ($a_cruda_13 as $c13)
+                   
+                                              {{ $c13->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(14)
+
+                                     
+                                   @foreach ($a_cruda_14 as $c14)
+                   
+                                              {{ $c14->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(15)
+
+                                     
+                                   @foreach ($a_cruda_15 as $c15)
+                   
+                                              {{ $c15->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(16)
+
+                                     
+                                   @foreach ($a_cruda_16 as $c16)
+                   
+                                              {{ $c16->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(17)
+
+                                     
+                                   @foreach ($a_cruda_17 as $c17)
+                   
+                                              {{ $c17->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(18)
+
+                                     
+                                   @foreach ($a_cruda_18 as $c18)
+                   
+                                              {{ $c18->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(19)
+
+                                     
+                                   @foreach ($a_cruda_19 as $c19)
+                   
+                                              {{ $c19->ph}} 
+
+                                    @endforeach               
+                                   
+                                @break
+                                @case(20)
+
+                                     
+                                   @foreach ($a_cruda_20 as $c20)
+                   
+                                              {{ $c20->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(21)
+
+                                     
+                                   @foreach ($a_cruda_21 as $c21)
+                   
+                                              {{ $c21->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(22)
+
+                                     
+                                   @foreach ($a_cruda_22 as $c22)
+                   
+                                              {{ $c22->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(23)
+
+                                     
+                                   @foreach ($a_cruda_23 as $c23)
+                   
+                                              {{ $c23->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(24)
+
+                                     
+                               @foreach ($a_cruda_24 as $c24)
+               
+                                          {{ $c24->ph}} 
+
+                                @endforeach               
+                                
+                                @break
+                             
+                                @default
+                                    ------
+            @endswitch
 
 
-        <td>fl</td>
-        <td>fl</td>
-        <td>fl</td>
-        <td>fl</td>
+        </td>
+        <!-- Temperatura Cruda -->
+        <td>
+           @switch($i)
+                               
+                                @case(1)
+
+                                     
+                                   @foreach ($a_cruda_1 as $c1)
+                   
+                                              {{ $c1->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(2)
+
+                                     
+                                   @foreach ($a_cruda_2 as $c2)
+                   
+                                              {{ $c2->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(3)
+
+                                     
+                                   @foreach ($a_cruda_3 as $c3)
+                   
+                                              {{ $c3->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(4)
+
+                                     
+                                   @foreach ($a_cruda_4 as $c4)
+                   
+                                              {{ $c4->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(5)
+
+                                     
+                                   @foreach ($a_cruda_5 as $c5)
+                   
+                                              {{ $c5->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(6)
+
+                                     
+                                   @foreach ($a_cruda_6 as $c6)
+                   
+                                              {{ $c6->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(7)
+
+                                     
+                                   @foreach ($a_cruda_7 as $c7)
+                   
+                                              {{ $c7->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(8)
+
+                                     
+                                   @foreach ($a_cruda_8 as $c8)
+                   
+                                              {{ $c8->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(9)
+
+                                     
+                                   @foreach ($a_cruda_9 as $c9)
+                   
+                                              {{ $c9->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                 @case(10)
+
+                                     
+                                   @foreach ($a_cruda_10 as $c10)
+                   
+                                              {{ $c10->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(11)
+
+                                     
+                                   @foreach ($a_cruda_11 as $c11)
+                   
+                                              {{ $c11->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(12)
+
+                                     
+                                   @foreach ($a_cruda_12 as $c12)
+                   
+                                              {{ $c12->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(13)
+
+                                     
+                                   @foreach ($a_cruda_13 as $c13)
+                   
+                                              {{ $c13->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(14)
+
+                                     
+                                   @foreach ($a_cruda_14 as $c14)
+                   
+                                              {{ $c14->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(15)
+
+                                     
+                                   @foreach ($a_cruda_15 as $c15)
+                   
+                                              {{ $c15->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(16)
+
+                                     
+                                   @foreach ($a_cruda_16 as $c16)
+                   
+                                              {{ $c16->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(17)
+
+                                     
+                                   @foreach ($a_cruda_17 as $c17)
+                   
+                                              {{ $c17->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(18)
+
+                                     
+                                   @foreach ($a_cruda_18 as $c18)
+                   
+                                              {{ $c18->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(19)
+
+                                     
+                                   @foreach ($a_cruda_19 as $c19)
+                   
+                                              {{ $c19->temperatura}} 
+
+                                    @endforeach               
+                                   
+                                @break
+                                @case(20)
+
+                                     
+                                   @foreach ($a_cruda_20 as $c20)
+                   
+                                              {{ $c20->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(21)
+
+                                     
+                                   @foreach ($a_cruda_21 as $c21)
+                   
+                                              {{ $c21->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(22)
+
+                                     
+                                   @foreach ($a_cruda_22 as $c22)
+                   
+                                              {{ $c22->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(23)
+
+                                     
+                                   @foreach ($a_cruda_23 as $c23)
+                   
+                                              {{ $c23->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(24)
+
+                                     
+                               @foreach ($a_cruda_24 as $c24)
+               
+                                          {{ $c24->temperatura}} 
+
+                                @endforeach               
+                                
+                                @break
+                             
+                                @default
+                                    ------
+            @endswitch 
+        </td>
+        <!-- Color cruda -->
+        <td>
+@switch($i)
+                               
+                                @case(1)
+
+                                     
+                                   @foreach ($a_cruda_1 as $c1)
+                   
+                                              {{ $c1->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(2)
+
+                                     
+                                   @foreach ($a_cruda_2 as $c2)
+                   
+                                              {{ $c2->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(3)
+
+                                     
+                                   @foreach ($a_cruda_3 as $c3)
+                   
+                                              {{ $c3->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(4)
+
+                                     
+                                   @foreach ($a_cruda_4 as $c4)
+                   
+                                              {{ $c4->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(5)
+
+                                     
+                                   @foreach ($a_cruda_5 as $c5)
+                   
+                                              {{ $c5->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(6)
+
+                                     
+                                   @foreach ($a_cruda_6 as $c6)
+                   
+                                              {{ $c6->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(7)
+
+                                     
+                                   @foreach ($a_cruda_7 as $c7)
+                   
+                                              {{ $c7->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(8)
+
+                                     
+                                   @foreach ($a_cruda_8 as $c8)
+                   
+                                              {{ $c8->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(9)
+
+                                     
+                                   @foreach ($a_cruda_9 as $c9)
+                   
+                                              {{ $c9->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                 @case(10)
+
+                                     
+                                   @foreach ($a_cruda_10 as $c10)
+                   
+                                              {{ $c10->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(11)
+
+                                     
+                                   @foreach ($a_cruda_11 as $c11)
+                   
+                                              {{ $c11->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(12)
+
+                                     
+                                   @foreach ($a_cruda_12 as $c12)
+                   
+                                              {{ $c12->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(13)
+
+                                     
+                                   @foreach ($a_cruda_13 as $c13)
+                   
+                                              {{ $c13->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(14)
+
+                                     
+                                   @foreach ($a_cruda_14 as $c14)
+                   
+                                              {{ $c14->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(15)
+
+                                     
+                                   @foreach ($a_cruda_15 as $c15)
+                   
+                                              {{ $c15->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(16)
+
+                                     
+                                   @foreach ($a_cruda_16 as $c16)
+                   
+                                              {{ $c16->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(17)
+
+                                     
+                                   @foreach ($a_cruda_17 as $c17)
+                   
+                                              {{ $c17->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(18)
+
+                                     
+                                   @foreach ($a_cruda_18 as $c18)
+                   
+                                              {{ $c18->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(19)
+
+                                     
+                                   @foreach ($a_cruda_19 as $c19)
+                   
+                                              {{ $c19->color}} 
+
+                                    @endforeach               
+                                   
+                                @break
+                                @case(20)
+
+                                     
+                                   @foreach ($a_cruda_20 as $c20)
+                   
+                                              {{ $c20->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(21)
+
+                                     
+                                   @foreach ($a_cruda_21 as $c21)
+                   
+                                              {{ $c21->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(22)
+
+                                     
+                                   @foreach ($a_cruda_22 as $c22)
+                   
+                                              {{ $c22->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(23)
+
+                                     
+                                   @foreach ($a_cruda_23 as $c23)
+                   
+                                              {{ $c23->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(24)
+
+                                     
+                               @foreach ($a_cruda_24 as $c24)
+               
+                                          {{ $c24->color}} 
+
+                                @endforeach               
+                                
+                                @break
+                             
+                                @default
+                                    ------
+            @endswitch
+        </td>
+
+<!-- Maneja datos de turbidez de agua CLARIFICADA -->
+        <td>
+@switch($i)
+                               
+                                @case(1)
+
+                                     
+                                   @foreach ($a_clari_1 as $c1)
+                   
+                                              {{ $c1->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(2)
+
+                                     
+                                   @foreach ($a_clari_2 as $c2)
+                   
+                                              {{ $c2->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(3)
+
+                                     
+                                   @foreach ($a_clari_3 as $c3)
+                   
+                                              {{ $c3->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(4)
+
+                                     
+                                   @foreach ($a_clari_4 as $c4)
+                   
+                                              {{ $c4->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(5)
+
+                                     
+                                   @foreach ($a_clari_5 as $c5)
+                   
+                                              {{ $c5->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(6)
+
+                                     
+                                   @foreach ($a_clari_6 as $c6)
+                   
+                                              {{ $c6->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(7)
+
+                                     
+                                   @foreach ($a_clari_7 as $c7)
+                   
+                                              {{ $c7->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(8)
+
+                                     
+                                   @foreach ($a_clari_8 as $c8)
+                   
+                                              {{ $c8->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(9)
+
+                                     
+                                   @foreach ($a_clari_9 as $c9)
+                   
+                                              {{ $c9->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                 @case(10)
+
+                                     
+                                   @foreach ($a_clari_10 as $c10)
+                   
+                                              {{ $c10->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(11)
+
+                                     
+                                   @foreach ($a_clari_11 as $c11)
+                   
+                                              {{ $c11->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(12)
+
+                                     
+                                   @foreach ($a_clari_12 as $c12)
+                   
+                                              {{ $c12->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(13)
+
+                                     
+                                   @foreach ($a_clari_13 as $c13)
+                   
+                                              {{ $c13->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(14)
+
+                                     
+                                   @foreach ($a_clari_14 as $c14)
+                   
+                                              {{ $c14->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(15)
+
+                                     
+                                   @foreach ($a_clari_15 as $c15)
+                   
+                                              {{ $c15->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(16)
+
+                                     
+                                   @foreach ($a_clari_16 as $c16)
+                   
+                                              {{ $c16->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(17)
+
+                                     
+                                   @foreach ($a_clari_17 as $c17)
+                   
+                                              {{ $c17->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(18)
+
+                                     
+                                   @foreach ($a_clari_18 as $c18)
+                   
+                                              {{ $c18->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(19)
+
+                                     
+                                   @foreach ($a_clari_19 as $c19)
+                   
+                                              {{ $c19->turbidez}} 
+
+                                    @endforeach               
+                                   
+                                @break
+                                @case(20)
+
+                                     
+                                   @foreach ($a_clari_20 as $c20)
+                   
+                                              {{ $c20->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(21)
+
+                                     
+                                   @foreach ($a_clari_21 as $c21)
+                   
+                                              {{ $c21->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(22)
+
+                                     
+                                   @foreach ($a_clari_22 as $c22)
+                   
+                                              {{ $c22->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(23)
+
+                                     
+                                   @foreach ($a_clari_23 as $c23)
+                   
+                                              {{ $c23->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(24)
+
+                                     
+                               @foreach ($a_clari_24 as $c24)
+               
+                                          {{ $c24->turbidez}} 
+
+                                @endforeach               
+                                
+                                @break
+                             
+                                @default
+                                    ------
+            @endswitch
 
 
-        <td>tt</td>
-        <td>tt</td>
-        <td>tt</td>
-        <td>tt</td>
+        </td>
+        <!-- PH clarificada -->
+        <td>
+                    @switch($i)
+                               
+                                @case(1)
+
+                                     
+                                   @foreach ($a_clari_1 as $c1)
+                   
+                                              {{ $c1->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(2)
+
+                                     
+                                   @foreach ($a_clari_2 as $c2)
+                   
+                                              {{ $c2->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(3)
+
+                                     
+                                   @foreach ($a_clari_3 as $c3)
+                   
+                                              {{ $c3->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(4)
+
+                                     
+                                   @foreach ($a_clari_4 as $c4)
+                   
+                                              {{ $c4->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(5)
+
+                                     
+                                   @foreach ($a_clari_5 as $c5)
+                   
+                                              {{ $c5->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(6)
+
+                                     
+                                   @foreach ($a_clari_6 as $c6)
+                   
+                                              {{ $c6->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(7)
+
+                                     
+                                   @foreach ($a_clari_7 as $c7)
+                   
+                                              {{ $c7->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(8)
+
+                                     
+                                   @foreach ($a_clari_8 as $c8)
+                   
+                                              {{ $c8->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(9)
+
+                                     
+                                   @foreach ($a_clari_9 as $c9)
+                   
+                                              {{ $c9->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                 @case(10)
+
+                                     
+                                   @foreach ($a_clari_10 as $c10)
+                   
+                                              {{ $c10->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(11)
+
+                                     
+                                   @foreach ($a_clari_11 as $c11)
+                   
+                                              {{ $c11->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(12)
+
+                                     
+                                   @foreach ($a_clari_12 as $c12)
+                   
+                                              {{ $c12->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(13)
+
+                                     
+                                   @foreach ($a_clari_13 as $c13)
+                   
+                                              {{ $c13->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(14)
+
+                                     
+                                   @foreach ($a_clari_14 as $c14)
+                   
+                                              {{ $c14->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(15)
+
+                                     
+                                   @foreach ($a_clari_15 as $c15)
+                   
+                                              {{ $c15->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(16)
+
+                                     
+                                   @foreach ($a_clari_16 as $c16)
+                   
+                                              {{ $c16->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(17)
+
+                                     
+                                   @foreach ($a_clari_17 as $c17)
+                   
+                                              {{ $c17->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(18)
+
+                                     
+                                   @foreach ($a_clari_18 as $c18)
+                   
+                                              {{ $c18->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(19)
+
+                                     
+                                   @foreach ($a_clari_19 as $c19)
+                   
+                                              {{ $c19->ph}} 
+
+                                    @endforeach               
+                                   
+                                @break
+                                @case(20)
+
+                                     
+                                   @foreach ($a_clari_20 as $c20)
+                   
+                                              {{ $c20->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(21)
+
+                                     
+                                   @foreach ($a_clari_21 as $c21)
+                   
+                                              {{ $c21->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(22)
+
+                                     
+                                   @foreach ($a_clari_22 as $c22)
+                   
+                                              {{ $c22->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(23)
+
+                                     
+                                   @foreach ($a_clari_23 as $c23)
+                   
+                                              {{ $c23->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(24)
+
+                                     
+                               @foreach ($a_clari_24 as $c24)
+               
+                                          {{ $c24->ph}} 
+
+                                @endforeach               
+                                
+                                @break
+                             
+                                @default
+                                    ------
+            @endswitch
+        </td>
+        <!-- Temperatura Clarificada -->
+        <td>
+            @switch($i)
+                               
+                                @case(1)
+
+                                     
+                                   @foreach ($a_clari_1 as $c1)
+                   
+                                              {{ $c1->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(2)
+
+                                     
+                                   @foreach ($a_clari_2 as $c2)
+                   
+                                              {{ $c2->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(3)
+
+                                     
+                                   @foreach ($a_clari_3 as $c3)
+                   
+                                              {{ $c3->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(4)
+
+                                     
+                                   @foreach ($a_clari_4 as $c4)
+                   
+                                              {{ $c4->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(5)
+
+                                     
+                                   @foreach ($a_clari_5 as $c5)
+                   
+                                              {{ $c5->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(6)
+
+                                     
+                                   @foreach ($a_clari_6 as $c6)
+                   
+                                              {{ $c6->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(7)
+
+                                     
+                                   @foreach ($a_clari_7 as $c7)
+                   
+                                              {{ $c7->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(8)
+
+                                     
+                                   @foreach ($a_clari_8 as $c8)
+                   
+                                              {{ $c8->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(9)
+
+                                     
+                                   @foreach ($a_clari_9 as $c9)
+                   
+                                              {{ $c9->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                 @case(10)
+
+                                     
+                                   @foreach ($a_clari_10 as $c10)
+                   
+                                              {{ $c10->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(11)
+
+                                     
+                                   @foreach ($a_clari_11 as $c11)
+                   
+                                              {{ $c11->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(12)
+
+                                     
+                                   @foreach ($a_clari_12 as $c12)
+                   
+                                              {{ $c12->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(13)
+
+                                     
+                                   @foreach ($a_clari_13 as $c13)
+                   
+                                              {{ $c13->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(14)
+
+                                     
+                                   @foreach ($a_clari_14 as $c14)
+                   
+                                              {{ $c14->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(15)
+
+                                     
+                                   @foreach ($a_clari_15 as $c15)
+                   
+                                              {{ $c15->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(16)
+
+                                     
+                                   @foreach ($a_clari_16 as $c16)
+                   
+                                              {{ $c16->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(17)
+
+                                     
+                                   @foreach ($a_clari_17 as $c17)
+                   
+                                              {{ $c17->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(18)
+
+                                     
+                                   @foreach ($a_clari_18 as $c18)
+                   
+                                              {{ $c18->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(19)
+
+                                     
+                                   @foreach ($a_clari_19 as $c19)
+                   
+                                              {{ $c19->temperatura}} 
+
+                                    @endforeach               
+                                   
+                                @break
+                                @case(20)
+
+                                     
+                                   @foreach ($a_clari_20 as $c20)
+                   
+                                              {{ $c20->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(21)
+
+                                     
+                                   @foreach ($a_clari_21 as $c21)
+                   
+                                              {{ $c21->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(22)
+
+                                     
+                                   @foreach ($a_clari_22 as $c22)
+                   
+                                              {{ $c22->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(23)
+
+                                     
+                                   @foreach ($a_clari_23 as $c23)
+                   
+                                              {{ $c23->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(24)
+
+                                     
+                               @foreach ($a_clari_24 as $c24)
+               
+                                          {{ $c24->temperatura}} 
+
+                                @endforeach               
+                                
+                                @break
+                             
+                                @default
+                                    ------
+            @endswitch
+        </td>
+        <!-- Color Clarificada -->
+        <td>
+           @switch($i)
+                               
+                                @case(1)
+
+                                     
+                                   @foreach ($a_clari_1 as $c1)
+                   
+                                              {{ $c1->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(2)
+
+                                     
+                                   @foreach ($a_clari_2 as $c2)
+                   
+                                              {{ $c2->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(3)
+
+                                     
+                                   @foreach ($a_clari_3 as $c3)
+                   
+                                              {{ $c3->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(4)
+
+                                     
+                                   @foreach ($a_clari_4 as $c4)
+                   
+                                              {{ $c4->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(5)
+
+                                     
+                                   @foreach ($a_clari_5 as $c5)
+                   
+                                              {{ $c5->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(6)
+
+                                     
+                                   @foreach ($a_clari_6 as $c6)
+                   
+                                              {{ $c6->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(7)
+
+                                     
+                                   @foreach ($a_clari_7 as $c7)
+                   
+                                              {{ $c7->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(8)
+
+                                     
+                                   @foreach ($a_clari_8 as $c8)
+                   
+                                              {{ $c8->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(9)
+
+                                     
+                                   @foreach ($a_clari_9 as $c9)
+                   
+                                              {{ $c9->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                 @case(10)
+
+                                     
+                                   @foreach ($a_clari_10 as $c10)
+                   
+                                              {{ $c10->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(11)
+
+                                     
+                                   @foreach ($a_clari_11 as $c11)
+                   
+                                              {{ $c11->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(12)
+
+                                     
+                                   @foreach ($a_clari_12 as $c12)
+                   
+                                              {{ $c12->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(13)
+
+                                     
+                                   @foreach ($a_clari_13 as $c13)
+                   
+                                              {{ $c13->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(14)
+
+                                     
+                                   @foreach ($a_clari_14 as $c14)
+                   
+                                              {{ $c14->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(15)
+
+                                     
+                                   @foreach ($a_clari_15 as $c15)
+                   
+                                              {{ $c15->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(16)
+
+                                     
+                                   @foreach ($a_clari_16 as $c16)
+                   
+                                              {{ $c16->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(17)
+
+                                     
+                                   @foreach ($a_clari_17 as $c17)
+                   
+                                              {{ $c17->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(18)
+
+                                     
+                                   @foreach ($a_clari_18 as $c18)
+                   
+                                              {{ $c18->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(19)
+
+                                     
+                                   @foreach ($a_clari_19 as $c19)
+                   
+                                              {{ $c19->color}} 
+
+                                    @endforeach               
+                                   
+                                @break
+                                @case(20)
+
+                                     
+                                   @foreach ($a_clari_20 as $c20)
+                   
+                                              {{ $c20->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(21)
+
+                                     
+                                   @foreach ($a_clari_21 as $c21)
+                   
+                                              {{ $c21->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(22)
+
+                                     
+                                   @foreach ($a_clari_22 as $c22)
+                   
+                                              {{ $c22->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(23)
+
+                                     
+                                   @foreach ($a_clari_23 as $c23)
+                   
+                                              {{ $c23->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(24)
+
+                                     
+                               @foreach ($a_clari_24 as $c24)
+               
+                                          {{ $c24->color}} 
+
+                                @endforeach               
+                                
+                                @break
+                             
+                                @default
+                                    ------
+            @endswitch 
+
+        </td>
+
+<!-- Maneja la turbidez de agua Filtrada -->
+        <td>
+            @switch($i)
+                               
+                                @case(1)
+
+                                     
+                                   @foreach ($a_fil_1 as $c1)
+                   
+                                              {{ $c1->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(2)
+
+                                     
+                                   @foreach ($a_fil_2 as $c2)
+                   
+                                              {{ $c2->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(3)
+
+                                     
+                                   @foreach ($a_fil_3 as $c3)
+                   
+                                              {{ $c3->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(4)
+
+                                     
+                                   @foreach ($a_fil_4 as $c4)
+                   
+                                              {{ $c4->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(5)
+
+                                     
+                                   @foreach ($a_fil_5 as $c5)
+                   
+                                              {{ $c5->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(6)
+
+                                     
+                                   @foreach ($a_fil_6 as $c6)
+                   
+                                              {{ $c6->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(7)
+
+                                     
+                                   @foreach ($a_fil_7 as $c7)
+                   
+                                              {{ $c7->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(8)
+
+                                     
+                                   @foreach ($a_fil_8 as $c8)
+                   
+                                              {{ $c8->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(9)
+
+                                     
+                                   @foreach ($a_fil_9 as $c9)
+                   
+                                              {{ $c9->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                 @case(10)
+
+                                     
+                                   @foreach ($a_fil_10 as $c10)
+                   
+                                              {{ $c10->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(11)
+
+                                     
+                                   @foreach ($a_fil_11 as $c11)
+                   
+                                              {{ $c11->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(12)
+
+                                     
+                                   @foreach ($a_fil_12 as $c12)
+                   
+                                              {{ $c12->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(13)
+
+                                     
+                                   @foreach ($a_fil_13 as $c13)
+                   
+                                              {{ $c13->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(14)
+
+                                     
+                                   @foreach ($a_fil_14 as $c14)
+                   
+                                              {{ $c14->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(15)
+
+                                     
+                                   @foreach ($a_fil_15 as $c15)
+                   
+                                              {{ $c15->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(16)
+
+                                     
+                                   @foreach ($a_fil_16 as $c16)
+                   
+                                              {{ $c16->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(17)
+
+                                     
+                                   @foreach ($a_fil_17 as $c17)
+                   
+                                              {{ $c17->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(18)
+
+                                     
+                                   @foreach ($a_fil_18 as $c18)
+                   
+                                              {{ $c18->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(19)
+
+                                     
+                                   @foreach ($a_fil_19 as $c19)
+                   
+                                              {{ $c19->turbidez}} 
+
+                                    @endforeach               
+                                   
+                                @break
+                                @case(20)
+
+                                     
+                                   @foreach ($a_fil_20 as $c20)
+                   
+                                              {{ $c20->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(21)
+
+                                     
+                                   @foreach ($a_fil_21 as $c21)
+                   
+                                              {{ $c21->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(22)
+
+                                     
+                                   @foreach ($a_fil_22 as $c22)
+                   
+                                              {{ $c22->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(23)
+
+                                     
+                                   @foreach ($a_fil_23 as $c23)
+                   
+                                              {{ $c23->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(24)
+
+                                     
+                               @foreach ($a_fil_24 as $c24)
+               
+                                          {{ $c24->turbidez}} 
+
+                                @endforeach               
+                                
+                                @break
+                             
+                                @default
+                                    ------
+            @endswitch
+
+        </td>
+        <!-- PH filtrada -->
+        <td>
+            @switch($i)
+                               
+                                @case(1)
+
+                                     
+                                   @foreach ($a_fil_1 as $c1)
+                   
+                                              {{ $c1->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(2)
+
+                                     
+                                   @foreach ($a_fil_2 as $c2)
+                   
+                                              {{ $c2->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(3)
+
+                                     
+                                   @foreach ($a_fil_3 as $c3)
+                   
+                                              {{ $c3->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(4)
+
+                                     
+                                   @foreach ($a_fil_4 as $c4)
+                   
+                                              {{ $c4->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(5)
+
+                                     
+                                   @foreach ($a_fil_5 as $c5)
+                   
+                                              {{ $c5->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(6)
+
+                                     
+                                   @foreach ($a_fil_6 as $c6)
+                   
+                                              {{ $c6->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(7)
+
+                                     
+                                   @foreach ($a_fil_7 as $c7)
+                   
+                                              {{ $c7->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(8)
+
+                                     
+                                   @foreach ($a_fil_8 as $c8)
+                   
+                                              {{ $c8->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(9)
+
+                                     
+                                   @foreach ($a_fil_9 as $c9)
+                   
+                                              {{ $c9->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                 @case(10)
+
+                                     
+                                   @foreach ($a_fil_10 as $c10)
+                   
+                                              {{ $c10->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(11)
+
+                                     
+                                   @foreach ($a_fil_11 as $c11)
+                   
+                                              {{ $c11->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(12)
+
+                                     
+                                   @foreach ($a_fil_12 as $c12)
+                   
+                                              {{ $c12->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(13)
+
+                                     
+                                   @foreach ($a_fil_13 as $c13)
+                   
+                                              {{ $c13->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(14)
+
+                                     
+                                   @foreach ($a_fil_14 as $c14)
+                   
+                                              {{ $c14->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(15)
+
+                                     
+                                   @foreach ($a_fil_15 as $c15)
+                   
+                                              {{ $c15->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(16)
+
+                                     
+                                   @foreach ($a_fil_16 as $c16)
+                   
+                                              {{ $c16->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(17)
+
+                                     
+                                   @foreach ($a_fil_17 as $c17)
+                   
+                                              {{ $c17->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(18)
+
+                                     
+                                   @foreach ($a_fil_18 as $c18)
+                   
+                                              {{ $c18->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(19)
+
+                                     
+                                   @foreach ($a_fil_19 as $c19)
+                   
+                                              {{ $c19->ph}} 
+
+                                    @endforeach               
+                                   
+                                @break
+                                @case(20)
+
+                                     
+                                   @foreach ($a_fil_20 as $c20)
+                   
+                                              {{ $c20->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(21)
+
+                                     
+                                   @foreach ($a_fil_21 as $c21)
+                   
+                                              {{ $c21->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(22)
+
+                                     
+                                   @foreach ($a_fil_22 as $c22)
+                   
+                                              {{ $c22->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(23)
+
+                                     
+                                   @foreach ($a_fil_23 as $c23)
+                   
+                                              {{ $c23->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(24)
+
+                                     
+                               @foreach ($a_fil_24 as $c24)
+               
+                                          {{ $c24->ph}} 
+
+                                @endforeach               
+                                
+                                @break
+                             
+                                @default
+                                    ------
+            @endswitch
+
+        </td>
+        <!-- Temperatura Filtrada -->
+        <td>
+             @switch($i)
+                               
+                                @case(1)
+
+                                     
+                                   @foreach ($a_fil_1 as $c1)
+                   
+                                              {{ $c1->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(2)
+
+                                     
+                                   @foreach ($a_fil_2 as $c2)
+                   
+                                              {{ $c2->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(3)
+
+                                     
+                                   @foreach ($a_fil_3 as $c3)
+                   
+                                              {{ $c3->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(4)
+
+                                     
+                                   @foreach ($a_fil_4 as $c4)
+                   
+                                              {{ $c4->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(5)
+
+                                     
+                                   @foreach ($a_fil_5 as $c5)
+                   
+                                              {{ $c5->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(6)
+
+                                     
+                                   @foreach ($a_fil_6 as $c6)
+                   
+                                              {{ $c6->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(7)
+
+                                     
+                                   @foreach ($a_fil_7 as $c7)
+                   
+                                              {{ $c7->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(8)
+
+                                     
+                                   @foreach ($a_fil_8 as $c8)
+                   
+                                              {{ $c8->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(9)
+
+                                     
+                                   @foreach ($a_fil_9 as $c9)
+                   
+                                              {{ $c9->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                 @case(10)
+
+                                     
+                                   @foreach ($a_fil_10 as $c10)
+                   
+                                              {{ $c10->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(11)
+
+                                     
+                                   @foreach ($a_fil_11 as $c11)
+                   
+                                              {{ $c11->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(12)
+
+                                     
+                                   @foreach ($a_fil_12 as $c12)
+                   
+                                              {{ $c12->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(13)
+
+                                     
+                                   @foreach ($a_fil_13 as $c13)
+                   
+                                              {{ $c13->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(14)
+
+                                     
+                                   @foreach ($a_fil_14 as $c14)
+                   
+                                              {{ $c14->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(15)
+
+                                     
+                                   @foreach ($a_fil_15 as $c15)
+                   
+                                              {{ $c15->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(16)
+
+                                     
+                                   @foreach ($a_fil_16 as $c16)
+                   
+                                              {{ $c16->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(17)
+
+                                     
+                                   @foreach ($a_fil_17 as $c17)
+                   
+                                              {{ $c17->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(18)
+
+                                     
+                                   @foreach ($a_fil_18 as $c18)
+                   
+                                              {{ $c18->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(19)
+
+                                     
+                                   @foreach ($a_fil_19 as $c19)
+                   
+                                              {{ $c19->temperatura}} 
+
+                                    @endforeach               
+                                   
+                                @break
+                                @case(20)
+
+                                     
+                                   @foreach ($a_fil_20 as $c20)
+                   
+                                              {{ $c20->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(21)
+
+                                     
+                                   @foreach ($a_fil_21 as $c21)
+                   
+                                              {{ $c21->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(22)
+
+                                     
+                                   @foreach ($a_fil_22 as $c22)
+                   
+                                              {{ $c22->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(23)
+
+                                     
+                                   @foreach ($a_fil_23 as $c23)
+                   
+                                              {{ $c23->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(24)
+
+                                     
+                               @foreach ($a_fil_24 as $c24)
+               
+                                          {{ $c24->temperatura}} 
+
+                                @endforeach               
+                                
+                                @break
+                             
+                                @default
+                                    ------
+            @endswitch
+        </td>
+        <!-- Color Filtrada -->
+        <td>
+             @switch($i)
+                               
+                                @case(1)
+
+                                     
+                                   @foreach ($a_fil_1 as $c1)
+                   
+                                              {{ $c1->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(2)
+
+                                     
+                                   @foreach ($a_fil_2 as $c2)
+                   
+                                              {{ $c2->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(3)
+
+                                     
+                                   @foreach ($a_fil_3 as $c3)
+                   
+                                              {{ $c3->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(4)
+
+                                     
+                                   @foreach ($a_fil_4 as $c4)
+                   
+                                              {{ $c4->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(5)
+
+                                     
+                                   @foreach ($a_fil_5 as $c5)
+                   
+                                              {{ $c5->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(6)
+
+                                     
+                                   @foreach ($a_fil_6 as $c6)
+                   
+                                              {{ $c6->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(7)
+
+                                     
+                                   @foreach ($a_fil_7 as $c7)
+                   
+                                              {{ $c7->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(8)
+
+                                     
+                                   @foreach ($a_fil_8 as $c8)
+                   
+                                              {{ $c8->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(9)
+
+                                     
+                                   @foreach ($a_fil_9 as $c9)
+                   
+                                              {{ $c9->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                 @case(10)
+
+                                     
+                                   @foreach ($a_fil_10 as $c10)
+                   
+                                              {{ $c10->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(11)
+
+                                     
+                                   @foreach ($a_fil_11 as $c11)
+                   
+                                              {{ $c11->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(12)
+
+                                     
+                                   @foreach ($a_fil_12 as $c12)
+                   
+                                              {{ $c12->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(13)
+
+                                     
+                                   @foreach ($a_fil_13 as $c13)
+                   
+                                              {{ $c13->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(14)
+
+                                     
+                                   @foreach ($a_fil_14 as $c14)
+                   
+                                              {{ $c14->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(15)
+
+                                     
+                                   @foreach ($a_fil_15 as $c15)
+                   
+                                              {{ $c15->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(16)
+
+                                     
+                                   @foreach ($a_fil_16 as $c16)
+                   
+                                              {{ $c16->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(17)
+
+                                     
+                                   @foreach ($a_fil_17 as $c17)
+                   
+                                              {{ $c17->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(18)
+
+                                     
+                                   @foreach ($a_fil_18 as $c18)
+                   
+                                              {{ $c18->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(19)
+
+                                     
+                                   @foreach ($a_fil_19 as $c19)
+                   
+                                              {{ $c19->color}} 
+
+                                    @endforeach               
+                                   
+                                @break
+                                @case(20)
+
+                                     
+                                   @foreach ($a_fil_20 as $c20)
+                   
+                                              {{ $c20->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(21)
+
+                                     
+                                   @foreach ($a_fil_21 as $c21)
+                   
+                                              {{ $c21->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(22)
+
+                                     
+                                   @foreach ($a_fil_22 as $c22)
+                   
+                                              {{ $c22->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(23)
+
+                                     
+                                   @foreach ($a_fil_23 as $c23)
+                   
+                                              {{ $c23->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(24)
+
+                                     
+                               @foreach ($a_fil_24 as $c24)
+               
+                                          {{ $c24->color}} 
+
+                                @endforeach               
+                                
+                                @break
+                             
+                                @default
+                                    ------
+            @endswitch
+        </td>
+
+<!-- MAneja turbidez de agua TRATADA -->
+        <td>
+            @switch($i)
+                               
+                                @case(1)
+
+                                     
+                                   @foreach ($a_trat_1 as $c1)
+                   
+                                              {{ $c1->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(2)
+
+                                     
+                                   @foreach ($a_trat_2 as $c2)
+                   
+                                              {{ $c2->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(3)
+
+                                     
+                                   @foreach ($a_trat_3 as $c3)
+                   
+                                              {{ $c3->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(4)
+
+                                     
+                                   @foreach ($a_trat_4 as $c4)
+                   
+                                              {{ $c4->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(5)
+
+                                     
+                                   @foreach ($a_trat_5 as $c5)
+                   
+                                              {{ $c5->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(6)
+
+                                     
+                                   @foreach ($a_trat_6 as $c6)
+                   
+                                              {{ $c6->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(7)
+
+                                     
+                                   @foreach ($a_trat_7 as $c7)
+                   
+                                              {{ $c7->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(8)
+
+                                     
+                                   @foreach ($a_trat_8 as $c8)
+                   
+                                              {{ $c8->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(9)
+
+                                     
+                                   @foreach ($a_trat_9 as $c9)
+                   
+                                              {{ $c9->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                 @case(10)
+
+                                     
+                                   @foreach ($a_trat_10 as $c10)
+                   
+                                              {{ $c10->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(11)
+
+                                     
+                                   @foreach ($a_trat_11 as $c11)
+                   
+                                              {{ $c11->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(12)
+
+                                     
+                                   @foreach ($a_trat_12 as $c12)
+                   
+                                              {{ $c12->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(13)
+
+                                     
+                                   @foreach ($a_trat_13 as $c13)
+                   
+                                              {{ $c13->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(14)
+
+                                     
+                                   @foreach ($a_trat_14 as $c14)
+                   
+                                              {{ $c14->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(15)
+
+                                     
+                                   @foreach ($a_trat_15 as $c15)
+                   
+                                              {{ $c15->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(16)
+
+                                     
+                                   @foreach ($a_trat_16 as $c16)
+                   
+                                              {{ $c16->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(17)
+
+                                     
+                                   @foreach ($a_trat_17 as $c17)
+                   
+                                              {{ $c17->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(18)
+
+                                     
+                                   @foreach ($a_trat_18 as $c18)
+                   
+                                              {{ $c18->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(19)
+
+                                     
+                                   @foreach ($a_trat_19 as $c19)
+                   
+                                              {{ $c19->turbidez}} 
+
+                                    @endforeach               
+                                   
+                                @break
+                                @case(20)
+
+                                     
+                                   @foreach ($a_trat_20 as $c20)
+                   
+                                              {{ $c20->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(21)
+
+                                     
+                                   @foreach ($a_trat_21 as $c21)
+                   
+                                              {{ $c21->turbidez}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(22)
+
+                                     
+                                   @foreach ($a_trat_22 as $c22)
+                   
+                                              {{ $c22->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(23)
+
+                                     
+                                   @foreach ($a_trat_23 as $c23)
+                   
+                                              {{ $c23->turbidez}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(24)
+
+                                     
+                               @foreach ($a_trat_24 as $c24)
+               
+                                          {{ $c24->turbidez}} 
+
+                                @endforeach               
+                                
+                                @break
+                             
+                                @default
+                                    ------
+            @endswitch
+
+
+        </td>
+        <!-- PH tratada -->
+        <td>
+            @switch($i)
+                               
+                                @case(1)
+
+                                     
+                                   @foreach ($a_trat_1 as $c1)
+                   
+                                              {{ $c1->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(2)
+
+                                     
+                                   @foreach ($a_trat_2 as $c2)
+                   
+                                              {{ $c2->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(3)
+
+                                     
+                                   @foreach ($a_trat_3 as $c3)
+                   
+                                              {{ $c3->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(4)
+
+                                     
+                                   @foreach ($a_trat_4 as $c4)
+                   
+                                              {{ $c4->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(5)
+
+                                     
+                                   @foreach ($a_trat_5 as $c5)
+                   
+                                              {{ $c5->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(6)
+
+                                     
+                                   @foreach ($a_trat_6 as $c6)
+                   
+                                              {{ $c6->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(7)
+
+                                     
+                                   @foreach ($a_trat_7 as $c7)
+                   
+                                              {{ $c7->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(8)
+
+                                     
+                                   @foreach ($a_trat_8 as $c8)
+                   
+                                              {{ $c8->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(9)
+
+                                     
+                                   @foreach ($a_trat_9 as $c9)
+                   
+                                              {{ $c9->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                 @case(10)
+
+                                     
+                                   @foreach ($a_trat_10 as $c10)
+                   
+                                              {{ $c10->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(11)
+
+                                     
+                                   @foreach ($a_trat_11 as $c11)
+                   
+                                              {{ $c11->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(12)
+
+                                     
+                                   @foreach ($a_trat_12 as $c12)
+                   
+                                              {{ $c12->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(13)
+
+                                     
+                                   @foreach ($a_trat_13 as $c13)
+                   
+                                              {{ $c13->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(14)
+
+                                     
+                                   @foreach ($a_trat_14 as $c14)
+                   
+                                              {{ $c14->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(15)
+
+                                     
+                                   @foreach ($a_trat_15 as $c15)
+                   
+                                              {{ $c15->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(16)
+
+                                     
+                                   @foreach ($a_trat_16 as $c16)
+                   
+                                              {{ $c16->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(17)
+
+                                     
+                                   @foreach ($a_trat_17 as $c17)
+                   
+                                              {{ $c17->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(18)
+
+                                     
+                                   @foreach ($a_trat_18 as $c18)
+                   
+                                              {{ $c18->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(19)
+
+                                     
+                                   @foreach ($a_trat_19 as $c19)
+                   
+                                              {{ $c19->ph}} 
+
+                                    @endforeach               
+                                   
+                                @break
+                                @case(20)
+
+                                     
+                                   @foreach ($a_trat_20 as $c20)
+                   
+                                              {{ $c20->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(21)
+
+                                     
+                                   @foreach ($a_trat_21 as $c21)
+                   
+                                              {{ $c21->ph}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(22)
+
+                                     
+                                   @foreach ($a_trat_22 as $c22)
+                   
+                                              {{ $c22->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(23)
+
+                                     
+                                   @foreach ($a_trat_23 as $c23)
+                   
+                                              {{ $c23->ph}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(24)
+
+                                     
+                               @foreach ($a_trat_24 as $c24)
+               
+                                          {{ $c24->ph}} 
+
+                                @endforeach               
+                                
+                                @break
+                             
+                                @default
+                                    ------
+            @endswitch
+
+
+        </td>
+        <!-- Temperatura Tratada -->
+        <td>
+            @switch($i)
+                               
+                                @case(1)
+
+                                     
+                                   @foreach ($a_trat_1 as $c1)
+                   
+                                              {{ $c1->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(2)
+
+                                     
+                                   @foreach ($a_trat_2 as $c2)
+                   
+                                              {{ $c2->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(3)
+
+                                     
+                                   @foreach ($a_trat_3 as $c3)
+                   
+                                              {{ $c3->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(4)
+
+                                     
+                                   @foreach ($a_trat_4 as $c4)
+                   
+                                              {{ $c4->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(5)
+
+                                     
+                                   @foreach ($a_trat_5 as $c5)
+                   
+                                              {{ $c5->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(6)
+
+                                     
+                                   @foreach ($a_trat_6 as $c6)
+                   
+                                              {{ $c6->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(7)
+
+                                     
+                                   @foreach ($a_trat_7 as $c7)
+                   
+                                              {{ $c7->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(8)
+
+                                     
+                                   @foreach ($a_trat_8 as $c8)
+                   
+                                              {{ $c8->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(9)
+
+                                     
+                                   @foreach ($a_trat_9 as $c9)
+                   
+                                              {{ $c9->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                 @case(10)
+
+                                     
+                                   @foreach ($a_trat_10 as $c10)
+                   
+                                              {{ $c10->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(11)
+
+                                     
+                                   @foreach ($a_trat_11 as $c11)
+                   
+                                              {{ $c11->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(12)
+
+                                     
+                                   @foreach ($a_trat_12 as $c12)
+                   
+                                              {{ $c12->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(13)
+
+                                     
+                                   @foreach ($a_trat_13 as $c13)
+                   
+                                              {{ $c13->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(14)
+
+                                     
+                                   @foreach ($a_trat_14 as $c14)
+                   
+                                              {{ $c14->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(15)
+
+                                     
+                                   @foreach ($a_trat_15 as $c15)
+                   
+                                              {{ $c15->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(16)
+
+                                     
+                                   @foreach ($a_trat_16 as $c16)
+                   
+                                              {{ $c16->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(17)
+
+                                     
+                                   @foreach ($a_trat_17 as $c17)
+                   
+                                              {{ $c17->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(18)
+
+                                     
+                                   @foreach ($a_trat_18 as $c18)
+                   
+                                              {{ $c18->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(19)
+
+                                     
+                                   @foreach ($a_trat_19 as $c19)
+                   
+                                              {{ $c19->temperatura}} 
+
+                                    @endforeach               
+                                   
+                                @break
+                                @case(20)
+
+                                     
+                                   @foreach ($a_trat_20 as $c20)
+                   
+                                              {{ $c20->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(21)
+
+                                     
+                                   @foreach ($a_trat_21 as $c21)
+                   
+                                              {{ $c21->temperatura}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(22)
+
+                                     
+                                   @foreach ($a_trat_22 as $c22)
+                   
+                                              {{ $c22->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(23)
+
+                                     
+                                   @foreach ($a_trat_23 as $c23)
+                   
+                                              {{ $c23->temperatura}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(24)
+
+                                     
+                               @foreach ($a_trat_24 as $c24)
+               
+                                          {{ $c24->temperatura}} 
+
+                                @endforeach               
+                                
+                                @break
+                             
+                                @default
+                                    ------
+            @endswitch
+
+
+        </td>
+        <!-- Color Tratada -->
+        <td>
+            @switch($i)
+                               
+                                @case(1)
+
+                                     
+                                   @foreach ($a_trat_1 as $c1)
+                   
+                                              {{ $c1->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(2)
+
+                                     
+                                   @foreach ($a_trat_2 as $c2)
+                   
+                                              {{ $c2->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(3)
+
+                                     
+                                   @foreach ($a_trat_3 as $c3)
+                   
+                                              {{ $c3->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(4)
+
+                                     
+                                   @foreach ($a_trat_4 as $c4)
+                   
+                                              {{ $c4->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(5)
+
+                                     
+                                   @foreach ($a_trat_5 as $c5)
+                   
+                                              {{ $c5->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(6)
+
+                                     
+                                   @foreach ($a_trat_6 as $c6)
+                   
+                                              {{ $c6->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(7)
+
+                                     
+                                   @foreach ($a_trat_7 as $c7)
+                   
+                                              {{ $c7->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(8)
+
+                                     
+                                   @foreach ($a_trat_8 as $c8)
+                   
+                                              {{ $c8->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                 @case(9)
+
+                                     
+                                   @foreach ($a_trat_9 as $c9)
+                   
+                                              {{ $c9->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                 @case(10)
+
+                                     
+                                   @foreach ($a_trat_10 as $c10)
+                   
+                                              {{ $c10->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(11)
+
+                                     
+                                   @foreach ($a_trat_11 as $c11)
+                   
+                                              {{ $c11->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(12)
+
+                                     
+                                   @foreach ($a_trat_12 as $c12)
+                   
+                                              {{ $c12->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(13)
+
+                                     
+                                   @foreach ($a_trat_13 as $c13)
+                   
+                                              {{ $c13->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(14)
+
+                                     
+                                   @foreach ($a_trat_14 as $c14)
+                   
+                                              {{ $c14->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(15)
+
+                                     
+                                   @foreach ($a_trat_15 as $c15)
+                   
+                                              {{ $c15->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(16)
+
+                                     
+                                   @foreach ($a_trat_16 as $c16)
+                   
+                                              {{ $c16->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(17)
+
+                                     
+                                   @foreach ($a_trat_17 as $c17)
+                   
+                                              {{ $c17->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(18)
+
+                                     
+                                   @foreach ($a_trat_18 as $c18)
+                   
+                                              {{ $c18->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(19)
+
+                                     
+                                   @foreach ($a_trat_19 as $c19)
+                   
+                                              {{ $c19->color}} 
+
+                                    @endforeach               
+                                   
+                                @break
+                                @case(20)
+
+                                     
+                                   @foreach ($a_trat_20 as $c20)
+                   
+                                              {{ $c20->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(21)
+
+                                     
+                                   @foreach ($a_trat_21 as $c21)
+                   
+                                              {{ $c21->color}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(22)
+
+                                     
+                                   @foreach ($a_trat_22 as $c22)
+                   
+                                              {{ $c22->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(23)
+
+                                     
+                                   @foreach ($a_trat_23 as $c23)
+                   
+                                              {{ $c23->color}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(24)
+
+                                     
+                               @foreach ($a_trat_24 as $c24)
+               
+                                          {{ $c24->color}} 
+
+                                @endforeach               
+                                
+                                @break
+                             
+                                @default
+                                    ------
+            @endswitch
+
+
+        </td>
       </tr>
       @endfor
     </tbody>
@@ -580,7 +4242,17 @@
   </table>
 
 
+                                   
+                                 
+               
 
+                                          
+
+                                
+               
+                                          
+
+                                
          
 
 
