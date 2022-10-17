@@ -17,7 +17,8 @@
         td, th {
           border: 1px solid #dddddd;
           text-align: left;
-          padding: 8px;
+          padding: 4px;
+          font-size: 14px;
         }
 
         tr:nth-child(even) {
@@ -26,28 +27,28 @@
 
 
 
-/*Maneja los encabezados bocatoma-eb1-2-3*/
-.grid-container {
-  display: grid;
-  /*auto representa cada columna*/
-  grid-template-columns: auto auto auto auto auto auto auto auto;
-  grid-template-rows: 80px 200px;
-  gap: 10px;
-  
-  padding: 10px;
-}
+            /*Maneja los encabezados bocatoma-eb1-2-3*/
+            .grid-container {
+              display: grid;
+              /*auto representa cada columna*/
+              grid-template-columns: auto auto auto auto auto auto auto auto;
+              grid-template-rows: 80px 120px;
+              gap: 10px;
+              
+              padding: 10px;
+            }
 
 
-.checkbox{
-  font-size: 15px;
-}
-
-
-
+            .checkbox{
+              font-size: 15px;
+            }
 
 
 
-</style>
+
+
+
+    </style>
 
 
 
@@ -58,7 +59,7 @@
     <a href="/"><button class="btn"><i class="fa fa-home" ></i></button> </a>
     <!-- fin Boton Home -->
 
-  <div class="container mt-4">
+  <div class="container">
   @if(session('status'))
     <div class="alert alert-success">
         {{ session('status') }}
@@ -68,34 +69,8 @@
     <div class="card-header text-center font-weight-bold">
       Produccion 
 
-      
     </div>
     <div class="card-body">
-
-
-
-   <!--  <form name="formulario-mostrar" id="add-blog-post-form" method="post" action="{{url('mostrar') }}">
-       @csrf
-       <div class="form-group">
-              <label for="cars">Mostrar:</label>
-              <select id="id_estacion" name="id_estacion">
-                <option value="1" selected>Bocatoma</option>
-                <option value="2">EB1</option>
-                <option value="3">EB2</option>
-                <option value="4">EB3</option>        
-                <option value="5">Tanques Terminales</option>   
-                <option value="6">BV Nuevo</option>     
-                <option value="7">BV Viejo</option>         
-              </select>
-
-              <button type="submit" class="btn btn-primary">Ver</button>
-        </div>
-      
-
-        
-      </form>
- -->
-
 
 
 
@@ -359,32 +334,54 @@
 
     <!-- Tabla que muestra los valores almacenados -->
         <table>
-            <!-- Muestra el nombre de la estacion -->
-            @foreach ($estacion as $nombre)
-               
-             <h4>{{ $nombre->nombre}} </h4>   
-
-            @endforeach 
-
+            
 
    
                 <!-- Encabezados de la tabla -->
 
               <tr>
-                <th>Fecha</th>
-                <th>Caudal (m³/h)</th>
-                <th>Cloro</th>
+                <th>Hora</th>
+                <th>Caudal BT (m³/h)</th>
+                <th>Coagulante</th>
+                <th>% Bomba dosificadora</th>
                 
-                <th>Nivel de Cámara</th>
+                <th>Nivel de Cámara BT</th>
                 <th>Nivel de Rio (msnm)</th>
                 <th>Equipos Operando</th>
+                <th>Dosificación Polimero</th>
+                <th>Dosificación Permanganato</th>
+                <th>Dosificación CAL</th>
+                <th>Cloro</th>
+                <th>Cloro residual</th>
+                <th>Niveles tanques %</th>
               </tr>
+              <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>%</th>
+                <th>mg/L</th>
+                <th>%</th>
+                <th>mg/L</th>
+                <th>%</th>
+                <th>mg/L</th>
+                <th></th>
+                <th>EB-2</th>
+                <th>EB-3</th>
+                <th>TTS</th>
+                <th>Bella V</th>
+              </tr>
+             
                
                <!-- Datos desde el controlador, se rellena la tabla con la info -->
                @foreach ($produccion as $prod)
               <tr>
                 
-                 <td> </td>
+                 <td> ---</td>
                 <td> {{ $prod->caudal}}</td>
                
                 <td> {{ $prod->cloro_residual}}</td>

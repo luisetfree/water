@@ -19,7 +19,7 @@ class ProduccionController extends Controller
     public function index()
     {
         //Este ID corresponde a bocatoma
-        $id_estacion=2;
+        $id_estacion=1;
        // $datos = DB::table('produccions')->where('id_estacion','=',$id_estacion)->get();
         //Utilizada para extraer el nombre de la estacion y mostrarlo en la vista
         $estacion=DB::table('estacions')->where('id','=',$id_estacion)->get();
