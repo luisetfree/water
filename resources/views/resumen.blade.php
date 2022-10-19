@@ -122,11 +122,21 @@
 
                 <h5>Dosificaciones</h5>
 
-                       
+                <!-- verficar para mostrar el input deacuerdo al item seleccionado -->
+                <select class="">
+                    
+                    <option name="sulf" value="sulfato">Sulfato</option>
+                    <option value="pac">Pac</option>
 
+
+                   
+
+                </select>
+                       
 
                      <!-- coagulante cambiar a un select para tomar en cuenta el PAC tambien-->
                 <input type="text" id="" name="dosificacion_coagulante" class="form-control" placeholder="Sulfato - PPM" required="">
+                
                         
                 
                 
@@ -149,7 +159,8 @@
                       <!-- Dosificacion polimero--> 
                       <input type="text" id="" name="dosif_polimero" class="form-control" placeholder="Polimero ">
                      
-                      
+                       <!-- Dosificacion Carbon--> 
+                      <input type="text" id="" name="dosif_carbon" class="form-control" placeholder="Carbon Act ">
 
                       <!-- Dosificacion Cloro -->
                       <input type="text" id="" name="dosif_cloro" class="form-control" placeholder="Cloro kg/h">
@@ -362,6 +373,10 @@
 
         </div>
         <br>
+        <br>
+        <br>
+        <br>
+
 
     
         <button type="submit" class="btn btn-outline-primary">Guardar</button>
@@ -426,16 +441,24 @@
                 <th>EB-2</th>
                 <th>EB-3</th>
                 <th>TTS</th>
-                <th>Bella V</th>
+                <th>B. Vista</th>
               </tr>
              
                
                <!-- Datos desde el controlador, se rellena la tabla con la info -->
                
-               @for ($i = 1; $i < 25; $i++)
+             @for ($i = 1; $i < 25; $i++) 
               <tr>
-                <!-- imprime las horas -->
-                <td>{{$i}}</td>
+                
+
+                <!-- imprime las horas en formato 00:00-->
+                @if ($i < 10)
+                <td>0{{ $i}}:00</td>
+                @else
+                <td>{{ $i}}:00</td>
+                @endif
+                
+                 
                 <td> </td>
                
                 <td> </td>
@@ -443,32 +466,678 @@
                 <td> </td>
 
                 <td> </td>
-
+                <!-- datos Coagulante, controlando las horas -->
                 <td> 
-                    @foreach ($consumos as $prod)
-                            {{$prod->dosis}}
-                    @endforeach 
+                  @switch($i)
+                                 
+                                @case(1)
+                                      @foreach ($con_coagu_1 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                             
+                                @case(2)
+                                    @foreach ($con_coagu_2 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @case(3)
+                                      @foreach ($con_coagu_3 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(4)
+                                    @foreach ($con_coagu_4 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(5)
+                                      @foreach ($con_coagu_5 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(6)
+                                     @foreach ($con_coagu_6 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(7)
+                                     @foreach ($con_coagu_7 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(8)
+                                    @foreach ($con_coagu_8 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+
+                                @break
+                                @case(9)
+                                      @foreach ($con_coagu_9 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(10)
+                                      @foreach ($con_coagu_10 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(11)
+                                      @foreach ($con_coagu_11 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(12)
+                                      @foreach ($con_coagu_12 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(13)
+                                      @foreach ($con_coagu_13 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(14)
+                                      @foreach ($con_coagu_14 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(15)
+                                      @foreach ($con_coagu_15 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(16)
+                                      @foreach ($con_coagu_16 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(17)
+                                      @foreach ($con_coagu_17 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(18)
+                                      @foreach ($con_coagu_18 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(19)
+                                      @foreach ($con_coagu_19 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(20)
+                                      @foreach ($con_coagu_20 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(21)
+                                      @foreach ($con_coagu_21 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(22)
+                                      @foreach ($con_coagu_22 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(23)
+                                      @foreach ($con_coagu_23 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(24)
+                                      @foreach ($con_coagu_24 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                             
+                                @default
+                                    ------
+                        @endswitch
+                    
+                 
+                           
+                 </td>
+                   
             
+                
+                <td> </td>
+                <!-- dosis Polimero -->
+                <td>  @switch($i)
+                                 
+                                @case(1)
+                                      @foreach ($con_poli_1 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                             
+                                @case(2)
+                                    @foreach ($con_poli_2 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @case(3)
+                                      @foreach ($con_poli_3 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(4)
+                                    @foreach ($con_poli_4 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(5)
+                                      @foreach ($con_poli_5 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(6)
+                                     @foreach ($con_poli_6 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(7)
+                                     @foreach ($con_poli_7 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(8)
+                                    @foreach ($con_poli_8 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+
+                                @break
+                                @case(9)
+                                      @foreach ($con_poli_9 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(10)
+                                      @foreach ($con_poli_10 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(11)
+                                      @foreach ($con_poli_11 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(12)
+                                      @foreach ($con_poli_12 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(13)
+                                      @foreach ($con_poli_13 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(14)
+                                      @foreach ($con_poli_14 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(15)
+                                      @foreach ($con_poli_15 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(16)
+                                      @foreach ($con_poli_16 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(17)
+                                      @foreach ($con_poli_17 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(18)
+                                      @foreach ($con_poli_18 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(19)
+                                      @foreach ($con_poli_19 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(20)
+                                      @foreach ($con_poli_20 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(21)
+                                      @foreach ($con_poli_21 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(22)
+                                      @foreach ($con_poli_22 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(23)
+                                      @foreach ($con_poli_23 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(24)
+                                      @foreach ($con_poli_24 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                             
+                                @default
+                                    ------
+                        @endswitch 
+                    </td>
+                <td> </td>
+                <!-- Dosis Permanganato -->
+                <td>
+
+@switch($i)
+                                 
+                                @case(1)
+                                      @foreach ($con_perm_1 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                             
+                                @case(2)
+                                    @foreach ($con_perm_2 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @case(3)
+                                      @foreach ($con_perm_3 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(4)
+                                    @foreach ($con_perm_4 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(5)
+                                      @foreach ($con_perm_5 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(6)
+                                     @foreach ($con_perm_6 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(7)
+                                     @foreach ($con_perm_7 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(8)
+                                    @foreach ($con_perm_8 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+
+                                @break
+                                @case(9)
+                                      @foreach ($con_perm_9 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(10)
+                                      @foreach ($con_perm_10 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(11)
+                                      @foreach ($con_perm_11 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(12)
+                                      @foreach ($con_perm_12 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(13)
+                                      @foreach ($con_perm_13 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(14)
+                                      @foreach ($con_perm_14 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(15)
+                                      @foreach ($con_perm_15 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(16)
+                                      @foreach ($con_perm_16 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(17)
+                                      @foreach ($con_perm_17 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(18)
+                                      @foreach ($con_perm_18 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(19)
+                                      @foreach ($con_perm_19 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(20)
+                                      @foreach ($con_perm_20 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(21)
+                                      @foreach ($con_perm_21 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(22)
+                                      @foreach ($con_perm_22 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(23)
+                                      @foreach ($con_perm_23 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(24)
+                                      @foreach ($con_perm_24 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                             
+                                @default
+                                    ------
+                        @endswitch 
                 </td>
                 <td> </td>
+                <!-- Dosificacion cal -->
+                <td> 
+                    @switch($i)
+                                 
+                                @case(1)
+                                      @foreach ($con_cal_1 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                             
+                                @case(2)
+                                    @foreach ($con_cal_2 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @case(3)
+                                      @foreach ($con_cal_3 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(4)
+                                    @foreach ($con_cal_4 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(5)
+                                      @foreach ($con_cal_5 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(6)
+                                     @foreach ($con_cal_6 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(7)
+                                     @foreach ($con_cal_7 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(8)
+                                    @foreach ($con_cal_8 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+
+                                @break
+                                @case(9)
+                                      @foreach ($con_cal_9 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(10)
+                                      @foreach ($con_cal_10 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(11)
+                                      @foreach ($con_cal_11 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(12)
+                                      @foreach ($con_cal_12 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(13)
+                                      @foreach ($con_cal_13 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(14)
+                                      @foreach ($con_cal_14 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(15)
+                                      @foreach ($con_cal_15 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(16)
+                                      @foreach ($con_cal_16 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(17)
+                                      @foreach ($con_cal_17 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(18)
+                                      @foreach ($con_cal_18 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(19)
+                                      @foreach ($con_cal_19 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(20)
+                                      @foreach ($con_cal_20 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(21)
+                                      @foreach ($con_cal_21 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(22)
+                                      @foreach ($con_cal_22 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(23)
+                                      @foreach ($con_cal_23 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(24)
+                                      @foreach ($con_cal_24 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                             
+                                @default
+                                    ------
+                        @endswitch 
+                </td>
                 <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
+                <!-- Dosificacion carbon -->
+                <td> 
+                        @switch($i)
+                                 
+                                @case(1)
+                                      @foreach ($con_carbon_1 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                             
+                                @case(2)
+                                    @foreach ($con_carbon_2 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @case(3)
+                                      @foreach ($con_carbon_3 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(4)
+                                    @foreach ($con_carbon_4 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(5)
+                                      @foreach ($con_carbon_5 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(6)
+                                     @foreach ($con_carbon_6 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(7)
+                                     @foreach ($con_carbon_7 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(8)
+                                    @foreach ($con_carbon_8 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+
+                                @break
+                                @case(9)
+                                      @foreach ($con_carbon_9 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(10)
+                                      @foreach ($con_carbon_10 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(11)
+                                      @foreach ($con_carbon_11 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(12)
+                                      @foreach ($con_carbon_12 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(13)
+                                      @foreach ($con_carbon_13 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(14)
+                                      @foreach ($con_carbon_14 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(15)
+                                      @foreach ($con_carbon_15 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(16)
+                                      @foreach ($con_carbon_16 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(17)
+                                      @foreach ($con_carbon_17 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(18)
+                                      @foreach ($con_carbon_18 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(19)
+                                      @foreach ($con_carbon_19 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                 @case(20)
+                                      @foreach ($con_carbon_20 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(21)
+                                      @foreach ($con_carbon_21 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(22)
+                                      @foreach ($con_carbon_22 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(23)
+                                      @foreach ($con_carbon_23 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                                @case(24)
+                                      @foreach ($con_carbon_24 as $prod)
+                                          {{$prod->dosis}}
+                                      @endforeach
+                                @break
+                             
+                                @default
+                                    ------
+                        @endswitch 
+                </td>
+                <!-- Cloro -->
+                <td>cloro </td>
+                <td>eb2 </td>
+                <td> eb3</td>
                 <td> </td>
                 <td> </td>
                 
                 
 
                </tr>
-                @endfor
-              
+               
+       @endfor       
    
 
            
@@ -490,8 +1159,6 @@
 
 </div>
 
-     @foreach ($consumos as $prod)
-                            {{$prod->dosis}}
-     @endforeach 
+     
 </body>
 </html>

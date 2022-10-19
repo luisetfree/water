@@ -8,6 +8,7 @@ use App\Models\Operacion;
 use App\Models\Consumo;
 use Illuminate\Http\Request;
 
+
 use Illuminate\Support\Facades\DB;
 
 class ProduccionController extends Controller
@@ -19,6 +20,10 @@ class ProduccionController extends Controller
      */
     public function index()
     {
+
+      $id_bocatoma=1;
+      $id_cloro=8;
+
         //Este ID corresponde a bocatoma
         $id_estacion=1;
        // $datos = DB::table('produccions')->where('id_estacion','=',$id_estacion)->get();
@@ -85,32 +90,223 @@ class ProduccionController extends Controller
                 //->whereTime('produccions.created_at', '>=', '13:00:39')
                 ->get();
 
-        /*datos de Consumos*/
-                $consumos = DB::table('consumos')
-                             ->select('consumos.*')
-                ->where('hora','=','16:00')
-                ->whereDate('created_at', '=', '2022-10-18')
-                ->where('id_quimico', '=', 5)
-                ->get();
+/*Extrayendo datos de Consumos*/
+
+             
+$fecha=date("Y-m-d");//Tomando la fecha del dia de hoy
+$hora_1='01:00';
+$hora_2='02:00';
+$hora_3='03:00';
+$hora_4='04:00';
+$hora_5='05:00';
+$hora_6='06:00';
+$hora_7='07:00';
+$hora_8='08:00';
+$hora_9='09:00';
+$hora_10='10:00';
+$hora_11='11:00';
+$hora_12='12:00';
+$hora_13='13:00';
+$hora_14='14:00';
+$hora_15='15:00';
+$hora_16='16:00';
+$hora_17='17:00';
+$hora_18='18:00';
+$hora_19='19:00';
+$hora_20='20:00';
+$hora_21='21:00';
+$hora_22='22:00';
+$hora_23='23:00';
+$hora_24='24:00';
 
 
+$id_coagulante=5;//sulfato
 
+$con_coagu_1=$this->datosConsumo($fecha,$hora_1,$id_coagulante);
+$con_coagu_2=$this->datosConsumo($fecha,$hora_2,$id_coagulante);
+$con_coagu_3=$this->datosConsumo($fecha,$hora_3,$id_coagulante);
+$con_coagu_4=$this->datosConsumo($fecha,$hora_4,$id_coagulante);
+$con_coagu_5=$this->datosConsumo($fecha,$hora_5,$id_coagulante);
+$con_coagu_6=$this->datosConsumo($fecha,$hora_6,$id_coagulante);
+$con_coagu_7=$this->datosConsumo($fecha,$hora_7,$id_coagulante);
+$con_coagu_8=$this->datosConsumo($fecha,$hora_8,$id_coagulante);
+$con_coagu_9=$this->datosConsumo($fecha,$hora_9,$id_coagulante);
+$con_coagu_10=$this->datosConsumo($fecha,$hora_10,$id_coagulante);
+$con_coagu_11=$this->datosConsumo($fecha,$hora_11,$id_coagulante);
+$con_coagu_12=$this->datosConsumo($fecha,$hora_12,$id_coagulante);
+$con_coagu_13=$this->datosConsumo($fecha,$hora_13,$id_coagulante);
+$con_coagu_14=$this->datosConsumo($fecha,$hora_14,$id_coagulante);
+$con_coagu_15=$this->datosConsumo($fecha,$hora_15,$id_coagulante);
+$con_coagu_16=$this->datosConsumo($fecha,$hora_16,$id_coagulante);
+$con_coagu_17=$this->datosConsumo($fecha,$hora_17,$id_coagulante);
+$con_coagu_18=$this->datosConsumo($fecha,$hora_18,$id_coagulante);
+$con_coagu_19=$this->datosConsumo($fecha,$hora_19,$id_coagulante);
+$con_coagu_20=$this->datosConsumo($fecha,$hora_20,$id_coagulante);
+$con_coagu_21=$this->datosConsumo($fecha,$hora_21,$id_coagulante);
+$con_coagu_22=$this->datosConsumo($fecha,$hora_22,$id_coagulante);
+$con_coagu_23=$this->datosConsumo($fecha,$hora_23,$id_coagulante);
+$con_coagu_24=$this->datosConsumo($fecha,$hora_24,$id_coagulante);
 
-        /*    $datos = DB::table('operacions')
-            ->join('equipos', 'operacions.id_equipo', '=', 'equipos.id')
-            //->join('produccions', 'estacions.id', '=', 'produccions.id_estacion')
-            //->join('produccions', 'equipos.id_estacion', '=', 'produccions.id_estacion')
-                ->select('operacions.*','equipos.*')
-            //->where('id_estacion','=',$id_estacion)
-                ->whereTime('operacions.created_at', '=', '11:44:00')
-            ->where('estado','=','Operando')
-            ->get();
-*/
+$id_polimero=7;//Polimero
+
+$con_poli_1=$this->datosConsumo($fecha,$hora_1,$id_polimero);
+$con_poli_2=$this->datosConsumo($fecha,$hora_2,$id_polimero);
+$con_poli_3=$this->datosConsumo($fecha,$hora_3,$id_polimero);
+$con_poli_4=$this->datosConsumo($fecha,$hora_4,$id_polimero);
+$con_poli_5=$this->datosConsumo($fecha,$hora_5,$id_polimero);
+$con_poli_6=$this->datosConsumo($fecha,$hora_6,$id_polimero);
+$con_poli_7=$this->datosConsumo($fecha,$hora_7,$id_polimero);
+$con_poli_8=$this->datosConsumo($fecha,$hora_8,$id_polimero);
+$con_poli_9=$this->datosConsumo($fecha,$hora_9,$id_polimero);
+$con_poli_10=$this->datosConsumo($fecha,$hora_10,$id_polimero);
+$con_poli_11=$this->datosConsumo($fecha,$hora_11,$id_polimero);
+$con_poli_12=$this->datosConsumo($fecha,$hora_12,$id_polimero);
+$con_poli_13=$this->datosConsumo($fecha,$hora_13,$id_polimero);
+$con_poli_14=$this->datosConsumo($fecha,$hora_14,$id_polimero);
+$con_poli_15=$this->datosConsumo($fecha,$hora_15,$id_polimero);
+$con_poli_16=$this->datosConsumo($fecha,$hora_16,$id_polimero);
+$con_poli_17=$this->datosConsumo($fecha,$hora_17,$id_polimero);
+$con_poli_18=$this->datosConsumo($fecha,$hora_18,$id_polimero);
+$con_poli_19=$this->datosConsumo($fecha,$hora_19,$id_polimero);
+$con_poli_20=$this->datosConsumo($fecha,$hora_20,$id_polimero);
+$con_poli_21=$this->datosConsumo($fecha,$hora_21,$id_polimero);
+$con_poli_22=$this->datosConsumo($fecha,$hora_22,$id_polimero);
+$con_poli_23=$this->datosConsumo($fecha,$hora_23,$id_polimero);
+$con_poli_24=$this->datosConsumo($fecha,$hora_24,$id_polimero);
+
+$id_permanganato=1;//Permanganato
+
+$con_perm_1=$this->datosConsumo($fecha,$hora_1,$id_permanganato);
+$con_perm_2=$this->datosConsumo($fecha,$hora_2,$id_permanganato);
+$con_perm_3=$this->datosConsumo($fecha,$hora_3,$id_permanganato);
+$con_perm_4=$this->datosConsumo($fecha,$hora_4,$id_permanganato);
+$con_perm_5=$this->datosConsumo($fecha,$hora_5,$id_permanganato);
+$con_perm_6=$this->datosConsumo($fecha,$hora_6,$id_permanganato);
+$con_perm_7=$this->datosConsumo($fecha,$hora_7,$id_permanganato);
+$con_perm_8=$this->datosConsumo($fecha,$hora_8,$id_permanganato);
+$con_perm_9=$this->datosConsumo($fecha,$hora_9,$id_permanganato);
+$con_perm_10=$this->datosConsumo($fecha,$hora_10,$id_permanganato);
+$con_perm_11=$this->datosConsumo($fecha,$hora_11,$id_permanganato);
+$con_perm_12=$this->datosConsumo($fecha,$hora_12,$id_permanganato);
+$con_perm_13=$this->datosConsumo($fecha,$hora_13,$id_permanganato);
+$con_perm_14=$this->datosConsumo($fecha,$hora_14,$id_permanganato);
+$con_perm_15=$this->datosConsumo($fecha,$hora_15,$id_permanganato);
+$con_perm_16=$this->datosConsumo($fecha,$hora_16,$id_permanganato);
+$con_perm_17=$this->datosConsumo($fecha,$hora_17,$id_permanganato);
+$con_perm_18=$this->datosConsumo($fecha,$hora_18,$id_permanganato);
+$con_perm_19=$this->datosConsumo($fecha,$hora_19,$id_permanganato);
+$con_perm_20=$this->datosConsumo($fecha,$hora_20,$id_permanganato);
+$con_perm_21=$this->datosConsumo($fecha,$hora_21,$id_permanganato);
+$con_perm_22=$this->datosConsumo($fecha,$hora_22,$id_permanganato);
+$con_perm_23=$this->datosConsumo($fecha,$hora_23,$id_permanganato);
+$con_perm_24=$this->datosConsumo($fecha,$hora_24,$id_permanganato);
+
+$id_carbon=2;//Carbon activo
+
+$con_carbon_1=$this->datosConsumo($fecha,$hora_1,$id_carbon);
+$con_carbon_2=$this->datosConsumo($fecha,$hora_2,$id_carbon);
+$con_carbon_3=$this->datosConsumo($fecha,$hora_3,$id_carbon);
+$con_carbon_4=$this->datosConsumo($fecha,$hora_4,$id_carbon);
+$con_carbon_5=$this->datosConsumo($fecha,$hora_5,$id_carbon);
+$con_carbon_6=$this->datosConsumo($fecha,$hora_6,$id_carbon);
+$con_carbon_7=$this->datosConsumo($fecha,$hora_7,$id_carbon);
+$con_carbon_8=$this->datosConsumo($fecha,$hora_8,$id_carbon);
+$con_carbon_9=$this->datosConsumo($fecha,$hora_9,$id_carbon);
+$con_carbon_10=$this->datosConsumo($fecha,$hora_10,$id_carbon);
+$con_carbon_11=$this->datosConsumo($fecha,$hora_11,$id_carbon);
+$con_carbon_12=$this->datosConsumo($fecha,$hora_12,$id_carbon);
+$con_carbon_13=$this->datosConsumo($fecha,$hora_13,$id_carbon);
+$con_carbon_14=$this->datosConsumo($fecha,$hora_14,$id_carbon);
+$con_carbon_15=$this->datosConsumo($fecha,$hora_15,$id_carbon);
+$con_carbon_16=$this->datosConsumo($fecha,$hora_16,$id_carbon);
+$con_carbon_17=$this->datosConsumo($fecha,$hora_17,$id_carbon);
+$con_carbon_18=$this->datosConsumo($fecha,$hora_18,$id_carbon);
+$con_carbon_19=$this->datosConsumo($fecha,$hora_19,$id_carbon);
+$con_carbon_20=$this->datosConsumo($fecha,$hora_20,$id_carbon);
+$con_carbon_21=$this->datosConsumo($fecha,$hora_21,$id_carbon);
+$con_carbon_22=$this->datosConsumo($fecha,$hora_22,$id_carbon);
+$con_carbon_23=$this->datosConsumo($fecha,$hora_23,$id_carbon);
+$con_carbon_24=$this->datosConsumo($fecha,$hora_24,$id_carbon);
+
+$id_cal=4;//Cal
+
+$con_cal_1=$this->datosConsumo($fecha,$hora_1,$id_cal);
+$con_cal_2=$this->datosConsumo($fecha,$hora_2,$id_cal);
+$con_cal_3=$this->datosConsumo($fecha,$hora_3,$id_cal);
+$con_cal_4=$this->datosConsumo($fecha,$hora_4,$id_cal);
+$con_cal_5=$this->datosConsumo($fecha,$hora_5,$id_cal);
+$con_cal_6=$this->datosConsumo($fecha,$hora_6,$id_cal);
+$con_cal_7=$this->datosConsumo($fecha,$hora_7,$id_cal);
+$con_cal_8=$this->datosConsumo($fecha,$hora_8,$id_cal);
+$con_cal_9=$this->datosConsumo($fecha,$hora_9,$id_cal);
+$con_cal_10=$this->datosConsumo($fecha,$hora_10,$id_cal);
+$con_cal_11=$this->datosConsumo($fecha,$hora_11,$id_cal);
+$con_cal_12=$this->datosConsumo($fecha,$hora_12,$id_cal);
+$con_cal_13=$this->datosConsumo($fecha,$hora_13,$id_cal);
+$con_cal_14=$this->datosConsumo($fecha,$hora_14,$id_cal);
+$con_cal_15=$this->datosConsumo($fecha,$hora_15,$id_cal);
+$con_cal_16=$this->datosConsumo($fecha,$hora_16,$id_cal);
+$con_cal_17=$this->datosConsumo($fecha,$hora_17,$id_cal);
+$con_cal_18=$this->datosConsumo($fecha,$hora_18,$id_cal);
+$con_cal_19=$this->datosConsumo($fecha,$hora_19,$id_cal);
+$con_cal_20=$this->datosConsumo($fecha,$hora_20,$id_cal);
+$con_cal_21=$this->datosConsumo($fecha,$hora_21,$id_cal);
+$con_cal_22=$this->datosConsumo($fecha,$hora_22,$id_cal);
+$con_cal_23=$this->datosConsumo($fecha,$hora_23,$id_cal);
+$con_cal_24=$this->datosConsumo($fecha,$hora_24,$id_cal);
+
+       /*CALCULO DE CLORO*/
+       //Verificar la conversion de tipos para este dato----considerar hacer la operacion en la vista
+       //$cloro_hora_1=$this->calculoCloroAplicado($fecha,$hora_1,$id_cloro,$id_bocatoma);
 
          //Enviando a vista resumen los datos de produccion de Bocatoma para mostrarlos en la tabla, tambien la variable $estacion permite obtener informacion de la tabla estacions
-        return view ('resumen', compact ('estacion','produccion','datos','consumos'));
+        return view ('resumen', compact ('estacion','produccion','datos','con_coagu_1','con_coagu_2','con_coagu_3','con_coagu_4','con_coagu_5','con_coagu_6','con_coagu_7','con_coagu_8','con_coagu_9','con_coagu_10','con_coagu_11','con_coagu_12','con_coagu_13','con_coagu_14','con_coagu_15','con_coagu_16','con_coagu_17','con_coagu_18','con_coagu_19','con_coagu_20','con_coagu_21','con_coagu_22','con_coagu_23','con_coagu_24','con_poli_1','con_poli_2','con_poli_3','con_poli_4','con_poli_5','con_poli_6','con_poli_7','con_poli_8','con_poli_9','con_poli_10','con_poli_11','con_poli_12','con_poli_13','con_poli_14','con_poli_15','con_poli_16','con_poli_17','con_poli_18','con_poli_19','con_poli_20','con_poli_21','con_poli_22','con_poli_23','con_poli_24','con_perm_1','con_perm_2','con_perm_3','con_perm_4','con_perm_5','con_perm_6','con_perm_7','con_perm_8','con_perm_9','con_perm_10','con_perm_11','con_perm_12','con_perm_13','con_perm_14','con_perm_15','con_perm_16','con_perm_17','con_perm_18','con_perm_19','con_perm_20','con_perm_21','con_perm_22','con_perm_23','con_perm_24','con_carbon_1','con_carbon_2','con_carbon_3','con_carbon_4','con_carbon_5','con_carbon_6','con_carbon_7','con_carbon_8','con_carbon_9','con_carbon_10','con_carbon_11','con_carbon_12','con_carbon_13','con_carbon_14','con_carbon_15','con_carbon_16','con_carbon_17','con_carbon_18','con_carbon_19','con_carbon_20','con_carbon_21','con_carbon_22','con_carbon_23','con_carbon_24','con_cal_1','con_cal_2','con_cal_3','con_cal_4','con_cal_5','con_cal_6','con_cal_7','con_cal_8','con_cal_9','con_cal_10','con_cal_11','con_cal_12','con_cal_13','con_cal_14','con_cal_15','con_cal_16','con_cal_17','con_cal_18','con_cal_19','con_cal_20','con_cal_21','con_cal_22','con_cal_23','con_cal_24'));
 
     }
+
+
+
+/**
+Funcion que busca los consumos de quimicos de acuerdo a una fecha y hora dada para un quimico en especial
+*/
+public function datosConsumo($fecha,$hora,$id_quimico){
+
+ $consumos = DB::table('consumos')
+                             ->select('consumos.*')
+                ->where('hora','=',$hora)
+                ->whereDate('created_at', '=', $fecha)
+                ->where('id_quimico', '=', $id_quimico)
+                ->get();
+
+return $consumos;
+}
+
+
+/*
+Funcion que calcula el cloro aplicado segun la formula (dosis_cloro/Caudal_bt), este debe mostrarse en la tabla que se presenta al final de  la vista resumen
+*/
+public function calculoCloroAplicado($fecha,$hora,$id_cloro,$id_bocatoma){
+
+$cloroAplicado=DB::table('consumos')
+                ->select('dosis')
+                ->where('hora','=',$hora)
+                ->whereDate('created_at', '=', $fecha)
+                ->where('id_quimico', '=', $id_cloro)
+                ->get();
+//$conversion_cloro= intval($cloroAplicado) ;//convirtiendo a entero
+
+$caudal_bt=DB::table('produccions')
+                ->select('caudal')
+                ->where('hora','=',$hora)
+                ->whereDate('created_at', '=', $fecha)
+                ->where('id_estacion', '=', $id_bocatoma)
+                ->get();
+   // $conversion_bt=intval($caudal_bt);//convirtiendo a entero
+
+    //division de cloro/caudalBT
+                return $calculo= $cloroAplicado/$caudal_bt; //$conversion_cloro/$conversion_bt;
+
+}
 
     /**
      * Show the form for creating a new resource.
@@ -130,12 +326,13 @@ class ProduccionController extends Controller
      */
     public function store(Request $request)
     {
+        /*Almacenando datos de Bocatoma*/
         //Aqui aparece la fecha y hora, sin embargo se tomaran las lecturas de la columna created_at
         $produccion = new Produccion;
             //se agregaron valores por defecto para pruebas
         $produccion->caudal = $request->caudal;
         //$produccion->fecha = $request->fecha;
-        //$produccion->hora = $request->hora;
+        $produccion->hora = $request->hora;
         $produccion->cloro_residual = $request->cloro_residual;
         $produccion->nivel_camara = $request->nivel_camara;
         $produccion->nivel_rio = $request->nivel_rio;
@@ -147,6 +344,7 @@ class ProduccionController extends Controller
         /*Recibe y guarda los valores de EB1*/
         $proEB1=new Produccion;
         $proEB1->caudal = $request->caudaleb1;
+        $proEB1->hora = $request->hora;
         $proEB1->nivel_camara = $request->nivel1;
         $proEB1->cloro_residual = $request->cloro1;
         $proEB1->id_estacion = $request->id_eb1;
@@ -157,6 +355,7 @@ class ProduccionController extends Controller
         /*Recibe y guarda los valores de EB2*/
         $proEB2=new Produccion;
         $proEB2->caudal = $request->caudaleb2;
+        $proEB2->hora = $request->hora;
         $proEB2->nivel_camara = $request->nivel2;
         $proEB2->cloro_residual = $request->cloro2;
         $proEB2->id_estacion = $request->id_eb2;
@@ -167,6 +366,7 @@ class ProduccionController extends Controller
          /*Recibe y guarda los valores de EB3*/
         $proEB3=new Produccion;
         $proEB3->caudal = $request->caudaleb3;
+        $proEB3->hora = $request->hora;
         $proEB3->nivel_camara = $request->nivel3;
         $proEB3->cloro_residual = $request->cloro3;
         $proEB3->id_estacion = $request->id_eb3;
@@ -181,6 +381,7 @@ class ProduccionController extends Controller
         $terminales=new Produccion;
         
         $terminales->nivel_camara = $request->nivel4;
+        $terminales->hora = $request->hora;
         $terminales->cloro_residual = $request->cloro4;
         $terminales->id_estacion = $request->id_terminal;
 
@@ -192,6 +393,7 @@ class ProduccionController extends Controller
         $nuevo=new Produccion;
         
         $nuevo->nivel_camara = $request->nivel5;
+        $nuevo->hora = $request->hora;
         $nuevo->cloro_residual = $request->cloro5;
         $nuevo->id_estacion = $request->id_nuevo;
 
@@ -204,6 +406,7 @@ class ProduccionController extends Controller
         $viejo=new Produccion;
         
         $viejo->nivel_camara = $request->nivel6;
+        $viejo->hora = $request->hora;
         $viejo->cloro_residual = $request->cloro6;
         $viejo->id_estacion = $request->id_viejo;
 
@@ -245,6 +448,14 @@ class ProduccionController extends Controller
         $polimero->id_quimico = "7";//asignado directamente de id polimero
         $polimero->id_agua = "2";//id Agua clarificadas
         $polimero->save();
+
+        $carbon=new Consumo;
+        
+        $carbon->dosis = $request->dosif_carbon;
+        $carbon->hora = $request->hora;
+        $carbon->id_quimico = "2";//asignado directamente id de carbon
+        $carbon->id_agua = "1";//id Agua cruda
+        $carbon->save();
 
 
         $cloro=new Consumo;
