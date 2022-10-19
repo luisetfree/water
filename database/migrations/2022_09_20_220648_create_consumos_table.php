@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('consumos', function (Blueprint $table) {
             $table->id();
              $table->string('dosis');
-            $table->string('cloro');
+            //$table->string('cloro');//valor calculado de dosis_cloro/caudalBT 
             $table->string('fecha');
             $table->string('hora');
             $table->string('bombas_porcentaje');

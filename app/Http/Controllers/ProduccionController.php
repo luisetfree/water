@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Produccion;
 use App\Models\Estacion;
 use App\Models\Operacion;
+use App\Models\Consumo;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
@@ -84,7 +85,13 @@ class ProduccionController extends Controller
                 //->whereTime('produccions.created_at', '>=', '13:00:39')
                 ->get();
 
-
+        /*datos de Consumos*/
+                $consumos = DB::table('consumos')
+                             ->select('consumos.*')
+                ->where('hora','=','16:00')
+                ->whereDate('created_at', '=', '2022-10-18')
+                ->where('id_quimico', '=', 5)
+                ->get();
 
 
 
@@ -101,7 +108,7 @@ class ProduccionController extends Controller
 */
 
          //Enviando a vista resumen los datos de produccion de Bocatoma para mostrarlos en la tabla, tambien la variable $estacion permite obtener informacion de la tabla estacions
-        return view ('resumen', compact ('estacion','produccion','datos'));
+        return view ('resumen', compact ('estacion','produccion','datos','consumos'));
 
     }
 
@@ -202,6 +209,63 @@ class ProduccionController extends Controller
 
              $viejo->save();
         /* Fin de recibe y guarda los valores de bella vista viejo*/
+
+
+/*Guarda los datos de las DOSIFICACIONES*/
+
+        $coagulante=new Consumo;
+        
+        $coagulante->dosis = $request->dosificacion_coagulante;
+        $coagulante->hora = $request->hora;
+        $coagulante->id_quimico = "5";
+        $coagulante->id_agua = "1";//Agua cruda
+        $coagulante->save();
+
+
+         $cal=new Consumo;
+        
+        $cal->dosis = $request->dosif_cal;
+        $cal->hora = $request->hora;
+        $cal->id_quimico = $request->id_cal;
+        $cal->id_agua = "4";//id Agua tratada
+        $cal->save();
+
+        $permanganato=new Consumo;
+        
+        $permanganato->dosis = $request->dosif_permanganato;
+        $permanganato->hora = $request->hora;
+        $permanganato->id_quimico = "1";//asignado directamente
+        $permanganato->id_agua = "1";//id Agua cruda
+        $permanganato->save();
+
+        $polimero=new Consumo;
+        
+        $polimero->dosis = $request->dosif_polimero;
+        $polimero->hora = $request->hora;
+        $polimero->id_quimico = "7";//asignado directamente de id polimero
+        $polimero->id_agua = "2";//id Agua clarificadas
+        $polimero->save();
+
+
+        $cloro=new Consumo;
+        
+        $cloro->dosis = $request->dosif_cloro;
+        $cloro->hora = $request->hora;
+        $cloro->id_quimico = "8";//asignado directamente de id Cloro
+        $cloro->id_agua = "4";//id Agua tratada
+        $cloro->save();
+
+
+
+
+
+
+
+
+/*Fin de guarda los datos de las DOSIFICACIONES*/
+
+
+
 
 
 /*EQUIPOS OPERANDO*/

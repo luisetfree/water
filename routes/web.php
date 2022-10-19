@@ -50,7 +50,7 @@ Route::get('/agua/{tipo}', [AguaController::class, 'store']);
 
 Route::get('/prod/{caudal}', [ProduccionController::class, 'store']);
 
-//Recibe desde el formulario y guarda la informacion
+//Recibe desde el formulario en la vista resumen y guarda la informacion
 Route::post('store-form', [ProduccionController::class, 'store']);
 
 //Recibe el id desde el formulario-mostrar para filtrar y buscar la estacion que se necesita

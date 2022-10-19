@@ -15,14 +15,19 @@
         }
 
         td, th {
-          border: 1px solid #dddddd;
-          text-align: left;
+          border: 1px solid black;
+          text-align: center;
           padding: 4px;
           font-size: 14px;
         }
+        /*maneja los encabezados de las tablas*/
+        th {
+        background-color: #dddddd;
+        }
 
         tr:nth-child(even) {
-          background-color: #dddddd;
+          /* background-color: #dddddd;*/
+
         }
 
 
@@ -31,7 +36,7 @@
             .grid-container {
               display: grid;
               /*auto representa cada columna*/
-              grid-template-columns: auto auto auto auto auto auto auto auto;
+              grid-template-columns: auto auto auto auto auto auto auto auto auto;
               grid-template-rows: 80px 120px;
               gap: 10px;
               
@@ -59,7 +64,7 @@
     <a href="/"><button class="btn"><i class="fa fa-home" ></i></button> </a>
     <!-- fin Boton Home -->
 
-  <div class="container">
+  <div class="container-fluid">
   @if(session('status'))
     <div class="alert alert-success">
         {{ session('status') }}
@@ -113,7 +118,51 @@
        
         <div class="grid-container" >
        
-           
+           <div class="form-group" >
+
+                <h5>Dosificaciones</h5>
+
+                       
+
+
+                     <!-- coagulante cambiar a un select para tomar en cuenta el PAC tambien-->
+                <input type="text" id="" name="dosificacion_coagulante" class="form-control" placeholder="Sulfato - PPM" required="">
+                        
+                
+                
+
+                
+
+                          <!-- Dosificacion de cal -->
+                <input type="text" id="" name="dosif_cal" class="form-control" placeholder="Cal - PPM">
+                         <!-- Representa el id de la Cal -->
+                <input type="hidden" id="" name="id_cal" class="form-control" value="4" >
+
+                      
+                      
+                      
+                      
+                 
+                        <!-- Dosificacion de permanganato -->
+                      <input type="text" id="" name="dosif_permanganato" class="form-control" placeholder="Permanganato ">
+
+                      <!-- Dosificacion polimero--> 
+                      <input type="text" id="" name="dosif_polimero" class="form-control" placeholder="Polimero ">
+                     
+                      
+
+                      <!-- Dosificacion Cloro -->
+                      <input type="text" id="" name="dosif_cloro" class="form-control" placeholder="Cloro kg/h">
+                     
+                      
+
+
+
+                    </div>
+
+             
+
+
 
 
             <div class="form-group" >
@@ -178,7 +227,7 @@
                     <input type="hidden" id="" name= "ideq31" value="11">
                     <label> 4</label>
                     <input type="checkbox" id="" name= "eb14" value="Operando">
-                    <input type="hidden" id="" name= "ideq41" value="12">
+                    <input type="hidden" id="" name= "ideq41" value="12"> <br>
                     <label> 5</label>
                     <input type="checkbox" id="" name= "eb15" value="Operando">
                     <input type="hidden" id="" name= "ideq51" value="13">
@@ -217,7 +266,7 @@
                     <input type="hidden" id="" name= "ideq32" value="18">
                     <label> 4</label>
                     <input type="checkbox" id="" name= "eb24" value="Operando">
-                    <input type="hidden" id="" name= "ideq42" value="19">
+                    <input type="hidden" id="" name= "ideq42" value="19"><br>
                     <label> 5</label>
                     <input type="checkbox" id="" name= "eb25" value="Operando">
                     <input type="hidden" id="" name= "ideq52" value="20">
@@ -258,7 +307,7 @@
                     <input type="hidden" id="" name= "ideq33" value="25">
                     <label> 4</label>
                     <input type="checkbox" id="" name= "eb34" value="Operando">
-                    <input type="hidden" id="" name= "ideq43" value="26">
+                    <input type="hidden" id="" name= "ideq43" value="26"><br>
                     <label> 5</label>
                     <input type="checkbox" id="" name= "eb35" value="Operando">
                     <input type="hidden" id="" name= "ideq53" value="27">
@@ -301,17 +350,18 @@
               
               <label for="">Nivel</label>
               <input type="text" id="" name="nivel6" class="form-control" placeholder="Viejo">
-              <label for="">Cloro</label>
-              <input type="text" id="" name="cloro6" class="form-control" placeholder="B.V.Viejo">
+             <!--  <label for="">Cloro</label>
+              <input type="text" id="" name="cloro6" class="form-control" placeholder="B.V.Viejo"> -->
                <!-- Representa el id de Bella vista viejo -->
               <input type="hidden" id="" name="id_viejo" class="form-control" value="7" >
               
             </div>
-
-
+            
+                    
 
 
         </div>
+        <br>
 
     
         <button type="submit" class="btn btn-outline-primary">Guardar</button>
@@ -341,19 +391,20 @@
 
               <tr>
                 <th>Hora</th>
-                <th>Caudal BT (m³/h)</th>
-                <th>Coagulante</th>
-                <th>% Bomba dosificadora</th>
-                
-                <th>Nivel de Cámara BT</th>
-                <th>Nivel de Rio (msnm)</th>
+                <th>Caudal BT(m³/h)</th>
+                <th>Nivel Cámara BT</th>
+                <th>Nivel Rio (msnm)</th>
                 <th>Equipos Operando</th>
-                <th>Dosificación Polimero</th>
-                <th>Dosificación Permanganato</th>
-                <th>Dosificación CAL</th>
-                <th>Cloro</th>
-                <th>Cloro residual</th>
-                <th>Niveles tanques %</th>
+                <th colspan="2">Coagulante</th>
+                             
+                                
+                <th colspan="2">Dosificación Polimero</th>
+                <th colspan="2" >Dosificación Permanganato</th>
+                <th colspan="2" >Dosificación CAL</th>
+                <th colspan="2" >Dosificación Carbon</th>
+                <th>Cloro mg/L</th>
+                <th colspan="2" >Cloro residual</th>
+                <th colspan="2" >Niveles tanques %</th>
               </tr>
               <tr>
                 <th></th>
@@ -361,8 +412,10 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
-                <th></th>
+                <th>%</th>
+                <th>mg/L</th>
+                <th>%</th>
+                <th>mg/L</th>
                 <th>%</th>
                 <th>mg/L</th>
                 <th>%</th>
@@ -378,29 +431,45 @@
              
                
                <!-- Datos desde el controlador, se rellena la tabla con la info -->
-               @foreach ($produccion as $prod)
-              <tr>
-                
-                 <td> ---</td>
-                <td> {{ $prod->caudal}}</td>
                
-                <td> {{ $prod->cloro_residual}}</td>
-                <td> {{ $prod->nivel_camara}}</td>
+               @for ($i = 1; $i < 25; $i++)
+              <tr>
+                <!-- imprime las horas -->
+                <td>{{$i}}</td>
+                <td> </td>
+               
+                <td> </td>
+                <td> </td>
                 <td> </td>
 
-                <td>
-                   @foreach ($datos as $dat)
-                          {{ $dat->id_equipo}}
-                   @endforeach 
+                <td> </td>
 
+                <td> 
+                    @foreach ($consumos as $prod)
+                            {{$prod->dosis}}
+                    @endforeach 
+            
                 </td>
-                @endforeach 
-
-                </tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
                 
-              
+                
 
-               
+               </tr>
+                @endfor
+              
+   
 
            
                 
@@ -421,6 +490,8 @@
 
 </div>
 
-
+     @foreach ($consumos as $prod)
+                            {{$prod->dosis}}
+     @endforeach 
 </body>
 </html>
