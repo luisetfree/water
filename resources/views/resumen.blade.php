@@ -458,12 +458,483 @@
                 <td>{{ $i}}:00</td>
                 @endif
                 
-                 
-                <td> </td>
-               
-                <td> </td>
-                <td> </td>
-                <td> </td>
+                 <!-- Caudal de BT -->
+                <td> 
+                     @switch($i)
+                                 
+                                @case(1)
+                                       @foreach ($datos_bt_1 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                             
+                                @case(2)
+                                     @foreach ($datos_bt_2 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @case(3)
+                                       @foreach ($datos_bt_3 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                                 @case(4)
+                                     @foreach ($datos_bt_4 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                                 @case(5)
+                                       @foreach ($datos_bt_5 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                                @case(6)
+                                      @foreach ($datos_bt_6 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                                @case(7)
+                                      @foreach ($datos_bt_7 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                                @case(8)
+                                    
+                                     @foreach ($datos_bt_8 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                                @case(9)
+                                       @foreach ($datos_bt_9 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                                @case(10)
+                                       @foreach ($datos_bt_10 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                                @case(11)
+                                       @foreach ($datos_bt_11 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                                 @case(12)
+                                      @foreach ($datos_bt_12 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                                 @case(13)
+                                       @foreach ($datos_bt_13 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                                 @case(14)
+                                       @foreach ($datos_bt_14 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                                 @case(15)
+                                       @foreach ($datos_bt_15 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                                 @case(16)
+                                       @foreach ($datos_bt_16 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                                 @case(17)
+                                       @foreach ($datos_bt_17 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                                 @case(18)
+                                      @foreach ($datos_bt_18 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                                 @case(19)
+                                       @foreach ($datos_bt_19 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                                 @case(20)
+                                       @foreach ($datos_bt_20 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                                @case(21)
+                                       @foreach ($datos_bt_21 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                                @case(22)
+                                       @foreach ($datos_bt_22 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                                @case(23)
+                                       @foreach ($datos_bt_23 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                                @case(24)
+                                       @foreach ($datos_bt_24 as $prod)
+                                          {{$prod->caudal}}
+                                      @endforeach
+                                @break
+                             
+                                @default
+                                    ------
+                        @endswitch
+                </td>
+               <!-- Nivel de camara % BT -->
+                <td>
+                    @switch($i)
+                                 
+                                @case(1)
+                                       @foreach ($datos_bt_1 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                             
+                                @case(2)
+                                     @foreach ($datos_bt_2 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @case(3)
+                                       @foreach ($datos_bt_3 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(4)
+                                     @foreach ($datos_bt_4 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(5)
+                                       @foreach ($datos_bt_5 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(6)
+                                      @foreach ($datos_bt_6 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(7)
+                                      @foreach ($datos_bt_7 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(8)
+                                    
+                                     @foreach ($datos_bt_8 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(9)
+                                       @foreach ($datos_bt_9 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(10)
+                                       @foreach ($datos_bt_10 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(11)
+                                       @foreach ($datos_bt_11 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(12)
+                                      @foreach ($datos_bt_12 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(13)
+                                       @foreach ($datos_bt_13 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(14)
+                                       @foreach ($datos_bt_14 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(15)
+                                       @foreach ($datos_bt_15 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(16)
+                                       @foreach ($datos_bt_16 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(17)
+                                       @foreach ($datos_bt_17 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(18)
+                                      @foreach ($datos_bt_18 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(19)
+                                       @foreach ($datos_bt_19 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(20)
+                                       @foreach ($datos_bt_20 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(21)
+                                       @foreach ($datos_bt_21 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(22)
+                                       @foreach ($datos_bt_22 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(23)
+                                       @foreach ($datos_bt_23 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(24)
+                                       @foreach ($datos_bt_24 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                             
+                                @default
+                                    ------
+                        @endswitch
+
+
+                </td>
+                <!-- Nivel del Rio -->
+                <td>
+                    @switch($i)
+                                 
+                                @case(1)
+                                       @foreach ($datos_bt_1 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                             
+                                @case(2)
+                                     @foreach ($datos_bt_2 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @case(3)
+                                       @foreach ($datos_bt_3 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                                 @case(4)
+                                     @foreach ($datos_bt_4 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                                 @case(5)
+                                       @foreach ($datos_bt_5 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                                @case(6)
+                                      @foreach ($datos_bt_6 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                                @case(7)
+                                      @foreach ($datos_bt_7 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                                @case(8)
+                                    
+                                     @foreach ($datos_bt_8 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                                @case(9)
+                                       @foreach ($datos_bt_9 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                                @case(10)
+                                       @foreach ($datos_bt_10 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                                @case(11)
+                                       @foreach ($datos_bt_11 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                                 @case(12)
+                                      @foreach ($datos_bt_12 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                                 @case(13)
+                                       @foreach ($datos_bt_13 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                                 @case(14)
+                                       @foreach ($datos_bt_14 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                                 @case(15)
+                                       @foreach ($datos_bt_15 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                                 @case(16)
+                                       @foreach ($datos_bt_16 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                                 @case(17)
+                                       @foreach ($datos_bt_17 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                                 @case(18)
+                                      @foreach ($datos_bt_18 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                                 @case(19)
+                                       @foreach ($datos_bt_19 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                                 @case(20)
+                                       @foreach ($datos_bt_20 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                                @case(21)
+                                       @foreach ($datos_bt_21 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                                @case(22)
+                                       @foreach ($datos_bt_22 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                                @case(23)
+                                       @foreach ($datos_bt_23 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                                @case(24)
+                                       @foreach ($datos_bt_24 as $prod)
+                                          {{$prod->nivel_rio}}
+                                      @endforeach
+                                @break
+                             
+                                @default
+                                    ------
+                        @endswitch
+                </td>
+
+                <!-- Equipos Operando -->
+                <td>
+                    @switch($i)
+                                 
+                                @case(1)
+                                     
+                                @break
+                             
+                                @case(2)
+                                    
+                                @case(3)
+                                      
+                                @break
+                                 @case(4)
+                                    
+                                @break
+                                 @case(5)
+                                      
+                                @break
+                                @case(6)
+                                     
+                                @break
+                                @case(7)
+                                     
+                                @break
+                                @case(8)
+                                    
+
+                                @break
+                                @case(9)
+                                      
+                                @break
+                                @case(10)
+                                      
+                                @break
+                                @case(11)
+                                     
+                                @break
+                                 @case(12)
+                                     
+                                @break
+                                 @case(13)
+                                      
+                                @break
+                                 @case(14)
+                                      {{$eq_oper_14}}
+                                @break
+                                 @case(15)
+                                      
+                                @break
+                                 @case(16)
+                                      
+                                @break
+                                 @case(17)
+                                      
+                                @break
+                                 @case(18)
+                                      
+                                @break
+                                 @case(19)
+                                      
+                                @break
+                                 @case(20)
+                                      
+                                @break
+                                @case(21)
+                                      
+                                @break
+                                @case(22)
+                                      
+                                @break
+                                @case(23)
+                                      
+                                @break
+                                @case(24)
+                                      
+                                @break
+                             
+                                @default
+                                    ------
+                        @endswitch
+                    
+
+                </td>
 
                 <td> </td>
                 <!-- datos Coagulante, controlando las horas -->
@@ -1127,7 +1598,93 @@
                         @endswitch 
                 </td>
                 <!-- Cloro -->
-                <td>cloro </td>
+            <td>
+                   @switch($i)
+                                 
+                                @case(1)
+                                      {{$cloro_hora_1}}
+                                @break
+                             
+                                @case(2)
+                                   {{$cloro_hora_2}} 
+                                @case(3)
+                                    {{$cloro_hora_3}}  
+                                @break
+                                 @case(4)
+                                    {{$cloro_hora_4}}
+                                @break
+                                 @case(5)
+                                    {{$cloro_hora_5}}  
+                                @break
+                                @case(6)
+                                    {{$cloro_hora_6}} 
+                                @break
+                                @case(7)
+                                    {{$cloro_hora_7}} 
+                                @break
+                                @case(8)
+                                   {{$cloro_hora_8}} 
+
+                                @break
+                                @case(9)
+                                    {{$cloro_hora_9}}  
+                                @break
+                                @case(10)
+                                     {{$cloro_hora_10}} 
+                                @break
+                                @case(11)
+                                      {{$cloro_hora_11}}
+                                @break
+                                 @case(12)
+                                     {{$cloro_hora_12}} 
+                                @break
+                                 @case(13)
+                                     {{$cloro_hora_13}}
+                                @break
+                                 @case(14)
+                                    {{$cloro_hora_14}}  
+                                @break
+                                 @case(15)
+                                    {{$cloro_hora_15}}  
+                                @break
+                                 @case(16)
+                                    {{$cloro_hora_16}}  
+                                @break
+                                 @case(17)
+                                    {{$cloro_hora_17}}  
+                                @break
+                                 @case(18)
+                                     {{$cloro_hora_18}} 
+                                @break
+                                 @case(19)
+                                      {{$cloro_hora_19}}
+                                @break
+                                 @case(20)
+                                     {{$cloro_hora_20}} 
+                                @break
+                                @case(21)
+                                   {{$cloro_hora_21}}   
+                                @break
+                                @case(22)
+                                     {{$cloro_hora_22}} 
+                                @break
+                                @case(23)
+                                     {{$cloro_hora_23}} 
+                                @break
+                                @case(24)
+                                    {{$cloro_hora_24}}  
+                                @break
+                             
+                                @default
+                                    ------
+                        @endswitch 
+
+                            
+                    
+                  
+                
+           
+            </td>
                 <td>eb2 </td>
                 <td> eb3</td>
                 <td> </td>

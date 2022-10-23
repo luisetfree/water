@@ -256,13 +256,112 @@ $con_cal_23=$this->datosConsumo($fecha,$hora_23,$id_cal);
 $con_cal_24=$this->datosConsumo($fecha,$hora_24,$id_cal);
 
        /*CALCULO DE CLORO*/
-       //Verificar la conversion de tipos para este dato----considerar hacer la operacion en la vista
-       //$cloro_hora_1=$this->calculoCloroAplicado($fecha,$hora_1,$id_cloro,$id_bocatoma);
+       
+       $cloro_hora_1=$this->calculoCloroAplicado($fecha,$hora_1,$id_cloro,$id_bocatoma);
+       $cloro_hora_2=$this->calculoCloroAplicado($fecha,$hora_2,$id_cloro,$id_bocatoma);
+       $cloro_hora_3=$this->calculoCloroAplicado($fecha,$hora_3,$id_cloro,$id_bocatoma);
+       $cloro_hora_4=$this->calculoCloroAplicado($fecha,$hora_4,$id_cloro,$id_bocatoma);
+       $cloro_hora_5=$this->calculoCloroAplicado($fecha,$hora_5,$id_cloro,$id_bocatoma);
+       $cloro_hora_6=$this->calculoCloroAplicado($fecha,$hora_6,$id_cloro,$id_bocatoma);
+       $cloro_hora_7=$this->calculoCloroAplicado($fecha,$hora_7,$id_cloro,$id_bocatoma);
+       $cloro_hora_8=$this->calculoCloroAplicado($fecha,$hora_8,$id_cloro,$id_bocatoma);
+       $cloro_hora_9=$this->calculoCloroAplicado($fecha,$hora_9,$id_cloro,$id_bocatoma);
+       $cloro_hora_10=$this->calculoCloroAplicado($fecha,$hora_10,$id_cloro,$id_bocatoma);       
+       $cloro_hora_11=$this->calculoCloroAplicado($fecha,$hora_11,$id_cloro,$id_bocatoma);
+       $cloro_hora_12=$this->calculoCloroAplicado($fecha,$hora_12,$id_cloro,$id_bocatoma);
+       $cloro_hora_13=$this->calculoCloroAplicado($fecha,$hora_13,$id_cloro,$id_bocatoma);
+       $cloro_hora_14=$this->calculoCloroAplicado($fecha,$hora_14,$id_cloro,$id_bocatoma);
+       $cloro_hora_15=$this->calculoCloroAplicado($fecha,$hora_15,$id_cloro,$id_bocatoma);
+       $cloro_hora_16=$this->calculoCloroAplicado($fecha,$hora_16,$id_cloro,$id_bocatoma);
+       $cloro_hora_17=$this->calculoCloroAplicado($fecha,$hora_17,$id_cloro,$id_bocatoma);
+       $cloro_hora_18=$this->calculoCloroAplicado($fecha,$hora_18,$id_cloro,$id_bocatoma);
+       $cloro_hora_19=$this->calculoCloroAplicado($fecha,$hora_19,$id_cloro,$id_bocatoma);
+       $cloro_hora_20=$this->calculoCloroAplicado($fecha,$hora_20,$id_cloro,$id_bocatoma);
+       $cloro_hora_21=$this->calculoCloroAplicado($fecha,$hora_21,$id_cloro,$id_bocatoma);
+       $cloro_hora_22=$this->calculoCloroAplicado($fecha,$hora_22,$id_cloro,$id_bocatoma);
+       $cloro_hora_23=$this->calculoCloroAplicado($fecha,$hora_23,$id_cloro,$id_bocatoma);
+       $cloro_hora_24=$this->calculoCloroAplicado($fecha,$hora_24,$id_cloro,$id_bocatoma);
+
+
+       /*DATOS DE BOCATOMA*/
+
+       $datos_bt_1=$this->datosBT($fecha,$hora_1,$id_bocatoma);
+       $datos_bt_2=$this->datosBT($fecha,$hora_2,$id_bocatoma);
+       $datos_bt_3=$this->datosBT($fecha,$hora_3,$id_bocatoma);
+       $datos_bt_4=$this->datosBT($fecha,$hora_4,$id_bocatoma);
+       $datos_bt_5=$this->datosBT($fecha,$hora_5,$id_bocatoma);
+       $datos_bt_6=$this->datosBT($fecha,$hora_6,$id_bocatoma);
+       $datos_bt_7=$this->datosBT($fecha,$hora_7,$id_bocatoma);
+       $datos_bt_8=$this->datosBT($fecha,$hora_8,$id_bocatoma);
+       $datos_bt_9=$this->datosBT($fecha,$hora_9,$id_bocatoma);
+       $datos_bt_10=$this->datosBT($fecha,$hora_10,$id_bocatoma);
+       $datos_bt_11=$this->datosBT($fecha,$hora_11,$id_bocatoma);
+       $datos_bt_12=$this->datosBT($fecha,$hora_12,$id_bocatoma);
+       $datos_bt_13=$this->datosBT($fecha,$hora_13,$id_bocatoma);
+       $datos_bt_14=$this->datosBT($fecha,$hora_14,$id_bocatoma);
+       $datos_bt_15=$this->datosBT($fecha,$hora_15,$id_bocatoma);
+       $datos_bt_16=$this->datosBT($fecha,$hora_16,$id_bocatoma);
+       $datos_bt_17=$this->datosBT($fecha,$hora_17,$id_bocatoma);
+       $datos_bt_18=$this->datosBT($fecha,$hora_18,$id_bocatoma);
+       $datos_bt_19=$this->datosBT($fecha,$hora_19,$id_bocatoma);
+       $datos_bt_20=$this->datosBT($fecha,$hora_20,$id_bocatoma);
+       $datos_bt_21=$this->datosBT($fecha,$hora_21,$id_bocatoma);
+       $datos_bt_22=$this->datosBT($fecha,$hora_22,$id_bocatoma);
+       $datos_bt_23=$this->datosBT($fecha,$hora_23,$id_bocatoma);
+       $datos_bt_24=$this->datosBT($fecha,$hora_24,$id_bocatoma);
+
+
+       /*CONTEO EQUIPOS OPERANDO*/
+
+       $eq_oper_1=$this->totalEquiposOperando($fecha,$hora_1,$id_bocatoma);
+       $eq_oper_2=$this->totalEquiposOperando($fecha,$hora_2,$id_bocatoma);
+       $eq_oper_3=$this->totalEquiposOperando($fecha,$hora_3,$id_bocatoma);
+       $eq_oper_4=$this->totalEquiposOperando($fecha,$hora_4,$id_bocatoma);
+       $eq_oper_5=$this->totalEquiposOperando($fecha,$hora_5,$id_bocatoma);
+       $eq_oper_6=$this->totalEquiposOperando($fecha,$hora_6,$id_bocatoma);
+       $eq_oper_7=$this->totalEquiposOperando($fecha,$hora_7,$id_bocatoma);
+       $eq_oper_8=$this->totalEquiposOperando($fecha,$hora_8,$id_bocatoma);
+       $eq_oper_9=$this->totalEquiposOperando($fecha,$hora_9,$id_bocatoma);
+       $eq_oper_11=$this->totalEquiposOperando($fecha,$hora_11,$id_bocatoma);
+       $eq_oper_12=$this->totalEquiposOperando($fecha,$hora_12,$id_bocatoma);
+       $eq_oper_13=$this->totalEquiposOperando($fecha,$hora_13,$id_bocatoma);
+       $eq_oper_14=$this->totalEquiposOperando($fecha,$hora_14,$id_bocatoma);
+       $eq_oper_15=$this->totalEquiposOperando($fecha,$hora_15,$id_bocatoma);
+       $eq_oper_16=$this->totalEquiposOperando($fecha,$hora_16,$id_bocatoma);
+       $eq_oper_17=$this->totalEquiposOperando($fecha,$hora_17,$id_bocatoma);
+       $eq_oper_18=$this->totalEquiposOperando($fecha,$hora_18,$id_bocatoma);
+       $eq_oper_19=$this->totalEquiposOperando($fecha,$hora_19,$id_bocatoma);
+       $eq_oper_20=$this->totalEquiposOperando($fecha,$hora_20,$id_bocatoma);
+       $eq_oper_21=$this->totalEquiposOperando($fecha,$hora_21,$id_bocatoma);
+       $eq_oper_22=$this->totalEquiposOperando($fecha,$hora_22,$id_bocatoma);
+       $eq_oper_23=$this->totalEquiposOperando($fecha,$hora_23,$id_bocatoma);
+       $eq_oper_24=$this->totalEquiposOperando($fecha,$hora_24,$id_bocatoma);
+
+
 
          //Enviando a vista resumen los datos de produccion de Bocatoma para mostrarlos en la tabla, tambien la variable $estacion permite obtener informacion de la tabla estacions
-        return view ('resumen', compact ('estacion','produccion','datos','con_coagu_1','con_coagu_2','con_coagu_3','con_coagu_4','con_coagu_5','con_coagu_6','con_coagu_7','con_coagu_8','con_coagu_9','con_coagu_10','con_coagu_11','con_coagu_12','con_coagu_13','con_coagu_14','con_coagu_15','con_coagu_16','con_coagu_17','con_coagu_18','con_coagu_19','con_coagu_20','con_coagu_21','con_coagu_22','con_coagu_23','con_coagu_24','con_poli_1','con_poli_2','con_poli_3','con_poli_4','con_poli_5','con_poli_6','con_poli_7','con_poli_8','con_poli_9','con_poli_10','con_poli_11','con_poli_12','con_poli_13','con_poli_14','con_poli_15','con_poli_16','con_poli_17','con_poli_18','con_poli_19','con_poli_20','con_poli_21','con_poli_22','con_poli_23','con_poli_24','con_perm_1','con_perm_2','con_perm_3','con_perm_4','con_perm_5','con_perm_6','con_perm_7','con_perm_8','con_perm_9','con_perm_10','con_perm_11','con_perm_12','con_perm_13','con_perm_14','con_perm_15','con_perm_16','con_perm_17','con_perm_18','con_perm_19','con_perm_20','con_perm_21','con_perm_22','con_perm_23','con_perm_24','con_carbon_1','con_carbon_2','con_carbon_3','con_carbon_4','con_carbon_5','con_carbon_6','con_carbon_7','con_carbon_8','con_carbon_9','con_carbon_10','con_carbon_11','con_carbon_12','con_carbon_13','con_carbon_14','con_carbon_15','con_carbon_16','con_carbon_17','con_carbon_18','con_carbon_19','con_carbon_20','con_carbon_21','con_carbon_22','con_carbon_23','con_carbon_24','con_cal_1','con_cal_2','con_cal_3','con_cal_4','con_cal_5','con_cal_6','con_cal_7','con_cal_8','con_cal_9','con_cal_10','con_cal_11','con_cal_12','con_cal_13','con_cal_14','con_cal_15','con_cal_16','con_cal_17','con_cal_18','con_cal_19','con_cal_20','con_cal_21','con_cal_22','con_cal_23','con_cal_24'));
+        return view ('resumen', compact ('estacion','produccion','datos','con_coagu_1','con_coagu_2','con_coagu_3','con_coagu_4','con_coagu_5','con_coagu_6','con_coagu_7','con_coagu_8','con_coagu_9','con_coagu_10','con_coagu_11','con_coagu_12','con_coagu_13','con_coagu_14','con_coagu_15','con_coagu_16','con_coagu_17','con_coagu_18','con_coagu_19','con_coagu_20','con_coagu_21','con_coagu_22','con_coagu_23','con_coagu_24','con_poli_1','con_poli_2','con_poli_3','con_poli_4','con_poli_5','con_poli_6','con_poli_7','con_poli_8','con_poli_9','con_poli_10','con_poli_11','con_poli_12','con_poli_13','con_poli_14','con_poli_15','con_poli_16','con_poli_17','con_poli_18','con_poli_19','con_poli_20','con_poli_21','con_poli_22','con_poli_23','con_poli_24','con_perm_1','con_perm_2','con_perm_3','con_perm_4','con_perm_5','con_perm_6','con_perm_7','con_perm_8','con_perm_9','con_perm_10','con_perm_11','con_perm_12','con_perm_13','con_perm_14','con_perm_15','con_perm_16','con_perm_17','con_perm_18','con_perm_19','con_perm_20','con_perm_21','con_perm_22','con_perm_23','con_perm_24','con_carbon_1','con_carbon_2','con_carbon_3','con_carbon_4','con_carbon_5','con_carbon_6','con_carbon_7','con_carbon_8','con_carbon_9','con_carbon_10','con_carbon_11','con_carbon_12','con_carbon_13','con_carbon_14','con_carbon_15','con_carbon_16','con_carbon_17','con_carbon_18','con_carbon_19','con_carbon_20','con_carbon_21','con_carbon_22','con_carbon_23','con_carbon_24','con_cal_1','con_cal_2','con_cal_3','con_cal_4','con_cal_5','con_cal_6','con_cal_7','con_cal_8','con_cal_9','con_cal_10','con_cal_11','con_cal_12','con_cal_13','con_cal_14','con_cal_15','con_cal_16','con_cal_17','con_cal_18','con_cal_19','con_cal_20','con_cal_21','con_cal_22','con_cal_23','con_cal_24','cloro_hora_1','cloro_hora_2','cloro_hora_3','cloro_hora_4','cloro_hora_5','cloro_hora_6','cloro_hora_7','cloro_hora_8','cloro_hora_9','cloro_hora_10','cloro_hora_11','cloro_hora_12','cloro_hora_13','cloro_hora_14','cloro_hora_15','cloro_hora_16','cloro_hora_17','cloro_hora_18','cloro_hora_19','cloro_hora_20','cloro_hora_21','cloro_hora_22','cloro_hora_23','cloro_hora_24','datos_bt_1','datos_bt_2','datos_bt_3','datos_bt_4','datos_bt_5','datos_bt_6','datos_bt_7','datos_bt_8','datos_bt_9','datos_bt_10','datos_bt_11','datos_bt_12','datos_bt_13','datos_bt_14','datos_bt_15','datos_bt_16','datos_bt_17','datos_bt_18','datos_bt_19','datos_bt_20','datos_bt_21','datos_bt_22','datos_bt_23','datos_bt_24','eq_oper_14'));
 
     }
+
+
+/*funcion que cuenta el total de equipos operando segun fecha,hora,idBocatoma*/
+public function totalEquiposOperando($fecha,$hora,$id_bocatoma){
+
+     $operando = DB::table('operacions')
+            ->join('equipos', 'operacions.id_equipo', '=', 'equipos.id')
+            ->join('estacions', 'equipos.id_estacion', '=', 'estacions.id')
+            ->select('operacions.*','equipos.*','estacions.*')
+            ->whereDate('operacions.created_at', '=', $fecha)
+            ->where('operacions.hora', '=', $hora)
+            ->where('estacions.id','=',$id_bocatoma)
+            ->where('estado','=','Operando')
+            ->get()
+            ->count();
+
+     return $operando;       
+
+}
 
 
 
@@ -293,7 +392,7 @@ $cloroAplicado=DB::table('consumos')
                 ->whereDate('created_at', '=', $fecha)
                 ->where('id_quimico', '=', $id_cloro)
                 ->get();
-//$conversion_cloro= intval($cloroAplicado) ;//convirtiendo a entero
+
 
 $caudal_bt=DB::table('produccions')
                 ->select('caudal')
@@ -301,10 +400,40 @@ $caudal_bt=DB::table('produccions')
                 ->whereDate('created_at', '=', $fecha)
                 ->where('id_estacion', '=', $id_bocatoma)
                 ->get();
-   // $conversion_bt=intval($caudal_bt);//convirtiendo a entero
 
-    //division de cloro/caudalBT
-                return $calculo= $cloroAplicado/$caudal_bt; //$conversion_cloro/$conversion_bt;
+
+//recorre los datos de ambas busquedas y realiza el calculo dosis_cloro/Caudal_bt
+    foreach ($cloroAplicado as $dato) {
+    
+
+        foreach ($caudal_bt as $cau){
+                //retornando los valores y realizando calculo y division, round para redondear con 2 decimales
+            return round((($dato->dosis)*1000)/($cau->caudal), 2);
+
+        }
+
+    }
+
+
+
+}
+
+
+/*Funcion exclusiva para extraer el caudal,nivelcamara,nivelrio,equiposOperando de BT segun fecha y hora,
+se mostrará en tabla principal de vista resumen */
+public function datosBT($fecha,$hora,$id_bt){
+
+ $produccion = DB::table('produccions')
+            //->join('estacions', 'produccions.id_estacion', '=', 'estacions.id')
+                ->select('produccions.*')
+                ->where('id_estacion','=',$id_bt)
+                ->where('hora', '>=', $hora)
+                ->whereDate('updated_at', '>=', $fecha)
+                ->get();
+
+  return $produccion;
+
+
 
 }
 
