@@ -451,10 +451,34 @@ $con_cal_24=$this->datosConsumo($fecha,$hora_24,$id_cal);
        $bv_24=$this->nivelTanque($fecha,$hora_24,$id_BellaV);
 
 
-
+        /*VERIFICACION DE HORAS GUARDADAS*/
+       $dato_hora_1=$this->buscarHora($fecha,$hora_1,$id_bocatoma);
+       $dato_hora_2=$this->buscarHora($fecha,$hora_2,$id_bocatoma);
+       $dato_hora_3=$this->buscarHora($fecha,$hora_3,$id_bocatoma);
+       $dato_hora_4=$this->buscarHora($fecha,$hora_4,$id_bocatoma);
+       $dato_hora_5=$this->buscarHora($fecha,$hora_5,$id_bocatoma);
+       $dato_hora_6=$this->buscarHora($fecha,$hora_6,$id_bocatoma);
+       $dato_hora_7=$this->buscarHora($fecha,$hora_7,$id_bocatoma);
+       $dato_hora_8=$this->buscarHora($fecha,$hora_8,$id_bocatoma);
+       $dato_hora_9=$this->buscarHora($fecha,$hora_9,$id_bocatoma);
+       $dato_hora_10=$this->buscarHora($fecha,$hora_10,$id_bocatoma);
+       $dato_hora_11=$this->buscarHora($fecha,$hora_11,$id_bocatoma);
+       $dato_hora_12=$this->buscarHora($fecha,$hora_12,$id_bocatoma);
+       $dato_hora_13=$this->buscarHora($fecha,$hora_13,$id_bocatoma);
+       $dato_hora_14=$this->buscarHora($fecha,$hora_14,$id_bocatoma);
+       $dato_hora_15=$this->buscarHora($fecha,$hora_15,$id_bocatoma);
+       $dato_hora_16=$this->buscarHora($fecha,$hora_16,$id_bocatoma);
+       $dato_hora_17=$this->buscarHora($fecha,$hora_17,$id_bocatoma);
+       $dato_hora_18=$this->buscarHora($fecha,$hora_18,$id_bocatoma);
+       $dato_hora_19=$this->buscarHora($fecha,$hora_19,$id_bocatoma);
+       $dato_hora_20=$this->buscarHora($fecha,$hora_20,$id_bocatoma);
+       $dato_hora_21=$this->buscarHora($fecha,$hora_21,$id_bocatoma);
+       $dato_hora_22=$this->buscarHora($fecha,$hora_22,$id_bocatoma);
+       $dato_hora_23=$this->buscarHora($fecha,$hora_23,$id_bocatoma);
+       $dato_hora_24=$this->buscarHora($fecha,$hora_24,$id_bocatoma);
 
          //Enviando a vista resumen los datos de produccion de Bocatoma para mostrarlos en la tabla, tambien la variable $estacion permite obtener informacion de la tabla estacions
-        return view ('resumen', compact ('estacion','produccion','datos','con_coagu_1','con_coagu_2','con_coagu_3','con_coagu_4','con_coagu_5','con_coagu_6','con_coagu_7','con_coagu_8','con_coagu_9','con_coagu_10','con_coagu_11','con_coagu_12','con_coagu_13','con_coagu_14','con_coagu_15','con_coagu_16','con_coagu_17','con_coagu_18','con_coagu_19','con_coagu_20','con_coagu_21','con_coagu_22','con_coagu_23','con_coagu_24','con_poli_1','con_poli_2','con_poli_3','con_poli_4','con_poli_5','con_poli_6','con_poli_7','con_poli_8','con_poli_9','con_poli_10','con_poli_11','con_poli_12','con_poli_13','con_poli_14','con_poli_15','con_poli_16','con_poli_17','con_poli_18','con_poli_19','con_poli_20','con_poli_21','con_poli_22','con_poli_23','con_poli_24','con_perm_1','con_perm_2','con_perm_3','con_perm_4','con_perm_5','con_perm_6','con_perm_7','con_perm_8','con_perm_9','con_perm_10','con_perm_11','con_perm_12','con_perm_13','con_perm_14','con_perm_15','con_perm_16','con_perm_17','con_perm_18','con_perm_19','con_perm_20','con_perm_21','con_perm_22','con_perm_23','con_perm_24','con_carbon_1','con_carbon_2','con_carbon_3','con_carbon_4','con_carbon_5','con_carbon_6','con_carbon_7','con_carbon_8','con_carbon_9','con_carbon_10','con_carbon_11','con_carbon_12','con_carbon_13','con_carbon_14','con_carbon_15','con_carbon_16','con_carbon_17','con_carbon_18','con_carbon_19','con_carbon_20','con_carbon_21','con_carbon_22','con_carbon_23','con_carbon_24','con_cal_1','con_cal_2','con_cal_3','con_cal_4','con_cal_5','con_cal_6','con_cal_7','con_cal_8','con_cal_9','con_cal_10','con_cal_11','con_cal_12','con_cal_13','con_cal_14','con_cal_15','con_cal_16','con_cal_17','con_cal_18','con_cal_19','con_cal_20','con_cal_21','con_cal_22','con_cal_23','con_cal_24','cloro_hora_1','cloro_hora_2','cloro_hora_3','cloro_hora_4','cloro_hora_5','cloro_hora_6','cloro_hora_7','cloro_hora_8','cloro_hora_9','cloro_hora_10','cloro_hora_11','cloro_hora_12','cloro_hora_13','cloro_hora_14','cloro_hora_15','cloro_hora_16','cloro_hora_17','cloro_hora_18','cloro_hora_19','cloro_hora_20','cloro_hora_21','cloro_hora_22','cloro_hora_23','cloro_hora_24','datos_bt_1','datos_bt_2','datos_bt_3','datos_bt_4','datos_bt_5','datos_bt_6','datos_bt_7','datos_bt_8','datos_bt_9','datos_bt_10','datos_bt_11','datos_bt_12','datos_bt_13','datos_bt_14','datos_bt_15','datos_bt_16','datos_bt_17','datos_bt_18','datos_bt_19','datos_bt_20','datos_bt_21','datos_bt_22','datos_bt_23','datos_bt_24','eq_oper_1','eq_oper_2','eq_oper_3','eq_oper_4','eq_oper_5','eq_oper_5','eq_oper_6','eq_oper_7','eq_oper_8','eq_oper_9','eq_oper_10','eq_oper_11','eq_oper_12','eq_oper_13','eq_oper_14','eq_oper_15','eq_oper_16','eq_oper_17','eq_oper_18','eq_oper_19','eq_oper_20','eq_oper_21','eq_oper_22','eq_oper_23','eq_oper_24','cl_eb2_1','cl_eb2_2','cl_eb2_3','cl_eb2_4','cl_eb2_5','cl_eb2_6','cl_eb2_7','cl_eb2_8','cl_eb2_9','cl_eb2_10','cl_eb2_11','cl_eb2_12','cl_eb2_13','cl_eb2_14','cl_eb2_15','cl_eb2_16','cl_eb2_17','cl_eb2_18','cl_eb2_19','cl_eb2_20','cl_eb2_21','cl_eb2_22','cl_eb2_23','cl_eb2_24','cl_eb3_1','cl_eb3_2','cl_eb3_3','cl_eb3_4','cl_eb3_5','cl_eb3_6','cl_eb3_7','cl_eb3_8','cl_eb3_9','cl_eb3_10','cl_eb3_11','cl_eb3_12','cl_eb3_13','cl_eb3_14','cl_eb3_15','cl_eb3_16','cl_eb3_17','cl_eb3_18','cl_eb3_19','cl_eb3_20','cl_eb3_21','cl_eb3_22','cl_eb3_23','cl_eb3_24','terminal_1','terminal_2','terminal_3','terminal_4','terminal_5','terminal_6','terminal_7','terminal_8','terminal_9','terminal_10','terminal_11','terminal_12','terminal_13','terminal_14','terminal_15','terminal_16','terminal_17','terminal_18','terminal_19','terminal_20','terminal_21','terminal_22','terminal_23','terminal_24','bv_1','bv_2','bv_3','bv_4','bv_5','bv_6','bv_7','bv_8','bv_9','bv_10','bv_11','bv_12','bv_13','bv_14','bv_15','bv_16','bv_17','bv_18','bv_19','bv_20','bv_21','bv_22','bv_23','bv_24'));
+        return view ('resumen', compact ('estacion','produccion','datos','con_coagu_1','con_coagu_2','con_coagu_3','con_coagu_4','con_coagu_5','con_coagu_6','con_coagu_7','con_coagu_8','con_coagu_9','con_coagu_10','con_coagu_11','con_coagu_12','con_coagu_13','con_coagu_14','con_coagu_15','con_coagu_16','con_coagu_17','con_coagu_18','con_coagu_19','con_coagu_20','con_coagu_21','con_coagu_22','con_coagu_23','con_coagu_24','con_poli_1','con_poli_2','con_poli_3','con_poli_4','con_poli_5','con_poli_6','con_poli_7','con_poli_8','con_poli_9','con_poli_10','con_poli_11','con_poli_12','con_poli_13','con_poli_14','con_poli_15','con_poli_16','con_poli_17','con_poli_18','con_poli_19','con_poli_20','con_poli_21','con_poli_22','con_poli_23','con_poli_24','con_perm_1','con_perm_2','con_perm_3','con_perm_4','con_perm_5','con_perm_6','con_perm_7','con_perm_8','con_perm_9','con_perm_10','con_perm_11','con_perm_12','con_perm_13','con_perm_14','con_perm_15','con_perm_16','con_perm_17','con_perm_18','con_perm_19','con_perm_20','con_perm_21','con_perm_22','con_perm_23','con_perm_24','con_carbon_1','con_carbon_2','con_carbon_3','con_carbon_4','con_carbon_5','con_carbon_6','con_carbon_7','con_carbon_8','con_carbon_9','con_carbon_10','con_carbon_11','con_carbon_12','con_carbon_13','con_carbon_14','con_carbon_15','con_carbon_16','con_carbon_17','con_carbon_18','con_carbon_19','con_carbon_20','con_carbon_21','con_carbon_22','con_carbon_23','con_carbon_24','con_cal_1','con_cal_2','con_cal_3','con_cal_4','con_cal_5','con_cal_6','con_cal_7','con_cal_8','con_cal_9','con_cal_10','con_cal_11','con_cal_12','con_cal_13','con_cal_14','con_cal_15','con_cal_16','con_cal_17','con_cal_18','con_cal_19','con_cal_20','con_cal_21','con_cal_22','con_cal_23','con_cal_24','cloro_hora_1','cloro_hora_2','cloro_hora_3','cloro_hora_4','cloro_hora_5','cloro_hora_6','cloro_hora_7','cloro_hora_8','cloro_hora_9','cloro_hora_10','cloro_hora_11','cloro_hora_12','cloro_hora_13','cloro_hora_14','cloro_hora_15','cloro_hora_16','cloro_hora_17','cloro_hora_18','cloro_hora_19','cloro_hora_20','cloro_hora_21','cloro_hora_22','cloro_hora_23','cloro_hora_24','datos_bt_1','datos_bt_2','datos_bt_3','datos_bt_4','datos_bt_5','datos_bt_6','datos_bt_7','datos_bt_8','datos_bt_9','datos_bt_10','datos_bt_11','datos_bt_12','datos_bt_13','datos_bt_14','datos_bt_15','datos_bt_16','datos_bt_17','datos_bt_18','datos_bt_19','datos_bt_20','datos_bt_21','datos_bt_22','datos_bt_23','datos_bt_24','eq_oper_1','eq_oper_2','eq_oper_3','eq_oper_4','eq_oper_5','eq_oper_5','eq_oper_6','eq_oper_7','eq_oper_8','eq_oper_9','eq_oper_10','eq_oper_11','eq_oper_12','eq_oper_13','eq_oper_14','eq_oper_15','eq_oper_16','eq_oper_17','eq_oper_18','eq_oper_19','eq_oper_20','eq_oper_21','eq_oper_22','eq_oper_23','eq_oper_24','cl_eb2_1','cl_eb2_2','cl_eb2_3','cl_eb2_4','cl_eb2_5','cl_eb2_6','cl_eb2_7','cl_eb2_8','cl_eb2_9','cl_eb2_10','cl_eb2_11','cl_eb2_12','cl_eb2_13','cl_eb2_14','cl_eb2_15','cl_eb2_16','cl_eb2_17','cl_eb2_18','cl_eb2_19','cl_eb2_20','cl_eb2_21','cl_eb2_22','cl_eb2_23','cl_eb2_24','cl_eb3_1','cl_eb3_2','cl_eb3_3','cl_eb3_4','cl_eb3_5','cl_eb3_6','cl_eb3_7','cl_eb3_8','cl_eb3_9','cl_eb3_10','cl_eb3_11','cl_eb3_12','cl_eb3_13','cl_eb3_14','cl_eb3_15','cl_eb3_16','cl_eb3_17','cl_eb3_18','cl_eb3_19','cl_eb3_20','cl_eb3_21','cl_eb3_22','cl_eb3_23','cl_eb3_24','terminal_1','terminal_2','terminal_3','terminal_4','terminal_5','terminal_6','terminal_7','terminal_8','terminal_9','terminal_10','terminal_11','terminal_12','terminal_13','terminal_14','terminal_15','terminal_16','terminal_17','terminal_18','terminal_19','terminal_20','terminal_21','terminal_22','terminal_23','terminal_24','bv_1','bv_2','bv_3','bv_4','bv_5','bv_6','bv_7','bv_8','bv_9','bv_10','bv_11','bv_12','bv_13','bv_14','bv_15','bv_16','bv_17','bv_18','bv_19','bv_20','bv_21','bv_22','bv_23','bv_24','dato_hora_1','dato_hora_2','dato_hora_3','dato_hora_4','dato_hora_5','dato_hora_6','dato_hora_7','dato_hora_8','dato_hora_9','dato_hora_10','dato_hora_11','dato_hora_12','dato_hora_13','dato_hora_14','dato_hora_15','dato_hora_16','dato_hora_17','dato_hora_18','dato_hora_19','dato_hora_20','dato_hora_21','dato_hora_22','dato_hora_23','dato_hora_24'));
 
     }
 
@@ -479,16 +503,25 @@ public function totalEquiposOperando($fecha,$hora,$id_bocatoma){
 
 
 /**
-Funcion que busca las horas que ya fueron ingresadas durante el dia, para mostrar en el select de la vista RESUMEN las horas que faltan por ingresar
+Funcion que busca las horas que ya fueron ingresadas durante el dia, para mostrar en el select de la vista RESUMEN las horas que faltan por ingresar. Se hara la busqueda de acuerdo al caudal de BT
 */
-public function buscarHora($fecha,$hora,$id_quimico){
+public function buscarHora($fecha,$hora,$id_bocatoma){
 
-$caudal_bt=DB::table('produccions')
+$dato=DB::table('produccions')
                 ->select('caudal')
                 ->where('hora','=',$hora)
                 ->whereDate('created_at', '=', $fecha)
                 ->where('id_estacion', '=', $id_bocatoma)
-                ->get();
+                ->get()
+                ->count();
+
+if ($dato > 0) {
+    return "lleno";
+}else {
+return "vacio";
+}
+
+
 }
 
 
