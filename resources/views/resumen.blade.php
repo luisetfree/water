@@ -460,61 +460,62 @@
                 
                  <!-- Caudal de BT -->
                 <td> 
-                     @switch($i)
+                    @switch($i)
                                  
                                 @case(1)
-                                       @foreach ($datos_bt_1 as $prod)
+                                      @foreach ($datos_bt_1 as $prod)
                                           {{$prod->caudal}}
                                       @endforeach
                                 @break
                              
                                 @case(2)
-                                     @foreach ($datos_bt_2 as $prod)
+                                   @foreach ($datos_bt_2 as $prod)
                                           {{$prod->caudal}}
                                       @endforeach
+                                @break
                                 @case(3)
-                                       @foreach ($datos_bt_3 as $prod)
+                                     @foreach ($datos_bt_3 as $prod)
                                           {{$prod->caudal}}
                                       @endforeach
                                 @break
                                  @case(4)
-                                     @foreach ($datos_bt_4 as $prod)
+                                    @foreach ($datos_bt_4 as $prod)
                                           {{$prod->caudal}}
                                       @endforeach
                                 @break
                                  @case(5)
-                                       @foreach ($datos_bt_5 as $prod)
+                                      @foreach ($datos_bt_5 as $prod)
                                           {{$prod->caudal}}
                                       @endforeach
                                 @break
                                 @case(6)
-                                      @foreach ($datos_bt_6 as $prod)
+                                     @foreach ($datos_bt_6 as $prod)
                                           {{$prod->caudal}}
                                       @endforeach
                                 @break
                                 @case(7)
-                                      @foreach ($datos_bt_7 as $prod)
+                                     @foreach ($datos_bt_7 as $prod)
                                           {{$prod->caudal}}
                                       @endforeach
                                 @break
                                 @case(8)
-                                    
-                                     @foreach ($datos_bt_8 as $prod)
+                                   @foreach ($datos_bt_8 as $prod)
                                           {{$prod->caudal}}
                                       @endforeach
+
                                 @break
                                 @case(9)
-                                       @foreach ($datos_bt_9 as $prod)
+                                      @foreach ($datos_bt_9 as $prod)
                                           {{$prod->caudal}}
                                       @endforeach
                                 @break
                                 @case(10)
-                                       @foreach ($datos_bt_10 as $prod)
+                                     @foreach ($datos_bt_10 as $prod)
                                           {{$prod->caudal}}
                                       @endforeach
                                 @break
                                 @case(11)
-                                       @foreach ($datos_bt_11 as $prod)
+                                      @foreach ($datos_bt_11 as $prod)
                                           {{$prod->caudal}}
                                       @endforeach
                                 @break
@@ -524,27 +525,27 @@
                                       @endforeach
                                 @break
                                  @case(13)
-                                       @foreach ($datos_bt_13 as $prod)
+                                      @foreach ($datos_bt_13 as $prod)
                                           {{$prod->caudal}}
                                       @endforeach
                                 @break
                                  @case(14)
-                                       @foreach ($datos_bt_14 as $prod)
+                                      @foreach ($datos_bt_14 as $prod)
                                           {{$prod->caudal}}
                                       @endforeach
                                 @break
                                  @case(15)
-                                       @foreach ($datos_bt_15 as $prod)
+                                     @foreach ($datos_bt_15 as $prod)
                                           {{$prod->caudal}}
                                       @endforeach
                                 @break
                                  @case(16)
-                                       @foreach ($datos_bt_16 as $prod)
+                                     @foreach ($datos_bt_16 as $prod)
                                           {{$prod->caudal}}
                                       @endforeach
                                 @break
                                  @case(17)
-                                       @foreach ($datos_bt_17 as $prod)
+                                      @foreach ($datos_bt_17 as $prod)
                                           {{$prod->caudal}}
                                       @endforeach
                                 @break
@@ -554,32 +555,32 @@
                                       @endforeach
                                 @break
                                  @case(19)
-                                       @foreach ($datos_bt_19 as $prod)
+                                      @foreach ($datos_bt_19 as $prod)
                                           {{$prod->caudal}}
                                       @endforeach
                                 @break
                                  @case(20)
-                                       @foreach ($datos_bt_20 as $prod)
+                                      @foreach ($datos_bt_20 as $prod)
                                           {{$prod->caudal}}
                                       @endforeach
                                 @break
                                 @case(21)
-                                       @foreach ($datos_bt_21 as $prod)
+                                      @foreach ($datos_bt_21 as $prod)
                                           {{$prod->caudal}}
                                       @endforeach
                                 @break
                                 @case(22)
-                                       @foreach ($datos_bt_22 as $prod)
+                                      @foreach ($datos_bt_22 as $prod)
                                           {{$prod->caudal}}
                                       @endforeach
                                 @break
                                 @case(23)
-                                       @foreach ($datos_bt_23 as $prod)
+                                      @foreach ($datos_bt_23 as $prod)
                                           {{$prod->caudal}}
                                       @endforeach
                                 @break
                                 @case(24)
-                                       @foreach ($datos_bt_24 as $prod)
+                                      @foreach ($datos_bt_24 as $prod)
                                           {{$prod->caudal}}
                                       @endforeach
                                 @break
@@ -602,6 +603,7 @@
                                      @foreach ($datos_bt_2 as $prod)
                                           {{$prod->nivel_camara}}%
                                       @endforeach
+                                @break
                                 @case(3)
                                        @foreach ($datos_bt_3 as $prod)
                                           {{$prod->nivel_camara}}%
@@ -734,6 +736,7 @@
                                      @foreach ($datos_bt_2 as $prod)
                                           {{$prod->nivel_rio}}
                                       @endforeach
+                                @break
                                 @case(3)
                                        @foreach ($datos_bt_3 as $prod)
                                           {{$prod->nivel_rio}}
@@ -856,77 +859,78 @@
                     @switch($i)
                                  
                                 @case(1)
-                                     
+                                     {{$eq_oper_1}}
                                 @break
-                             
-                                @case(2)
                                     
+                                @case(2)
+                                    {{$eq_oper_2}}
+                                @break
                                 @case(3)
-                                      
+                                    {{$eq_oper_3}}  
                                 @break
                                  @case(4)
-                                    
+                                    {{$eq_oper_4}}
                                 @break
                                  @case(5)
-                                      
+                                    {{$eq_oper_5}}  
                                 @break
                                 @case(6)
-                                     
+                                     {{$eq_oper_6}}
                                 @break
                                 @case(7)
-                                     
+                                    {{$eq_oper_7}} 
                                 @break
                                 @case(8)
-                                    
+                                    {{$eq_oper_8}}
 
                                 @break
                                 @case(9)
-                                      
+                                      {{$eq_oper_9}}
                                 @break
                                 @case(10)
-                                      
+                                      {{$eq_oper_10}}
                                 @break
                                 @case(11)
-                                     
+                                     {{$eq_oper_11}}
                                 @break
                                  @case(12)
-                                     
+                                     {{$eq_oper_12}}
                                 @break
                                  @case(13)
-                                      
+                                      {{$eq_oper_13}}
                                 @break
                                  @case(14)
                                       {{$eq_oper_14}}
                                 @break
                                  @case(15)
-                                      
+                                      {{$eq_oper_15}}
                                 @break
                                  @case(16)
-                                      
+                                      {{$eq_oper_16}}
                                 @break
                                  @case(17)
-                                      
+                                      {{$eq_oper_17}}
                                 @break
                                  @case(18)
-                                      
+                                      {{$eq_oper_18}}
                                 @break
                                  @case(19)
-                                      
+                                      {{$eq_oper_19}}
                                 @break
                                  @case(20)
-                                      
+                                      {{$eq_oper_20}}
                                 @break
                                 @case(21)
-                                      
+                                      {{$eq_oper_21}}
                                 @break
                                 @case(22)
-                                      
+                                      {{$eq_oper_22}}
                                 @break
                                 @case(23)
-                                      
+                                      {{$eq_oper_23}}
                                 @break
                                 @case(24)
-                                      
+                                      {{$eq_oper_24}}
                                 @break
                              
                                 @default
@@ -951,6 +955,7 @@
                                     @foreach ($con_coagu_2 as $prod)
                                           {{$prod->dosis}}
                                       @endforeach
+                                @break
                                 @case(3)
                                       @foreach ($con_coagu_3 as $prod)
                                           {{$prod->dosis}}
@@ -1087,6 +1092,7 @@
                                     @foreach ($con_poli_2 as $prod)
                                           {{$prod->dosis}}
                                       @endforeach
+                                @break
                                 @case(3)
                                       @foreach ($con_poli_3 as $prod)
                                           {{$prod->dosis}}
@@ -1219,6 +1225,7 @@
                                     @foreach ($con_perm_2 as $prod)
                                           {{$prod->dosis}}
                                       @endforeach
+                                @break
                                 @case(3)
                                       @foreach ($con_perm_3 as $prod)
                                           {{$prod->dosis}}
@@ -1350,6 +1357,7 @@
                                     @foreach ($con_cal_2 as $prod)
                                           {{$prod->dosis}}
                                       @endforeach
+                                @break
                                 @case(3)
                                       @foreach ($con_cal_3 as $prod)
                                           {{$prod->dosis}}
@@ -1481,6 +1489,7 @@
                                     @foreach ($con_carbon_2 as $prod)
                                           {{$prod->dosis}}
                                       @endforeach
+                                @break
                                 @case(3)
                                       @foreach ($con_carbon_3 as $prod)
                                           {{$prod->dosis}}
@@ -1607,6 +1616,7 @@
                              
                                 @case(2)
                                    {{$cloro_hora_2}} 
+                                @break
                                 @case(3)
                                     {{$cloro_hora_3}}  
                                 @break
@@ -1685,8 +1695,269 @@
                 
            
             </td>
-                <td>eb2 </td>
-                <td> eb3</td>
+            <!-- Cloro residual EB-2 -->
+                <td>
+                    @switch($i)
+                                 
+                                @case(1)
+                                      @foreach ($cl_eb2_1 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                             
+                                @case(2)
+                                    @foreach ($cl_eb2_2 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                @case(3)
+                                      @foreach ($cl_eb2_3 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                 @case(4)
+                                    @foreach ($cl_eb2_4 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                 @case(5)
+                                      @foreach ($cl_eb2_5 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                @case(6)
+                                     @foreach ($cl_eb2_6 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                @case(7)
+                                     @foreach ($cl_eb2_7 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                @case(8)
+                                    @foreach ($cl_eb2_8 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+
+                                @break
+                                @case(9)
+                                     @foreach ($cl_eb2_9 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                @case(10)
+                                     @foreach ($cl_eb2_10 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                @case(11)
+                                      @foreach ($cl_eb2_11 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                 @case(12)
+                                      @foreach ($cl_eb2_12 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                 @case(13)
+                                     @foreach ($cl_eb2_13 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                 @case(14)
+                                      @foreach ($cl_eb2_14 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                 @case(15)
+                                     @foreach ($cl_eb2_15 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                 @case(16)
+                                      @foreach ($cl_eb2_16 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                 @case(17)
+                                      @foreach ($cl_eb2_17 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                 @case(18)
+                                      @foreach ($cl_eb2_18 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                 @case(19)
+                                      @foreach ($cl_eb2_19 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                 @case(20)
+                                      @foreach ($cl_eb2_20 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                @case(21)
+                                      @foreach ($cl_eb2_21 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                @case(22)
+                                      @foreach ($cl_eb2_22 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                @case(23)
+                                      @foreach ($cl_eb2_23 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                @case(24)
+                                      @foreach ($cl_eb2_24 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                             
+                                @default
+                                    ------
+                        @endswitch 
+                </td>
+                <!-- Cloro residual eb3 -->
+
+                <td> 
+                    @switch($i)
+                                 
+                                @case(1)
+                                      @foreach ($cl_eb3_1 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                             
+                                @case(2)
+                                    @foreach ($cl_eb3_2 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                @case(3)
+                                      @foreach ($cl_eb3_3 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                 @case(4)
+                                    @foreach ($cl_eb3_4 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                 @case(5)
+                                      @foreach ($cl_eb3_5 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                @case(6)
+                                     @foreach ($cl_eb3_6 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                @case(7)
+                                     @foreach ($cl_eb3_7 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                @case(8)
+                                    @foreach ($cl_eb3_8 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+
+                                @break
+                                @case(9)
+                                     @foreach ($cl_eb3_9 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                @case(10)
+                                     @foreach ($cl_eb3_10 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                @case(11)
+                                      @foreach ($cl_eb3_11 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                 @case(12)
+                                      @foreach ($cl_eb3_12 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                 @case(13)
+                                     @foreach ($cl_eb3_13 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                 @case(14)
+                                      @foreach ($cl_eb3_14 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                 @case(15)
+                                     @foreach ($cl_eb3_15 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                 @case(16)
+                                      @foreach ($cl_eb3_16 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                 @case(17)
+                                      @foreach ($cl_eb3_17 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                 @case(18)
+                                      @foreach ($cl_eb3_18 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                 @case(19)
+                                      @foreach ($cl_eb3_19 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                 @case(20)
+                                      @foreach ($cl_eb3_20 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                @case(21)
+                                      @foreach ($cl_eb3_21 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                @case(22)
+                                      @foreach ($cl_eb3_22 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                @case(23)
+                                      @foreach ($cl_eb3_23 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                                @case(24)
+                                      @foreach ($cl_eb3_24 as $prod)
+                                          {{$prod->cloro_residual}}
+                                      @endforeach
+                                @break
+                             
+                                @default
+                                    ------
+                        @endswitch 
+                </td>
                 <td> </td>
                 <td> </td>
                 
