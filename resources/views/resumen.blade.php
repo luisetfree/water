@@ -85,7 +85,7 @@
             <select id="" name="hora" class="" required=""> 
                     
                 
-                <option value="01:00" selected>01:00</option>
+                <option value="01:00">01:00</option>
                 <option value="02:00">02:00</option>
                 <option value="03:00">03:00</option>        
                 <option value="04:00">04:00</option>
@@ -1958,8 +1958,268 @@
                                     ------
                         @endswitch 
                 </td>
-                <td> </td>
-                <td> </td>
+                <!-- % tanques terminales -->
+                <td>
+                     @switch($i)
+                                 
+                                @case(1)
+                                      @foreach ($terminal_1 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                             
+                                @case(2)
+                                    @foreach ($terminal_2 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(3)
+                                      @foreach ($terminal_3 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(4)
+                                    @foreach ($terminal_4 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(5)
+                                      @foreach ($terminal_5 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(6)
+                                     @foreach ($terminal_6 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(7)
+                                     @foreach ($terminal_7 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(8)
+                                    @foreach ($terminal_8 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+
+                                @break
+                                @case(9)
+                                     @foreach ($terminal_9 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(10)
+                                     @foreach ($terminal_10 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(11)
+                                      @foreach ($terminal_11 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(12)
+                                      @foreach ($terminal_12 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(13)
+                                     @foreach ($terminal_13 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(14)
+                                      @foreach ($terminal_14 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(15)
+                                     @foreach ($terminal_15 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(16)
+                                      @foreach ($terminal_16 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(17)
+                                      @foreach ($terminal_17 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(18)
+                                      @foreach ($terminal_18 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(19)
+                                      @foreach ($terminal_19 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(20)
+                                      @foreach ($terminal_20 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(21)
+                                      @foreach ($terminal_21 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(22)
+                                      @foreach ($terminal_22 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(23)
+                                      @foreach ($terminal_23 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(24)
+                                      @foreach ($terminal_24 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                             
+                                @default
+                                    ------
+                        @endswitch 
+                </td>
+                <!-- Nivel Bella Vista -->
+                <td> 
+                    @switch($i)
+                                 
+                                @case(1)
+                                      @foreach ($bv_1 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                             
+                                @case(2)
+                                    @foreach ($bv_2 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(3)
+                                      @foreach ($bv_3 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(4)
+                                    @foreach ($bv_4 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(5)
+                                      @foreach ($bv_5 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(6)
+                                     @foreach ($bv_6 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(7)
+                                     @foreach ($bv_7 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(8)
+                                    @foreach ($bv_8 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+
+                                @break
+                                @case(9)
+                                     @foreach ($bv_9 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(10)
+                                     @foreach ($bv_10 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(11)
+                                      @foreach ($bv_11 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(12)
+                                      @foreach ($bv_12 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(13)
+                                     @foreach ($bv_13 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(14)
+                                      @foreach ($bv_14 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(15)
+                                     @foreach ($bv_15 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(16)
+                                      @foreach ($bv_16 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(17)
+                                      @foreach ($bv_17 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(18)
+                                      @foreach ($bv_18 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(19)
+                                      @foreach ($bv_19 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                 @case(20)
+                                      @foreach ($bv_20 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(21)
+                                      @foreach ($bv_21 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(22)
+                                      @foreach ($bv_22 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(23)
+                                      @foreach ($bv_23 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                                @case(24)
+                                      @foreach ($bv_24 as $prod)
+                                          {{$prod->nivel_camara}}%
+                                      @endforeach
+                                @break
+                             
+                                @default
+                                    ------
+                        @endswitch 
+                </td>
                 
                 
 
