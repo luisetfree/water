@@ -86,7 +86,7 @@
           Herramientas
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Producciones</a>
+          <a class="dropdown-item" href="/producciones">Producciones</a>
           <a class="dropdown-item" href="#">Bitacora</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>

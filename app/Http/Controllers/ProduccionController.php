@@ -1001,11 +1001,201 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
 
     }
 
-/*Metodo para mostrar las producciones de las estaciones segun una fecha especifica*/
+/*Metodo para mostrar las producciones de las estaciones segun una fecha especifica, se muestra en vista producciones*/
 public function producciones(){
 
+        $id_bocatoma=1;
+        $id_eb1=2;
+        $id_eb2=3;
+        $id_eb3=4;
+        $fecha=date("Y-m-d");
 
-return view('producciones');
+                
+        
+        $hora_1='01:00';
+        $hora_2='02:00';
+        $hora_3='03:00';
+        $hora_4='04:00';
+        $hora_5='05:00';
+        $hora_6='06:00';
+        $hora_7='07:00';
+        $hora_8='08:00';
+        $hora_9='09:00';
+        $hora_10='10:00';
+        $hora_11='11:00';
+       $hora_12='12:00';
+       $hora_13='13:00';
+       $hora_14='14:00';
+       $hora_15='15:00';
+       $hora_16='16:00';
+       $hora_17='17:00';
+       $hora_18='18:00';
+       $hora_19='19:00';
+       $hora_20='20:00';
+       $hora_21='21:00';
+       $hora_22='22:00';
+       $hora_23='23:00';
+       $hora_24='24:00';
+
+            
+
+        
+         /*Extrayendo caudales de BT por hora*/
+  
+
+        $c_bt_1=$this->buscarCaudales($fecha,$hora_1,$id_bocatoma);
+        $c_bt_2=$this->buscarCaudales($fecha,$hora_2,$id_bocatoma);
+        $c_bt_3=$this->buscarCaudales($fecha,$hora_3,$id_bocatoma);
+        $c_bt_4=$this->buscarCaudales($fecha,$hora_4,$id_bocatoma);
+        $c_bt_5=$this->buscarCaudales($fecha,$hora_5,$id_bocatoma);
+        $c_bt_6=$this->buscarCaudales($fecha,$hora_6,$id_bocatoma);
+        $c_bt_7=$this->buscarCaudales($fecha,$hora_7,$id_bocatoma);
+        $c_bt_8=$this->buscarCaudales($fecha,$hora_8,$id_bocatoma);
+        $c_bt_9=$this->buscarCaudales($fecha,$hora_9,$id_bocatoma);
+        $c_bt_10=$this->buscarCaudales($fecha,$hora_10,$id_bocatoma);
+        $c_bt_11=$this->buscarCaudales($fecha,$hora_11,$id_bocatoma);
+        $c_bt_12=$this->buscarCaudales($fecha,$hora_12,$id_bocatoma);
+        $c_bt_13=$this->buscarCaudales($fecha,$hora_13,$id_bocatoma);
+        $c_bt_14=$this->buscarCaudales($fecha,$hora_14,$id_bocatoma);
+        $c_bt_15=$this->buscarCaudales($fecha,$hora_15,$id_bocatoma);
+        $c_bt_16=$this->buscarCaudales($fecha,$hora_16,$id_bocatoma);
+        $c_bt_17=$this->buscarCaudales($fecha,$hora_17,$id_bocatoma);
+        $c_bt_18=$this->buscarCaudales($fecha,$hora_18,$id_bocatoma);
+        $c_bt_19=$this->buscarCaudales($fecha,$hora_19,$id_bocatoma);
+        $c_bt_20=$this->buscarCaudales($fecha,$hora_20,$id_bocatoma);
+        $c_bt_21=$this->buscarCaudales($fecha,$hora_21,$id_bocatoma);
+        $c_bt_22=$this->buscarCaudales($fecha,$hora_22,$id_bocatoma);
+        $c_bt_23=$this->buscarCaudales($fecha,$hora_23,$id_bocatoma);
+        $c_bt_24=$this->buscarCaudales($fecha,$hora_24,$id_bocatoma);
+
+         /*Extrayendo caudales de EB1 por hora*/
+  
+
+        $c_eb1_1=$this->buscarCaudales($fecha,$hora_1,$id_eb1);
+        $c_eb1_2=$this->buscarCaudales($fecha,$hora_2,$id_eb1);
+        $c_eb1_3=$this->buscarCaudales($fecha,$hora_3,$id_eb1);
+        $c_eb1_4=$this->buscarCaudales($fecha,$hora_4,$id_eb1);
+        $c_eb1_5=$this->buscarCaudales($fecha,$hora_5,$id_eb1);
+        $c_eb1_6=$this->buscarCaudales($fecha,$hora_6,$id_eb1);
+        $c_eb1_7=$this->buscarCaudales($fecha,$hora_7,$id_eb1);
+        $c_eb1_8=$this->buscarCaudales($fecha,$hora_8,$id_eb1);
+        $c_eb1_9=$this->buscarCaudales($fecha,$hora_9,$id_eb1);
+        $c_eb1_10=$this->buscarCaudales($fecha,$hora_10,$id_eb1);
+        $c_eb1_11=$this->buscarCaudales($fecha,$hora_11,$id_eb1);
+        $c_eb1_12=$this->buscarCaudales($fecha,$hora_12,$id_eb1);
+        $c_eb1_13=$this->buscarCaudales($fecha,$hora_13,$id_eb1);
+        $c_eb1_14=$this->buscarCaudales($fecha,$hora_14,$id_eb1);
+        $c_eb1_15=$this->buscarCaudales($fecha,$hora_15,$id_eb1);
+        $c_eb1_16=$this->buscarCaudales($fecha,$hora_16,$id_eb1);
+        $c_eb1_17=$this->buscarCaudales($fecha,$hora_17,$id_eb1);
+        $c_eb1_18=$this->buscarCaudales($fecha,$hora_18,$id_eb1);
+        $c_eb1_19=$this->buscarCaudales($fecha,$hora_19,$id_eb1);
+        $c_eb1_20=$this->buscarCaudales($fecha,$hora_20,$id_eb1);
+        $c_eb1_21=$this->buscarCaudales($fecha,$hora_21,$id_eb1);
+        $c_eb1_22=$this->buscarCaudales($fecha,$hora_22,$id_eb1);
+        $c_eb1_23=$this->buscarCaudales($fecha,$hora_23,$id_eb1);
+        $c_eb1_24=$this->buscarCaudales($fecha,$hora_24,$id_eb1);
+
+        /*Extrayendo caudales de EB2 por hora*/
+  
+
+        $c_eb2_1=$this->buscarCaudales($fecha,$hora_1,$id_eb2);
+        $c_eb2_2=$this->buscarCaudales($fecha,$hora_2,$id_eb2);
+        $c_eb2_3=$this->buscarCaudales($fecha,$hora_3,$id_eb2);
+        $c_eb2_4=$this->buscarCaudales($fecha,$hora_4,$id_eb2);
+        $c_eb2_5=$this->buscarCaudales($fecha,$hora_5,$id_eb2);
+        $c_eb2_6=$this->buscarCaudales($fecha,$hora_6,$id_eb2);
+        $c_eb2_7=$this->buscarCaudales($fecha,$hora_7,$id_eb2);
+        $c_eb2_8=$this->buscarCaudales($fecha,$hora_8,$id_eb2);
+        $c_eb2_9=$this->buscarCaudales($fecha,$hora_9,$id_eb2);
+        $c_eb2_10=$this->buscarCaudales($fecha,$hora_10,$id_eb2);
+        $c_eb2_11=$this->buscarCaudales($fecha,$hora_11,$id_eb2);
+        $c_eb2_12=$this->buscarCaudales($fecha,$hora_12,$id_eb2);
+        $c_eb2_13=$this->buscarCaudales($fecha,$hora_13,$id_eb2);
+        $c_eb2_14=$this->buscarCaudales($fecha,$hora_14,$id_eb2);
+        $c_eb2_15=$this->buscarCaudales($fecha,$hora_15,$id_eb2);
+        $c_eb2_16=$this->buscarCaudales($fecha,$hora_16,$id_eb2);
+        $c_eb2_17=$this->buscarCaudales($fecha,$hora_17,$id_eb2);
+        $c_eb2_18=$this->buscarCaudales($fecha,$hora_18,$id_eb2);
+        $c_eb2_19=$this->buscarCaudales($fecha,$hora_19,$id_eb2);
+        $c_eb2_20=$this->buscarCaudales($fecha,$hora_20,$id_eb2);
+        $c_eb2_21=$this->buscarCaudales($fecha,$hora_21,$id_eb2);
+        $c_eb2_22=$this->buscarCaudales($fecha,$hora_22,$id_eb2);
+        $c_eb2_23=$this->buscarCaudales($fecha,$hora_23,$id_eb2);
+        $c_eb2_24=$this->buscarCaudales($fecha,$hora_24,$id_eb2);
+
+        /*Extrayendo caudales de EB3 por hora*/
+  
+
+        $c_eb3_1=$this->buscarCaudales($fecha,$hora_1,$id_eb3);
+        $c_eb3_2=$this->buscarCaudales($fecha,$hora_2,$id_eb3);
+        $c_eb3_3=$this->buscarCaudales($fecha,$hora_3,$id_eb3);
+        $c_eb3_4=$this->buscarCaudales($fecha,$hora_4,$id_eb3);
+        $c_eb3_5=$this->buscarCaudales($fecha,$hora_5,$id_eb3);
+        $c_eb3_6=$this->buscarCaudales($fecha,$hora_6,$id_eb3);
+        $c_eb3_7=$this->buscarCaudales($fecha,$hora_7,$id_eb3);
+        $c_eb3_8=$this->buscarCaudales($fecha,$hora_8,$id_eb3);
+        $c_eb3_9=$this->buscarCaudales($fecha,$hora_9,$id_eb3);
+        $c_eb3_10=$this->buscarCaudales($fecha,$hora_10,$id_eb3);
+        $c_eb3_11=$this->buscarCaudales($fecha,$hora_11,$id_eb3);
+        $c_eb3_12=$this->buscarCaudales($fecha,$hora_12,$id_eb3);
+        $c_eb3_13=$this->buscarCaudales($fecha,$hora_13,$id_eb3);
+        $c_eb3_14=$this->buscarCaudales($fecha,$hora_14,$id_eb3);
+        $c_eb3_15=$this->buscarCaudales($fecha,$hora_15,$id_eb3);
+        $c_eb3_16=$this->buscarCaudales($fecha,$hora_16,$id_eb3);
+        $c_eb3_17=$this->buscarCaudales($fecha,$hora_17,$id_eb3);
+        $c_eb3_18=$this->buscarCaudales($fecha,$hora_18,$id_eb3);
+        $c_eb3_19=$this->buscarCaudales($fecha,$hora_19,$id_eb3);
+        $c_eb3_20=$this->buscarCaudales($fecha,$hora_20,$id_eb3);
+        $c_eb3_21=$this->buscarCaudales($fecha,$hora_21,$id_eb3);
+        $c_eb3_22=$this->buscarCaudales($fecha,$hora_22,$id_eb3);
+        $c_eb3_23=$this->buscarCaudales($fecha,$hora_23,$id_eb3);
+        $c_eb3_24=$this->buscarCaudales($fecha,$hora_24,$id_eb3);
+
+
+
+$suma_bocatoma= $this->sumatoriaCaudales($fecha,$id_bocatoma);
+
+        return view('producciones',compact('fecha','c_bt_1','c_bt_2','c_bt_3','c_bt_4','c_bt_5'
+    ,'c_bt_6','c_bt_7','c_bt_8','c_bt_9','c_bt_10','c_bt_11','c_bt_12','c_bt_13','c_bt_14','c_bt_15','c_bt_16','c_bt_17','c_bt_18','c_bt_19','c_bt_20','c_bt_21','c_bt_22','c_bt_23','c_bt_24','c_eb1_1','c_eb1_2','c_eb1_3','c_eb1_4','c_eb1_5','c_eb1_6','c_eb1_7','c_eb1_8','c_eb1_9','c_eb1_10','c_eb1_11','c_eb1_12','c_eb1_13','c_eb1_14','c_eb1_15','c_eb1_16','c_eb1_17','c_eb1_18','c_eb1_19','c_eb1_20','c_eb1_21','c_eb1_22','c_eb1_23','c_eb1_24','c_eb2_1','c_eb2_2','c_eb2_3','c_eb2_4','c_eb2_5','c_eb2_6','c_eb2_7','c_eb2_8','c_eb2_9','c_eb2_10','c_eb2_11','c_eb2_12','c_eb2_13','c_eb2_14','c_eb2_15','c_eb2_16','c_eb2_17','c_eb2_18','c_eb2_19','c_eb2_20','c_eb2_21','c_eb2_22','c_eb2_23','c_eb2_24','c_eb3_1','c_eb3_2','c_eb3_3','c_eb3_4','c_eb3_5','c_eb3_6','c_eb3_7','c_eb3_8','c_eb3_9','c_eb3_10','c_eb3_11','c_eb3_12','c_eb3_13','c_eb3_14','c_eb3_15','c_eb3_16','c_eb3_17','c_eb3_18','c_eb3_19','c_eb3_20','c_eb3_21','c_eb3_22','c_eb3_23','c_eb3_24','suma_bocatoma'));
+    
+
+
+        
+
+                
+
+        
+        
+        
+}
+
+//Busca los caudales de una estacion para mostrarse en la vista "producciones"
+public function buscarCaudales($fecha,$hora,$id_estacion){
+
+$caudal=DB::table('produccions')
+                ->select('caudal')
+                ->where('hora','=',$hora)
+                ->whereDate('updated_at', '=', $fecha)
+                ->where('id_estacion', '=', $id_estacion)
+                ->get();
+
+                return $caudal;
+
+}
+
+//Busca los caudales de una estacion y saca la sumatoria para mostrarse en la vista "producciones"
+public function sumatoriaCaudales($fecha,$id_estacion){
+
+$suma_caudal=DB::table('produccions')
+                ->select('caudal')
+                //->where('hora','=',$hora)
+                ->whereDate('updated_at', '=', $fecha)
+                ->where('id_estacion', '=', $id_estacion)
+                ->get();
+
+                return $suma_caudal;
+
 }
 
 
