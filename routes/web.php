@@ -50,6 +50,9 @@ Route::get('/agua/{tipo}', [AguaController::class, 'store']);
 
 Route::get('/prod/{caudal}', [ProduccionController::class, 'store']);
 
+/*Controla la vista producciones que muestra los datos de las 4 estaciones*/
+Route::get('/producciones', [ProduccionController::class, 'producciones']);
+
 //Recibe desde el formulario en la vista resumen y guarda la informacion
 Route::post('store-form', [ProduccionController::class, 'store']);
 

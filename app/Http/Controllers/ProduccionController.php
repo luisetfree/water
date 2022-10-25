@@ -29,6 +29,8 @@ class ProduccionController extends Controller
       $id_BellaV=6;
       $id_cloro=8;
 
+      
+
         //Este ID corresponde a bocatoma
         $id_estacion=1;
        // $datos = DB::table('produccions')->where('id_estacion','=',$id_estacion)->get();
@@ -95,10 +97,17 @@ class ProduccionController extends Controller
                 //->whereTime('produccions.created_at', '>=', '13:00:39')
                 ->get();
 
-/*Extrayendo datos de Consumos*/
+
+
+
+    $fecha=date("Y-m-d");//Tomando la fecha del dia en curso
+
+
 
              
-$fecha=date("Y-m-d");//Tomando la fecha del dia de hoy
+
+
+/*Extrayendo datos de Consumos*/
 $hora_1='01:00';
 $hora_2='02:00';
 $hora_3='03:00';
@@ -992,8 +1001,12 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
 
     }
 
+/*Metodo para mostrar las producciones de las estaciones segun una fecha especifica*/
+public function producciones(){
 
 
+return view('producciones');
+}
 
 
 
