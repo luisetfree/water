@@ -98,6 +98,27 @@
                 <input type="date" class=" form-control"  name="fecha" required="" value="{{$fecha}}"/>
               
                <button type="submit" class="btn btn-outline-primary">Ver</button>
+               <div class="">
+                <label>Totales</label>
+                <table>
+
+                    <tr>
+                        
+                        <th>Bocatoma</th>
+                        <th>EB1</th>
+                        <th>EB2</th>
+                        <th>EB3</th>
+
+                    </tr>
+
+                    <tr>
+                        <td>{{$suma_bocatoma}} m³/d</td>
+                        <td>{{$suma_eb1}} m³/d</td>
+                        <td>{{$suma_eb2}} m³/d</td>
+                        <td>{{$suma_eb3}} m³/d</td>
+                    </tr>
+                </table>
+               </div>
                
 
         </div>
@@ -115,7 +136,7 @@
          <!-- Tabla que muestra el resumen de producciones-->
          <label class="card-body">Caudales</label>
          
-         {{$suma_bocatoma}}
+         
 
         <table>
             <!-- Encabezado de la tabla -->
