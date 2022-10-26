@@ -96,16 +96,59 @@
        @csrf
 
 <!-- Contiene los controles de busqueda  -->
-       <div class="grid-container">
+        <div class="row">
               
 
              
               <!-- Filtra la fecha que se desea ver -->
-
-              
-                <input type="date" class=" form-control"  name="fecha" required="" value="{{$fechas}}"/>
+            <div class="col-sm-4">
+              <label>Fecha</label>
+             <input type="date" class=" form-control"  name="fecha" required="" value="{{$fechas}}"/> <br>
               
                <button type="submit" class="btn btn-outline-primary">Ver</button>
+
+            </div>
+              <div class="col-sm-8">
+                <label>Operación</label>
+                <table>
+
+                    <tr>
+                        <th>Estación</th>
+                        
+                        <th>6 eq.</th>
+                        <th>5 eq.</th>
+                        <th>4 eq.</th>
+                        <th>3 eq.</th>
+                        <th>2 eq.</th>
+                        <th>1 eq.</th>
+                        <th>0 eq.</th>
+                       
+                    
+                    </tr>
+                      <tr>
+                        <th>Bocatoma</th>
+                        <th>{{$cont_bt_1}}</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th>EB1</th>
+                        
+                    </tr>
+                     <tr>
+                        <th>EB2</th>
+                        
+                    </tr>
+                    <tr>
+                        <th>EB3</th>
+                        
+                    </tr>
+                </table>
+               </div>
                
 
         </div>

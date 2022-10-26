@@ -195,13 +195,13 @@ class OperacionController extends Controller
           $eq_eb3_23=$this->equiposOperando($fechas,$hora23,$id_eb3);
           
           
-
+$cont_bt_1=$this->contarEquipos($fechas,$hora9,$id_bocatoma);
 
 
 
 
           
-        return view ('equipos',compact('estacion','equipo_0','equipo_1','equipo_2','equipo_3','equipo_4','equipo_5','equipo_6','equipo_7','equipo_8','equipo_9','equipo_10','equipo_11','equipo_12','equipo_13','equipo_14','equipo_15','equipo_16','equipo_17','equipo_18','equipo_19','equipo_20','equipo_21','equipo_22','equipo_23','eq_eb1_0','eq_eb1_1','eq_eb1_2','eq_eb1_3','eq_eb1_4','eq_eb1_5','eq_eb1_6','eq_eb1_7','eq_eb1_8','eq_eb1_9','eq_eb1_10','eq_eb1_11','eq_eb1_12','eq_eb1_13','eq_eb1_14','eq_eb1_15','eq_eb1_16','eq_eb1_17','eq_eb1_18','eq_eb1_19','eq_eb1_20','eq_eb1_21','eq_eb1_22','eq_eb1_23','eq_eb2_0','eq_eb2_1','eq_eb2_2','eq_eb2_3','eq_eb2_4','eq_eb2_5','eq_eb2_6','eq_eb2_7','eq_eb2_8','eq_eb2_9','eq_eb2_10','eq_eb2_11','eq_eb2_12','eq_eb2_13','eq_eb2_14','eq_eb2_15','eq_eb2_16','eq_eb2_17','eq_eb2_18','eq_eb2_19','eq_eb2_20','eq_eb2_21','eq_eb2_22','eq_eb2_23','eq_eb3_0','eq_eb3_1','eq_eb3_2','eq_eb3_3','eq_eb3_4','eq_eb3_5','eq_eb3_6','eq_eb3_7','eq_eb3_8','eq_eb3_9','eq_eb3_10','eq_eb3_11','eq_eb3_12','eq_eb3_13','eq_eb3_14','eq_eb3_15','eq_eb3_16','eq_eb3_17','eq_eb3_18','eq_eb3_19','eq_eb3_20','eq_eb3_21','eq_eb3_22','eq_eb3_23','fechas'));           
+        return view ('equipos',compact('estacion','equipo_0','equipo_1','equipo_2','equipo_3','equipo_4','equipo_5','equipo_6','equipo_7','equipo_8','equipo_9','equipo_10','equipo_11','equipo_12','equipo_13','equipo_14','equipo_15','equipo_16','equipo_17','equipo_18','equipo_19','equipo_20','equipo_21','equipo_22','equipo_23','eq_eb1_0','eq_eb1_1','eq_eb1_2','eq_eb1_3','eq_eb1_4','eq_eb1_5','eq_eb1_6','eq_eb1_7','eq_eb1_8','eq_eb1_9','eq_eb1_10','eq_eb1_11','eq_eb1_12','eq_eb1_13','eq_eb1_14','eq_eb1_15','eq_eb1_16','eq_eb1_17','eq_eb1_18','eq_eb1_19','eq_eb1_20','eq_eb1_21','eq_eb1_22','eq_eb1_23','eq_eb2_0','eq_eb2_1','eq_eb2_2','eq_eb2_3','eq_eb2_4','eq_eb2_5','eq_eb2_6','eq_eb2_7','eq_eb2_8','eq_eb2_9','eq_eb2_10','eq_eb2_11','eq_eb2_12','eq_eb2_13','eq_eb2_14','eq_eb2_15','eq_eb2_16','eq_eb2_17','eq_eb2_18','eq_eb2_19','eq_eb2_20','eq_eb2_21','eq_eb2_22','eq_eb2_23','eq_eb3_0','eq_eb3_1','eq_eb3_2','eq_eb3_3','eq_eb3_4','eq_eb3_5','eq_eb3_6','eq_eb3_7','eq_eb3_8','eq_eb3_9','eq_eb3_10','eq_eb3_11','eq_eb3_12','eq_eb3_13','eq_eb3_14','eq_eb3_15','eq_eb3_16','eq_eb3_17','eq_eb3_18','eq_eb3_19','eq_eb3_20','eq_eb3_21','eq_eb3_22','eq_eb3_23','fechas','cont_bt_1'));           
 
 
 
@@ -209,6 +209,79 @@ class OperacionController extends Controller
       
 
     }
+
+/*Cuenta los equipos operando por dia*/
+public function contarEquipos($fecha,$hora,$id_estacion){
+
+    
+        $equipos_1=$this->equipoPorHora($fecha,'01:00',$id_estacion);
+        $equipos_2=$this->equipoPorHora($fecha,'02:00',$id_estacion);
+        $equipos_3=$this->equipoPorHora($fecha,'03:00',$id_estacion);
+        $equipos_4=$this->equipoPorHora($fecha,'04:00',$id_estacion);
+        $equipos_5=$this->equipoPorHora($fecha,'05:00',$id_estacion);
+        $equipos_6=$this->equipoPorHora($fecha,'06:00',$id_estacion);
+        $equipos_7=$this->equipoPorHora($fecha,'07:00',$id_estacion);
+        $equipos_8=$this->equipoPorHora($fecha,'08:00',$id_estacion);
+        $equipos_9=$this->equipoPorHora($fecha,'09:00',$id_estacion);
+        $equipos_10=$this->equipoPorHora($fecha,'10:00',$id_estacion);
+        $equipos_11=$this->equipoPorHora($fecha,'11:00',$id_estacion);
+        $equipos_12=$this->equipoPorHora($fecha,'12:00',$id_estacion);
+        $equipos_13=$this->equipoPorHora($fecha,'13:00',$id_estacion);
+        $equipos_14=$this->equipoPorHora($fecha,'14:00',$id_estacion);
+        $equipos_15=$this->equipoPorHora($fecha,'15:00',$id_estacion);
+        $equipos_16=$this->equipoPorHora($fecha,'16:00',$id_estacion);
+        $equipos_17=$this->equipoPorHora($fecha,'17:00',$id_estacion);
+        $equipos_18=$this->equipoPorHora($fecha,'18:00',$id_estacion);
+        $equipos_19=$this->equipoPorHora($fecha,'19:00',$id_estacion);
+        $equipos_20=$this->equipoPorHora($fecha,'20:00',$id_estacion);
+        $equipos_21=$this->equipoPorHora($fecha,'21:00',$id_estacion);
+        $equipos_22=$this->equipoPorHora($fecha,'22:00',$id_estacion);
+        $equipos_23=$this->equipoPorHora($fecha,'23:00',$id_estacion);
+        $equipos_24=$this->equipoPorHora($fecha,'24:00',$id_estacion);
+
+    
+ //almacenando en un arreglo la cantidad de equipos operando por hora - 
+ $array = array($equipos_1,$equipos_2,$equipos_3,$equipos_4,$equipos_5,$equipos_6,$equipos_7,$equipos_8,$equipos_9,$equipos_10,$equipos_11,$equipos_12,$equipos_13,$equipos_14,$equipos_15,$equipos_16,$equipos_17,$equipos_18,$equipos_19,$equipos_20,$equipos_21,$equipos_22,$equipos_23,$equipos_24);
+
+                            
+
+
+//verificando si en el arreglo existe el valor mencionado--mejorar esta forma---
+if (in_array('2',$array)) {
+    return 2;
+}elseif (in_array('5',$array)){
+    return 5;
+}else{
+
+    return 0;
+
+}
+
+        
+        
+
+}
+
+/*cuenta por hora los equipos operando*/
+public function equipoPorHora($fecha,$hora,$id_estacion){
+
+$conteo= DB::table('operacions')
+        ->join('equipos', 'operacions.id_equipo', '=', 'equipos.id')
+        ->select('operacions.*','equipos.*')
+        ->where('estado','=','Operando')
+        ->whereDate('operacions.created_at','=',$fecha)
+        ->where('operacions.hora','=',$hora)
+        ->where('equipos.id_estacion','=',$id_estacion)
+                            ->get()->count();
+
+                            return $conteo;
+
+}
+
+
+
+
+
 
     /**
      * Show the form for creating a new resource.
