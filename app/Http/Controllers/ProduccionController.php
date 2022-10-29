@@ -577,7 +577,11 @@ $caudal_bt=DB::table('produccions')
 
         foreach ($caudal_bt as $cau){
                 //retornando los valores y realizando calculo y division, round para redondear con 2 decimales
+            if (($cau->caudal) > 0){
             return round((($dato->dosis)*1000)/($cau->caudal), 2);
+        }else{
+            return 0;//considerar utilizar el caudal de EB1 cuando BT esta suspendida
+        }
 
         }
 

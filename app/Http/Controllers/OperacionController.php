@@ -195,13 +195,60 @@ class OperacionController extends Controller
           $eq_eb3_23=$this->equiposOperando($fechas,$hora23,$id_eb3);
           
           
-$cont_bt_1=$this->contarEquipos($fechas,$hora9,$id_bocatoma);
+$cont_bt_1=$this->contarEquipos($fechas,$id_bocatoma);
 
 
+/*VALIDACION DE EQUIPOS TRABAJANDO POR HORAS*/
+ //Comprobamos que existe la repeticion en el arreglo y lo mostramos, de lo contrario devolvemos el valor de cero para no contabilizar esas horas
 
+    //Validando si hay horas sin trabajar
+    if (isset($cont_bt_1[0])) {
+        $bt_0_h=$cont_bt_1[0];
+    }else
+{$bt_0_h=0;}
+
+
+//validando las horas trabajadas con 1 equipo
+ if (isset($cont_bt_1[1])) {
+        $bt_1_h=$cont_bt_1[1];
+    }else
+{$bt_1_h=0;}
+
+
+//validando las horas trabajadas con 2 equipos
+    if (isset($cont_bt_1[2])) {
+        $bt_2_h=$cont_bt_1[2];
+    }else
+{$bt_2_h=0;}
+
+   //validando las horas trabajadas con 3 equipos
+    if (isset($cont_bt_1[3])) {
+        $bt_3_h=$cont_bt_1[3];
+    }else
+{$bt_3_h=0;}
+
+//validando las horas trabajadas con 4 equipos
+ if (isset($cont_bt_1[4])) {
+        $bt_4_h=$cont_bt_1[4];
+    }else
+{$bt_4_h=0;}
+    
+    //validando las horas trabajadas con 5 equipos
+     if (isset($cont_bt_1[5])) {
+        $bt_5_h=$cont_bt_1[5];
+    }else
+{$bt_5_h=0;}
+
+//validando las horas trabajadas con 6 equipos
+ if (isset($cont_bt_1[6])) {
+        $bt_6_h=$cont_bt_1[6];
+    }else
+{$bt_6_h=0;}
+
+/*FIN DE VALIDACION DE EQUIPOS TRABAJANDO POR HORAS*/
 
           
-        return view ('equipos',compact('estacion','equipo_0','equipo_1','equipo_2','equipo_3','equipo_4','equipo_5','equipo_6','equipo_7','equipo_8','equipo_9','equipo_10','equipo_11','equipo_12','equipo_13','equipo_14','equipo_15','equipo_16','equipo_17','equipo_18','equipo_19','equipo_20','equipo_21','equipo_22','equipo_23','eq_eb1_0','eq_eb1_1','eq_eb1_2','eq_eb1_3','eq_eb1_4','eq_eb1_5','eq_eb1_6','eq_eb1_7','eq_eb1_8','eq_eb1_9','eq_eb1_10','eq_eb1_11','eq_eb1_12','eq_eb1_13','eq_eb1_14','eq_eb1_15','eq_eb1_16','eq_eb1_17','eq_eb1_18','eq_eb1_19','eq_eb1_20','eq_eb1_21','eq_eb1_22','eq_eb1_23','eq_eb2_0','eq_eb2_1','eq_eb2_2','eq_eb2_3','eq_eb2_4','eq_eb2_5','eq_eb2_6','eq_eb2_7','eq_eb2_8','eq_eb2_9','eq_eb2_10','eq_eb2_11','eq_eb2_12','eq_eb2_13','eq_eb2_14','eq_eb2_15','eq_eb2_16','eq_eb2_17','eq_eb2_18','eq_eb2_19','eq_eb2_20','eq_eb2_21','eq_eb2_22','eq_eb2_23','eq_eb3_0','eq_eb3_1','eq_eb3_2','eq_eb3_3','eq_eb3_4','eq_eb3_5','eq_eb3_6','eq_eb3_7','eq_eb3_8','eq_eb3_9','eq_eb3_10','eq_eb3_11','eq_eb3_12','eq_eb3_13','eq_eb3_14','eq_eb3_15','eq_eb3_16','eq_eb3_17','eq_eb3_18','eq_eb3_19','eq_eb3_20','eq_eb3_21','eq_eb3_22','eq_eb3_23','fechas','cont_bt_1'));           
+        return view ('equipos',compact('estacion','equipo_0','equipo_1','equipo_2','equipo_3','equipo_4','equipo_5','equipo_6','equipo_7','equipo_8','equipo_9','equipo_10','equipo_11','equipo_12','equipo_13','equipo_14','equipo_15','equipo_16','equipo_17','equipo_18','equipo_19','equipo_20','equipo_21','equipo_22','equipo_23','eq_eb1_0','eq_eb1_1','eq_eb1_2','eq_eb1_3','eq_eb1_4','eq_eb1_5','eq_eb1_6','eq_eb1_7','eq_eb1_8','eq_eb1_9','eq_eb1_10','eq_eb1_11','eq_eb1_12','eq_eb1_13','eq_eb1_14','eq_eb1_15','eq_eb1_16','eq_eb1_17','eq_eb1_18','eq_eb1_19','eq_eb1_20','eq_eb1_21','eq_eb1_22','eq_eb1_23','eq_eb2_0','eq_eb2_1','eq_eb2_2','eq_eb2_3','eq_eb2_4','eq_eb2_5','eq_eb2_6','eq_eb2_7','eq_eb2_8','eq_eb2_9','eq_eb2_10','eq_eb2_11','eq_eb2_12','eq_eb2_13','eq_eb2_14','eq_eb2_15','eq_eb2_16','eq_eb2_17','eq_eb2_18','eq_eb2_19','eq_eb2_20','eq_eb2_21','eq_eb2_22','eq_eb2_23','eq_eb3_0','eq_eb3_1','eq_eb3_2','eq_eb3_3','eq_eb3_4','eq_eb3_5','eq_eb3_6','eq_eb3_7','eq_eb3_8','eq_eb3_9','eq_eb3_10','eq_eb3_11','eq_eb3_12','eq_eb3_13','eq_eb3_14','eq_eb3_15','eq_eb3_16','eq_eb3_17','eq_eb3_18','eq_eb3_19','eq_eb3_20','eq_eb3_21','eq_eb3_22','eq_eb3_23','fechas','cont_bt_1','bt_0_h','bt_1_h','bt_2_h','bt_3_h','bt_4_h','bt_5_h','bt_6_h'));           
 
 
 
@@ -210,8 +257,8 @@ $cont_bt_1=$this->contarEquipos($fechas,$hora9,$id_bocatoma);
 
     }
 
-/*Cuenta los equipos operando por dia*/
-public function contarEquipos($fecha,$hora,$id_estacion){
+/*Cuenta los equipos operando por hora en una fecha determinada*/
+public function contarEquipos($fecha,$id_estacion){
 
     
         $equipos_1=$this->equipoPorHora($fecha,'01:00',$id_estacion);
@@ -247,7 +294,7 @@ public function contarEquipos($fecha,$hora,$id_estacion){
 
 
 //verificando si en el arreglo existe el valor mencionado--mejorar esta forma---
-if (in_array('2',$array)) {
+/*if (in_array('2',$array)) {
     return 2;
 }elseif (in_array('5',$array)){
     return 5;
@@ -255,8 +302,9 @@ if (in_array('2',$array)) {
 
     return 0;
 
-}
+}*/
 
+return $valores=array_count_values($array);
         
         
 

@@ -127,13 +127,15 @@
                     </tr>
                       <tr>
                         <th>Bocatoma</th>
-                        <th>{{$cont_bt_1}}</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                          <th>{{$bt_6_h}}</th>
+                          <th>{{$bt_5_h}}</th>
+                          <th>{{$bt_4_h}}</th>
+                          <th>{{$bt_3_h}}</th>
+                          <th>{{$bt_2_h}}</th>
+                          <th>{{$bt_1_h}}</th>
+                          
+                        <th>{{$bt_0_h}}</th>
+                       
                     </tr>
                     <tr>
                         <th>EB1</th>
