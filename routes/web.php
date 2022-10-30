@@ -44,6 +44,7 @@ Route::get('/resumen', [ProduccionController::class, 'index']);
 Route::get('/operacion', [OperacionController::class, 'index']);
 
 /*Maneja las calidades de agua*/
+
 Route::get('/calidad', [CalidadController::class, 'index']);
 
 Route::get('/agua/{tipo}', [AguaController::class, 'store']);
@@ -66,4 +67,4 @@ Route::post('/operacion', [OperacionController::class, 'index']);
 Route::post('/calidades', [CalidadController::class, 'store']);
 
 /*Maneja la busqueda de calidades por fecha y las muestra */
-Route::post('/calidades', [CalidadController::class, 'index']);
+Route::post('muestra', [CalidadController::class, 'buscar']);

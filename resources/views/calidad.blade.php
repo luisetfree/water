@@ -33,7 +33,7 @@
   display: grid;
   /*auto representa cada columna*/
   grid-template-columns: auto auto auto auto;
-  grid-template-rows: 80px 200px;
+  grid-template-rows: 80px 90px;
   gap: 10px;
   
   padding: 10px;
@@ -294,32 +294,32 @@
 
             </div>
 
-            <div class="card-footer">
+            <div class="">
     
         <button type="submit" class="btn btn-outline-primary">Guardar</button>
-        <!-- <input type="date" class="date" id="date" name="date"> -->
+         <!-- <input type="hidden" class="date" id="date" name="fecha_fantasma">  -->
 
             </div>
 
 
       </form>
-
+<div class="container">
 <!-- Controla la  busqueda por fecha -->
-      <form name="form-calidad" id="" method="post" action="{{url('calidades')}}">
+      <form name="form-calidad" id="" method="post" action="{{url('muestra')}}">
        @csrf
 
-            <div class="container">
+            
 
                 <!-- para filtrar por fecha -->
                 <input type="date" name="fecha_calidad" value="{{$fecha}}">
                 <!-- mostrar calidades por fecha seleccionada -->
                  <button type="submit" class="btn btn-outline-primary">Mostrar</button>
 
-            </div> 
+            
 
       </form>
 
-    
+</div> 
 
 
 

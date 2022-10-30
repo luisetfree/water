@@ -9,24 +9,49 @@ use Illuminate\Support\Facades\DB;
 class CalidadController extends Controller
 {
     /**
-     * se encarga de desplegar la vista principal y tambien realiza las busquedas de las calidades de agua
-     * para mostrarlas en la tabla
-     ** @param  \Illuminate\Http\Request  $request
+     * se encarga de desplegar la vista CALIDAD con la fecha actual
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Request  $request)
+    public function index()
     {
         
-         //si el usuario selecciono una fecha en la vista CALIDAD, se captura  este valor y se filtran los datos por esa fecha, de lo contrario se mostrara la fecha actual.
-        
-        if (($request->fecha_calidad) > 0) {
-            
-            $fecha=$request->fecha_calidad;
-        }else
-        {
-            $fecha=date("Y-m-d");//fecha actual
-        }
+        $fecha=date("Y-m-d");//fecha actual
+        //manda a llamar la funcion que muestra todas las calidades segun la fecha actual
+        return $this->verCalidades($fecha);
 
+ 
+    }
+
+/**
+     * se encarga de desplegar la vista principal y tambien realiza las busquedas de las calidades de agua
+     * para mostrarlas en la tabla
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function buscar(Request  $request)
+    {
+        
+           $fecha=$request->fecha_calidad;   
+           //retorna a la vista las calidades de acuerdo a la fecha seleccionada por el usuario
+        return $this->verCalidades($fecha);
+
+ 
+    }
+
+
+
+
+    /**
+     * Filtra por una fecha especifica las calidades del agua y las muestra en la vista CALIDAD
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function verCalidades($fechas)
+    {
+        //
+
+$fecha=$fechas;//fecha actual
         
 
         //corresponde al id del agua cruda
@@ -217,16 +242,8 @@ class CalidadController extends Controller
 
         /*Se retorna a la vista CALIDAD y se pasan las variables con los datos que se mostraran en la tabla*/
         return view('calidad', compact('a_cruda_24','a_cruda_1','a_cruda_2','a_cruda_3','a_cruda_4','a_cruda_5','a_cruda_6','a_cruda_7','a_cruda_8','a_cruda_9','a_cruda_10','a_cruda_11','a_cruda_12','a_cruda_13','a_cruda_14','a_cruda_15','a_cruda_16','a_cruda_17','a_cruda_18','a_cruda_19','a_cruda_20','a_cruda_21','a_cruda_22','a_cruda_23','a_clari_24','a_clari_1','a_clari_2','a_clari_3','a_clari_4','a_clari_5','a_clari_6','a_clari_7','a_clari_8','a_clari_9','a_clari_10','a_clari_11','a_clari_12','a_clari_13','a_clari_14','a_clari_15','a_clari_16','a_clari_17','a_clari_18','a_clari_19','a_clari_20','a_clari_21','a_clari_22','a_clari_23','a_fil_24','a_fil_1','a_fil_2','a_fil_3','a_fil_4','a_fil_5','a_fil_6','a_fil_7','a_fil_8','a_fil_9','a_fil_10','a_fil_11','a_fil_12','a_fil_13','a_fil_14','a_fil_15','a_fil_16','a_fil_17','a_fil_18','a_fil_19','a_fil_20','a_fil_21','a_fil_22','a_fil_23','a_trat_24','a_trat_1','a_trat_2','a_trat_3','a_trat_4','a_trat_5','a_trat_6','a_trat_7','a_trat_8','a_trat_9','a_trat_10','a_trat_11','a_trat_12','a_trat_13','a_trat_14','a_trat_15','a_trat_16','a_trat_17','a_trat_18','a_trat_19','a_trat_20','a_trat_21','a_trat_22','a_trat_23','dato_hora_1','dato_hora_2','dato_hora_3','dato_hora_4','dato_hora_5','dato_hora_6','dato_hora_7','dato_hora_8','dato_hora_9','dato_hora_10','dato_hora_11','dato_hora_12','dato_hora_13','dato_hora_14','dato_hora_15','dato_hora_16','dato_hora_17','dato_hora_18','dato_hora_19','dato_hora_20','dato_hora_21','dato_hora_22','dato_hora_23','dato_hora_24','fecha'));
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+
     }
 
     /**
@@ -302,7 +319,7 @@ class CalidadController extends Controller
         
 
 
-
+   
 
             /*Guarda pero manda a llamar al metodo index para que no haya error con las variables
             precargadas que se utilizan en la vista calidad, de lo contrario muestra error pues las variables utilizadas se encontrarian vacias*/
