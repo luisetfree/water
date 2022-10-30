@@ -125,7 +125,7 @@
                        
                     
                     </tr>
-                      <tr>
+                    <tr>
                         <th>Bocatoma</th>
                           <th>{{$bt_6_h}}h</th>
                           <th>{{$bt_5_h}}h</th>

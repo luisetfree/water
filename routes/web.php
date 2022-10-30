@@ -59,8 +59,11 @@ Route::post('store-form', [ProduccionController::class, 'store']);
 //Recibe el id desde el formulario-mostrar para filtrar y buscar la estacion que se necesita
 Route::post('mostrar', [ProduccionController::class, 'mostrar']);
 
-//Recibe los parametros del formulario en la vista Equipos, para filtrar y buscar la estacion que se necesita mostrar
-Route::post('/operacion', [OperacionController::class, 'store']);
+//Recibe la fecha del formulario en la vista Equipos para filtrar la informacion segun fecha específicada
+Route::post('/operacion', [OperacionController::class, 'index']);
 
 /*Maneja y guarda las calidades del agua*/
 Route::post('/calidades', [CalidadController::class, 'store']);
+
+/*Maneja la busqueda de calidades por fecha y las muestra */
+Route::post('/calidades', [CalidadController::class, 'index']);

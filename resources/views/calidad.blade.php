@@ -83,38 +83,171 @@
        @csrf
 
        
+        <!-- Select mostrará unicamente las horas que hacen falta agregar al registro diario -->
        <label for="hora">Hora</label>
             <select id="" name="hora" class="" required=""> 
-                    
-                 
-        
-                <option value="01:00">01:00</option>   
+                   <!-- Validando para hora que no se haya ingresado un dato previamente -->
+                  @if( $dato_hora_1 == "vacio" )
+                 <option value="01:00">01:00</option>
+                                    
+                  @else
+            
+                  @endif
+                
+                 @if( $dato_hora_2 == "vacio" )
+                 <option value="02:00">02:00</option>
+                                    
+                @else
+            
+                @endif
 
-                <option value="02:00">02:00</option>
-                <option value="03:00">03:00</option> 
-                <option value="04:00">04:00</option>
-                <option value="05:00">05:00</option>
-                <option value="06:00">06:00</option>  
-                <option value="07:00">07:00</option>
-                <option value="08:00">08:00</option>
-                <option value="09:00">09:00</option>
-                <option value="10:00">10:00</option>
-                <option value="11:00">11:00</option>
-                <option value="12:00">12:00</option>
-                <option value="13:00">13:00</option>
-                <option value="14:00">14:00</option>
-                <option value="15:00">15:00</option>
-                <option value="16:00">16:00</option>
-                <option value="17:00">17:00</option>
-                <option value="18:00">18:00</option>
+                @if( $dato_hora_3 == "vacio" )
+                 <option value="03:00">03:00</option>
+                                    
+                @else
+            
+                @endif
+
+                @if( $dato_hora_4 == "vacio" )
+                 <option value="04:00">04:00</option>
+                                    
+                @else
+            
+                @endif
+
+                @if( $dato_hora_5 == "vacio" )
+                 <option value="05:00">05:00</option>
+                                    
+                @else
+            
+                @endif
+                @if( $dato_hora_6 == "vacio" )
+                 <option value="06:00">06:00</option>
+                                    
+                @else
+            
+                @endif
+                @if( $dato_hora_7 == "vacio" )
+                 <option value="07:00">07:00</option>
+                                    
+                @else
+            
+                @endif
+                        
+                 @if( $dato_hora_8 == "vacio" )
+                 <option value="08:00">08:00</option>
+                                    
+                @else
+            
+                @endif
+                @if( $dato_hora_9 == "vacio" )
+                 <option value="09:00">09:00</option>
+                                    
+                @else
+            
+                @endif
+                 @if( $dato_hora_10 == "vacio" )
+                 <option value="10:00">10:00</option>
+                                    
+                @else
+            
+                @endif
+                  @if( $dato_hora_11 == "vacio" )
+                 <option value="11:00">11:00</option>
+                                    
+                @else
+            
+                @endif
+                 @if( $dato_hora_12 == "vacio" )
+                 <option value="12:00">12:00</option>
+                                    
+                @else
+            
+                @endif
+                 @if( $dato_hora_13 == "vacio" )
+                 <option value="13:00">13:00</option>
+                                    
+                @else
+            
+                @endif
+                @if( $dato_hora_14 == "vacio" )
+                 <option value="14:00">14:00</option>
+                                    
+                @else
+            
+                @endif
+                @if( $dato_hora_15 == "vacio" )
+                 <option value="15:00">15:00</option>
+                                    
+                @else
+            
+                @endif
+                @if( $dato_hora_16 == "vacio" )
+                 <option value="16:00">16:00</option>
+                                    
+                @else
+            
+                @endif
+                 @if( $dato_hora_17 == "vacio" )
+                 <option value="17:00">17:00</option>
+                                    
+                @else
+            
+                @endif
+                 @if( $dato_hora_18 == "vacio" )
+                 <option value="18:00">18:00</option>
+                                    
+                @else
+            
+                @endif
+                 @if( $dato_hora_19 == "vacio" )
+                 
                 <option value="19:00">19:00</option>
+                                    
+                @else
+            
+                @endif
+                 @if( $dato_hora_20 == "vacio" )
+                   
+                
                 <option value="20:00">20:00</option>
+                                    
+                @else
+            
+                @endif
+                 @if( $dato_hora_21 == "vacio" )
+                
                 <option value="21:00">21:00</option>
-                <option value="22:00">22:00</option>
-                <option value="23:00">23:00</option>
-                <option value="24:00">24:00</option>
+                                    
+                @else
+            
+                @endif
+                 @if( $dato_hora_22 == "vacio" )
+                 <option value="22:00">22:00</option>
+                                    
+                @else
+            
+                @endif
+                 @if( $dato_hora_23 == "vacio" )
+                 <option value="23:00">23:00</option>
+                                    
+                @else
+            
+                @endif
+                 @if( $dato_hora_24 == "vacio" )
+                 <option value="24:00">24:00</option>
+                                    
+                @else
+            
+                @endif
+    
                        
             </select>
+
+
+
+
+
             <div class="grid-container">
 
                 
@@ -124,8 +257,8 @@
                         <!-- este input hace referencia al id del agua cruda 1 -->
                         <input type="hidden" name="id_agua_c" value="1" >
                         <input type="text" name="turb_c" placeholder="Turbidez" required="">
-                        <input type="text" name="ph_c" placeholder="PH">
-                        <input type="text" name="temp_c" placeholder="temperatura">
+                        <input type="text" name="ph_c" placeholder="PH" required="">
+                        <input type="text" name="temp_c" placeholder="temperatura" required="">
                         <input type="text" name="color_c" placeholder="Color">
 
                     </section>
@@ -134,8 +267,8 @@
                         Clarificada
                         <input type="hidden" name="id_agua_cl" value="2" >
                         <input type="text" name="turb_cl" placeholder="Turbidez" >
-                        <input type="text" name="ph_cl" placeholder="PH">
-                        <input type="text" name="temp_cl" placeholder="temperatura">
+                        <input type="text" name="ph_cl" placeholder="PH" required="">
+                        <input type="text" name="temp_cl" placeholder="temperatura" required="" >
                         <input type="text" name="color_cl" placeholder="Color">
 
                     </section>
@@ -144,8 +277,8 @@
 
                         <input type="hidden" name="id_agua_f" value="3" >
                         <input type="text" name="turb_f" placeholder="Turbidez" >
-                        <input type="text" name="ph_f" placeholder="PH">
-                        <input type="text" name="temp_f" placeholder="temperatura">
+                        <input type="text" name="ph_f" placeholder="PH" required="">
+                        <input type="text" name="temp_f" placeholder="temperatura" required="">
                         <input type="text" name="color_f" placeholder="Color">
 
                     </section>
@@ -153,8 +286,8 @@
                         Tratada
                         <input type="hidden" name="id_agua_t" value="4" >
                         <input type="text" name="turb_t" placeholder="Turbidez" >
-                        <input type="text" name="ph_t" placeholder="PH">
-                        <input type="text" name="temp_t" placeholder="temperatura">
+                        <input type="text" name="ph_t" placeholder="PH" required="">
+                        <input type="text" name="temp_t" placeholder="temperatura" required="">
                         <input type="text" name="color_t" placeholder="Color">
 
                     </section>
@@ -171,13 +304,22 @@
 
       </form>
 
-<div class="container">
+<!-- Controla la  busqueda por fecha -->
+      <form name="form-calidad" id="" method="post" action="{{url('calidades')}}">
+       @csrf
 
-    <!-- para filtrar por fecha -->
-    <input type="date" name="fecha_calidad">
+            <div class="container">
 
+                <!-- para filtrar por fecha -->
+                <input type="date" name="fecha_calidad" value="{{$fecha}}">
+                <!-- mostrar calidades por fecha seleccionada -->
+                 <button type="submit" class="btn btn-outline-primary">Mostrar</button>
 
-</div>     
+            </div> 
+
+      </form>
+
+    
 
 
 

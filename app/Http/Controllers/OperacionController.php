@@ -10,13 +10,23 @@ class OperacionController extends Controller
 {
     /**
      * Este metodo replica exactamente al metodo store, sin embargo filtra la fecha actual. Carga los datos del dia actual y los muestra en la vista equipos.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request  $request)
     {
-        
-        $fechas=date("Y-m-d");//fecha actual
+        //si el usuario selecciono una fecha, se asigna este valor y se filtran los datos por esa fecha, de lo contrario se mostrara la fecha actual.
+        if (($request->fecha) > 0) {
+            
+            $fechas=$request->fecha;
+        }else
+        {
+            $fechas=date("Y-m-d");//fecha actual
+        }
+
+
+
+        //$fechas=date("Y-m-d");//fecha actual
 
         $id_bocatoma=1;//id exclusivamente para BT
         $id_eb1=2;//id exclusivamente para EB1
