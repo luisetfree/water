@@ -127,26 +127,45 @@
                     </tr>
                       <tr>
                         <th>Bocatoma</th>
-                          <th>{{$bt_6_h}}</th>
-                          <th>{{$bt_5_h}}</th>
-                          <th>{{$bt_4_h}}</th>
-                          <th>{{$bt_3_h}}</th>
-                          <th>{{$bt_2_h}}</th>
-                          <th>{{$bt_1_h}}</th>
-                          
-                        <th>{{$bt_0_h}}</th>
+                          <th>{{$bt_6_h}}h</th>
+                          <th>{{$bt_5_h}}h</th>
+                          <th>{{$bt_4_h}}h</th>
+                          <th>{{$bt_3_h}}h</th>
+                          <th>{{$bt_2_h}}h</th>
+                          <th>{{$bt_1_h}}h</th>                          
+                          <th>{{$bt_0_h}}h</th>
                        
                     </tr>
                     <tr>
                         <th>EB1</th>
-                        
+                          <th>{{$eb1_6_h}}h</th>
+                          <th>{{$eb1_5_h}}h</th>
+                          <th>{{$eb1_4_h}}h</th>
+                          <th>{{$eb1_3_h}}h</th>
+                          <th>{{$eb1_2_h}}h</th>
+                          <th>{{$eb1_1_h}}h</th>                          
+                          <th>{{$eb1_0_h}}h</th>
                     </tr>
                      <tr>
                         <th>EB2</th>
+                          <th>{{$eb2_6_h}}h</th>
+                          <th>{{$eb2_5_h}}h</th>
+                          <th>{{$eb2_4_h}}h</th>
+                          <th>{{$eb2_3_h}}h</th>
+                          <th>{{$eb2_2_h}}h</th>
+                          <th>{{$eb2_1_h}}h</th>                          
+                          <th>{{$eb2_0_h}}h</th>
                         
                     </tr>
                     <tr>
                         <th>EB3</th>
+                          <th>{{$eb3_6_h}}h</th>
+                          <th>{{$eb3_5_h}}h</th>
+                          <th>{{$eb3_4_h}}h</th>
+                          <th>{{$eb3_3_h}}h</th>
+                          <th>{{$eb3_2_h}}h</th>
+                          <th>{{$eb3_1_h}}h</th>                          
+                          <th>{{$eb3_0_h}}h</th>
                         
                     </tr>
                 </table>
