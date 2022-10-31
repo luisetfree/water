@@ -68,3 +68,6 @@ Route::post('/calidades', [CalidadController::class, 'store']);
 
 /*Maneja la busqueda de calidades por fecha y las muestra */
 Route::post('muestra', [CalidadController::class, 'buscar']);
+
+/*Maneja las producciones de las estaciones y las muestra segun la fecha requerida*/
+Route::post('producciones', [ProduccionController::class, 'muestraProducciones']);

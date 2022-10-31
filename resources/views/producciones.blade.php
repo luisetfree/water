@@ -84,7 +84,7 @@
     </div>
     <div class="card-body">
         
-           <form name="formulario-mostrar" id="" method="post" action="{{url('') }}">
+           <form name="formulario-mostrar" id="" method="post" action="{{url('producciones') }}">
        @csrf
 
 <!-- Contiene los controles de busqueda  -->
@@ -100,6 +100,8 @@
                <button type="submit" class="btn btn-outline-primary">Ver</button>
 
             </div>
+
+
                <div class="col-sm-8">
                 <label>Producción diaria</label>
                 <table>
