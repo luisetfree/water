@@ -2427,7 +2427,77 @@
        @endfor       
    
 
-           
+           <tr>
+            <td>x̄</td>
+            <!-- promedio de produccion de bocatoma -->
+            <td>{{$prom_bt}}</td>
+            <td></td>
+            <td>{{$prom_rio}}</td>
+            <td></td>
+            <td></td>
+            <td>{{$prom_coag}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+           </tr>
+
+           <tr>
+            
+            <td>MAX</td>
+            <td>{{$max_bt}}</td>
+            <td></td>
+            <td>{{$max_rio}}</td>
+            <td></td>
+            <td></td>
+            <td>{{$max_coag}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+           </tr>
+
+           <tr>
+    
+            <td>MIN</td>
+            <td>{{$min_bt}}</td>
+            <td></td>
+            <td>{{$min_rio}}</td>
+            <td></td>
+            <td></td>
+            <td>{{$min_coag}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+           </tr>
                 
                    
 

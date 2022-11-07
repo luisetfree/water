@@ -112,6 +112,7 @@
                         <th>EB1</th>
                         <th>EB2</th>
                         <th>EB3</th>
+                        <th>Aporte ZN</th>
 
                     </tr>
 
@@ -120,7 +121,9 @@
                         <td>{{$suma_eb1}} m³/d</td>
                         <td>{{$suma_eb2}} m³/d</td>
                         <td>{{$suma_eb3}} m³/d</td>
+                        <td> -</td>
                     </tr>
+
                 </table>
                </div>
                

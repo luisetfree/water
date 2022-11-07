@@ -64,7 +64,7 @@ class OperacionController extends Controller
         $eq_eb2_2=$this->equiposOperando($fechas,$hora2,$id_eb2);
         $eq_eb3_2=$this->equiposOperando($fechas,$hora2,$id_eb3);
         
-/*ojo, validar que las demas horas no se guarden en vacio...verificar*/
+        /*ojo, validar que las demas horas no se guarden en vacio...verificar*/
         $hora3='03:00';
          $equipo_3=$this->equiposOperando($fechas,$hora3,$id_bocatoma);
          $eq_eb1_3=$this->equiposOperando($fechas,$hora3,$id_eb1);
@@ -176,14 +176,14 @@ class OperacionController extends Controller
           $eq_eb1_19=$this->equiposOperando($fechas,$hora19,$id_eb1);
           $eq_eb2_19=$this->equiposOperando($fechas,$hora19,$id_eb2);
           $eq_eb3_19=$this->equiposOperando($fechas,$hora19,$id_eb3);
-
-
+          
+          
           $hora20='20:00';
           $equipo_20=$this->equiposOperando($fechas,$hora20,$id_bocatoma);
           $eq_eb1_20=$this->equiposOperando($fechas,$hora20,$id_eb1);
           $eq_eb2_20=$this->equiposOperando($fechas,$hora20,$id_eb2);
           $eq_eb3_20=$this->equiposOperando($fechas,$hora20,$id_eb3);
-
+          
 
           $hora21='21:00';
           $equipo_21=$this->equiposOperando($fechas,$hora21,$id_bocatoma);
