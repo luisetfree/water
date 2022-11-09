@@ -2426,7 +2426,7 @@
                
        @endfor       
    
-
+            {{-- Calculos de promedio, maximos y minimos --}}
            <tr>
             <td>x̄</td>
             <!-- promedio de produccion de bocatoma -->
@@ -2444,7 +2444,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
+            <td>{{$prom_cloro}}</td>
             <td></td>
             <td></td>
             <td></td>
@@ -2468,7 +2468,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
+            <td>{{$max_cloro}}</td>
             <td></td>
             <td></td>
             <td></td>
@@ -2492,7 +2492,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
+            <td>{{$min_cloro}}</td>
             <td></td>
             <td></td>
             <td></td>
