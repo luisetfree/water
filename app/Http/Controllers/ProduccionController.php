@@ -210,30 +210,30 @@ $con_cal_24=$this->datosConsumo($fecha,$hora_24,$id_cal);
 
        /*CALCULO DE CLORO*/
        
-       $cloro_hora_1=$this->calculoCloroAplicado($fecha,$hora_1,$id_cloro,$id_bocatoma);
-       $cloro_hora_2=$this->calculoCloroAplicado($fecha,$hora_2,$id_cloro,$id_bocatoma);
-       $cloro_hora_3=$this->calculoCloroAplicado($fecha,$hora_3,$id_cloro,$id_bocatoma);
-       $cloro_hora_4=$this->calculoCloroAplicado($fecha,$hora_4,$id_cloro,$id_bocatoma);
-       $cloro_hora_5=$this->calculoCloroAplicado($fecha,$hora_5,$id_cloro,$id_bocatoma);
-       $cloro_hora_6=$this->calculoCloroAplicado($fecha,$hora_6,$id_cloro,$id_bocatoma);
-       $cloro_hora_7=$this->calculoCloroAplicado($fecha,$hora_7,$id_cloro,$id_bocatoma);
-       $cloro_hora_8=$this->calculoCloroAplicado($fecha,$hora_8,$id_cloro,$id_bocatoma);
-       $cloro_hora_9=$this->calculoCloroAplicado($fecha,$hora_9,$id_cloro,$id_bocatoma);
-       $cloro_hora_10=$this->calculoCloroAplicado($fecha,$hora_10,$id_cloro,$id_bocatoma);       
-       $cloro_hora_11=$this->calculoCloroAplicado($fecha,$hora_11,$id_cloro,$id_bocatoma);
-       $cloro_hora_12=$this->calculoCloroAplicado($fecha,$hora_12,$id_cloro,$id_bocatoma);
-       $cloro_hora_13=$this->calculoCloroAplicado($fecha,$hora_13,$id_cloro,$id_bocatoma);
-       $cloro_hora_14=$this->calculoCloroAplicado($fecha,$hora_14,$id_cloro,$id_bocatoma);
-       $cloro_hora_15=$this->calculoCloroAplicado($fecha,$hora_15,$id_cloro,$id_bocatoma);
-       $cloro_hora_16=$this->calculoCloroAplicado($fecha,$hora_16,$id_cloro,$id_bocatoma);
-       $cloro_hora_17=$this->calculoCloroAplicado($fecha,$hora_17,$id_cloro,$id_bocatoma);
-       $cloro_hora_18=$this->calculoCloroAplicado($fecha,$hora_18,$id_cloro,$id_bocatoma);
-       $cloro_hora_19=$this->calculoCloroAplicado($fecha,$hora_19,$id_cloro,$id_bocatoma);
-       $cloro_hora_20=$this->calculoCloroAplicado($fecha,$hora_20,$id_cloro,$id_bocatoma);
-       $cloro_hora_21=$this->calculoCloroAplicado($fecha,$hora_21,$id_cloro,$id_bocatoma);
-       $cloro_hora_22=$this->calculoCloroAplicado($fecha,$hora_22,$id_cloro,$id_bocatoma);
-       $cloro_hora_23=$this->calculoCloroAplicado($fecha,$hora_23,$id_cloro,$id_bocatoma);
-       $cloro_hora_24=$this->calculoCloroAplicado($fecha,$hora_24,$id_cloro,$id_bocatoma);
+       $cloro_hora_1=$this->calculoCloroAplicado($fecha,$hora_1,$id_cloro,$id_bocatoma,$id_eb1);
+       $cloro_hora_2=$this->calculoCloroAplicado($fecha,$hora_2,$id_cloro,$id_bocatoma,$id_eb1);
+       $cloro_hora_3=$this->calculoCloroAplicado($fecha,$hora_3,$id_cloro,$id_bocatoma,$id_eb1);
+       $cloro_hora_4=$this->calculoCloroAplicado($fecha,$hora_4,$id_cloro,$id_bocatoma,$id_eb1);
+       $cloro_hora_5=$this->calculoCloroAplicado($fecha,$hora_5,$id_cloro,$id_bocatoma,$id_eb1);
+       $cloro_hora_6=$this->calculoCloroAplicado($fecha,$hora_6,$id_cloro,$id_bocatoma,$id_eb1);
+       $cloro_hora_7=$this->calculoCloroAplicado($fecha,$hora_7,$id_cloro,$id_bocatoma,$id_eb1);
+       $cloro_hora_8=$this->calculoCloroAplicado($fecha,$hora_8,$id_cloro,$id_bocatoma,$id_eb1);
+       $cloro_hora_9=$this->calculoCloroAplicado($fecha,$hora_9,$id_cloro,$id_bocatoma,$id_eb1);
+       $cloro_hora_10=$this->calculoCloroAplicado($fecha,$hora_10,$id_cloro,$id_bocatoma,$id_eb1);       
+       $cloro_hora_11=$this->calculoCloroAplicado($fecha,$hora_11,$id_cloro,$id_bocatoma,$id_eb1);
+       $cloro_hora_12=$this->calculoCloroAplicado($fecha,$hora_12,$id_cloro,$id_bocatoma,$id_eb1);
+       $cloro_hora_13=$this->calculoCloroAplicado($fecha,$hora_13,$id_cloro,$id_bocatoma,$id_eb1);
+       $cloro_hora_14=$this->calculoCloroAplicado($fecha,$hora_14,$id_cloro,$id_bocatoma,$id_eb1);
+       $cloro_hora_15=$this->calculoCloroAplicado($fecha,$hora_15,$id_cloro,$id_bocatoma,$id_eb1);
+       $cloro_hora_16=$this->calculoCloroAplicado($fecha,$hora_16,$id_cloro,$id_bocatoma,$id_eb1);
+       $cloro_hora_17=$this->calculoCloroAplicado($fecha,$hora_17,$id_cloro,$id_bocatoma,$id_eb1);
+       $cloro_hora_18=$this->calculoCloroAplicado($fecha,$hora_18,$id_cloro,$id_bocatoma,$id_eb1);
+       $cloro_hora_19=$this->calculoCloroAplicado($fecha,$hora_19,$id_cloro,$id_bocatoma,$id_eb1);
+       $cloro_hora_20=$this->calculoCloroAplicado($fecha,$hora_20,$id_cloro,$id_bocatoma,$id_eb1);
+       $cloro_hora_21=$this->calculoCloroAplicado($fecha,$hora_21,$id_cloro,$id_bocatoma,$id_eb1);
+       $cloro_hora_22=$this->calculoCloroAplicado($fecha,$hora_22,$id_cloro,$id_bocatoma,$id_eb1);
+       $cloro_hora_23=$this->calculoCloroAplicado($fecha,$hora_23,$id_cloro,$id_bocatoma,$id_eb1);
+       $cloro_hora_24=$this->calculoCloroAplicado($fecha,$hora_24,$id_cloro,$id_bocatoma,$id_eb1);
 
 
 /*Almacenando en un arreglo los datos obtenidos previamente en la consulta anterior para ser utilizados en las funciones promedio-maximo-minimo de cloro calculado*/
@@ -490,10 +490,14 @@ public function maximoCloroCalculado($datos){
             
 }
 
-/*Funcion para obtener MINIMO valor  del cloro calculado-- recibirá un arreglo de los datos de cloro calculado*/
+    /*Funcion para obtener MINIMO valor  del cloro calculado-- recibirá un arreglo de los datos de cloro calculado*/
 public function minimoCloroCalculado($datos){
     
-    return $minimo= min($datos);
+    
+
+        return $minimo= min($datos);
+
+    //REVISAR ESTA FUNCION NO DEVUELVE el minimo correcto
 
             
 }
@@ -641,7 +645,7 @@ return $consumos;
 /*
 Funcion que calcula el cloro aplicado segun la formula (dosis_cloro/Caudal_bt), este debe mostrarse en la tabla que se presenta al final de  la vista resumen
 */
-public function calculoCloroAplicado($fecha,$hora,$id_cloro,$id_bocatoma){
+public function calculoCloroAplicado($fecha,$hora,$id_cloro,$id_bocatoma,$id_eb1){
 
 $cloroAplicado=DB::table('consumos')
                 ->select('dosis')
@@ -674,7 +678,18 @@ $caudal_eb1=DB::table('produccions')
             if (($cau->caudal) > 0){
             return round((($dato->dosis)*1000)/($cau->caudal), 2);
         }else{
-            return 0;//considerar utilizar el caudal de EB1 cuando BT esta suspendida
+           //Se ha considerado el caudal de EB1 cuando BT esta suspendida
+
+            foreach ($caudal_eb1 as $eb1) {
+
+                //se retorna el valor utilizando caudal de EB1
+                return round((($dato->dosis)*1000)/($eb1->caudal), 2);
+
+                
+            }
+
+
+
         }
 
         }
