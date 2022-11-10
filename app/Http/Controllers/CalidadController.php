@@ -42,6 +42,9 @@ class CalidadController extends Controller
 
 
 
+
+
+
     /**
      * Filtra por una fecha especifica las calidades del agua y las muestra en la vista CALIDAD
      *
@@ -237,11 +240,41 @@ $fecha=$fechas;//fecha actual
 
 
 
+       //MANEJO DE PROMEDIOS - MAX - MIN DE CALIDADES DE AGUA
+
+       //representan los campos exactamente como estan definidos en la BD
+       $turb='turbidez';
+       $ph_='ph';
+       $temp='temperatura';
+       $color='color';
+       //agua cruda
+       $prom_c_ntu=$this->promedio($fecha,$id_cruda,$turb);
+       $prom_c_ph=$this->promedio($fecha,$id_cruda,$ph_);
+       $prom_c_temp=$this->promedio($fecha,$id_cruda,$temp);
+       $prom_c_col=$this->promedio($fecha,$id_cruda,$color);
+       //agua clarificada
+       $prom_cl_ntu=$this->promedio($fecha,$id_clarificada,$turb);
+       $prom_cl_ph=$this->promedio($fecha,$id_clarificada,$ph_);
+       $prom_cl_temp=$this->promedio($fecha,$id_clarificada,$temp);
+       $prom_cl_col=$this->promedio($fecha,$id_clarificada,$color);
+
+        //agua Filtrada
+       $prom_f_ntu=$this->promedio($fecha,$id_filtrada,$turb);
+       $prom_f_ph=$this->promedio($fecha,$id_filtrada,$ph_);
+       $prom_f_temp=$this->promedio($fecha,$id_filtrada,$temp);
+       $prom_f_col=$this->promedio($fecha,$id_filtrada,$color);
+
+        //agua Tratada
+       $prom_t_ntu=$this->promedio($fecha,$id_tratada,$turb);
+       $prom_t_ph=$this->promedio($fecha,$id_tratada,$ph_);
+       $prom_t_temp=$this->promedio($fecha,$id_tratada,$temp);
+       $prom_t_col=$this->promedio($fecha,$id_tratada,$color);//revisar no se muestra vien cuando ponen <5 
+
 
                
 
         /*Se retorna a la vista CALIDAD y se pasan las variables con los datos que se mostraran en la tabla*/
-        return view('calidad', compact('a_cruda_24','a_cruda_1','a_cruda_2','a_cruda_3','a_cruda_4','a_cruda_5','a_cruda_6','a_cruda_7','a_cruda_8','a_cruda_9','a_cruda_10','a_cruda_11','a_cruda_12','a_cruda_13','a_cruda_14','a_cruda_15','a_cruda_16','a_cruda_17','a_cruda_18','a_cruda_19','a_cruda_20','a_cruda_21','a_cruda_22','a_cruda_23','a_clari_24','a_clari_1','a_clari_2','a_clari_3','a_clari_4','a_clari_5','a_clari_6','a_clari_7','a_clari_8','a_clari_9','a_clari_10','a_clari_11','a_clari_12','a_clari_13','a_clari_14','a_clari_15','a_clari_16','a_clari_17','a_clari_18','a_clari_19','a_clari_20','a_clari_21','a_clari_22','a_clari_23','a_fil_24','a_fil_1','a_fil_2','a_fil_3','a_fil_4','a_fil_5','a_fil_6','a_fil_7','a_fil_8','a_fil_9','a_fil_10','a_fil_11','a_fil_12','a_fil_13','a_fil_14','a_fil_15','a_fil_16','a_fil_17','a_fil_18','a_fil_19','a_fil_20','a_fil_21','a_fil_22','a_fil_23','a_trat_24','a_trat_1','a_trat_2','a_trat_3','a_trat_4','a_trat_5','a_trat_6','a_trat_7','a_trat_8','a_trat_9','a_trat_10','a_trat_11','a_trat_12','a_trat_13','a_trat_14','a_trat_15','a_trat_16','a_trat_17','a_trat_18','a_trat_19','a_trat_20','a_trat_21','a_trat_22','a_trat_23','dato_hora_1','dato_hora_2','dato_hora_3','dato_hora_4','dato_hora_5','dato_hora_6','dato_hora_7','dato_hora_8','dato_hora_9','dato_hora_10','dato_hora_11','dato_hora_12','dato_hora_13','dato_hora_14','dato_hora_15','dato_hora_16','dato_hora_17','dato_hora_18','dato_hora_19','dato_hora_20','dato_hora_21','dato_hora_22','dato_hora_23','dato_hora_24','fecha'));
+        return view('calidad', compact('a_cruda_24','a_cruda_1','a_cruda_2','a_cruda_3','a_cruda_4','a_cruda_5','a_cruda_6','a_cruda_7','a_cruda_8','a_cruda_9','a_cruda_10','a_cruda_11','a_cruda_12','a_cruda_13','a_cruda_14','a_cruda_15','a_cruda_16','a_cruda_17','a_cruda_18','a_cruda_19','a_cruda_20','a_cruda_21','a_cruda_22','a_cruda_23','a_clari_24','a_clari_1','a_clari_2','a_clari_3','a_clari_4','a_clari_5','a_clari_6','a_clari_7','a_clari_8','a_clari_9','a_clari_10','a_clari_11','a_clari_12','a_clari_13','a_clari_14','a_clari_15','a_clari_16','a_clari_17','a_clari_18','a_clari_19','a_clari_20','a_clari_21','a_clari_22','a_clari_23','a_fil_24','a_fil_1','a_fil_2','a_fil_3','a_fil_4','a_fil_5','a_fil_6','a_fil_7','a_fil_8','a_fil_9','a_fil_10','a_fil_11','a_fil_12','a_fil_13','a_fil_14','a_fil_15','a_fil_16','a_fil_17','a_fil_18','a_fil_19','a_fil_20','a_fil_21','a_fil_22','a_fil_23','a_trat_24','a_trat_1','a_trat_2','a_trat_3','a_trat_4','a_trat_5','a_trat_6','a_trat_7','a_trat_8','a_trat_9','a_trat_10','a_trat_11','a_trat_12','a_trat_13','a_trat_14','a_trat_15','a_trat_16','a_trat_17','a_trat_18','a_trat_19','a_trat_20','a_trat_21','a_trat_22','a_trat_23','dato_hora_1','dato_hora_2','dato_hora_3','dato_hora_4','dato_hora_5','dato_hora_6','dato_hora_7','dato_hora_8','dato_hora_9','dato_hora_10','dato_hora_11','dato_hora_12','dato_hora_13','dato_hora_14','dato_hora_15','dato_hora_16','dato_hora_17','dato_hora_18','dato_hora_19','dato_hora_20','dato_hora_21','dato_hora_22','dato_hora_23','dato_hora_24','fecha','prom_c_ntu','prom_c_ph','prom_c_temp','prom_c_col','prom_cl_ntu','prom_cl_ph','prom_cl_temp','prom_cl_col','prom_f_ntu','prom_f_ph','prom_f_temp','prom_f_col','prom_t_ntu','prom_t_ph','prom_t_temp','prom_t_col'));
 
 
     }
@@ -349,6 +382,24 @@ $fecha=$fechas;//fecha actual
 
                             return $dato;
     }
+
+
+    /*Saca el promedio de una columna especificada en los parametros...se toma en cuenta solo los valores que
+    se encuentran ingresados en la DB*/
+public function promedio($fecha,$id_aguas,$campo_consultar)
+    {
+        //
+        $dato= DB::table('calidads')
+//        ->select($campo_consultar)
+        ->whereDate('created_at','=',$fecha)
+        ->where('id_agua','=',$id_aguas)
+        ->avg($campo_consultar);//se pide saque promedio de la columna que se pasa por parametro
+
+            return $dato;
+    }
+
+
+
 
     /**
      * Show the form for editing the specified resource.

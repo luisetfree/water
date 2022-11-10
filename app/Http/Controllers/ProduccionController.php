@@ -8,6 +8,8 @@ use App\Models\Operacion;
 use App\Models\Consumo;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Arr;
+
 
 use Illuminate\Support\Facades\DB;
 
@@ -476,7 +478,7 @@ $suma +=$datos[$i];
 
 }
 
-return $promedio = ($suma/24); //se dividen entre las horas del dia y se devuelve el valor
+return $promedio = round(($suma/24),2); //se dividen entre las horas del dia y se devuelve el valor, redondeado a 2 decimales
 
 
             
@@ -492,12 +494,17 @@ public function maximoCloroCalculado($datos){
 
     /*Funcion para obtener MINIMO valor  del cloro calculado-- recibirá un arreglo de los datos de cloro calculado*/
 public function minimoCloroCalculado($datos){
-    
-    
+     
+      
 
-        return $minimo= min($datos);
+  //recorre el arreglo y devuelve el valor minimo
+  return  $dato= min($datos);
 
-    //REVISAR ESTA FUNCION NO DEVUELVE el minimo correcto
+
+ 
+//return $sorted = Arr::sort($datos);
+
+    //REVISAR ESTA FUNCION para que en caso de que hayan horas vacias se logre devolver un valor 
 
             
 }

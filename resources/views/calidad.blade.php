@@ -4381,6 +4381,48 @@
         </td>
       </tr>
       @endfor
+
+      {{--Media--}}
+      <tr>
+        <td>X</td>
+
+        <td> {{$prom_c_ntu}}</td>
+        <td>{{$prom_c_ph}}</td>
+        <td>{{$prom_c_temp}}</td>
+        <td>{{$prom_c_col}}</td>
+    {{--Clarificada--}}
+        <td> {{$prom_cl_ntu}}</td>
+        <td>{{$prom_cl_ph}}</td>
+        <td>{{$prom_cl_temp}}</td>
+        <td>{{$prom_cl_col}}</td>
+    {{--Filtrada--}}
+        <td> {{$prom_f_ntu}}</td>
+        <td>{{$prom_f_ph}}</td>
+        <td>{{$prom_f_temp}}</td>
+        <td>{{$prom_f_col}}</td>
+ {{--tratada--}}
+        <td> {{$prom_t_ntu}}</td>
+        <td>{{$prom_t_ph}}</td>
+        <td>{{$prom_t_temp}}</td>
+        <td>{{$prom_t_col}}</td>
+      </tr>
+
+
+      {{--Maximo--}}
+      <tr>
+        <td>Máx</td>
+
+        <td></td>
+
+      </tr>
+        {{--Minimo--}}
+      <tr>
+        <td>Min</td>
+
+        <td></td>
+
+      </tr>
+
     </tbody>
     
   </table>
