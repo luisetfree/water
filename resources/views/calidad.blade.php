@@ -4382,7 +4382,7 @@
       </tr>
       @endfor
 
-      {{--Media--}}
+      <!-- --Media- -->
       <tr>
         <td>X</td>
 
@@ -4390,17 +4390,17 @@
         <td>{{$prom_c_ph}}</td>
         <td>{{$prom_c_temp}}</td>
         <td>{{$prom_c_col}}</td>
-    {{--Clarificada--}}
+    <!-- --Clarificada---->
         <td> {{$prom_cl_ntu}}</td>
         <td>{{$prom_cl_ph}}</td>
         <td>{{$prom_cl_temp}}</td>
         <td>{{$prom_cl_col}}</td>
-    {{--Filtrada--}}
+    <!-- --Filtrada- -->
         <td> {{$prom_f_ntu}}</td>
         <td>{{$prom_f_ph}}</td>
         <td>{{$prom_f_temp}}</td>
         <td>{{$prom_f_col}}</td>
- {{--tratada--}}
+ <!-- --tratada- -->
         <td> {{$prom_t_ntu}}</td>
         <td>{{$prom_t_ph}}</td>
         <td>{{$prom_t_temp}}</td>
@@ -4408,18 +4408,55 @@
       </tr>
 
 
-      {{--Maximo--}}
+    <!--   Maximo---->
       <tr>
         <td>Máx</td>
 
-        <td></td>
+        <td>{{$max_c_ntu}}</td>
+        <td>{{$max_c_ph}}</td>
+        <td>{{$max_c_tmp}}</td>
+        <td>{{$max_c_col}}</td>
+        <!-- Clarificada -->
+        <td>{{$max_cl_ntu}}</td>
+        <td>{{$max_cl_ph}}</td>
+        <td>{{$max_cl_tmp}}</td>
+        <td>{{$max_cl_col}}</td>
+           <!-- Filtrada -->
+        <td>{{$max_f_ntu}}</td>
+        <td>{{$max_f_ph}}</td>
+        <td>{{$max_f_tmp}}</td>
+        <td>{{$max_f_col}}</td>
+            <!-- Tratada -->
+        <td>{{$max_t_ntu}}</td>
+        <td>{{$max_t_ph}}</td>
+        <td>{{$max_t_tmp}}</td>
+        <td>{{$max_t_col}}</td>
 
       </tr>
-        {{--Minimo--}}
+       <!--  Minimo  ---->
       <tr>
         <td>Min</td>
+        <td>{{$min_c_ntu}}</td>
+        <td>{{$min_c_ph}}</td>
+        <td>{{$min_c_tmp}}</td>
+        <td>{{$min_c_col}}</td>
+        <!-- Clarificada -->
+        <td>{{$min_cl_ntu}}</td>
+        <td>{{$min_cl_ph}}</td>
+        <td>{{$min_cl_tmp}}</td>
+        <td>{{$min_cl_col}}</td>
+           <!-- Filtrada -->
+        <td>{{$min_f_ntu}}</td>
+        <td>{{$min_f_ph}}</td>
+        <td>{{$min_f_tmp}}</td>
+        <td>{{$min_f_col}}</td>
+            <!-- Tratada -->
+        <td>{{$min_t_ntu}}</td>
+        <td>{{$min_t_ph}}</td>
+        <td>{{$min_t_tmp}}</td>
+        <td>{{$min_t_col}}</td>
 
-        <td></td>
+        
 
       </tr>
 
