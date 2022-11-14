@@ -2431,22 +2431,22 @@
             <td>x̄</td>
             <!-- promedio de produccion de bocatoma -->
             <td>{{$prom_bt}}</td>
-            <td></td>
+            <td>{{$prom_cam}}%</td>
             <td>{{$prom_rio}}</td>
             <td></td>
             <td></td>
             <td>{{$prom_coag}}</td>
             <td></td>
+            <td>{{$prom_poli}}</td>
             <td></td>
+            <td>{{$prom_perm}}</td>
             <td></td>
+            <td>{{$prom_cal}}</td>
             <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{$prom_car}}</td>
             <td>{{$prom_cloro}}</td>
-            <td></td>
-            <td></td>
+            <td>{{$prom_cl_eb2}}</td>
+            <td>{{$prom_cl_eb3}}</td>
             <td></td>
             <td></td>
            </tr>
@@ -2455,22 +2455,22 @@
             
             <td>MAX</td>
             <td>{{$max_bt}}</td>
-            <td></td>
+            <td>{{$max_cam}}%</td>
             <td>{{$max_rio}}</td>
             <td></td>
             <td></td>
             <td>{{$max_coag}}</td>
             <td></td>
+            <td>{{$max_poli}}</td>
             <td></td>
+            <td>{{$max_perm}}</td>
             <td></td>
+            <td>{{$max_cal}}</td>
             <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{$max_car}}</td>
             <td>{{$max_cloro}}</td>
-            <td></td>
-            <td></td>
+            <td>{{$max_cl_eb2}}</td>
+            <td>{{$max_cl_eb3}}</td>
             <td></td>
             <td></td>
            </tr>
@@ -2479,22 +2479,23 @@
     
             <td>MIN</td>
             <td>{{$min_bt}}</td>
-            <td></td>
+            <td>{{$min_cam}}%</td>
             <td>{{$min_rio}}</td>
+            
             <td></td>
             <td></td>
             <td>{{$min_coag}}</td>
             <td></td>
+            <td>{{$min_poli}}</td>
             <td></td>
+            <td>{{$min_perm}}</td>
             <td></td>
+            <td>{{$min_cal}}</td>
             <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{$min_car}}</td>
             <td>{{$min_cloro}}</td>
-            <td></td>
-            <td></td>
+            <td>{{$min_cl_eb2}}</td>
+            <td>{{$min_cl_eb3}}</td>
             <td></td>
             <td></td>
            </tr>
