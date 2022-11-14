@@ -91,7 +91,7 @@ $fecha=$fechas;//fecha actual
         $hora24='24:00';
 
 /*Filtra turbidez cruda*/
-        $id_cruda=1;//ID por defecto, si se modifica hay que cambiarlo aqui
+        
         
 
         $a_cruda_24= $this->show($id_cruda,$fecha,$hora24);
