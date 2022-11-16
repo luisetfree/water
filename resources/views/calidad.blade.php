@@ -314,10 +314,21 @@
                 <input type="date" name="fecha_calidad" value="{{$fecha}}">
                 <!-- mostrar calidades por fecha seleccionada -->
                  <button type="submit" class="btn btn-outline-primary">Mostrar</button>
-
-            
-
+  
       </form>
+
+      <form name="form-calidad-editar" id="" method="post" action="{{url('editar')}}">
+       @csrf
+    
+                
+                 <button type="submit" class="btn btn-outline-primary">Editar</button>
+  
+      </form>
+
+
+
+
+
 
 </div> 
 
@@ -335,7 +346,8 @@
         <th colspan="4">Cruda</th>
         <th colspan="4" >Clarificada</th>
         <th colspan="4" >Filtrada</th>
-        <th colspan="4" >Tratada</th>
+        <th colspan="5" >Tratada</th>
+
       </tr>
      <tr>
         
@@ -359,6 +371,7 @@
             <th>PH</th>
             <th>°C</th>
             <th>Color</th>
+            
         
 
       </tr>
@@ -4379,6 +4392,7 @@
 
 
         </td>
+
       </tr>
       @endfor
 

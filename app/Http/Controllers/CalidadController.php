@@ -411,10 +411,7 @@ $fecha=$fechas;//fecha actual
             precargadas que se utilizan en la vista calidad, de lo contrario muestra error pues las variables utilizadas se encontrarian vacias*/
            return $this->index();
 
-         //return view ('calidad');
-          
-         //return view ('calidad', compact ('prueba','a_cruda'));
-  //return redirect('/calidad')->with('status', 'Guardado');
+      
     }
 
     /**
@@ -497,16 +494,124 @@ public function minimos($fecha,$id_aguas,$campo_consultar)
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualiza los campos recibidos 
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        //capturando los datos del formulario editar
+        $fecha=$request->fecha_calidad;
+        $hora=$request->hora;
+        //$id_cruda=$request->id_agua_c;
+        //$id_clarificada=$request->id_agua_cl;
+        //$id_filtrada=$request->id_agua_f;
+        $id_agua=$request->agua;
+
+
+
+/*Switch que controla si en la vista Editar-calidad se selecciono agua cruda-clarificada-filtrada o tratada*/
+        switch ($id_agua) {
+    case 1:
+         $id_cruda_=$this->obtenerID($fecha,$hora,$id_agua);
+        //Buscando el elemento segùn id de la hora seleccionada para agua CRUDA y actualizando datos
+        $cruda= Calidad::find($id_cruda_);
+        $cruda->turbidez = $request->turb_c;
+        $cruda->hora = $request->hora;
+        $cruda->ph = $request->ph_c;
+        $cruda->temperatura = $request->temp_c;
+        $cruda->color = $request->color_c;
+        $cruda->save();
+
+        return  $this->index();
+
+        break;
+    case 2:
+        $id_clarificada_=$this->obtenerID($fecha,$hora,$id_agua);
+        //Buscando el elemento segùn id de la hora seleccionada para agua CLARIFICADA y actualizando datos
+        $cruda= Calidad::find($id_clarificada_);
+        $cruda->turbidez = $request->turb_c;
+        $cruda->hora = $request->hora;
+        $cruda->ph = $request->ph_c;
+        $cruda->temperatura = $request->temp_c;
+        $cruda->color = $request->color_c;
+        $cruda->save();
+
+        return  $this->index();
+        break;
+    case 3:
+        echo "i es igual a 2";
+        break;
+        }
+
+
+
+
+
+        //Obteniendo el ID de los tipos de agua y campos a modificar
+       
+        $id_clari_=$this->obtenerID($fecha,$hora,$id_clarificada);
+        $id_filtrada_=$this->obtenerID($fecha,$hora,$id_filtrada);
+
+
+
+       
+
+
+       /* //Buscando el elemento segùn id de la hora seleccionada para agua CLARIFICADA y actualizando datos
+        $clarificada= Calidad::find($id_clari_);
+        $clarificada->turbidez = $request->turb_cl;
+        $clarificada->hora = $request->hora;
+        $clarificada->ph = $request->ph_cl;
+        $clarificada->temperatura = $request->temp_cl;
+        $clarificada->color = $request->color_cl;
+        $clarificada->save();
+
+        //Buscando el elemento segùn id de la hora seleccionada para agua FILTRADA y actualizando datos
+        $filtrada= Calidad::find($id_filtrada_);
+        $filtrada->turbidez = $request->turb_f;
+        $filtrada->hora = $request->hora;
+        $filtrada->ph = $request->ph_f;
+        $filtrada->temperatura = $request->temp_f;
+        $filtrada->color = $request->color_f;
+        $filtrada->save();*/
+        
+
+  
+
+
+      
     }
+
+//Obtener el id de un campo en especial
+
+    public  function obtenerID($fecha,$hora,$id_aguas)
+        {
+            
+             $id= DB::table('calidads')
+        ->select('calidads.id')
+        ->whereDate('created_at','=',$fecha)
+        ->where('hora','=',$hora)
+        ->where('id_agua','=',$id_aguas)
+                            ->get();
+
+
+        //Recorriendo la variable para devolver el id en el formato  correcto, de lo contrario darà error por no tratarse de una variable entera o string
+            foreach ($id as $key ){
+                
+                return $key->id;
+            }
+
+
+
+                          
+        }
+
+
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -543,7 +648,20 @@ return "vacio";
 }
 
 
-   
+/**
+     * Pre-carga los datos en la vista EDITAR-CALIDAD 
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+   public function editar(){
+    //$agua_cruda->turbidez='';
+
+  return view('editar-calidad' );
+
+
+   }
 
 
 }
