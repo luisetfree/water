@@ -494,7 +494,7 @@ public function minimos($fecha,$id_aguas,$campo_consultar)
     }
 
     /**
-     * Actualiza los campos recibidos 
+     * Recibe los parametros del formulario con los datos a editar
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -505,9 +505,11 @@ public function minimos($fecha,$id_aguas,$campo_consultar)
         //capturando los datos del formulario editar
         $fecha=$request->fecha_calidad;
         $hora=$request->hora;
-        //$id_cruda=$request->id_agua_c;
-        //$id_clarificada=$request->id_agua_cl;
-        //$id_filtrada=$request->id_agua_f;
+        $turb=$request->turb_c;
+        $ph=$request->ph_c;
+        $temp=$request->temp_c;
+        $col=$request->color_c;
+        //ASIGNARA el ID del agua seleccionada en el formulario de la vista EDITAR-CALIDAD
         $id_agua=$request->agua;
 
 
@@ -516,74 +518,71 @@ public function minimos($fecha,$id_aguas,$campo_consultar)
         switch ($id_agua) {
     case 1:
          $id_cruda_=$this->obtenerID($fecha,$hora,$id_agua);
-        //Buscando el elemento segùn id de la hora seleccionada para agua CRUDA y actualizando datos
-        $cruda= Calidad::find($id_cruda_);
-        $cruda->turbidez = $request->turb_c;
-        $cruda->hora = $request->hora;
-        $cruda->ph = $request->ph_c;
-        $cruda->temperatura = $request->temp_c;
-        $cruda->color = $request->color_c;
-        $cruda->save();
+       $this->actualizar($id_cruda_,$turb,$hora,$ph,$temp,$col);
 
         return  $this->index();
 
         break;
     case 2:
         $id_clarificada_=$this->obtenerID($fecha,$hora,$id_agua);
-        //Buscando el elemento segùn id de la hora seleccionada para agua CLARIFICADA y actualizando datos
-        $cruda= Calidad::find($id_clarificada_);
-        $cruda->turbidez = $request->turb_c;
-        $cruda->hora = $request->hora;
-        $cruda->ph = $request->ph_c;
-        $cruda->temperatura = $request->temp_c;
-        $cruda->color = $request->color_c;
-        $cruda->save();
-
-        return  $this->index();
+        
+        $this->actualizar($id_clarificada_,$turb,$hora,$ph,$temp,$col);
+         
+        return  $this->index();//retorna a la vista CALIDAD
         break;
     case 3:
-        echo "i es igual a 2";
+      $id_filtrada_=$this->obtenerID($fecha,$hora,$id_agua);
+        
+        $this->actualizar($id_filtrada_,$turb,$hora,$ph,$temp,$col);
+         
+        return  $this->index();//retorna a la vista CALIDAD
+        break;
+    case 4:
+         $id_tratada=$this->obtenerID($fecha,$hora,$id_agua);
+        
+        $this->actualizar($id_tratada,$turb,$hora,$ph,$temp,$col);
+         
+        return  $this->index();//retorna a la vista CALIDAD
         break;
         }
-
-
-
-
-
-        //Obteniendo el ID de los tipos de agua y campos a modificar
-       
-        $id_clari_=$this->obtenerID($fecha,$hora,$id_clarificada);
-        $id_filtrada_=$this->obtenerID($fecha,$hora,$id_filtrada);
-
-
-
-       
-
-
-       /* //Buscando el elemento segùn id de la hora seleccionada para agua CLARIFICADA y actualizando datos
-        $clarificada= Calidad::find($id_clari_);
-        $clarificada->turbidez = $request->turb_cl;
-        $clarificada->hora = $request->hora;
-        $clarificada->ph = $request->ph_cl;
-        $clarificada->temperatura = $request->temp_cl;
-        $clarificada->color = $request->color_cl;
-        $clarificada->save();
-
-        //Buscando el elemento segùn id de la hora seleccionada para agua FILTRADA y actualizando datos
-        $filtrada= Calidad::find($id_filtrada_);
-        $filtrada->turbidez = $request->turb_f;
-        $filtrada->hora = $request->hora;
-        $filtrada->ph = $request->ph_f;
-        $filtrada->temperatura = $request->temp_f;
-        $filtrada->color = $request->color_f;
-        $filtrada->save();*/
-        
 
   
 
 
       
     }
+
+        /*Funcion que realiza las actualizaciones de cualquier tipo de*/
+
+       public function actualizar($id_agua,$turbidez,$hora,$ph,$temp,$color){
+        //busca el elemento en particular y luego lo modifica
+        $cruda= Calidad::find($id_agua);
+        $cruda->turbidez = $turbidez;
+        $cruda->hora = $hora;
+        $cruda->ph = $ph;
+        $cruda->temperatura = $temp;
+        $cruda->color = $color;
+        $cruda->save();
+
+        }
+
+
+
+//funcion que recibe un ID en particular, busca los datos de calidad y los envía a la vista EDITAR-CALIDAD
+public function precargar($id){
+
+$datos= DB::table('calidads')
+        ->where('id','=',$id)
+        ->get();
+
+/*foreach ($datos as $turb) {
+    $turbidez= $turb->turbidez;
+}*/
+
+
+ return view('editar-calidad', compact('datos')) ;
+
+}
 
 //Obtener el id de un campo en especial
 

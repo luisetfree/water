@@ -32,7 +32,7 @@
 .grid-container {
   display: grid;
   /*auto representa cada columna*/
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto ;
   grid-template-rows: 80px 90px;
   gap: 10px;
   
@@ -85,7 +85,7 @@
        <!-- @method('put') Permitirá actualizar valores -->
 
         <!-- Fecha -->
-       <input type="date" name="fecha_calidad" value="">
+       <input type="date" name="fecha_calidad" value="" required="required">
 
         <!-- Select mostrará unicamente las horas que hacen falta agregar al registro diario -->
        <label for="hora">Hora</label>
@@ -144,10 +144,43 @@
 
                         <!-- este input hace referencia al id del agua cruda 1 
                         <input type="hidden" name="id_agua_c" value="1" >  -->
-                        <input type="text" name="turb_c" placeholder="Turbidez" required="" value="">
-                        <input type="text" name="ph_c" placeholder="PH" required="">
-                        <input type="text" name="temp_c" placeholder="temperatura" required="">
-                        <input type="text" name="color_c" placeholder="Color">
+                        <input type="text" name="turb_c" placeholder="Turbidez" required="" value="
+                        @foreach ($datos as $turb)
+                   
+                                              {{ $turb->turbidez}} 
+
+                        @endforeach    ">
+                        <input type="text" name="ph_c" placeholder="PH" required="" value="
+                        @foreach ($datos as $p)
+                   
+                                              {{$p->ph}} 
+
+                        @endforeach 
+
+
+
+                        ">
+                        <input type="text" name="temp_c" placeholder="temperatura" required="" value="
+                        @foreach ($datos as $tmp)
+                   
+                                              {{$tmp->temperatura}} 
+
+                        @endforeach 
+
+
+
+
+                        ">
+                        <input type="text" name="color_c" placeholder="Color" value="
+                        @foreach ($datos as $cl)
+                   
+                                              {{$cl->color}} 
+
+                        @endforeach 
+
+
+
+                        ">
 
                     </section>
                

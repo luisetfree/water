@@ -394,13 +394,13 @@
                                
                                 @case(1)
 
-                                     
-                                   @foreach ($a_cruda_1 as $c1)
-                   
-                                              {{ $c1->turbidez}} 
-
-                                    @endforeach               
                                  
+                                   @foreach ($a_cruda_1 as $c1)
+                         <a href="/edit/{{$c1->id}}"> 
+                                              {{ $c1->turbidez}} 
+                         </a>
+                                    @endforeach               
+                                
                                 @break
                                  @case(2)
 

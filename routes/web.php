@@ -71,8 +71,11 @@ Route::post('muestra', [CalidadController::class, 'buscar']);
 
 /*Maneja la edicion de calidades de una fecha determinada*/
 Route::post('editar', [CalidadController::class, 'editar']);
-
+//Guarda los datos del formulario para actualizar datos
 Route::post('actualizar', [CalidadController::class, 'update']);
+
+//Recibe el id de un tipo de agua en particular y precarga los datos en la vista Editar-Calidad para su posterior edicion de los valores
+Route::get('/edit/{id}', [CalidadController::class, 'precargar']);
 
 /*Maneja las producciones de las estaciones y las muestra segun la fecha requerida*/
 Route::post('producciones', [ProduccionController::class, 'muestraProducciones']);
