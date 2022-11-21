@@ -343,14 +343,14 @@ $fecha=$fechas;//fecha actual
     {
         //
 
-        
+        //$fecha=$request->fecha_calidad;
             
        
          //guardando los datos del agua cruda
         $cruda = new Calidad;
             //asignando los datos del formulario a los campos de la tabla calidads
         $cruda->turbidez = $request->turb_c;
-        
+        $cruda->fecha=$request->fecha_calidad;
         $cruda->hora = $request->hora;
         $cruda->ph = $request->ph_c;
         $cruda->temperatura = $request->temp_c;
@@ -364,7 +364,7 @@ $fecha=$fechas;//fecha actual
          $clarificada = new Calidad;
             
         $clarificada->turbidez = $request->turb_cl;
-        
+        $clarificada->fecha=$request->fecha_calidad;
         $clarificada->hora = $request->hora;
         $clarificada->ph = $request->ph_cl;
         $clarificada->temperatura = $request->temp_cl;
@@ -378,7 +378,7 @@ $fecha=$fechas;//fecha actual
          $filtrada = new Calidad;
             
         $filtrada->turbidez = $request->turb_f;
-        
+        $filtrada->fecha=$request->fecha_calidad;
         $filtrada->hora = $request->hora;
         $filtrada->ph = $request->ph_f;
         $filtrada->temperatura = $request->temp_f;
@@ -392,7 +392,7 @@ $fecha=$fechas;//fecha actual
          $tratada = new Calidad;
             
         $tratada->turbidez = $request->turb_t;
-        
+        $tratada->fecha=$request->fecha_calidad;
         $tratada->hora = $request->hora;
         $tratada->ph = $request->ph_t;
         $tratada->temperatura = $request->temp_t;
@@ -425,7 +425,8 @@ $fecha=$fechas;//fecha actual
         //
         $dato= DB::table('calidads')
         ->select('calidads.*')
-        ->whereDate('created_at','=',$fecha)
+        //->whereDate('created_at','=',$fecha)
+        ->where('fecha','=',$fecha)
         ->where('hora','=',$horas)
         ->where('id_agua','=',$id_aguas)
                             ->get();
@@ -441,7 +442,8 @@ public function promedio($fecha,$id_aguas,$campo_consultar)
         //
         $dato= DB::table('calidads')
 //        ->select($campo_consultar)
-        ->whereDate('created_at','=',$fecha)
+        //->whereDate('created_at','=',$fecha)
+        ->where('fecha','=',$fecha)
         ->where('id_agua','=',$id_aguas)
         ->avg($campo_consultar);//se pide saque promedio de la columna que se pasa por parametro
 
@@ -452,9 +454,9 @@ public function promedio($fecha,$id_aguas,$campo_consultar)
 public function maximo($fecha,$id_aguas,$campo_consultar)
     {
         //
-        $dato= DB::table('calidads')
-        
-        ->whereDate('created_at','=',$fecha)
+        $dato= DB::table('calidads')        
+        //->whereDate('created_at','=',$fecha)
+        ->where('fecha','=',$fecha)
         ->where('id_agua','=',$id_aguas)
 
         ->max($campo_consultar)
@@ -471,8 +473,8 @@ public function minimos($fecha,$id_aguas,$campo_consultar)
     {
         //
         $dato= DB::table('calidads')
-
-        ->whereDate('created_at','=',$fecha)
+        ->where('fecha','=',$fecha)
+        //->whereDate('created_at','=',$fecha)
         ->where('id_agua','=',$id_aguas)
         ->min($campo_consultar);//obteniendo el valor máximo
 
@@ -598,7 +600,8 @@ foreach ($datos as $agua) {
             
              $id= DB::table('calidads')
         ->select('calidads.id')
-        ->whereDate('created_at','=',$fecha)
+        //->whereDate('created_at','=',$fecha)
+        ->where('fecha','=',$fecha)
         ->where('hora','=',$hora)
         ->where('id_agua','=',$id_aguas)
                             ->get();
@@ -639,7 +642,8 @@ public function buscarHora($fecha,$hora,$id_agua){
 $dato=DB::table('calidads')
                 ->select('turbidez')
                 ->where('hora','=',$hora)
-                ->whereDate('updated_at', '=', $fecha)
+                //->whereDate('updated_at', '=', $fecha)
+                ->where('fecha','=',$fecha)
                 ->where('id_agua', '=', $id_agua)
                 ->get()
                 ->count();
@@ -654,20 +658,7 @@ return "vacio";
 }
 
 
-/**
-     * Pre-carga los datos en la vista EDITAR-CALIDAD 
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-   public function editar(){
-    //$agua_cruda->turbidez='';
 
-  return view('editar-calidad' );
-
-
-   }
 
 
 }

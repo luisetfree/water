@@ -295,9 +295,13 @@
             </div>
 
             <div class="">
+
+
+
+
     
         <button type="submit" class="btn btn-outline-primary">Guardar</button>
-         <!-- <input type="hidden" class="date" id="date" name="fecha_fantasma">  -->
+          <input type="date" class="date" id="date" name="fecha_calidad" value="{{$fecha}}" required="">  
 
             </div>
 
@@ -305,25 +309,19 @@
       </form>
 <div class="container">
 <!-- Controla la  busqueda por fecha -->
-      <form name="form-calidad" id="" method="post" action="{{url('muestra')}}">
+      
+    <form name="form-calidad" id="" method="post" action="{{url('muestra')}}">
        @csrf
-
             
 
                 <!-- para filtrar por fecha -->
-                <input type="date" name="fecha_calidad" value="{{$fecha}}">
+                <input type="date" name="fecha_calidad" value="{{$fecha}}">  
                 <!-- mostrar calidades por fecha seleccionada -->
                  <button type="submit" class="btn btn-outline-primary">Mostrar</button>
   
       </form>
 
-      <form name="form-calidad-editar" id="" method="post" action="{{url('editar')}}">
-       @csrf
-    
-                
-                 <button type="submit" class="btn btn-outline-primary">Editar</button>
-  
-      </form>
+     
 
 
 

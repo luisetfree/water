@@ -140,6 +140,7 @@
        
        <!-- Select mostrará unicamente las horas que hacen falta agregar al registro diario -->
        <label for="hora">Hora</label>
+
             <select id="" name="hora" class="" required=""> 
                    <!-- Validando para hora que no se haya ingresado un dato previamente -->
                   @if( $dato_hora_1 == "vacio" )
@@ -310,7 +311,8 @@
                 
                        
             </select>
-
+            <!-- Muestra fecha actual -->
+        <input type="date" name="fecha" value="{{$fecha}}">
 
 
 

@@ -500,7 +500,7 @@ $con_cal_24=$this->datosConsumo($fecha,$hora_24,$id_cal);
 
 
          //Enviando a vista resumen los datos de produccion de Bocatoma para mostrarlos en la tabla, tambien la variable $estacion permite obtener informacion de la tabla estacions
-        return view ('resumen', compact ('con_coagu_1','con_coagu_2','con_coagu_3','con_coagu_4','con_coagu_5','con_coagu_6','con_coagu_7','con_coagu_8','con_coagu_9','con_coagu_10','con_coagu_11','con_coagu_12','con_coagu_13','con_coagu_14','con_coagu_15','con_coagu_16','con_coagu_17','con_coagu_18','con_coagu_19','con_coagu_20','con_coagu_21','con_coagu_22','con_coagu_23','con_coagu_24','con_poli_1','con_poli_2','con_poli_3','con_poli_4','con_poli_5','con_poli_6','con_poli_7','con_poli_8','con_poli_9','con_poli_10','con_poli_11','con_poli_12','con_poli_13','con_poli_14','con_poli_15','con_poli_16','con_poli_17','con_poli_18','con_poli_19','con_poli_20','con_poli_21','con_poli_22','con_poli_23','con_poli_24','con_perm_1','con_perm_2','con_perm_3','con_perm_4','con_perm_5','con_perm_6','con_perm_7','con_perm_8','con_perm_9','con_perm_10','con_perm_11','con_perm_12','con_perm_13','con_perm_14','con_perm_15','con_perm_16','con_perm_17','con_perm_18','con_perm_19','con_perm_20','con_perm_21','con_perm_22','con_perm_23','con_perm_24','con_carbon_1','con_carbon_2','con_carbon_3','con_carbon_4','con_carbon_5','con_carbon_6','con_carbon_7','con_carbon_8','con_carbon_9','con_carbon_10','con_carbon_11','con_carbon_12','con_carbon_13','con_carbon_14','con_carbon_15','con_carbon_16','con_carbon_17','con_carbon_18','con_carbon_19','con_carbon_20','con_carbon_21','con_carbon_22','con_carbon_23','con_carbon_24','con_cal_1','con_cal_2','con_cal_3','con_cal_4','con_cal_5','con_cal_6','con_cal_7','con_cal_8','con_cal_9','con_cal_10','con_cal_11','con_cal_12','con_cal_13','con_cal_14','con_cal_15','con_cal_16','con_cal_17','con_cal_18','con_cal_19','con_cal_20','con_cal_21','con_cal_22','con_cal_23','con_cal_24','cloro_hora_1','cloro_hora_2','cloro_hora_3','cloro_hora_4','cloro_hora_5','cloro_hora_6','cloro_hora_7','cloro_hora_8','cloro_hora_9','cloro_hora_10','cloro_hora_11','cloro_hora_12','cloro_hora_13','cloro_hora_14','cloro_hora_15','cloro_hora_16','cloro_hora_17','cloro_hora_18','cloro_hora_19','cloro_hora_20','cloro_hora_21','cloro_hora_22','cloro_hora_23','cloro_hora_24','datos_bt_1','datos_bt_2','datos_bt_3','datos_bt_4','datos_bt_5','datos_bt_6','datos_bt_7','datos_bt_8','datos_bt_9','datos_bt_10','datos_bt_11','datos_bt_12','datos_bt_13','datos_bt_14','datos_bt_15','datos_bt_16','datos_bt_17','datos_bt_18','datos_bt_19','datos_bt_20','datos_bt_21','datos_bt_22','datos_bt_23','datos_bt_24','eq_oper_1','eq_oper_2','eq_oper_3','eq_oper_4','eq_oper_5','eq_oper_5','eq_oper_6','eq_oper_7','eq_oper_8','eq_oper_9','eq_oper_10','eq_oper_11','eq_oper_12','eq_oper_13','eq_oper_14','eq_oper_15','eq_oper_16','eq_oper_17','eq_oper_18','eq_oper_19','eq_oper_20','eq_oper_21','eq_oper_22','eq_oper_23','eq_oper_24','cl_eb2_1','cl_eb2_2','cl_eb2_3','cl_eb2_4','cl_eb2_5','cl_eb2_6','cl_eb2_7','cl_eb2_8','cl_eb2_9','cl_eb2_10','cl_eb2_11','cl_eb2_12','cl_eb2_13','cl_eb2_14','cl_eb2_15','cl_eb2_16','cl_eb2_17','cl_eb2_18','cl_eb2_19','cl_eb2_20','cl_eb2_21','cl_eb2_22','cl_eb2_23','cl_eb2_24','cl_eb3_1','cl_eb3_2','cl_eb3_3','cl_eb3_4','cl_eb3_5','cl_eb3_6','cl_eb3_7','cl_eb3_8','cl_eb3_9','cl_eb3_10','cl_eb3_11','cl_eb3_12','cl_eb3_13','cl_eb3_14','cl_eb3_15','cl_eb3_16','cl_eb3_17','cl_eb3_18','cl_eb3_19','cl_eb3_20','cl_eb3_21','cl_eb3_22','cl_eb3_23','cl_eb3_24','terminal_1','terminal_2','terminal_3','terminal_4','terminal_5','terminal_6','terminal_7','terminal_8','terminal_9','terminal_10','terminal_11','terminal_12','terminal_13','terminal_14','terminal_15','terminal_16','terminal_17','terminal_18','terminal_19','terminal_20','terminal_21','terminal_22','terminal_23','terminal_24','bv_1','bv_2','bv_3','bv_4','bv_5','bv_6','bv_7','bv_8','bv_9','bv_10','bv_11','bv_12','bv_13','bv_14','bv_15','bv_16','bv_17','bv_18','bv_19','bv_20','bv_21','bv_22','bv_23','bv_24','dato_hora_1','dato_hora_2','dato_hora_3','dato_hora_4','dato_hora_5','dato_hora_6','dato_hora_7','dato_hora_8','dato_hora_9','dato_hora_10','dato_hora_11','dato_hora_12','dato_hora_13','dato_hora_14','dato_hora_15','dato_hora_16','dato_hora_17','dato_hora_18','dato_hora_19','dato_hora_20','dato_hora_21','dato_hora_22','dato_hora_23','dato_hora_24','prom_bt','prom_cam','max_cam','min_cam','max_bt','min_bt','prom_rio','max_rio','min_rio','prom_coag','max_coag','min_coag','prom_cloro','max_cloro','min_cloro','prom_poli','max_poli','min_poli','prom_perm','max_perm','min_perm','prom_cal','max_cal','min_cal','prom_car','max_car','min_car','prom_cl_eb2','max_cl_eb2','min_cl_eb2','prom_cl_eb3','max_cl_eb3','min_cl_eb3'));
+        return view ('resumen', compact ('fecha','con_coagu_1','con_coagu_2','con_coagu_3','con_coagu_4','con_coagu_5','con_coagu_6','con_coagu_7','con_coagu_8','con_coagu_9','con_coagu_10','con_coagu_11','con_coagu_12','con_coagu_13','con_coagu_14','con_coagu_15','con_coagu_16','con_coagu_17','con_coagu_18','con_coagu_19','con_coagu_20','con_coagu_21','con_coagu_22','con_coagu_23','con_coagu_24','con_poli_1','con_poli_2','con_poli_3','con_poli_4','con_poli_5','con_poli_6','con_poli_7','con_poli_8','con_poli_9','con_poli_10','con_poli_11','con_poli_12','con_poli_13','con_poli_14','con_poli_15','con_poli_16','con_poli_17','con_poli_18','con_poli_19','con_poli_20','con_poli_21','con_poli_22','con_poli_23','con_poli_24','con_perm_1','con_perm_2','con_perm_3','con_perm_4','con_perm_5','con_perm_6','con_perm_7','con_perm_8','con_perm_9','con_perm_10','con_perm_11','con_perm_12','con_perm_13','con_perm_14','con_perm_15','con_perm_16','con_perm_17','con_perm_18','con_perm_19','con_perm_20','con_perm_21','con_perm_22','con_perm_23','con_perm_24','con_carbon_1','con_carbon_2','con_carbon_3','con_carbon_4','con_carbon_5','con_carbon_6','con_carbon_7','con_carbon_8','con_carbon_9','con_carbon_10','con_carbon_11','con_carbon_12','con_carbon_13','con_carbon_14','con_carbon_15','con_carbon_16','con_carbon_17','con_carbon_18','con_carbon_19','con_carbon_20','con_carbon_21','con_carbon_22','con_carbon_23','con_carbon_24','con_cal_1','con_cal_2','con_cal_3','con_cal_4','con_cal_5','con_cal_6','con_cal_7','con_cal_8','con_cal_9','con_cal_10','con_cal_11','con_cal_12','con_cal_13','con_cal_14','con_cal_15','con_cal_16','con_cal_17','con_cal_18','con_cal_19','con_cal_20','con_cal_21','con_cal_22','con_cal_23','con_cal_24','cloro_hora_1','cloro_hora_2','cloro_hora_3','cloro_hora_4','cloro_hora_5','cloro_hora_6','cloro_hora_7','cloro_hora_8','cloro_hora_9','cloro_hora_10','cloro_hora_11','cloro_hora_12','cloro_hora_13','cloro_hora_14','cloro_hora_15','cloro_hora_16','cloro_hora_17','cloro_hora_18','cloro_hora_19','cloro_hora_20','cloro_hora_21','cloro_hora_22','cloro_hora_23','cloro_hora_24','datos_bt_1','datos_bt_2','datos_bt_3','datos_bt_4','datos_bt_5','datos_bt_6','datos_bt_7','datos_bt_8','datos_bt_9','datos_bt_10','datos_bt_11','datos_bt_12','datos_bt_13','datos_bt_14','datos_bt_15','datos_bt_16','datos_bt_17','datos_bt_18','datos_bt_19','datos_bt_20','datos_bt_21','datos_bt_22','datos_bt_23','datos_bt_24','eq_oper_1','eq_oper_2','eq_oper_3','eq_oper_4','eq_oper_5','eq_oper_5','eq_oper_6','eq_oper_7','eq_oper_8','eq_oper_9','eq_oper_10','eq_oper_11','eq_oper_12','eq_oper_13','eq_oper_14','eq_oper_15','eq_oper_16','eq_oper_17','eq_oper_18','eq_oper_19','eq_oper_20','eq_oper_21','eq_oper_22','eq_oper_23','eq_oper_24','cl_eb2_1','cl_eb2_2','cl_eb2_3','cl_eb2_4','cl_eb2_5','cl_eb2_6','cl_eb2_7','cl_eb2_8','cl_eb2_9','cl_eb2_10','cl_eb2_11','cl_eb2_12','cl_eb2_13','cl_eb2_14','cl_eb2_15','cl_eb2_16','cl_eb2_17','cl_eb2_18','cl_eb2_19','cl_eb2_20','cl_eb2_21','cl_eb2_22','cl_eb2_23','cl_eb2_24','cl_eb3_1','cl_eb3_2','cl_eb3_3','cl_eb3_4','cl_eb3_5','cl_eb3_6','cl_eb3_7','cl_eb3_8','cl_eb3_9','cl_eb3_10','cl_eb3_11','cl_eb3_12','cl_eb3_13','cl_eb3_14','cl_eb3_15','cl_eb3_16','cl_eb3_17','cl_eb3_18','cl_eb3_19','cl_eb3_20','cl_eb3_21','cl_eb3_22','cl_eb3_23','cl_eb3_24','terminal_1','terminal_2','terminal_3','terminal_4','terminal_5','terminal_6','terminal_7','terminal_8','terminal_9','terminal_10','terminal_11','terminal_12','terminal_13','terminal_14','terminal_15','terminal_16','terminal_17','terminal_18','terminal_19','terminal_20','terminal_21','terminal_22','terminal_23','terminal_24','bv_1','bv_2','bv_3','bv_4','bv_5','bv_6','bv_7','bv_8','bv_9','bv_10','bv_11','bv_12','bv_13','bv_14','bv_15','bv_16','bv_17','bv_18','bv_19','bv_20','bv_21','bv_22','bv_23','bv_24','dato_hora_1','dato_hora_2','dato_hora_3','dato_hora_4','dato_hora_5','dato_hora_6','dato_hora_7','dato_hora_8','dato_hora_9','dato_hora_10','dato_hora_11','dato_hora_12','dato_hora_13','dato_hora_14','dato_hora_15','dato_hora_16','dato_hora_17','dato_hora_18','dato_hora_19','dato_hora_20','dato_hora_21','dato_hora_22','dato_hora_23','dato_hora_24','prom_bt','prom_cam','max_cam','min_cam','max_bt','min_bt','prom_rio','max_rio','min_rio','prom_coag','max_coag','min_coag','prom_cloro','max_cloro','min_cloro','prom_poli','max_poli','min_poli','prom_perm','max_perm','min_perm','prom_cal','max_cal','min_cal','prom_car','max_car','min_car','prom_cl_eb2','max_cl_eb2','min_cl_eb2','prom_cl_eb3','max_cl_eb3','min_cl_eb3'));
 
     }
 
@@ -558,7 +558,8 @@ public function promedio($fecha,$id_estacion,$promediar){
 
 
                 $prom=DB::table('produccions')
-                ->whereDate('updated_at', '=', $fecha)
+                //->whereDate('updated_at', '=', $fecha)
+                ->where('fecha','=',$fecha)
                 ->where('id_estacion', '=', $id_estacion)
                 ->avg($promediar);
 
@@ -570,7 +571,8 @@ public function maximo($fecha,$id_estacion,$maxi){
 
 
                 $max=DB::table('produccions')
-                ->whereDate('updated_at', '=', $fecha)
+                //->whereDate('updated_at', '=', $fecha)
+                ->where('fecha','=',$fecha)
                 ->where('id_estacion', '=', $id_estacion)
                 ->max($maxi);
 
@@ -583,7 +585,8 @@ public function minimo($fecha,$id_estacion,$mini){
 
 
                 $min=DB::table('produccions')
-                ->whereDate('updated_at', '=', $fecha)
+                //->whereDate('updated_at', '=', $fecha)
+                ->where('fecha','=',$fecha)
                 ->where('id_estacion', '=', $id_estacion)
                 ->min($mini);
 
@@ -596,7 +599,8 @@ public function minimo($fecha,$id_estacion,$mini){
 public function promQuimico($fecha,$id_quimico){
 
                 $prom = DB::table('consumos')
-                ->whereDate('created_at', '=', $fecha)
+                //->whereDate('created_at', '=', $fecha)
+                ->where('fecha','=',$fecha)
                 ->where('id_quimico', '=', $id_quimico)
                   ->avg('dosis');
 
@@ -607,7 +611,8 @@ public function promQuimico($fecha,$id_quimico){
 public function maxQuimico($fecha,$id_quimico){
 
                 $max = DB::table('consumos')
-                ->whereDate('created_at', '=', $fecha)
+                //->whereDate('created_at', '=', $fecha)
+                ->where('fecha','=',$fecha)
                 ->where('id_quimico', '=', $id_quimico)
                   ->max('dosis');
 
@@ -619,7 +624,8 @@ public function maxQuimico($fecha,$id_quimico){
 public function minQuimico($fecha,$id_quimico){
 
                 $min = DB::table('consumos')
-                ->whereDate('created_at', '=', $fecha)
+                //->whereDate('created_at', '=', $fecha)
+                ->where('fecha','=',$fecha)
                 ->where('id_quimico', '=', $id_quimico)
                   ->min('dosis');
 
@@ -637,7 +643,8 @@ public function totalEquiposOperando($fecha,$hora,$id_bocatoma){
             ->join('equipos', 'operacions.id_equipo', '=', 'equipos.id')
             ->join('estacions', 'equipos.id_estacion', '=', 'estacions.id')
             ->select('operacions.*','equipos.*','estacions.*')
-            ->whereDate('operacions.created_at', '=', $fecha)
+            //->whereDate('operacions.created_at', '=', $fecha)
+            ->where('operacions.fecha','=',$fecha)
             ->where('operacions.hora', '=', $hora)
             ->where('estacions.id','=',$id_bocatoma)
             ->where('estado','=','Operando')
@@ -657,7 +664,8 @@ public function buscarHora($fecha,$hora,$id_bocatoma){
 $dato=DB::table('produccions')
                 ->select('caudal')
                 ->where('hora','=',$hora)
-                ->whereDate('created_at', '=', $fecha)
+                //->whereDate('created_at', '=', $fecha)
+                ->where('fecha','=',$fecha)
                 ->where('id_estacion', '=', $id_bocatoma)
                 ->get()
                 ->count();
@@ -680,7 +688,8 @@ public function datosConsumo($fecha,$hora,$id_quimico){
  $consumos = DB::table('consumos')
                              ->select('consumos.*')
                 ->where('hora','=',$hora)
-                ->whereDate('created_at', '=', $fecha)
+                //->whereDate('created_at', '=', $fecha)
+                ->where('fecha','=',$fecha)
                 ->where('id_quimico', '=', $id_quimico)
                 ->get();
 
@@ -696,7 +705,8 @@ public function calculoCloroAplicado($fecha,$hora,$id_cloro,$id_bocatoma,$id_eb1
 $cloroAplicado=DB::table('consumos')
                 ->select('dosis')
                 ->where('hora','=',$hora)
-                ->whereDate('created_at', '=', $fecha)
+                //->whereDate('created_at', '=', $fecha)
+                ->where('fecha','=',$fecha)
                 ->where('id_quimico', '=', $id_cloro)
                 ->get();
 
@@ -704,14 +714,16 @@ $cloroAplicado=DB::table('consumos')
 $caudal_bt=DB::table('produccions')
                 ->select('caudal')
                 ->where('hora','=',$hora)
-                ->whereDate('created_at', '=', $fecha)
+                //->whereDate('created_at', '=', $fecha)
+                ->where('fecha','=',$fecha)
                 ->where('id_estacion', '=', $id_bocatoma)
                 ->get();
 //En caso que BT este suspendida se debera considerar el caudal de Eb1
 $caudal_eb1=DB::table('produccions')
                 ->select('caudal')
                 ->where('hora','=',$hora)
-                ->whereDate('created_at', '=', $fecha)
+                //->whereDate('created_at', '=', $fecha)
+                ->where('fecha','=',$fecha)
                 ->where('id_estacion', '=', $id_eb1)
                 ->get();
 
@@ -752,7 +764,8 @@ public function nivelTanque($fecha,$hora,$id_tanque){
                  $nivel=DB::table('produccions')
                 ->select('nivel_camara')
                 ->where('hora','=',$hora)
-                ->whereDate('updated_at', '=', $fecha)
+                //->whereDate('updated_at', '=', $fecha)
+                ->where('fecha','=',$fecha)
                 ->where('id_estacion', '=', $id_tanque)
                 ->get();
 
@@ -767,7 +780,8 @@ public function datosBT($fecha,$hora,$id_bt){
                  $caudal_bt=DB::table('produccions')
                 ->select('*')
                 ->where('hora','=',$hora)
-                ->whereDate('updated_at', '=', $fecha)
+                //->whereDate('updated_at', '=', $fecha)
+                ->where('fecha','=',$fecha)
                 ->where('id_estacion', '=', $id_bt)
                 ->get();
 
@@ -783,7 +797,8 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
                  $cloro_estaciones=DB::table('produccions')
                 ->select('cloro_residual')
                 ->where('hora','=',$hora)
-                ->whereDate('updated_at', '=', $fecha)
+                //->whereDate('updated_at', '=', $fecha)
+                ->where('fecha','=',$fecha)
                 ->where('id_estacion', '=', $id_estac)
                 ->get();
 
@@ -820,7 +835,7 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
         $produccion = new Produccion;
             //se agregaron valores por defecto para pruebas
         $produccion->caudal = $request->caudal;
-        //$produccion->fecha = $request->fecha;
+        $produccion->fecha = $request->fecha;
         $produccion->hora = $request->hora;
         $produccion->cloro_residual = $request->cloro_residual;
         $produccion->nivel_camara = $request->nivel_camara;
@@ -833,6 +848,7 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
         /*Recibe y guarda los valores de EB1*/
         $proEB1=new Produccion;
         $proEB1->caudal = $request->caudaleb1;
+        $proEB1->fecha = $request->fecha;
         $proEB1->hora = $request->hora;
         $proEB1->nivel_camara = $request->nivel1;
         $proEB1->cloro_residual = $request->cloro1;
@@ -844,6 +860,7 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
         /*Recibe y guarda los valores de EB2*/
         $proEB2=new Produccion;
         $proEB2->caudal = $request->caudaleb2;
+        $proEB2->fecha = $request->fecha;
         $proEB2->hora = $request->hora;
         $proEB2->nivel_camara = $request->nivel2;
         $proEB2->cloro_residual = $request->cloro2;
@@ -855,6 +872,7 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
          /*Recibe y guarda los valores de EB3*/
         $proEB3=new Produccion;
         $proEB3->caudal = $request->caudaleb3;
+        $proEB3->fecha = $request->fecha;
         $proEB3->hora = $request->hora;
         $proEB3->nivel_camara = $request->nivel3;
         $proEB3->cloro_residual = $request->cloro3;
@@ -870,6 +888,7 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
         $terminales=new Produccion;
         
         $terminales->nivel_camara = $request->nivel4;
+        $terminales->fecha = $request->fecha;
         $terminales->hora = $request->hora;
         $terminales->cloro_residual = $request->cloro4;
         $terminales->id_estacion = $request->id_terminal;
@@ -882,6 +901,7 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
         $nuevo=new Produccion;
         
         $nuevo->nivel_camara = $request->nivel5;
+        $nuevo->fecha = $request->fecha;
         $nuevo->hora = $request->hora;
         $nuevo->cloro_residual = $request->cloro5;
         $nuevo->id_estacion = $request->id_nuevo;
@@ -895,6 +915,7 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
         $viejo=new Produccion;
         
         $viejo->nivel_camara = $request->nivel6;
+        $viejo->fecha = $request->fecha;
         $viejo->hora = $request->hora;
         $viejo->cloro_residual = $request->cloro6;
         $viejo->id_estacion = $request->id_viejo;
@@ -908,6 +929,7 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
         $coagulante=new Consumo;
         
         $coagulante->dosis = $request->dosificacion_coagulante;
+        $coagulante->fecha = $request->fecha;
         $coagulante->hora = $request->hora;
         $coagulante->id_quimico = "5";
         $coagulante->id_agua = "1";//Agua cruda
@@ -917,6 +939,7 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
          $cal=new Consumo;
         
         $cal->dosis = $request->dosif_cal;
+        $cal->fecha = $request->fecha;
         $cal->hora = $request->hora;
         $cal->id_quimico = $request->id_cal;
         $cal->id_agua = "4";//id Agua tratada
@@ -925,6 +948,7 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
         $permanganato=new Consumo;
         
         $permanganato->dosis = $request->dosif_permanganato;
+        $permanganato->fecha = $request->fecha;
         $permanganato->hora = $request->hora;
         $permanganato->id_quimico = "1";//asignado directamente
         $permanganato->id_agua = "1";//id Agua cruda
@@ -933,6 +957,7 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
         $polimero=new Consumo;
         
         $polimero->dosis = $request->dosif_polimero;
+        $polimero->fecha = $request->fecha;
         $polimero->hora = $request->hora;
         $polimero->id_quimico = "7";//asignado directamente de id polimero
         $polimero->id_agua = "2";//id Agua clarificadas
@@ -941,6 +966,7 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
         $carbon=new Consumo;
         
         $carbon->dosis = $request->dosif_carbon;
+        $carbon->fecha = $request->fecha;
         $carbon->hora = $request->hora;
         $carbon->id_quimico = "2";//asignado directamente id de carbon
         $carbon->id_agua = "1";//id Agua cruda
@@ -950,6 +976,7 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
         $cloro=new Consumo;
         
         $cloro->dosis = $request->dosif_cloro;
+        $cloro->fecha = $request->fecha;
         $cloro->hora = $request->hora;
         $cloro->id_quimico = "8";//asignado directamente de id Cloro
         $cloro->id_agua = "4";//id Agua tratada
@@ -974,33 +1001,33 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
 
 /*Equipo 1 de BT*/
         //se le pasa al metodo el valor del checkbox y el id respectivo del equipo en cuestion y hora 
-        $this->guardaEquipo($request->eq1,$request->ideq1,$request->hora);
+        $this->guardaEquipo($request->eq1,$request->ideq1,$request->hora,$request->fecha);
 /*Fin de Equipo 1 de BT*/
 
 /*Equipo 2 de BT*/
         //se le pasa al metodo el valor del checkbox y el id respectivo del equipo en cuestion
-        $this->guardaEquipo($request->eq2,$request->ideq2,$request->hora);
+        $this->guardaEquipo($request->eq2,$request->ideq2,$request->hora,$request->fecha);
 /*Fin de Equipo 2 de BT*/
 /*Equipo 3 de BT*/
        //se le pasa al metodo el valor del checkbox y el id respectivo del equipo en cuestion
-        $this->guardaEquipo($request->eq3,$request->ideq3,$request->hora);
+        $this->guardaEquipo($request->eq3,$request->ideq3,$request->hora,$request->fecha);
 /*Fin de Equipo 3 de BT*/
 /*Equipo 4 de BT*/
-        $this->guardaEquipo($request->eq4,$request->ideq4,$request->hora);
+        $this->guardaEquipo($request->eq4,$request->ideq4,$request->hora,$request->fecha);
 /*Fin de Equipo 4 de BT*/
 /*Equipo 5 de BT*/
-       $this->guardaEquipo($request->eq5,$request->ideq5,$request->hora);
+       $this->guardaEquipo($request->eq5,$request->ideq5,$request->hora,$request->fecha);
 /*Fin de Equipo 5 de BT*/
 /*Equipo 6 de BT*/
-        $this->guardaEquipo($request->eq6,$request->ideq6,$request->hora);
+        $this->guardaEquipo($request->eq6,$request->ideq6,$request->hora,$request->fecha);
 /*Fin de Equipo 6 de BT*/
 /*Equipo 7 de BT*/
-        $this->guardaEquipo($request->eq7,$request->ideq7,$request->hora);
+        $this->guardaEquipo($request->eq7,$request->ideq7,$request->hora,$request->fecha);
 /*Fin de Equipo 7 de BT*/
 /*Equipo 8 de BT*/
 
         //se le pasa al metodo el valor del checkbox y el id respectivo del equipo en cuestion
-        $this->guardaEquipo($request->eq8,$request->ideq8,$request->hora);
+        $this->guardaEquipo($request->eq8,$request->ideq8,$request->hora,$request->fecha);
                
 /*Fin de Equipo 8 de BT*/
 
@@ -1011,31 +1038,31 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
     //Los ID de los equipos se agregaron a la vista manualmente-verificar y mejorar esta parte-
     /*Equipo 1 de EB1*/
         //los parametros que se envian al metodo son los que estan descritos particularmente para cada equipo
-        $this->guardaEquipo($request->eb11,$request->ideq11,$request->hora);
+        $this->guardaEquipo($request->eb11,$request->ideq11,$request->hora,$request->fecha);
     /*Fin de Equipo 1 de EB1*/
      /*Equipo 2 de EB1*/
        
-        $this->guardaEquipo($request->eb12,$request->ideq21,$request->hora);
+        $this->guardaEquipo($request->eb12,$request->ideq21,$request->hora,$request->fecha);
     /*Fin de Equipo 2 de EB1*/
     /*Equipo 3 de EB1*/
        
-        $this->guardaEquipo($request->eb13,$request->ideq31,$request->hora);
+        $this->guardaEquipo($request->eb13,$request->ideq31,$request->hora,$request->fecha);
     /*Fin de Equipo 3 de EB1*/
      /*Equipo 4 de EB1*/
        
-        $this->guardaEquipo($request->eb14,$request->ideq41,$request->hora);
+        $this->guardaEquipo($request->eb14,$request->ideq41,$request->hora,$request->fecha);
     /*Fin de Equipo 4 de EB1*/
      /*Equipo 5 de EB1*/
        
-        $this->guardaEquipo($request->eb15,$request->ideq51,$request->hora);
+        $this->guardaEquipo($request->eb15,$request->ideq51,$request->hora,$request->fecha);
     /*Fin de Equipo 5 de EB1*/
     /*Equipo 6 de EB1*/
        
-        $this->guardaEquipo($request->eb16,$request->ideq61,$request->hora);
+        $this->guardaEquipo($request->eb16,$request->ideq61,$request->hora,$request->fecha);
     /*Fin de Equipo 6 de EB1*/
       /*Equipo 7 de EB1*/
        
-        $this->guardaEquipo($request->eb17,$request->ideq71,$request->hora);
+        $this->guardaEquipo($request->eb17,$request->ideq71,$request->hora,$request->fecha);
     /*Fin de Equipo 7 de EB1*/
 
 
@@ -1045,31 +1072,31 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
    
     /*Equipo 1 de EB2*/
       
-       $this->guardaEquipo($request->eb21,$request->ideq12,$request->hora);
+       $this->guardaEquipo($request->eb21,$request->ideq12,$request->hora,$request->fecha);
     /*Fin de Equipo 1 de EB2*/
      /*Equipo 2 de EB2*/
        
-        $this->guardaEquipo($request->eb22,$request->ideq22,$request->hora);
+        $this->guardaEquipo($request->eb22,$request->ideq22,$request->hora,$request->fecha);
     /*Fin de Equipo 2 de EB2*/
     /*Equipo 3 de EB2*/
        
-        $this->guardaEquipo($request->eb23,$request->ideq32,$request->hora);
+        $this->guardaEquipo($request->eb23,$request->ideq32,$request->hora,$request->fecha);
     /*Fin de Equipo 3 de EB2*/
      /*Equipo 4 de EB2*/
        
-        $this->guardaEquipo($request->eb24,$request->ideq42,$request->hora);
+        $this->guardaEquipo($request->eb24,$request->ideq42,$request->hora,$request->fecha);
     /*Fin de Equipo 4 de EB2*/
      /*Equipo 5 de EB2*/
        
-        $this->guardaEquipo($request->eb25,$request->ideq52,$request->hora);
+        $this->guardaEquipo($request->eb25,$request->ideq52,$request->hora,$request->fecha);
     /*Fin de Equipo 5 de EB2*/
     /*Equipo 6 de EB2*/
        
-        $this->guardaEquipo($request->eb26,$request->ideq62,$request->hora);
+        $this->guardaEquipo($request->eb26,$request->ideq62,$request->hora,$request->fecha);
     /*Fin de Equipo 6 de EB2*/
       /*Equipo 7 de EB2*/
        
-        $this->guardaEquipo($request->eb27,$request->ideq72,$request->hora);
+        $this->guardaEquipo($request->eb27,$request->ideq72,$request->hora,$request->fecha);
     /*Fin de Equipo 7 de EB2*/
 
 
@@ -1079,31 +1106,31 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
    
     /*Equipo 1 de EB3*/
       
-       $this->guardaEquipo($request->eb31,$request->ideq13,$request->hora);
+       $this->guardaEquipo($request->eb31,$request->ideq13,$request->hora,$request->fecha);
     /*Fin de Equipo 1 de EB3*/
      /*Equipo 2 de EB3*/
        
-        $this->guardaEquipo($request->eb32,$request->ideq23,$request->hora);
+        $this->guardaEquipo($request->eb32,$request->ideq23,$request->hora,$request->fecha);
     /*Fin de Equipo 2 de EB3*/
     /*Equipo 3 de EB3*/
        
-        $this->guardaEquipo($request->eb33,$request->ideq33,$request->hora);
+        $this->guardaEquipo($request->eb33,$request->ideq33,$request->hora,$request->fecha);
     /*Fin de Equipo 3 de EB3*/
      /*Equipo 4 de EB3*/
        
-        $this->guardaEquipo($request->eb34,$request->ideq43,$request->hora);
+        $this->guardaEquipo($request->eb34,$request->ideq43,$request->hora,$request->fecha);
     /*Fin de Equipo 4 de EB3*/
      /*Equipo 5 de EB3*/
        
-        $this->guardaEquipo($request->eb35,$request->ideq53,$request->hora);
+        $this->guardaEquipo($request->eb35,$request->ideq53,$request->hora,$request->fecha);
     /*Fin de Equipo 5 de EB3*/
     /*Equipo 6 de EB3*/
        
-        $this->guardaEquipo($request->eb36,$request->ideq63,$request->hora);
+        $this->guardaEquipo($request->eb36,$request->ideq63,$request->hora,$request->fecha);
     /*Fin de Equipo 6 de EB3*/
       /*Equipo 7 de EB3*/
        
-        $this->guardaEquipo($request->eb37,$request->ideq73,$request->hora);
+        $this->guardaEquipo($request->eb37,$request->ideq73,$request->hora,$request->fecha);
     /*Fin de Equipo 7 de EB3*/
 
 
@@ -1139,7 +1166,7 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
     }
 
 /*Metodo que recibe el estado del checkbox y el id del equipo a procesar, se agregó la hora a la que se realizo este proceso desde la vista resumen */
-    public function guardaEquipo($nombreElementoFormulario,$idEquipo,$hora){
+    public function guardaEquipo($nombreElementoFormulario,$idEquipo,$hora,$fecha){
 
         $Equipo=new Operacion;//equipo x
 
@@ -1151,6 +1178,7 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
 
         
         $Equipo->id_equipo=$idEquipo;//del input oculto de la vista tomamos el id del equipo 
+        $Equipo->fecha=$fecha;
         $Equipo->hora=$hora;
 
         $Equipo->save();
@@ -1361,7 +1389,8 @@ public function buscarCaudales($fecha,$hora,$id_estacion){
 $caudal=DB::table('produccions')
                 ->select('caudal')
                 ->where('hora','=',$hora)
-                ->whereDate('updated_at', '=', $fecha)
+                //->whereDate('updated_at', '=', $fecha)
+                ->where('fecha','=',$fecha)
                 ->where('id_estacion', '=', $id_estacion)
                 ->get();
 
@@ -1375,7 +1404,8 @@ public function sumatoriaCaudales($fecha,$id_estacion){
 $suma_caudal=DB::table('produccions')
                 ->select('caudal')
                 //->where('hora','=',$hora)
-                ->whereDate('updated_at', '=', $fecha)
+                //->whereDate('updated_at', '=', $fecha)
+                ->where('fecha','=',$fecha)
                 ->where('id_estacion', '=', $id_estacion)
                 ->get();
 

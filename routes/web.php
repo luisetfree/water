@@ -69,8 +69,7 @@ Route::post('/calidades', [CalidadController::class, 'store']);
 /*Maneja la busqueda de calidades por fecha y las muestra */
 Route::post('muestra', [CalidadController::class, 'buscar']);
 
-/*Maneja la edicion de calidades de una fecha determinada*/
-Route::post('editar', [CalidadController::class, 'editar']);
+
 //Guarda los datos del formulario para actualizar datos
 Route::post('actualizar', [CalidadController::class, 'update']);
 
