@@ -406,9 +406,9 @@
 
                                      
                                    @foreach ($a_cruda_2 as $c2)
-                   
+                                            <a href="/edit/{{$c2->id}}">
                                               {{ $c2->turbidez}} 
-
+                                            </a>  
                                     @endforeach               
                                   
                                 @break
@@ -416,9 +416,9 @@
 
                                      
                                    @foreach ($a_cruda_3 as $c3)
-                   
+                                <a href="/edit/{{$c3->id}}">
                                               {{ $c3->turbidez}} 
-
+                                </a>  
                                     @endforeach               
                                   
                                 @break
@@ -426,9 +426,9 @@
 
                                      
                                    @foreach ($a_cruda_4 as $c4)
-                   
+                                        <a href="/edit/{{$c4->id}}">
                                               {{ $c4->turbidez}} 
-
+                                        </a>  
                                     @endforeach               
                                  
                                 @break
@@ -436,9 +436,9 @@
 
                                      
                                    @foreach ($a_cruda_5 as $c5)
-                   
+                                    <a href="/edit/{{$c5->id}}">
                                               {{ $c5->turbidez}} 
-
+                                    </a>         
                                     @endforeach               
                                   
                                 @break
@@ -446,9 +446,9 @@
 
                                      
                                    @foreach ($a_cruda_6 as $c6)
-                   
+                                        <a href="/edit/{{$c6->id}}">
                                               {{ $c6->turbidez}} 
-
+                                        </a>  
                                     @endforeach               
                                  
                                 @break
@@ -456,9 +456,9 @@
 
                                      
                                    @foreach ($a_cruda_7 as $c7)
-                   
+                                     <a href="/edit/{{$c7->id}}">
                                               {{ $c7->turbidez}} 
-
+                                     </a>  
                                     @endforeach               
                                  
                                 @break
@@ -466,9 +466,9 @@
 
                                      
                                    @foreach ($a_cruda_8 as $c8)
-                   
+                                             <a href="/edit/{{$c8->id}}">
                                               {{ $c8->turbidez}} 
-
+                                              </a>    
                                     @endforeach               
                                  
                                 @break
@@ -476,9 +476,9 @@
 
                                      
                                    @foreach ($a_cruda_9 as $c9)
-                   
+                                            <a href="/edit/{{$c9->id}}">
                                               {{ $c9->turbidez}} 
-
+                                            </a>    
                                     @endforeach               
                                   
                                 @break
@@ -486,9 +486,9 @@
 
                                      
                                    @foreach ($a_cruda_10 as $c10)
-                   
+                                            <a href="/edit/{{$c10->id}}">
                                               {{ $c10->turbidez}} 
-
+                                               </a>   
                                     @endforeach               
                                   
                                 @break
@@ -496,9 +496,9 @@
 
                                      
                                    @foreach ($a_cruda_11 as $c11)
-                   
+                                    <a href="/edit/{{$c11->id}}">
                                               {{ $c11->turbidez}} 
-
+                                             </a>     
                                     @endforeach               
                                  
                                 @break
@@ -506,9 +506,9 @@
 
                                      
                                    @foreach ($a_cruda_12 as $c12)
-                   
+                                             <a href="/edit/{{$c12->id}}">
                                               {{ $c12->turbidez}} 
-
+                                              </a>
                                     @endforeach               
                                  
                                 @break
@@ -516,9 +516,9 @@
 
                                      
                                    @foreach ($a_cruda_13 as $c13)
-                   
+                                        <a href="/edit/{{$c13->id}}">
                                               {{ $c13->turbidez}} 
-
+                                               </a>
                                     @endforeach               
                                  
                                 @break
@@ -526,9 +526,9 @@
 
                                      
                                    @foreach ($a_cruda_14 as $c14)
-                   
+                                        <a href="/edit/{{$c14->id}}">
                                               {{ $c14->turbidez}} 
-
+                                              </a>
                                     @endforeach               
                                   
                                 @break
@@ -536,9 +536,9 @@
 
                                      
                                    @foreach ($a_cruda_15 as $c15)
-                   
+                                        <a href="/edit/{{$c15->id}}">
                                               {{ $c15->turbidez}} 
-
+                                              </a>
                                     @endforeach               
                                  
                                 @break
@@ -546,9 +546,9 @@
 
                                      
                                    @foreach ($a_cruda_16 as $c16)
-                   
+                   <a href="/edit/{{$c16->id}}">
                                               {{ $c16->turbidez}} 
-
+                    </a>
                                     @endforeach               
                                  
                                 @break
@@ -556,9 +556,9 @@
 
                                      
                                    @foreach ($a_cruda_17 as $c17)
-                   
+                                        <a href="/edit/{{$c17->id}}">
                                               {{ $c17->turbidez}} 
-
+                                            </a>
                                     @endforeach               
                                  
                                 @break
@@ -566,9 +566,9 @@
 
                                      
                                    @foreach ($a_cruda_18 as $c18)
-                   
+                                    <a href="/edit/{{$c18->id}}">
                                               {{ $c18->turbidez}} 
-
+                                              </a>
                                     @endforeach               
                                  
                                 @break
@@ -576,9 +576,9 @@
 
                                      
                                    @foreach ($a_cruda_19 as $c19)
-                   
+                                     <a href="/edit/{{$c19->id}}">
                                               {{ $c19->turbidez}} 
-
+                                              </a>
                                     @endforeach               
                                    
                                 @break
@@ -586,9 +586,9 @@
 
                                      
                                    @foreach ($a_cruda_20 as $c20)
-                   
+                                          <a href="/edit/{{$c20->id}}">
                                               {{ $c20->turbidez}} 
-
+                                              </a>
                                     @endforeach               
                                   
                                 @break
@@ -596,9 +596,9 @@
 
                                      
                                    @foreach ($a_cruda_21 as $c21)
-                   
+                                            <a href="/edit/{{$c21->id}}">
                                               {{ $c21->turbidez}} 
-
+                                            </a>
                                     @endforeach               
                                   
                                 @break
@@ -606,9 +606,9 @@
 
                                      
                                    @foreach ($a_cruda_22 as $c22)
-                   
+                                            <a href="/edit/{{$c22->id}}">
                                               {{ $c22->turbidez}} 
-
+                                              </a>
                                     @endforeach               
                                  
                                 @break
@@ -616,9 +616,9 @@
 
                                      
                                    @foreach ($a_cruda_23 as $c23)
-                   
+                                       <a href="/edit/{{$c23->id}}">
                                               {{ $c23->turbidez}} 
-
+                                              </a>
                                     @endforeach               
                                  
                                 @break
@@ -626,9 +626,9 @@
 
                                      
                                @foreach ($a_cruda_24 as $c24)
-               
+                                <a href="/edit/{{$c24->id}}">
                                           {{ $c24->turbidez}} 
-
+                                </a>
                                 @endforeach               
                                 
                                 @break
@@ -647,9 +647,9 @@
 
                                      
                                    @foreach ($a_cruda_1 as $c1)
-                   
+                                    
                                               {{ $c1->ph}} 
-
+                                    
                                     @endforeach               
                                  
                                 @break
@@ -1397,9 +1397,9 @@
 
                                      
                                    @foreach ($a_clari_1 as $c1)
-                   
+                                <a href="/edit/{{$c1->id}}">
                                               {{ $c1->turbidez}} 
-
+                                </a>
                                     @endforeach               
                                  
                                 @break
@@ -1407,9 +1407,9 @@
 
                                      
                                    @foreach ($a_clari_2 as $c2)
-                   
+                                <a href="/edit/{{$c2->id}}">
                                               {{ $c2->turbidez}} 
-
+                                            </a>  
                                     @endforeach               
                                   
                                 @break
@@ -1417,9 +1417,9 @@
 
                                      
                                    @foreach ($a_clari_3 as $c3)
-                   
+                                     <a href="/edit/{{$c3->id}}">
                                               {{ $c3->turbidez}} 
-
+                                     </a>
                                     @endforeach               
                                   
                                 @break
@@ -1427,9 +1427,9 @@
 
                                      
                                    @foreach ($a_clari_4 as $c4)
-                   
+                                      <a href="/edit/{{$c4->id}}">
                                               {{ $c4->turbidez}} 
-
+                                            </a>
                                     @endforeach               
                                  
                                 @break
@@ -1437,9 +1437,9 @@
 
                                      
                                    @foreach ($a_clari_5 as $c5)
-                   
+                                    <a href="/edit/{{$c5->id}}">
                                               {{ $c5->turbidez}} 
-
+                                    </a>
                                     @endforeach               
                                   
                                 @break
@@ -1447,9 +1447,9 @@
 
                                      
                                    @foreach ($a_clari_6 as $c6)
-                   
+                                <a href="/edit/{{$c6->id}}">
                                               {{ $c6->turbidez}} 
-
+                                </a>
                                     @endforeach               
                                  
                                 @break
@@ -1457,9 +1457,9 @@
 
                                      
                                    @foreach ($a_clari_7 as $c7)
-                   
+                                      <a href="/edit/{{$c7->id}}">
                                               {{ $c7->turbidez}} 
-
+                                     </a>
                                     @endforeach               
                                  
                                 @break
@@ -1467,9 +1467,9 @@
 
                                      
                                    @foreach ($a_clari_8 as $c8)
-                   
+                                  <a href="/edit/{{$c8->id}}">
                                               {{ $c8->turbidez}} 
-
+                                    </a>
                                     @endforeach               
                                  
                                 @break
@@ -1477,9 +1477,9 @@
 
                                      
                                    @foreach ($a_clari_9 as $c9)
-                   
+                                <a href="/edit/{{$c9->id}}">
                                               {{ $c9->turbidez}} 
-
+                                    </a>
                                     @endforeach               
                                   
                                 @break
@@ -1487,9 +1487,9 @@
 
                                      
                                    @foreach ($a_clari_10 as $c10)
-                   
+                                <a href="/edit/{{$c10->id}}">
                                               {{ $c10->turbidez}} 
-
+                                    </a>
                                     @endforeach               
                                   
                                 @break
@@ -1497,9 +1497,9 @@
 
                                      
                                    @foreach ($a_clari_11 as $c11)
-                   
+                                <a href="/edit/{{$c11->id}}">
                                               {{ $c11->turbidez}} 
-
+                                    </a>
                                     @endforeach               
                                  
                                 @break
@@ -1507,9 +1507,9 @@
 
                                      
                                    @foreach ($a_clari_12 as $c12)
-                   
+                                 <a href="/edit/{{$c12->id}}">
                                               {{ $c12->turbidez}} 
-
+                                    </a>
                                     @endforeach               
                                  
                                 @break
@@ -1517,9 +1517,9 @@
 
                                      
                                    @foreach ($a_clari_13 as $c13)
-                   
+                                <a href="/edit/{{$c13->id}}">
                                               {{ $c13->turbidez}} 
-
+                                    </a>
                                     @endforeach               
                                  
                                 @break
@@ -1527,9 +1527,9 @@
 
                                      
                                    @foreach ($a_clari_14 as $c14)
-                   
+                                    <a href="/edit/{{$c14->id}}">
                                               {{ $c14->turbidez}} 
-
+                                        </a>
                                     @endforeach               
                                   
                                 @break
@@ -1537,9 +1537,9 @@
 
                                      
                                    @foreach ($a_clari_15 as $c15)
-                   
+                                 <a href="/edit/{{$c15->id}}">
                                               {{ $c15->turbidez}} 
-
+                                    </a>
                                     @endforeach               
                                  
                                 @break
@@ -1547,9 +1547,9 @@
 
                                      
                                    @foreach ($a_clari_16 as $c16)
-                   
+                                     <a href="/edit/{{$c16->id}}">
                                               {{ $c16->turbidez}} 
-
+                                        </a>
                                     @endforeach               
                                  
                                 @break
@@ -1557,9 +1557,9 @@
 
                                      
                                    @foreach ($a_clari_17 as $c17)
-                   
+                   <a href="/edit/{{$c17->id}}">
                                               {{ $c17->turbidez}} 
-
+                    </a>
                                     @endforeach               
                                  
                                 @break
@@ -1567,9 +1567,9 @@
 
                                      
                                    @foreach ($a_clari_18 as $c18)
-                   
+                   <a href="/edit/{{$c18->id}}">
                                               {{ $c18->turbidez}} 
-
+                                </a>
                                     @endforeach               
                                  
                                 @break
@@ -1577,9 +1577,9 @@
 
                                      
                                    @foreach ($a_clari_19 as $c19)
-                   
+                                <a href="/edit/{{$c19->id}}">
                                               {{ $c19->turbidez}} 
-
+                                    </a>
                                     @endforeach               
                                    
                                 @break
@@ -1587,9 +1587,9 @@
 
                                      
                                    @foreach ($a_clari_20 as $c20)
-                   
+                                <a href="/edit/{{$c20->id}}">
                                               {{ $c20->turbidez}} 
-
+                                    </a>
                                     @endforeach               
                                   
                                 @break
@@ -1597,9 +1597,9 @@
 
                                      
                                    @foreach ($a_clari_21 as $c21)
-                   
+                                    <a href="/edit/{{$c21->id}}">
                                               {{ $c21->turbidez}} 
-
+                                        </a>
                                     @endforeach               
                                   
                                 @break
@@ -1607,9 +1607,9 @@
 
                                      
                                    @foreach ($a_clari_22 as $c22)
-                   
+                                <a href="/edit/{{$c22->id}}">
                                               {{ $c22->turbidez}} 
-
+                                    </a>
                                     @endforeach               
                                  
                                 @break
@@ -1617,9 +1617,9 @@
 
                                      
                                    @foreach ($a_clari_23 as $c23)
-                   
+                                 <a href="/edit/{{$c23->id}}">
                                               {{ $c23->turbidez}} 
-
+                                    </a>
                                     @endforeach               
                                  
                                 @break
@@ -1627,9 +1627,9 @@
 
                                      
                                @foreach ($a_clari_24 as $c24)
-               
+                             <a href="/edit/{{$c24->id}}">
                                           {{ $c24->turbidez}} 
-
+                            </a>
                                 @endforeach               
                                 
                                 @break
@@ -2397,9 +2397,9 @@
 
                                      
                                    @foreach ($a_fil_1 as $c1)
-                   
+                   <a href="/edit/{{$c1->id}}">
                                               {{ $c1->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -2407,9 +2407,9 @@
 
                                      
                                    @foreach ($a_fil_2 as $c2)
-                   
+                   <a href="/edit/{{$c2->id}}">
                                               {{ $c2->turbidez}} 
-
+</a>
                                     @endforeach               
                                   
                                 @break
@@ -2417,9 +2417,9 @@
 
                                      
                                    @foreach ($a_fil_3 as $c3)
-                   
+                   <a href="/edit/{{$c3->id}}">
                                               {{ $c3->turbidez}} 
-
+</a>
                                     @endforeach               
                                   
                                 @break
@@ -2427,9 +2427,9 @@
 
                                      
                                    @foreach ($a_fil_4 as $c4)
-                   
+                   <a href="/edit/{{$c4->id}}">
                                               {{ $c4->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -2437,9 +2437,9 @@
 
                                      
                                    @foreach ($a_fil_5 as $c5)
-                   
+                   <a href="/edit/{{$c5->id}}">
                                               {{ $c5->turbidez}} 
-
+</a>
                                     @endforeach               
                                   
                                 @break
@@ -2447,9 +2447,9 @@
 
                                      
                                    @foreach ($a_fil_6 as $c6)
-                   
+                   <a href="/edit/{{$c6->id}}">
                                               {{ $c6->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -2457,9 +2457,9 @@
 
                                      
                                    @foreach ($a_fil_7 as $c7)
-                   
+                   <a href="/edit/{{$c7->id}}">
                                               {{ $c7->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -2467,9 +2467,9 @@
 
                                      
                                    @foreach ($a_fil_8 as $c8)
-                   
+                   <a href="/edit/{{$c8->id}}">
                                               {{ $c8->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -2477,9 +2477,9 @@
 
                                      
                                    @foreach ($a_fil_9 as $c9)
-                   
+                   <a href="/edit/{{$c9->id}}">
                                               {{ $c9->turbidez}} 
-
+</a>
                                     @endforeach               
                                   
                                 @break
@@ -2487,9 +2487,9 @@
 
                                      
                                    @foreach ($a_fil_10 as $c10)
-                   
+                   <a href="/edit/{{$c10->id}}">
                                               {{ $c10->turbidez}} 
-
+</a>
                                     @endforeach               
                                   
                                 @break
@@ -2497,9 +2497,9 @@
 
                                      
                                    @foreach ($a_fil_11 as $c11)
-                   
+                   <a href="/edit/{{$c11->id}}">
                                               {{ $c11->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -2507,9 +2507,9 @@
 
                                      
                                    @foreach ($a_fil_12 as $c12)
-                   
+                   <a href="/edit/{{$c12->id}}">
                                               {{ $c12->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -2517,9 +2517,9 @@
 
                                      
                                    @foreach ($a_fil_13 as $c13)
-                   
+                   <a href="/edit/{{$c13->id}}">
                                               {{ $c13->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -2527,9 +2527,9 @@
 
                                      
                                    @foreach ($a_fil_14 as $c14)
-                   
+                   <a href="/edit/{{$c14->id}}">
                                               {{ $c14->turbidez}} 
-
+</a>
                                     @endforeach               
                                   
                                 @break
@@ -2537,9 +2537,9 @@
 
                                      
                                    @foreach ($a_fil_15 as $c15)
-                   
+                   <a href="/edit/{{$c15->id}}">
                                               {{ $c15->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -2547,9 +2547,9 @@
 
                                      
                                    @foreach ($a_fil_16 as $c16)
-                   
+                   <a href="/edit/{{$c16->id}}">
                                               {{ $c16->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -2557,9 +2557,9 @@
 
                                      
                                    @foreach ($a_fil_17 as $c17)
-                   
+                   <a href="/edit/{{$c17->id}}">
                                               {{ $c17->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -2567,9 +2567,9 @@
 
                                      
                                    @foreach ($a_fil_18 as $c18)
-                   
+                   <a href="/edit/{{$c18->id}}">
                                               {{ $c18->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -2577,9 +2577,9 @@
 
                                      
                                    @foreach ($a_fil_19 as $c19)
-                   
+                   <a href="/edit/{{$c19->id}}">
                                               {{ $c19->turbidez}} 
-
+</a>
                                     @endforeach               
                                    
                                 @break
@@ -2587,9 +2587,9 @@
 
                                      
                                    @foreach ($a_fil_20 as $c20)
-                   
+                   <a href="/edit/{{$c20->id}}">
                                               {{ $c20->turbidez}} 
-
+</a>
                                     @endforeach               
                                   
                                 @break
@@ -2597,9 +2597,9 @@
 
                                      
                                    @foreach ($a_fil_21 as $c21)
-                   
+                   <a href="/edit/{{$c21->id}}">
                                               {{ $c21->turbidez}} 
-
+</a>
                                     @endforeach               
                                   
                                 @break
@@ -2607,9 +2607,9 @@
 
                                      
                                    @foreach ($a_fil_22 as $c22)
-                   
+                   <a href="/edit/{{$c22->id}}">
                                               {{ $c22->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -2617,9 +2617,9 @@
 
                                      
                                    @foreach ($a_fil_23 as $c23)
-                   
+                   <a href="/edit/{{$c23->id}}">
                                               {{ $c23->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -2627,9 +2627,9 @@
 
                                      
                                @foreach ($a_fil_24 as $c24)
-               
+               <a href="/edit/{{$c24->id}}">
                                           {{ $c24->turbidez}} 
-
+</a>
                                 @endforeach               
                                 
                                 @break
@@ -3396,9 +3396,9 @@
 
                                      
                                    @foreach ($a_trat_1 as $c1)
-                   
+                   <a href="/edit/{{$c1->id}}">
                                               {{ $c1->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -3406,9 +3406,9 @@
 
                                      
                                    @foreach ($a_trat_2 as $c2)
-                   
+                   <a href="/edit/{{$c2->id}}">
                                               {{ $c2->turbidez}} 
-
+</a>
                                     @endforeach               
                                   
                                 @break
@@ -3416,9 +3416,9 @@
 
                                      
                                    @foreach ($a_trat_3 as $c3)
-                   
+                   <a href="/edit/{{$c3->id}}">
                                               {{ $c3->turbidez}} 
-
+</a>
                                     @endforeach               
                                   
                                 @break
@@ -3426,9 +3426,9 @@
 
                                      
                                    @foreach ($a_trat_4 as $c4)
-                   
+                   <a href="/edit/{{$c4->id}}">
                                               {{ $c4->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -3436,9 +3436,9 @@
 
                                      
                                    @foreach ($a_trat_5 as $c5)
-                   
+                   <a href="/edit/{{$c5->id}}">
                                               {{ $c5->turbidez}} 
-
+</a>
                                     @endforeach               
                                   
                                 @break
@@ -3446,9 +3446,9 @@
 
                                      
                                    @foreach ($a_trat_6 as $c6)
-                   
+                   <a href="/edit/{{$c6->id}}">
                                               {{ $c6->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -3456,9 +3456,9 @@
 
                                      
                                    @foreach ($a_trat_7 as $c7)
-                   
+                   <a href="/edit/{{$c7->id}}">
                                               {{ $c7->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -3466,9 +3466,9 @@
 
                                      
                                    @foreach ($a_trat_8 as $c8)
-                   
+                   <a href="/edit/{{$c8->id}}">
                                               {{ $c8->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -3476,9 +3476,9 @@
 
                                      
                                    @foreach ($a_trat_9 as $c9)
-                   
+                   <a href="/edit/{{$c9->id}}">
                                               {{ $c9->turbidez}} 
-
+</a>
                                     @endforeach               
                                   
                                 @break
@@ -3486,9 +3486,9 @@
 
                                      
                                    @foreach ($a_trat_10 as $c10)
-                   
+                   <a href="/edit/{{$c10->id}}">
                                               {{ $c10->turbidez}} 
-
+</a>
                                     @endforeach               
                                   
                                 @break
@@ -3496,9 +3496,9 @@
 
                                      
                                    @foreach ($a_trat_11 as $c11)
-                   
+                   <a href="/edit/{{$c11->id}}">
                                               {{ $c11->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -3506,9 +3506,9 @@
 
                                      
                                    @foreach ($a_trat_12 as $c12)
-                   
+                   <a href="/edit/{{$c12->id}}">
                                               {{ $c12->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -3516,9 +3516,9 @@
 
                                      
                                    @foreach ($a_trat_13 as $c13)
-                   
+                   <a href="/edit/{{$c13->id}}">
                                               {{ $c13->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -3526,9 +3526,9 @@
 
                                      
                                    @foreach ($a_trat_14 as $c14)
-                   
+                   <a href="/edit/{{$c14->id}}">
                                               {{ $c14->turbidez}} 
-
+</a>
                                     @endforeach               
                                   
                                 @break
@@ -3536,9 +3536,9 @@
 
                                      
                                    @foreach ($a_trat_15 as $c15)
-                   
+                   <a href="/edit/{{$c15->id}}">
                                               {{ $c15->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -3546,9 +3546,9 @@
 
                                      
                                    @foreach ($a_trat_16 as $c16)
-                   
+                   <a href="/edit/{{$c16->id}}">
                                               {{ $c16->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -3556,9 +3556,9 @@
 
                                      
                                    @foreach ($a_trat_17 as $c17)
-                   
+                   <a href="/edit/{{$c17->id}}">
                                               {{ $c17->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -3566,9 +3566,9 @@
 
                                      
                                    @foreach ($a_trat_18 as $c18)
-                   
+                   <a href="/edit/{{$c18->id}}">
                                               {{ $c18->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -3576,9 +3576,9 @@
 
                                      
                                    @foreach ($a_trat_19 as $c19)
-                   
+                   <a href="/edit/{{$c19->id}}">
                                               {{ $c19->turbidez}} 
-
+</a>
                                     @endforeach               
                                    
                                 @break
@@ -3586,9 +3586,9 @@
 
                                      
                                    @foreach ($a_trat_20 as $c20)
-                   
+                   <a href="/edit/{{$c20->id}}">
                                               {{ $c20->turbidez}} 
-
+</a>
                                     @endforeach               
                                   
                                 @break
@@ -3596,9 +3596,9 @@
 
                                      
                                    @foreach ($a_trat_21 as $c21)
-                   
+                   <a href="/edit/{{$c21->id}}">
                                               {{ $c21->turbidez}} 
-
+</a>
                                     @endforeach               
                                   
                                 @break
@@ -3606,9 +3606,9 @@
 
                                      
                                    @foreach ($a_trat_22 as $c22)
-                   
+                   <a href="/edit/{{$c22->id}}">
                                               {{ $c22->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -3616,9 +3616,9 @@
 
                                      
                                    @foreach ($a_trat_23 as $c23)
-                   
+                   <a href="/edit/{{$c23->id}}">
                                               {{ $c23->turbidez}} 
-
+</a>
                                     @endforeach               
                                  
                                 @break
@@ -3626,9 +3626,9 @@
 
                                      
                                @foreach ($a_trat_24 as $c24)
-               
+               <a href="/edit/{{$c24->id}}">
                                           {{ $c24->turbidez}} 
-
+</a>
                                 @endforeach               
                                 
                                 @break

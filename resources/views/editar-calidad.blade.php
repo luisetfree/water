@@ -89,11 +89,26 @@
 
         <!-- Select mostrará unicamente las horas que hacen falta agregar al registro diario -->
        <label for="hora">Hora</label>
+
+        <!-- Gracias a la funcion precargar se muestra la hora de los valores que se está actualizando -->
             <select id="" name="hora" class="" required=""> 
                    <!-- Validando para hora que no se haya ingresado un dato previamente -->
                   
-                 <option value="01:00">01:00</option>
-                 <option value="02:00">02:00</option>
+                 <option value="@foreach ($datos as $hora)
+                   
+                                              {{$hora->hora}} 
+
+                        @endforeach ">
+
+                        @foreach ($datos as $h)
+                   
+                                              {{$h->hora}} 
+
+                        @endforeach 
+
+
+                </option>
+               <!--   <option value="02:00">02:00</option>
                  <option value="03:00">03:00</option>
                  <option value="04:00">04:00</option>
                  <option value="05:00">05:00</option>
@@ -115,7 +130,7 @@
                  <option value="21:00">21:00</option>
                  <option value="22:00">22:00</option>
                  <option value="23:00">23:00</option>
-                 <option value="24:00">24:00</option>
+                 <option value="24:00">24:00</option> -->
                                     
           
                        
@@ -131,12 +146,37 @@
 
                    <section class="card ">
                     <select id="" name="agua" class="" required=""> 
-                   <!-- Para seleccionar el tipo de agua a modificar, los numeros representan el id respectivo para cada tipo de agua -->
+                <!-- Recibe la variable Tipo que corresponde al ID del agua que se seleccionó, esto ayudará a mostrar el nombre correcto del agua-->
                   
-                             <option value="1">Cruda</option>
-                             <option value="2">Clarificada</option>
-                             <option value="3">Filtrada</option>
-                             <option value="4">Tratada</option>
+                @switch($tipo)
+                    @case(1)
+                        <option value="1">Cruda</option>
+                        @break
+
+                    @case(2)
+                        <option value="2">Clarificada</option>
+                        @break
+                    @case(3)
+                        <option value="3">Filtrada</option>
+                        @break
+                    @case(4)
+                        <option value="4">Tratada</option>
+                        @break
+
+                    @default
+                        Seleccionar...
+                @endswitch
+
+
+
+
+
+
+
+                             
+                             
+                             
+                             
        
                        
                     </select>

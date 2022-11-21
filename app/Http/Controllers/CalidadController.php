@@ -568,7 +568,7 @@ public function minimos($fecha,$id_aguas,$campo_consultar)
 
 
 
-//funcion que recibe un ID en particular, busca los datos de calidad y los envía a la vista EDITAR-CALIDAD
+//Funcion que recibe un ID, busca los datos de calidad y los envía a la vista EDITAR-CALIDAD
 public function precargar($id){
 
 $datos= DB::table('calidads')
@@ -580,7 +580,14 @@ $datos= DB::table('calidads')
 }*/
 
 
- return view('editar-calidad', compact('datos')) ;
+foreach ($datos as $agua) {
+    //se obtiene el id_agua segun el ID que se pasa por parametro, para identificar de cual agua se trata
+    $tipo=$agua->id_agua;
+}
+
+
+
+ return view('editar-calidad', compact('datos','tipo')) ;
 
 }
 
