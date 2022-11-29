@@ -1579,15 +1579,49 @@ $suma_caudal=DB::table('produccions')
         $id_eb3=4;
 
 
+
+        /*datos EB3, se esta tomando el id desde la vista PRODUCCIONES*/
+          $eb3=DB::table('produccions')
+        ->select('produccions.*')
+        ->where('id','=',$id)
+        /*->where('hora','=',$hora)//los datos de fecha y hora se toman desde el id de BT
+        ->where('fecha','=',$fecha)
+        ->where('id_estacion','=',$id_eb3)*/
+        ->get();
+
+        /*Extrayendo caudal de eb3*/
+
+        foreach ($eb3 as $cau) {
+            $caudal3=$cau->caudal;
+            $id_3=$cau->id;
+            
+        }
+
+          //obteniendo hora mediante los datos de eb3
+        foreach ($eb3 as $h) {
+            $hora=$h->hora;
+        }
+        //obteniendo fecha mediante los datos de eb3
+        foreach ($eb3 as $f) {
+            $fecha=$f->fecha;
+        }
+
+
+
 //Datos para BT
         $prod=DB::table('produccions')
         ->select('produccions.*')
-        ->where('id','=',$id)->get();
+        ->where('hora','=',$hora)//los datos de fecha y hora se toman desde el id de BT
+        ->where('fecha','=',$fecha)
+        ->where('id_estacion','=',$id_bocatoma)
+        /*->where('id','=',$id)*/
+        ->get();
 
         //Obteniendo el id
         foreach ($prod as $id_ ) {
             
             $key=$id_->id_estacion;
+            $id_bt=$id_->id;
 
 
         }
@@ -1614,14 +1648,7 @@ $suma_caudal=DB::table('produccions')
 
 
     /*Precargar datos de EB1*/
-        //obteniendo hora
-        foreach ($prod as $h) {
-            $hora=$h->hora;
-        }
-        //obteniendo fecha
-        foreach ($prod as $f) {
-            $fecha=$f->fecha;
-        }
+      
 
         $eb1=DB::table('produccions')
         ->select('produccions.*')
@@ -1657,27 +1684,12 @@ $suma_caudal=DB::table('produccions')
             $id_2=$cau->id;
         }
 
-         /*datos EB3*/
-          $eb3=DB::table('produccions')
-        ->select('produccions.*')
-        ->where('hora','=',$hora)//los datos de fecha y hora se toman desde el id de BT
-        ->where('fecha','=',$fecha)
-        ->where('id_estacion','=',$id_eb3)
-        ->get();
-
-        /*Extrayendo caudal de eb2*/
-
-        foreach ($eb3 as $cau) {
-            $caudal3=$cau->caudal;
-            $id_3=$cau->id;
-            
-        }
-
+         
 
 
 
     
-    return view ('editar-produccion', compact ('prod','id','caudal','nombre','caudal1','id_1','caudal2','id_2','caudal3','id_3'));
+    return view ('editar-produccion', compact ('prod','id','id_bt','caudal','nombre','caudal1','id_1','caudal2','id_2','caudal3','id_3','key'));
 
     }
 

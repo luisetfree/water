@@ -69,7 +69,7 @@
   @endif
   <div class="card">
     <div class="card-header text-center font-weight-bold">
-     Editar Producciones de agua
+     Editar caudales de agua
     </div>
     <div class="card-body">
 
@@ -131,7 +131,7 @@
             
 
                 <!-- Precarga el caudal almacenado en la BD y el id correspondiente-->
-                <input type="hidden" name="id_bt" value="{{$id}}">
+                <input type="hidden" name="id_bt" value="{{$id_bt}}">
 
                 <input type="text" name="caudalbt" placeholder="" required="" value="
                             
@@ -139,7 +139,7 @@
                            
 
                              ">
-                             
+
                 
           
                         

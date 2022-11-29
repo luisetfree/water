@@ -162,6 +162,7 @@
                 <th>EB1 m³/h</th>
                 <th>EB2 m³/h</th>
                 <th>EB3 m³/h</th>
+                <th></th>
                
             </tr>
             <!-- Fin Encabezado de la tabla -->
@@ -639,8 +640,17 @@
                                  
                                 @case(1)
                                       @foreach ($c_eb3_1 as $prod)
+                                      
                                           {{$prod->caudal}}
+
+                                          <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
+                                      
                                       @endforeach
+
                                 @break
                                 @case(2)
                                       @foreach ($c_eb3_2 as $prod)
@@ -770,7 +780,7 @@
 
                     
                     
-                        
+                     
                         
                         
                        
