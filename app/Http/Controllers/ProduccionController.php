@@ -1387,7 +1387,7 @@ $suma_eb3= $this->sumatoriaCaudales($fecha,$id_eb3);
 public function buscarCaudales($fecha,$hora,$id_estacion){
 
 $caudal=DB::table('produccions')
-                ->select('caudal')
+                ->select('caudal','id')
                 ->where('hora','=',$hora)
                 //->whereDate('updated_at', '=', $fecha)
                 ->where('fecha','=',$fecha)
@@ -1474,15 +1474,20 @@ $suma_caudal=DB::table('produccions')
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualiza caudales de las estaciones
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+        $fecha=$request->fecha;
+
+
+        //funcion que carga las producciones a la vista PRODUCCIONES segun una fecha determinada
+        return $this->verProducciones($fecha);
 
     }
 
@@ -1527,6 +1532,117 @@ $suma_caudal=DB::table('produccions')
 
         
         
+    }
+
+/*Recibe un id de BT para precargar los datos de produccion y enviarlo a la vista EDITAR-PRODUCCION para su edición
+, además se extraen los id de las otras estaciones para el caudal en cuestion los cuales se utilizaran para modificar los datos*/
+    public function precargar($id){
+        $id_bocatoma=1;
+        $id_eb1=2;
+        $id_eb2=3;
+        $id_eb3=4;
+
+
+//Datos para BT
+        $prod=DB::table('produccions')
+        ->select('produccions.*')
+        ->where('id','=',$id)->get();
+
+        //Obteniendo el id
+        foreach ($prod as $id_ ) {
+            
+            $key=$id_->id_estacion;
+
+
+        }
+
+        /*Utilizando $key se obtiene el id_estacion y asi se envia el valor 
+                para realizar la busqueda del nombre*/
+
+        $estacion=DB::table('estacions')
+        ->select('nombre')
+        ->where('id','=',$key)->get();
+
+        foreach ($estacion as $name) {
+            $nombre=$name->nombre;
+        }
+ 
+
+//obteniendo caudal de bt 
+        foreach ($prod as $cau ) {
+            
+            $caudal=$cau->caudal;
+
+        }
+
+
+
+    /*Precargar datos de EB1*/
+        //obteniendo hora
+        foreach ($prod as $h) {
+            $hora=$h->hora;
+        }
+        //obteniendo fecha
+        foreach ($prod as $f) {
+            $fecha=$f->fecha;
+        }
+
+        $eb1=DB::table('produccions')
+        ->select('produccions.*')
+        ->where('hora','=',$hora)//los datos de fecha y hora se toman desde el id de BT
+        ->where('fecha','=',$fecha)
+        ->where('id_estacion','=',$id_eb1)
+        ->get();
+
+
+
+        /****Nota, extraer el id de la estacion, pasarlo a la vista editar para luego utilizarlo
+        en la actualizacion de datos*****/
+
+        /*Extrayendo caudal de eb1*/
+
+        foreach ($eb1 as $cau) {
+            $caudal1=$cau->caudal;
+            $id_1=$cau->id;
+        }
+
+        /*datos EB2*/
+          $eb2=DB::table('produccions')
+        ->select('produccions.*')
+        ->where('hora','=',$hora)//los datos de fecha y hora se toman desde el id de BT
+        ->where('fecha','=',$fecha)
+        ->where('id_estacion','=',$id_eb2)
+        ->get();
+
+        /*Extrayendo caudal de eb2*/
+
+        foreach ($eb2 as $cau) {
+            $caudal2=$cau->caudal;
+            $id_2=$cau->id;
+        }
+
+         /*datos EB3*/
+          $eb3=DB::table('produccions')
+        ->select('produccions.*')
+        ->where('hora','=',$hora)//los datos de fecha y hora se toman desde el id de BT
+        ->where('fecha','=',$fecha)
+        ->where('id_estacion','=',$id_eb3)
+        ->get();
+
+        /*Extrayendo caudal de eb2*/
+
+        foreach ($eb3 as $cau) {
+            $caudal3=$cau->caudal;
+            $id_3=$cau->id;
+            
+        }
+
+
+
+
+    
+    return view ('editar-produccion', compact ('prod','id','caudal','nombre','caudal1','id_1','caudal2','id_2','caudal3','id_3'));
+
     }
 
 

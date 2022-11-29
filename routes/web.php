@@ -76,5 +76,11 @@ Route::post('actualizar', [CalidadController::class, 'update']);
 //Recibe el id de un tipo de agua en particular y precarga los datos en la vista Editar-Calidad para su posterior edicion de los valores
 Route::get('/edit/{id}', [CalidadController::class, 'precargar']);
 
+//Controla la edicion de las producciones recibiendo un id 
+Route::get('/produccion/{id}', [ProduccionController::class, 'precargar']);
+
+//Guarda los datos del formulario de la vista Editar-Produccion para actualizar caudales
+Route::post('actualiza_caudal', [ProduccionController::class, 'update']);
+
 /*Maneja las producciones de las estaciones y las muestra segun la fecha requerida*/
 Route::post('producciones', [ProduccionController::class, 'muestraProducciones']);
