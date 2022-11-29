@@ -1474,7 +1474,7 @@ $suma_caudal=DB::table('produccions')
     }
 
     /**
-     * Actualiza caudales de las estaciones
+     * Actualiza caudales de las estaciones, recibe directamente de la vista EDITAR-PRODUCCION los caudales que se actualizaran.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -1482,11 +1482,30 @@ $suma_caudal=DB::table('produccions')
      */
     public function update(Request $request)
     {
-        //
+        //Capturando la fecha
         $fecha=$request->fecha;
+        $hora=$request->hora;
+
+        //id´s de los caudales a modificar
+        $id_bt_= $request->id_bt;
+        $id_eb1_=$request->id_eb1;
+        $id_eb2_=$request->id_eb2;
+        $id_eb3_=$request->id_eb3;
+
+        $caudal_bt=$request->caudalbt;
+        $caudal_eb1=$request->caudal1;
+        $caudal_eb2=$request->caudal2;
+        $caudal_eb3=$request->caudal3;
+
+        $this->actualizar($id_bt_,$caudal_bt,$fecha,$hora);
+        $this->actualizar($id_eb1_,$caudal_eb1,$fecha,$hora);
+        $this->actualizar($id_eb2_,$caudal_eb2,$fecha,$hora);
+        $this->actualizar($id_eb3_,$caudal_eb3,$fecha,$hora);
 
 
-        //funcion que carga las producciones a la vista PRODUCCIONES segun una fecha determinada
+
+
+        //Funcion que carga las producciones a la vista PRODUCCIONES segun una fecha determinada
         return $this->verProducciones($fecha);
 
     }
@@ -1534,6 +1553,23 @@ $suma_caudal=DB::table('produccions')
         
     }
 
+    /*Funcion que realiza las actualizaciones de cauldales*/
+
+       public function actualizar($id,$cauda,$fecha,$hora){
+        //Busca un elemento en particular y luego lo modifica
+        $caudal= Produccion::find($id);
+        $caudal->caudal = $cauda;
+        $caudal->hora = $hora;
+        $caudal->fecha = $fecha;
+        $caudal->save();
+
+        }
+
+
+
+
+
+
 /*Recibe un id de BT para precargar los datos de produccion y enviarlo a la vista EDITAR-PRODUCCION para su edición
 , además se extraen los id de las otras estaciones para el caudal en cuestion los cuales se utilizaran para modificar los datos*/
     public function precargar($id){
@@ -1568,7 +1604,7 @@ $suma_caudal=DB::table('produccions')
         }
  
 
-//obteniendo caudal de bt 
+    //obteniendo caudal de bt 
         foreach ($prod as $cau ) {
             
             $caudal=$cau->caudal;
