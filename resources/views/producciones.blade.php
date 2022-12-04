@@ -162,7 +162,7 @@
                 <th>EB1 m³/h</th>
                 <th>EB2 m³/h</th>
                 <th>EB3 m³/h</th>
-                <th></th>
+                <th>Editar</th>
                
             </tr>
             <!-- Fin Encabezado de la tabla -->
@@ -185,170 +185,170 @@
                                  
                                 @case(1)
                                       @foreach ($c_bt_1 as $prod)
-<a href="/produccion/{{$prod->id}}"> 
+
                                           {{$prod->caudal}}
-</a>                                         
+                                      
                                       @endforeach
                                 @break
                                 @case(2)
                                       @foreach ($c_bt_2 as $prod)
-<a href="/produccion/{{$prod->id}}"> 
+
                                           {{$prod->caudal}}
- </a>                                           
+                                          
                                       @endforeach
                                 @break
                                  @case(3)
                                       @foreach ($c_bt_3 as $prod)
-<a href="/produccion/{{$prod->id}}"> 
+
                                           {{$prod->caudal}}
- </a>                                          
+                                     
                                       @endforeach
                                 @break
                                  @case(4)
                                       @foreach ($c_bt_4 as $prod)
-                                      <a href="/produccion/{{$prod->id}}"> 
+                                      
                                           {{$prod->caudal}}
-                                          </a> 
+                                          
                                       @endforeach
                                 @break
                                  @case(5)
                                       @foreach ($c_bt_5 as $prod)
-                                      <a href="/produccion/{{$prod->id}}"> 
+                                      
                                           {{$prod->caudal}}
-                                          </a> 
+                                          
                                       @endforeach
                                 @break
                                  @case(6)
                                       @foreach ($c_bt_6 as $prod)
-                                      <a href="/produccion/{{$prod->id}}"> 
+                                      
                                           {{$prod->caudal}}
-                                          </a> 
+                                          
                                       @endforeach
                                 @break
                                  @case(7)
                                       @foreach ($c_bt_7 as $prod)
-                                      <a href="/produccion/{{$prod->id}}"> 
+                                      
                                           {{$prod->caudal}}
-                                          </a> 
+                                          
                                       @endforeach
                                 @break
                                  @case(8)
                                       @foreach ($c_bt_8 as $prod)
-                                      <a href="/produccion/{{$prod->id}}"> 
+                                      
                                           {{$prod->caudal}}
-                                          </a>
+                                          
                                       @endforeach
                                 @break
                                  @case(9)
                                       @foreach ($c_bt_9 as $prod)
-                                      <a href="/produccion/{{$prod->id}}"> 
+                                      
                                           {{$prod->caudal}}
-                                          </a>
+                                          
                                       @endforeach
                                 @break
                                  @case(10)
                                       @foreach ($c_bt_10 as $prod)
-                                      <a href="/produccion/{{$prod->id}}"> 
+                                      
                                           {{$prod->caudal}}
-                                          </a>
+                                          
                                       @endforeach
                                 @break
                                   @case(11)
                                       @foreach ($c_bt_11 as $prod)
-                                      <a href="/produccion/{{$prod->id}}"> 
+                                       
                                           {{$prod->caudal}}
-                                          </a>
+                                          
                                       @endforeach
                                 @break
                                   @case(12)
                                       @foreach ($c_bt_12 as $prod)
-                                      <a href="/produccion/{{$prod->id}}"> 
+                                      
                                           {{$prod->caudal}}
-                                          </a>
+                                          
                                       @endforeach
                                 @break
                                   @case(13)
                                       @foreach ($c_bt_13 as $prod)
-                                      <a href="/produccion/{{$prod->id}}"> 
+                                      
                                           {{$prod->caudal}}
-                                          </a>
+                                          
                                       @endforeach
                                 @break
                                   @case(14)
                                       @foreach ($c_bt_14 as $prod)
-                                      <a href="/produccion/{{$prod->id}}"> 
+                                      
                                           {{$prod->caudal}}
-                                          </a>
+                                          
                                       @endforeach
                                 @break
                                   @case(15)
                                       @foreach ($c_bt_15 as $prod)
-                                      <a href="/produccion/{{$prod->id}}"> 
+                                      
                                           {{$prod->caudal}}
-                                          </a>
+                                          
                                       @endforeach
                                 @break
                                   @case(16)
                                       @foreach ($c_bt_16 as $prod)
-                                      <a href="/produccion/{{$prod->id}}"> 
+                                      
                                           {{$prod->caudal}}
-                                          </a>
+                                          
                                       @endforeach
                                 @break
                                   @case(17)
                                       @foreach ($c_bt_17 as $prod)
-                                      <a href="/produccion/{{$prod->id}}"> 
+                                      
                                           {{$prod->caudal}}
-                                          </a>
+                                          
                                       @endforeach
                                 @break
                                   @case(18)
                                       @foreach ($c_bt_18 as $prod)
-                                      <a href="/produccion/{{$prod->id}}"> 
+                                      
                                           {{$prod->caudal}}
-                                          </a>
+                                          
                                       @endforeach
                                 @break
                                   @case(19)
                                       @foreach ($c_bt_19 as $prod)
-                                      <a href="/produccion/{{$prod->id}}"> 
+                                      
                                           {{$prod->caudal}}
-                                          </a>
+                                          
                                       @endforeach
                                 @break
                                 @case(20)
                                       @foreach ($c_bt_20 as $prod)
-                                      <a href="/produccion/{{$prod->id}}"> 
+                                      
                                           {{$prod->caudal}}
-                                          </a>
+                                          
                                       @endforeach
                                 @break
                                 @case(21)
                                       @foreach ($c_bt_21 as $prod)
-                                      <a href="/produccion/{{$prod->id}}"> 
+                                      
                                           {{$prod->caudal}}
-                                          </a>
+                                          
                                       @endforeach
                                 @break
                                 @case(22)
                                       @foreach ($c_bt_22 as $prod)
-                                      <a href="/produccion/{{$prod->id}}"> 
+                                       
                                           {{$prod->caudal}}
-                                          </a>
+                                          
                                       @endforeach
                                 @break
                                 @case(23)
                                       @foreach ($c_bt_23 as $prod)
-                                      <a href="/produccion/{{$prod->id}}"> 
+                                      
                                           {{$prod->caudal}}
-                                          </a>
+                                          
                                       @endforeach
                                 @break
                                 @case(24)
                                       @foreach ($c_bt_24 as $prod)
-                                      <a href="/produccion/{{$prod->id}}"> 
+                                      
                                           {{$prod->caudal}}
-                                          </a>
+                                          
                                       @endforeach
                                 @break
                              
@@ -654,117 +654,234 @@
                                 @break
                                 @case(2)
                                       @foreach ($c_eb3_2 as $prod)
-                                          {{$prod->caudal}}
+                                      {{$prod->caudal}}
+                                          <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
+                                          
                                       @endforeach
                                 @break
                                  @case(3)
                                       @foreach ($c_eb3_3 as $prod)
-                                          {{$prod->caudal}}
+                                      {{$prod->caudal}}
+                                          <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
+                                          
                                       @endforeach
                                 @break
                                  @case(4)
                                       @foreach ($c_eb3_4 as $prod)
                                           {{$prod->caudal}}
+                                           <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
                                       @endforeach
                                 @break
                                  @case(5)
                                       @foreach ($c_eb3_5 as $prod)
                                           {{$prod->caudal}}
+                                           <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
                                       @endforeach
                                 @break
                                  @case(6)
                                       @foreach ($c_eb3_6 as $prod)
                                           {{$prod->caudal}}
+                                           <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
                                       @endforeach
                                 @break
                                  @case(7)
                                       @foreach ($c_eb3_7 as $prod)
                                           {{$prod->caudal}}
+                                           <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
                                       @endforeach
                                 @break
                                  @case(8)
                                       @foreach ($c_eb3_8 as $prod)
                                           {{$prod->caudal}}
+                                           <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
                                       @endforeach
                                 @break
                                  @case(9)
                                       @foreach ($c_eb3_9 as $prod)
                                           {{$prod->caudal}}
+                                           <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
                                       @endforeach
                                 @break
                                  @case(10)
                                       @foreach ($c_eb3_10 as $prod)
                                           {{$prod->caudal}}
+                                           <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
                                       @endforeach
                                 @break
                                   @case(11)
                                       @foreach ($c_eb3_11 as $prod)
                                           {{$prod->caudal}}
+                                           <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
                                       @endforeach
                                 @break
                                   @case(12)
                                       @foreach ($c_eb3_12 as $prod)
                                           {{$prod->caudal}}
+                                           <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
                                       @endforeach
                                 @break
                                   @case(13)
                                       @foreach ($c_eb3_13 as $prod)
                                           {{$prod->caudal}}
+                                           <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
                                       @endforeach
                                 @break
                                   @case(14)
                                       @foreach ($c_eb3_14 as $prod)
                                           {{$prod->caudal}}
+                                           <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
                                       @endforeach
                                 @break
                                   @case(15)
                                       @foreach ($c_eb3_15 as $prod)
                                           {{$prod->caudal}}
+                                           <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
                                       @endforeach
                                 @break
                                   @case(16)
                                       @foreach ($c_eb3_16 as $prod)
                                           {{$prod->caudal}}
+                                           <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
                                       @endforeach
                                 @break
                                   @case(17)
                                       @foreach ($c_eb3_17 as $prod)
                                           {{$prod->caudal}}
+                                           <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
                                       @endforeach
                                 @break
                                   @case(18)
                                       @foreach ($c_eb3_18 as $prod)
                                           {{$prod->caudal}}
+                                           <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
                                       @endforeach
                                 @break
                                   @case(19)
                                       @foreach ($c_eb3_19 as $prod)
                                           {{$prod->caudal}}
+                                           <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
                                       @endforeach
                                 @break
                                 @case(20)
                                       @foreach ($c_eb3_20 as $prod)
                                           {{$prod->caudal}}
+                                           <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
                                       @endforeach
                                 @break
                                 @case(21)
                                       @foreach ($c_eb3_21 as $prod)
                                           {{$prod->caudal}}
+                                           <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
                                       @endforeach
                                 @break
                                 @case(22)
                                       @foreach ($c_eb3_22 as $prod)
                                           {{$prod->caudal}}
+                                           <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
                                       @endforeach
                                 @break
                                 @case(23)
                                       @foreach ($c_eb3_23 as $prod)
                                           {{$prod->caudal}}
+                                           <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
                                       @endforeach
                                 @break
                                 @case(24)
                                       @foreach ($c_eb3_24 as $prod)
                                           {{$prod->caudal}}
+                                           <th>
+                                          <a href="/produccion/{{$prod->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                                          </th>
                                       @endforeach
                                 @break
                              
