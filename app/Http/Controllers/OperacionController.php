@@ -768,12 +768,21 @@ $conteo= DB::table('operacions')
         ->join('equipos', 'operacions.id_equipo', '=', 'equipos.id')
         ->select('operacions.*','equipos.*')
         ->where('estado','=','Operando')
-        ->whereDate('operacions.created_at','=',$fecha)
+        ->whereDate('operacions.fecha','=',$fecha)
         ->where('operacions.hora','=',$horas)
         ->where('equipos.id_estacion','=',$id_esta)
                             ->get();
 
                             return $equipo;
+
+    }
+
+
+/*Precargará la informacion de los equipos operando de las estaciones y permitira su edicion
+*/
+    public function precargar($hora,$fecha,$id_estacion){
+
+        return view('editar-equipos',compact('hora'));
 
     }
 }

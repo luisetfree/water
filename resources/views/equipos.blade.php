@@ -207,6 +207,7 @@
                 <th>EB1</th>
                 <th>EB2</th>
                 <th>EB3</th>
+                
                
             </tr>
             <!-- Fin Encabezado de la tabla -->
@@ -223,6 +224,7 @@
                         <td>0{{ $i}}:00</td><!-- muestra las horas de las 00:00 a 09:00 hrs en la tabla respetando el formato 00:00, columna hora-->
 
                         <td>
+
                         
                             <!-- Controla los casos en las horas 01:00 a las 09:00 para BT-->
                         @switch($i)
@@ -230,7 +232,10 @@
                                 @case(1)
                                     @foreach ($equipo_1 as $eqi)
 
+                                        <a href="/editar-equipos/{{$eqi->hora}}/{{$eqi->fecha}}/{{$eqi->id_estacion}}">
                                          {{ $eqi->nombre}}-
+                                                                                   
+                                        </a>
 
                                      @endforeach 
                                 @break
@@ -460,12 +465,14 @@
                         </td>
                         <!-- Controla los casos en las horas 01:00 a las 09:00 para EB3-->
                         <td>
- @switch($i)
+ @switch($i)            
+
                                  
                                 @case(1)
                                     @foreach ($eq_eb3_1 as $eb3_1)
 
                                          {{ $eb3_1->nombre}}-
+                                       
 
                                      @endforeach 
                                 @break
@@ -538,6 +545,14 @@
 
 
                         </td>
+
+                        <!-- Controlar ediciones de equipos trabajando -->
+                       <!--  <th>
+                                          <a href="">
+                                            <img src="{{ asset('img/editar.png')}}" />
+                                          </a>
+                        </th> -->
+
 
                     @else
                     <!-- Bloque de Conteo de las 10:00 hrs a las 23:00 hrs de todas las estaciones-->
@@ -913,6 +928,7 @@
 
                                          {{ $eb3_10->nombre}}-
 
+
                                      @endforeach 
                                 @break
                              
@@ -1011,6 +1027,8 @@
                                     @foreach ($eq_eb3_0 as $eb3_0)
 
                                          {{ $eb3_0->nombre}}-
+
+
 
                                      @endforeach 
                                 @break

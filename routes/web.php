@@ -79,6 +79,9 @@ Route::get('/edit/{id}', [CalidadController::class, 'precargar']);
 //Controla la edicion de las producciones recibiendo un id 
 Route::get('/produccion/{id}', [ProduccionController::class, 'precargar']);
 
+//Controla la edicion de los equipos operando
+Route::get('/editar-equipos/{hora}/{fecha}/{id_estacion}', [OperacionController::class, 'precargar']);
+
 //Guarda los datos del formulario de la vista Editar-Produccion para actualizar caudales
 Route::post('actualiza_caudal', [ProduccionController::class, 'update']);
 

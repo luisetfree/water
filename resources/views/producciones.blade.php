@@ -121,7 +121,7 @@
                         <td>{{$suma_eb1}} m³/d</td>
                         <td>{{$suma_eb2}} m³/d</td>
                         <td>{{$suma_eb3}} m³/d</td>
-                        <td></td>
+                        <td>{{$aporte_zn}} m³/d</td>
                     </tr>
 
                 </table>
