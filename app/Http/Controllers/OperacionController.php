@@ -422,7 +422,7 @@ $conteo_eb3=$this->contarEquipos($fechas,$id_eb3);
 
 
           
-        return view ('equipos',compact('estacion','equipo_0','equipo_1','equipo_2','equipo_3','equipo_4','equipo_5','equipo_6','equipo_7','equipo_8','equipo_9','equipo_10','equipo_11','equipo_12','equipo_13','equipo_14','equipo_15','equipo_16','equipo_17','equipo_18','equipo_19','equipo_20','equipo_21','equipo_22','equipo_23','eq_eb1_0','eq_eb1_1','eq_eb1_2','eq_eb1_3','eq_eb1_4','eq_eb1_5','eq_eb1_6','eq_eb1_7','eq_eb1_8','eq_eb1_9','eq_eb1_10','eq_eb1_11','eq_eb1_12','eq_eb1_13','eq_eb1_14','eq_eb1_15','eq_eb1_16','eq_eb1_17','eq_eb1_18','eq_eb1_19','eq_eb1_20','eq_eb1_21','eq_eb1_22','eq_eb1_23','eq_eb2_0','eq_eb2_1','eq_eb2_2','eq_eb2_3','eq_eb2_4','eq_eb2_5','eq_eb2_6','eq_eb2_7','eq_eb2_8','eq_eb2_9','eq_eb2_10','eq_eb2_11','eq_eb2_12','eq_eb2_13','eq_eb2_14','eq_eb2_15','eq_eb2_16','eq_eb2_17','eq_eb2_18','eq_eb2_19','eq_eb2_20','eq_eb2_21','eq_eb2_22','eq_eb2_23','eq_eb3_0','eq_eb3_1','eq_eb3_2','eq_eb3_3','eq_eb3_4','eq_eb3_5','eq_eb3_6','eq_eb3_7','eq_eb3_8','eq_eb3_9','eq_eb3_10','eq_eb3_11','eq_eb3_12','eq_eb3_13','eq_eb3_14','eq_eb3_15','eq_eb3_16','eq_eb3_17','eq_eb3_18','eq_eb3_19','eq_eb3_20','eq_eb3_21','eq_eb3_22','eq_eb3_23','fechas','cont_bt_1','bt_0_h','bt_1_h','bt_2_h','bt_3_h','bt_4_h','bt_5_h','bt_6_h','eb1_0_h','eb1_1_h','eb1_2_h','eb1_3_h','eb1_4_h','eb1_5_h','eb1_6_h','eb2_0_h','eb2_1_h','eb2_2_h','eb2_3_h','eb2_4_h','eb2_5_h','eb2_6_h','eb3_0_h','eb3_1_h','eb3_2_h','eb3_3_h','eb3_4_h','eb3_5_h','eb3_6_h'));           
+        return view ('equipos',compact('estacion','equipo_0','equipo_1','equipo_2','equipo_3','equipo_4','equipo_5','equipo_6','equipo_7','equipo_8','equipo_9','equipo_10','equipo_11','equipo_12','equipo_13','equipo_14','equipo_15','equipo_16','equipo_17','equipo_18','equipo_19','equipo_20','equipo_21','equipo_22','equipo_23','eq_eb1_0','eq_eb1_1','eq_eb1_2','eq_eb1_3','eq_eb1_4','eq_eb1_5','eq_eb1_6','eq_eb1_7','eq_eb1_8','eq_eb1_9','eq_eb1_10','eq_eb1_11','eq_eb1_12','eq_eb1_13','eq_eb1_14','eq_eb1_15','eq_eb1_16','eq_eb1_17','eq_eb1_18','eq_eb1_19','eq_eb1_20','eq_eb1_21','eq_eb1_22','eq_eb1_23','eq_eb2_0','eq_eb2_1','eq_eb2_2','eq_eb2_3','eq_eb2_4','eq_eb2_5','eq_eb2_6','eq_eb2_7','eq_eb2_8','eq_eb2_9','eq_eb2_10','eq_eb2_11','eq_eb2_12','eq_eb2_13','eq_eb2_14','eq_eb2_15','eq_eb2_16','eq_eb2_17','eq_eb2_18','eq_eb2_19','eq_eb2_20','eq_eb2_21','eq_eb2_22','eq_eb2_23','eq_eb3_0','eq_eb3_1','eq_eb3_2','eq_eb3_3','eq_eb3_4','eq_eb3_5','eq_eb3_6','eq_eb3_7','eq_eb3_8','eq_eb3_9','eq_eb3_10','eq_eb3_11','eq_eb3_12','eq_eb3_13','eq_eb3_14','eq_eb3_15','eq_eb3_16','eq_eb3_17','eq_eb3_18','eq_eb3_19','eq_eb3_20','eq_eb3_21','eq_eb3_22','eq_eb3_23','fechas','cont_bt_1','bt_0_h','bt_1_h','bt_2_h','bt_3_h','bt_4_h','bt_5_h','bt_6_h','eb1_0_h','eb1_1_h','eb1_2_h','eb1_3_h','eb1_4_h','eb1_5_h','eb1_6_h','eb2_0_h','eb2_1_h','eb2_2_h','eb2_3_h','eb2_4_h','eb2_5_h','eb2_6_h','eb3_0_h','eb3_1_h','eb3_2_h','eb3_3_h','eb3_4_h','eb3_5_h','eb3_6_h','fechas'));           
 
 
 
@@ -778,11 +778,107 @@ $conteo= DB::table('operacions')
     }
 
 
-/*Precargará la informacion de los equipos operando de las estaciones y permitira su edicion
+
+    /*Verifica la operacion de un solo equipo en particular*/
+    public function operacion($fecha,$horas,$id_estacion){
+
+        $id= DB::table('operacions')
+        ->join('equipos', 'operacions.id_equipo', '=', 'equipos.id')
+        ->select('operacions.id','equipos.id_estacion')
+        
+        ->where('estado','=','Operando')
+        ->where('fecha','=',$fecha)
+        ->where('operacions.hora','=',$horas)
+        ->where('equipos.id_estacion','=',$id_estacion)
+
+        ->get();
+                            //retorna el id asignado a ese equipo
+                            return $id;
+
+    }
+
+
+/*Precargará la informacion de los equipos operando en cierta fecha/hora de las estaciones y permitira su edicion
 */
     public function precargar($hora,$fecha,$id_estacion){
 
-        return view('editar-equipos',compact('hora'));
+        //en este caso extrae los ids de BT
+        $ids=$this->operacion($fecha,$hora,$id_estacion);
+
+      /*  foreach ($ids as $id) {
+            $key=$id->id;
+        }
+*/
+
+        return view('editar-equipos',compact('hora','fecha','ids'));
 
     }
+
+
+    /**
+     * Actualiza los equipos operando segun la vista EDITAR-EQUIPOS
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function actualizarEquipos(Request $request){
+
+
+    return view('equipos');
+
+
+
+    }
+
+
+/*Metodo que valida el estado en el que se encuentra un equipo de bombeo*/
+   public function verificarEstado($parametro){
+
+    $condicion;
+
+        if ($parametro =='Operando') {
+            //
+           $condicion='Operando';
+        } else {
+            
+            $condicion='Sin Operar';
+        }
+
+    return $condicion;
+
+    }
+
+/*Metodo que recibe el estado del checkbox y el id del equipo a procesar, */
+    public function actualizarEquipo($id,$estado,$idEquipo,$hora,$fecha){
+
+        //se busca mediante el id el equipo que se desea actualizar
+        $Equipo= Operacion::find($id);
+
+        /*Pasando al metodo el valor del estado del chekbox del eq de bombeo desde el formulario*/
+        $valor= $this->verificarEstado($estado);
+        
+        //asignando a la tabla operacions->estado, el estado del equipo segun el chekbox
+        $Equipo->estado=$valor;
+
+        
+        $Equipo->id_equipo=$idEquipo;//del input oculto de la vista tomamos el id del equipo 
+        $Equipo->fecha=$fecha;
+        $Equipo->hora=$hora;
+
+        $Equipo->save();
+
+        return 'Guardado';
+
+
+    }
+
+
+
+
+
+
+
+
+
+
 }

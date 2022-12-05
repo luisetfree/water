@@ -84,7 +84,7 @@
        <!-- @method('put') Permitirá actualizar valores -->
 
         <!-- Fecha -->
-       <input type="date" name="fecha" value="" required="required">
+       <input type="date" name="fecha" value="{{$fecha}}" required="required">
 
         <!-- Select mostrará unicamente las horas que hacen falta agregar al registro diario -->
        <label for="hora">Hora</label>
@@ -132,11 +132,22 @@
 
                 <!-- Precarga el caudal almacenado en la BD y el id correspondiente-->
                 <input type="hidden" name="id_bt" value="">
+                
+                
+                
+                                    {{ $ids}}
+                
+                
+                
+                                
+
 
                <div class="checkbox" >
                     <label > 1</label>
                     <input type="checkbox" id="" name= "eq1" value="Operando">
                     <input type="hidden" id="" name= "ideq1" value="1">
+                    <!-- se obtiene previamente el id correspondiente del equipo a modificar el estado -->
+                    <input type="hidden" id="" name= "id1" value="">
                     <label> 2</label>
                     <input type="checkbox" id="" name= "eq2" value="Operando">
                     <input type="hidden" id="" name= "ideq2" value="2">

@@ -207,6 +207,7 @@
                 <th>EB1</th>
                 <th>EB2</th>
                 <th>EB3</th>
+                <th>Editar</th>
                 
                
             </tr>
@@ -464,7 +465,9 @@
 
                         </td>
                         <!-- Controla los casos en las horas 01:00 a las 09:00 para EB3-->
+
                         <td>
+
  @switch($i)            
 
                                  
@@ -547,16 +550,21 @@
                         </td>
 
                         <!-- Controlar ediciones de equipos trabajando -->
-                       <!--  <th>
+                     <!--    <th>
                                           <a href="">
                                             <img src="{{ asset('img/editar.png')}}" />
                                           </a>
                         </th> -->
 
+                        
+
 
                     @else
                     <!-- Bloque de Conteo de las 10:00 hrs a las 23:00 hrs de todas las estaciones-->
                         <td>{{ $i}}:00</td><!-- muestra las horas de las 10:00 a 24:00 hrs en la tabla-->
+
+
+
                         <td>
                         
                             <!-- Controla los casos en las horas 10:00 a las 24:00 de BT-->
@@ -921,8 +929,10 @@
 
                         </td>
                         <!-- Conteo de las 10:00 hrs a las 24:00 hrs de EB3-->
+
                         <td>
-@switch($i)
+@switch($i)             
+
                                 @case(10)
                                     @foreach ($eq_eb3_10 as $eb3_10)
 
@@ -1044,6 +1054,109 @@
                     @endif
 
 
+                <!-- CONTROLA LA EDICION DE LOS EQUIPOS TRABAJANDO MEDIANTE EL CONTEO DE HORAS
+                    Los datos que se tomaran como referencia son los de Bocatoma
+
+                -->
+                        <th>
+                            
+
+                            
+                                        
+                                                                                          
+                            
+
+                            @switch($i)
+
+                           
+
+                                 
+                                @case(1)
+                                  
+                                    <a href="/editar-equipos/01:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>                              
+                                @break
+                             
+                                @case(2)
+                                <a href="/editar-equipos/02:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                     
+                                @break
+                                @case(3)
+                                <a href="/editar-equipos/03:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                   
+                                @break
+                                 @case(4)
+                                 <a href="/editar-equipos/04:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                    
+                                @break
+                                 @case(5)
+                                     <a href="/editar-equipos/05:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @break
+                                @case(6)
+                                   <a href="/editar-equipos/06:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @break
+                                @case(7)
+                                     <a href="/editar-equipos/07:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @break
+                                @case(8)
+                                    <a href="/editar-equipos/08:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @break
+                                @case(9)
+                                    <a href="/editar-equipos/09:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @break
+                                  @case(10)
+                                    <a href="/editar-equipos/10:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @break
+                                  @case(11)
+                                    <a href="/editar-equipos/11:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @break
+                                  @case(12)
+                                    <a href="/editar-equipos/12:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @break
+                                  @case(13)
+                                    <a href="/editar-equipos/13:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @break
+                                  @case(14)
+                                    <a href="/editar-equipos/14:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @break
+                                  @case(15)
+                                    <a href="/editar-equipos/15:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @break
+                                  @case(16)
+                                    <a href="/editar-equipos/16:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @break
+                                  @case(17)
+                                    <a href="/editar-equipos/17:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @break
+                                  @case(18)
+                                    <a href="/editar-equipos/18:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @break
+                                  @case(19)
+                                    <a href="/editar-equipos/19:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @break
+                                  @case(20)
+                                    <a href="/editar-equipos/20:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @break
+                                  @case(21)
+                                    <a href="/editar-equipos/21:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @break
+                                  @case(22)
+                                    <a href="/editar-equipos/22:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @break
+                                  @case(23)
+                                    <a href="/editar-equipos/23:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @break
+                                  @case(24)
+                                    <a href="/editar-equipos/24:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @break
+                             
+                                @default
+                                    ------
+                        @endswitch
+
+
+
+
+                        </th>
 
 
                 
@@ -1056,7 +1169,10 @@
             
                
               </tr>
+
+
 @endfor
+
 
 
               
