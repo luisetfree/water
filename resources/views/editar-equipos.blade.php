@@ -79,7 +79,7 @@
 
 
 
-      <form name="form-calidad" id="" method="post" action="{{url('')}}">
+      <form name="form-calidad" id="" method="post" action="{{url('updatEquipos')}}">
        @csrf
        <!-- @method('put') Permitirá actualizar valores -->
 
@@ -121,6 +121,20 @@
 
             <div class="grid-container">
 
+                <!-- Extrayendo los ids de la tabla OPERACIONS de los equipos Operando BT -->
+                @foreach ($ids as $prod)
+                                          {{$prod->id}}-
+
+                                          {{$prod->id_equipo}}/
+                @endforeach
+                
+                 
+                                          
+                                          
+                                          
+                
+                <!-- Extrayendo los ids de la tabla OPERACIONS de los equipos Sin Operar BT -->
+             
                 
 
             <section class="card ">
@@ -130,25 +144,43 @@
             <!-- Controla los inputs -->
             
 
+
+
                 <!-- Precarga el caudal almacenado en la BD y el id correspondiente-->
                 <input type="hidden" name="id_bt" value="">
                 
+               
+                                    
                 
-                
-                                    {{ $ids}}
-                
-                
+                <br>
                 
                                 
 
 
                <div class="checkbox" >
+
+                
+                <!-- Se captura la variable $ids para utilizar sus valores en los chekbox y hidden -->
+                @foreach ($ids as $prod)
+                <!-- Con este switch se captura el id_equipo y se imprimen los datos, ademas los valores correspondientes a cada equipo se utilizaran para realizar las modificaciones necesarias -->
+                         @switch($prod->id_equipo)
+                                 
+                                @case(1)
                     <label > 1</label>
+
                     <input type="checkbox" id="" name= "eq1" value="Operando">
                     <input type="hidden" id="" name= "ideq1" value="1">
-                    <!-- se obtiene previamente el id correspondiente del equipo a modificar el estado -->
-                    <input type="hidden" id="" name= "id1" value="">
-                    <label> 2</label>
+                    <!-- se obtiene previamente el id correspondiente del equipo a modificar el estado y se agrega a este elemento oculto para luego enviarlo por el formulario -->
+                    <input type="hidden" id="" name= "id1" value="{{$prod->id}}">
+                                @break
+                             
+                          
+                             
+                                @default
+                                    
+                        @endswitch
+                   
+                  <!--   <label> 2</label>
                     <input type="checkbox" id="" name= "eq2" value="Operando">
                     <input type="hidden" id="" name= "ideq2" value="2">
                     <label> 3</label>
@@ -168,7 +200,10 @@
                     <input type="hidden" id="" name= "ideq7" value="7">
                     <label> 8</label>
                     <input type="checkbox" id="" name= "eq8" value="Operando">
-                    <input type="hidden" id="" name= "ideq8" value="8">
+                    <input type="hidden" id="" name= "ideq8" value="8"> -->
+
+                @endforeach
+
                 </div>
                 
           

@@ -784,9 +784,9 @@ $conteo= DB::table('operacions')
 
         $id= DB::table('operacions')
         ->join('equipos', 'operacions.id_equipo', '=', 'equipos.id')
-        ->select('operacions.id','equipos.id_estacion')
-        
-        ->where('estado','=','Operando')
+        ->select('operacions.id','operacions.id_equipo','equipos.id_estacion')
+        //->select('operacions.id_equipo')
+        //->where('estado','=','Operando')
         ->where('fecha','=',$fecha)
         ->where('operacions.hora','=',$horas)
         ->where('equipos.id_estacion','=',$id_estacion)
@@ -796,19 +796,40 @@ $conteo= DB::table('operacions')
                             return $id;
 
     }
+    /*Recupera el id de la tabla Operacions de los equipos SIN OPERAR*/
+   /* public function sinOperacion($fecha,$horas,$id_estacion){
+
+        $id= DB::table('operacions')
+        ->join('equipos', 'operacions.id_equipo', '=', 'equipos.id')
+        ->select('operacions.id','operacions.id_equipo','equipos.id_estacion')
+        
+        ->where('estado','=','Sin Operar')
+        ->where('fecha','=',$fecha)
+        ->where('operacions.hora','=',$horas)
+        ->where('equipos.id_estacion','=',$id_estacion)
+
+        ->get();
+                            //retorna el id asignado a ese equipo
+                            return $id;
+
+    }*/
 
 
-/*Precargará la informacion de los equipos operando en cierta fecha/hora de las estaciones y permitira su edicion
+/*Precargará la informacion de los equipos operando Y Sin Operar en cierta fecha/hora de las estaciones, datos que posteriormente permitiran su edicion
 */
     public function precargar($hora,$fecha,$id_estacion){
 
-        //en este caso extrae los ids de BT
+        //Extrayendo id de la tabla operacions de los equipos OPERANDO
         $ids=$this->operacion($fecha,$hora,$id_estacion);
 
-      /*  foreach ($ids as $id) {
-            $key=$id->id;
-        }
-*/
+        //Extrayendo id de la tabla operacions de los equipos SIN OPERACION
+        //$noId=$this->sinOperacion($fecha,$hora,$id_estacion);
+
+
+     /* foreach ($ids as $id) {
+            $key=$id->id_equipo;
+        }*/
+       
 
         return view('editar-equipos',compact('hora','fecha','ids'));
 
@@ -823,8 +844,14 @@ $conteo= DB::table('operacions')
      */
     public function actualizarEquipos(Request $request){
 
+        $fecha=$request->fecha;
+        $hora=$request->hora;
+        $estado=$request->eq1;
+        $ideq=$request->id1;//este es el id de toda la tupla, es decir el registro que se modificará--NO ES DEL EQUIPO
 
-    return view('equipos');
+        $this->actualizarEquipo($ideq,$estado,$hora,$fecha);
+
+    return view('welcome');
 
 
 
@@ -849,7 +876,7 @@ $conteo= DB::table('operacions')
     }
 
 /*Metodo que recibe el estado del checkbox y el id del equipo a procesar, */
-    public function actualizarEquipo($id,$estado,$idEquipo,$hora,$fecha){
+    public function actualizarEquipo($id,$estado,$hora,$fecha){
 
         //se busca mediante el id el equipo que se desea actualizar
         $Equipo= Operacion::find($id);
@@ -860,8 +887,8 @@ $conteo= DB::table('operacions')
         //asignando a la tabla operacions->estado, el estado del equipo segun el chekbox
         $Equipo->estado=$valor;
 
-        
-        $Equipo->id_equipo=$idEquipo;//del input oculto de la vista tomamos el id del equipo 
+        //NO SERIA NECESARIO PORQUE POR ESO SE FILTRA MEDIANTE EL ID DE LA TABLA LA TUPLA A MODIFICAR
+        //$Equipo->id_equipo=$idEquipo;//del input oculto de la vista tomamos el id del equipo 
         $Equipo->fecha=$fecha;
         $Equipo->hora=$hora;
 
