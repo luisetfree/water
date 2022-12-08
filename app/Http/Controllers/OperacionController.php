@@ -819,19 +819,20 @@ $conteo= DB::table('operacions')
 */
     public function precargar($hora,$fecha,$id_estacion){
 
-        //Extrayendo id de la tabla operacions de los equipos OPERANDO
-        $ids=$this->operacion($fecha,$hora,$id_estacion);
+        //Extrayendo id de la tabla operacions de los equipos OPERANDO de BT
+         $ids=$this->operacion($fecha,$hora,$id_estacion);
+        //Extrayendo id de la tabla operacions de los equipos OPERANDO de EB1
+         $id1=$this->operacion($fecha,$hora,2);
+         //Extrayendo id de la tabla operacions de los equipos OPERANDO de EB2
+         $id2=$this->operacion($fecha,$hora,3);
+          //Extrayendo id de la tabla operacions de los equipos OPERANDO de EB2
+         $id3=$this->operacion($fecha,$hora,4);
 
-        //Extrayendo id de la tabla operacions de los equipos SIN OPERACION
-        //$noId=$this->sinOperacion($fecha,$hora,$id_estacion);
 
-
-     /* foreach ($ids as $id) {
-            $key=$id->id_equipo;
-        }*/
+       
        
 
-        return view('editar-equipos',compact('hora','fecha','ids'));
+        return view('editar-equipos',compact('hora','fecha','ids','id1','id2','id3'));
 
     }
 
@@ -846,7 +847,7 @@ $conteo= DB::table('operacions')
 
         $fecha=$request->fecha;
         $hora=$request->hora;
-        /*EQUIPOS DE BT*/
+        /*ACTUALIZACION DE EQUIPOS DE BT*/
         $estado=$request->eq1;
         $ideq=$request->id1;//este es el id de toda la tupla, es decir el registro que se modificará--NO ES DEL EQUIPO
 
@@ -873,6 +874,82 @@ $conteo= DB::table('operacions')
         $id_8=$request->id8;
         $this->actualizarEquipo($id_8,$est8,$hora,$fecha);
 
+        /*FIN ACTUALIZACION DE EQUIPOS DE BT*/
+        /*ACTUALIZACION DE EQUIPOS DE EB1*/
+         $est11=$request->eb11;
+         $id_9=$request->id9;
+        $this->actualizarEquipo($id_9,$est11,$hora,$fecha);
+        $est12=$request->eb12;
+        $id_10=$request->id10;
+        $this->actualizarEquipo($id_10,$est12,$hora,$fecha);
+        $est13=$request->eb13;
+        $id_11=$request->id11;
+        $this->actualizarEquipo($id_11,$est13,$hora,$fecha);
+        $est14=$request->eb14;
+        $id_12=$request->id12;
+        $this->actualizarEquipo($id_12,$est14,$hora,$fecha);
+        $est15=$request->eb15;
+        $id_13=$request->id13;
+        $this->actualizarEquipo($id_13,$est15,$hora,$fecha);
+        $est16=$request->eb16;
+        $id_14=$request->id14;
+        $this->actualizarEquipo($id_14,$est16,$hora,$fecha);
+        $est17=$request->eb17;
+        $id_15=$request->id15;
+        $this->actualizarEquipo($id_15,$est17,$hora,$fecha);
+        
+
+        /*FIN ACTUALIZACION DE EQUIPOS DE EB1*/
+        /*ACTUALIZACION DE EQUIPOS DE EB2*/
+            $est21=$request->eb21;
+            $id_16=$request->id16;
+            $this->actualizarEquipo($id_16,$est21,$hora,$fecha);
+            $est22=$request->eb22;
+            $id_17=$request->id17;
+            $this->actualizarEquipo($id_17,$est22,$hora,$fecha);
+            $est23=$request->eb23;
+            $id_18=$request->id18;
+            $this->actualizarEquipo($id_18,$est23,$hora,$fecha);
+            $est24=$request->eb24;
+            $id_19=$request->id19;
+            $this->actualizarEquipo($id_19,$est24,$hora,$fecha);
+            $est25=$request->eb25;
+            $id_20=$request->id20;
+            $this->actualizarEquipo($id_20,$est25,$hora,$fecha);
+            $est26=$request->eb26;
+            $id_21=$request->id21;
+            $this->actualizarEquipo($id_21,$est26,$hora,$fecha);
+            $est27=$request->eb27;
+            $id_22=$request->id22;
+            $this->actualizarEquipo($id_22,$est27,$hora,$fecha);
+        
+
+        /*FIN ACTUALIZACION DE EQUIPOS DE EB2*/
+         /*ACTUALIZACION DE EQUIPOS DE EB3*/
+            $est31=$request->eb31;
+            $id_23=$request->id23;
+            $this->actualizarEquipo($id_23,$est31,$hora,$fecha);
+            $est32=$request->eb32;
+            $id_24=$request->id24;
+            $this->actualizarEquipo($id_24,$est32,$hora,$fecha);
+            $est33=$request->eb33;
+            $id_25=$request->id25;
+            $this->actualizarEquipo($id_25,$est33,$hora,$fecha);
+            $est34=$request->eb34;
+            $id_26=$request->id26;
+            $this->actualizarEquipo($id_26,$est34,$hora,$fecha);
+            $est35=$request->eb35;
+            $id_27=$request->id27;
+            $this->actualizarEquipo($id_27,$est35,$hora,$fecha);
+            $est36=$request->eb36;
+            $id_28=$request->id28;
+            $this->actualizarEquipo($id_28,$est36,$hora,$fecha);
+            $est37=$request->eb37;
+            $id_29=$request->id29;
+            $this->actualizarEquipo($id_29,$est37,$hora,$fecha);
+        
+
+        /*FIN ACTUALIZACION DE EQUIPOS DE EB3*/
 
 
     return view('welcome');

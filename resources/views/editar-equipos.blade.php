@@ -146,8 +146,6 @@
 
 
 
-                <!-- Precarga el caudal almacenado en la BD y el id correspondiente-->
-                <input type="hidden" name="id_bt" value="">
                 
                
                                     
@@ -223,13 +221,7 @@
                                     
                         @endswitch
                    
-                  <!--   
-                    
-                    
-                    
-                    
-                    
-                     -->
+            
 
                 @endforeach
 
@@ -245,27 +237,67 @@
                 <!-- se captura el id del campo de eb1 -->
                 <input type="hidden" name="id_eb1" value="">
                 <div class="checkbox" >
-                    <label> 1</label>
-                    <input type="checkbox" id="" name= "eb11" value="Operando">
-                    <input type="hidden" id="" name= "ideq11" value="9">
-                    <label> 2</label>
-                    <input type="checkbox" id="" name= "eb12" value="Operando">
-                    <input type="hidden" id="" name= "ideq21" value="10">
-                    <label> 3</label>
-                    <input type="checkbox" id="" name= "eb13" value="Operando ">
-                    <input type="hidden" id="" name= "ideq31" value="11">
-                    <label> 4</label>
-                    <input type="checkbox" id="" name= "eb14" value="Operando">
-                    <input type="hidden" id="" name= "ideq41" value="12">
-                    <label> 5</label>
-                    <input type="checkbox" id="" name= "eb15" value="Operando">
-                    <input type="hidden" id="" name= "ideq51" value="13">
-                    <label> 6</label>
-                    <input type="checkbox" id="" name= "eb16" value="Operando">
-                    <input type="hidden" id="" name= "ideq61" value="14">
-                    <label> 7</label>
-                    <input type="checkbox" id="" name= "eb17" value="Operando">
-                    <input type="hidden" id="" name= "ideq71" value="15">
+
+@foreach ($id1 as $prod)
+    <!-- El filtro es el id de cada equipo, en el campo oculto se puede ver el que tienen asignado segun 
+    la BD -->
+        @switch($prod->id_equipo)
+        @case(9)
+        <label> 1</label>
+        <input type="checkbox" id="" name= "eb11" value="Operando">
+        <input type="hidden" id="" name= "ideq11" value="9">
+        <input type="hidden" id="" name= "id9" value="{{$prod->id}}">
+        @break
+        @case(10)
+        <label> 2</label>
+        <input type="checkbox" id="" name= "eb12" value="Operando">
+        <input type="hidden" id="" name= "ideq21" value="10">
+        <input type="hidden" id="" name= "id10" value="{{$prod->id}}">
+        @break
+        @case(11)
+        <label> 3</label>
+        <input type="checkbox" id="" name= "eb13" value="Operando ">
+        <input type="hidden" id="" name= "ideq31" value="11">
+        <input type="hidden" id="" name= "id11" value="{{$prod->id}}">
+        @break
+        @case(12)
+         <label> 4</label>
+        <input type="checkbox" id="" name= "eb14" value="Operando">
+        <input type="hidden" id="" name= "ideq41" value="12">
+        <input type="hidden" id="" name= "id12" value="{{$prod->id}}">
+        @break
+        @case(13)
+        <label> 5</label>
+        <input type="checkbox" id="" name= "eb15" value="Operando">
+        <input type="hidden" id="" name= "ideq51" value="13">
+        <input type="hidden" id="" name= "id13" value="{{$prod->id}}">
+        @break
+        @case(14)
+          <label> 6</label>
+        <input type="checkbox" id="" name= "eb16" value="Operando">
+        <input type="hidden" id="" name= "ideq61" value="14">
+        <input type="hidden" id="" name= "id14" value="{{$prod->id}}">
+        @break
+        @case(15)
+        <label> 7</label>
+        <input type="checkbox" id="" name= "eb17" value="Operando">
+        <input type="hidden" id="" name= "ideq71" value="15">
+        <input type="hidden" id="" name= "id15" value="{{$prod->id}}">
+        @break
+        @default
+        @endswitch
+@endforeach
+
+
+
+
+                    
+                    
+                    
+                   
+                    
+                  
+                    
                    
                 </div>
 
@@ -282,27 +314,65 @@
                 <input type="hidden" name="id_eb2" value="">
                 
                <div class="checkbox" >
-                    <label> 1</label>
-                    <input type="checkbox" id="" name= "eb21" value="Operando">
-                    <input type="hidden" id="" name= "ideq12" value="16">
-                    <label> 2</label>
-                    <input type="checkbox" id="" name= "eb22" value="Operando">
-                    <input type="hidden" id="" name= "ideq22" value="17">
-                    <label> 3</label>
-                    <input type="checkbox" id="" name= "eb23" value="Operando">
-                    <input type="hidden" id="" name= "ideq32" value="18">
-                    <label> 4</label>
-                    <input type="checkbox" id="" name= "eb24" value="Operando">
-                    <input type="hidden" id="" name= "ideq42" value="19">
-                    <label> 5</label>
-                    <input type="checkbox" id="" name= "eb25" value="Operando">
-                    <input type="hidden" id="" name= "ideq52" value="20">
-                    <label> 6</label>
-                    <input type="checkbox" id="" name= "eb26" value="Operando">
-                    <input type="hidden" id="" name= "ideq62" value="21">
-                    <label> 7</label>
-                    <input type="checkbox" id="" name= "eb27" value="Operando">
-                    <input type="hidden" id="" name= "ideq72" value="22">
+
+@foreach ($id2 as $prod)
+    <!-- El filtro es el id de cada equipo, en el campo oculto se puede ver el que tienen asignado segun 
+    la BD -->
+        @switch($prod->id_equipo)
+        @case(16)
+        <label> 1</label>
+        <input type="checkbox" id="" name= "eb21" value="Operando">
+        <input type="hidden" id="" name= "ideq12" value="16">
+        <input type="hidden" id="" name= "id16" value="{{$prod->id}}">
+        @break
+        @case(17)
+        <label> 2</label>
+        <input type="checkbox" id="" name= "eb22" value="Operando">
+        <input type="hidden" id="" name= "ideq22" value="17">
+        
+        <input type="hidden" id="" name= "id17" value="{{$prod->id}}">
+        @break
+        @case(18)
+        <label> 3</label>
+        <input type="checkbox" id="" name= "eb23" value="Operando">
+        <input type="hidden" id="" name= "ideq32" value="18">
+        
+        <input type="hidden" id="" name= "id18" value="{{$prod->id}}">
+        @break
+        @case(19)
+         <label> 4</label>
+        <input type="checkbox" id="" name= "eb24" value="Operando">
+        <input type="hidden" id="" name= "ideq42" value="19">
+        
+        <input type="hidden" id="" name= "id19" value="{{$prod->id}}">
+        @break
+        @case(20)
+        <label> 5</label>
+         <input type="checkbox" id="" name= "eb25" value="Operando">
+        <input type="hidden" id="" name= "ideq52" value="20">
+        
+        <input type="hidden" id="" name= "id20" value="{{$prod->id}}">
+        @break
+        @case(21)
+          <label> 6</label>
+        <input type="checkbox" id="" name= "eb26" value="Operando">
+        <input type="hidden" id="" name= "ideq62" value="21">
+        
+        <input type="hidden" id="" name= "id21" value="{{$prod->id}}">
+        @break
+        @case(22)
+        <label> 7</label>
+        <input type="checkbox" id="" name= "eb27" value="Operando">
+        <input type="hidden" id="" name= "ideq72" value="22">
+        
+        <input type="hidden" id="" name= "id22" value="{{$prod->id}}">
+        @break
+        @default
+        @endswitch
+@endforeach
+
+
+                    
                    
                 </div>
           
@@ -311,32 +381,70 @@
 
              <section class="card ">
                     
-                             <!-- EB2 -->
+                             <!-- EB3 -->
                 <label class="card-header">EB3</label>
                 <input type="hidden" name="id_eb3" value="">
                 <!-- Precarga equipos operando EB3 -->
                  <div class="checkbox" >
-                    <label> 1</label>
-                    <input type="checkbox" id="" name= "eb31" value="Operando">
-                    <input type="hidden" id="" name= "ideq13" value="23">
-                    <label> 2</label>
-                    <input type="checkbox" id="" name= "eb32" value="Operando">
-                    <input type="hidden" id="" name= "ideq23" value="24">
-                    <label> 3</label>
-                    <input type="checkbox" id="" name= "eb33" value="Operando">
-                    <input type="hidden" id="" name= "ideq33" value="25">
-                    <label> 4</label>
-                    <input type="checkbox" id="" name= "eb34" value="Operando">
-                    <input type="hidden" id="" name= "ideq43" value="26">
-                    <label> 5</label>
-                    <input type="checkbox" id="" name= "eb35" value="Operando">
-                    <input type="hidden" id="" name= "ideq53" value="27">
-                    <label> 6</label>
-                    <input type="checkbox" id="" name= "eb36" value="Operando">
-                    <input type="hidden" id="" name= "ideq63" value="28">
-                    <label> 7</label>
-                    <input type="checkbox" id="" name= "eb37" value="Operando">
-                    <input type="hidden" id="" name= "ideq73" value="29">
+
+@foreach ($id3 as $prod)
+    <!-- El filtro es el id de cada equipo, en el campo oculto se puede ver el que tienen asignado segun 
+    la BD -->
+        @switch($prod->id_equipo)
+        @case(23)
+        <label> 1</label>
+        <input type="checkbox" id="" name= "eb31" value="Operando">
+        
+        <input type="hidden" id="" name= "id23" value="{{$prod->id}}">
+        @break
+        @case(24)
+        <label> 2</label>
+        <input type="checkbox" id="" name= "eb32" value="Operando">
+        
+        
+        <input type="hidden" id="" name= "id24" value="{{$prod->id}}">
+        @break
+        @case(25)
+        <label> 3</label>
+        <input type="checkbox" id="" name= "eb33" value="Operando">
+        
+        
+        <input type="hidden" id="" name= "id25" value="{{$prod->id}}">
+        @break
+        @case(26)
+         <label> 4</label>
+        <input type="checkbox" id="" name= "eb34" value="Operando">
+        
+        
+        <input type="hidden" id="" name= "id26" value="{{$prod->id}}">
+        @break
+        @case(27)
+        <label> 5</label>
+         <input type="checkbox" id="" name= "eb35" value="Operando">
+        
+        
+        <input type="hidden" id="" name= "id27" value="{{$prod->id}}">
+        @break
+        @case(28)
+          <label> 6</label>
+        <input type="checkbox" id="" name= "eb36" value="Operando">
+        
+        
+        <input type="hidden" id="" name= "id28" value="{{$prod->id}}">
+        @break
+        @case(29)
+        <label> 7</label>
+        <input type="checkbox" id="" name= "eb37" value="Operando">
+        
+        
+        <input type="hidden" id="" name= "id29" value="{{$prod->id}}">
+        @break
+        @default
+        @endswitch
+@endforeach
+
+
+
                    
                 </div>
 
