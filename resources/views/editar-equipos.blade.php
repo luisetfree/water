@@ -173,34 +173,63 @@
                     <!-- se obtiene previamente el id correspondiente del equipo a modificar el estado y se agrega a este elemento oculto para luego enviarlo por el formulario -->
                     <input type="hidden" id="" name= "id1" value="{{$prod->id}}">
                                 @break
-                             
+                                @case(2)
+                                <label> 2</label>
+                    <input type="checkbox" id="" name= "eq2" value="Operando">
+                    <input type="hidden" id="" name= "ideq2" value="2">
+                    <!-- Manejando el id del campo a modificar en la tabla operacions -->
+                    <input type="hidden" id="" name= "id2" value="{{$prod->id}}">
+                                @break
+                                @case(3)
+                    <label> 3</label>
+                    <input type="checkbox" id="" name= "eq3" value="Operando">
+                    <input type="hidden" id="" name= "ideq3" value="3">
+                    <input type="hidden" id="" name= "id3" value="{{$prod->id}}">
+                                @break
+                            @case(4)
+                    <label> 4</label>
+                    <input type="checkbox" id="" name= "eq4" value="Operando">
+                    <input type="hidden" id="" name= "ideq4" value="4">
+                    <input type="hidden" id="" name= "id4" value="{{$prod->id}}">
+
+                            @break
+                            @case(5)
+                    <label> 5</label>
+                    <input type="checkbox" id="" name= "eq5" value="Operando">
+                    <input type="hidden" id="" name= "ideq5" value="5">
+                    <input type="hidden" id="" name= "id5" value="{{$prod->id}}">
+                            @break
+                            @case(6)
+                    <label> 6</label>
+                    <input type="checkbox" id="" name= "eq6" value="Operando">
+                    <input type="hidden" id="" name= "ideq6" value="6">
+                    <input type="hidden" id="" name= "id6" value="{{$prod->id}}">
+                            @break
+                            @case(7)
+                    <label> 7</label>
+                    <input type="checkbox" id="" name= "eq7" value="Operando">
+                    <input type="hidden" id="" name= "ideq7" value="7">
+                    <input type="hidden" id="" name= "id7" value="{{$prod->id}}">
+                            @break
+                            @case(8)
+                    <label> 8</label>
+                    <input type="checkbox" id="" name= "eq8" value="Operando">
+                    <input type="hidden" id="" name= "ideq8" value="8">
+                    <input type="hidden" id="" name= "id8" value="{{$prod->id}}">
+                            @break
                           
                              
                                 @default
                                     
                         @endswitch
                    
-                  <!--   <label> 2</label>
-                    <input type="checkbox" id="" name= "eq2" value="Operando">
-                    <input type="hidden" id="" name= "ideq2" value="2">
-                    <label> 3</label>
-                    <input type="checkbox" id="" name= "eq3" value="Operando">
-                    <input type="hidden" id="" name= "ideq3" value="3">
-                    <label> 4</label>
-                    <input type="checkbox" id="" name= "eq4" value="Operando">
-                    <input type="hidden" id="" name= "ideq4" value="4">
-                    <label> 5</label>
-                    <input type="checkbox" id="" name= "eq5" value="Operando">
-                    <input type="hidden" id="" name= "ideq5" value="5">
-                    <label> 6</label>
-                    <input type="checkbox" id="" name= "eq6" value="Operando">
-                    <input type="hidden" id="" name= "ideq6" value="6">
-                    <label> 7</label>
-                    <input type="checkbox" id="" name= "eq7" value="Operando">
-                    <input type="hidden" id="" name= "ideq7" value="7">
-                    <label> 8</label>
-                    <input type="checkbox" id="" name= "eq8" value="Operando">
-                    <input type="hidden" id="" name= "ideq8" value="8"> -->
+                  <!--   
+                    
+                    
+                    
+                    
+                    
+                     -->
 
                 @endforeach
 

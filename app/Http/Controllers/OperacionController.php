@@ -837,7 +837,7 @@ $conteo= DB::table('operacions')
 
 
     /**
-     * Actualiza los equipos operando segun la vista EDITAR-EQUIPOS
+     * Actualiza los equipos operando segun la vista EDITAR-EQUIPOS, aqui se manejan los datos que se envian desde esta vista para actualizar el estado de los equipos
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -846,10 +846,34 @@ $conteo= DB::table('operacions')
 
         $fecha=$request->fecha;
         $hora=$request->hora;
+        /*EQUIPOS DE BT*/
         $estado=$request->eq1;
         $ideq=$request->id1;//este es el id de toda la tupla, es decir el registro que se modificará--NO ES DEL EQUIPO
 
         $this->actualizarEquipo($ideq,$estado,$hora,$fecha);
+        $est2=$request->eq2;
+        $id_2=$request->id2;
+        $this->actualizarEquipo($id_2,$est2,$hora,$fecha);
+        $est3=$request->eq3;
+        $id_3=$request->id3;
+        $this->actualizarEquipo($id_3,$est3,$hora,$fecha);
+        $est4=$request->eq4;
+        $id_4=$request->id4;
+        $this->actualizarEquipo($id_4,$est4,$hora,$fecha);
+        $est5=$request->eq5;
+        $id_5=$request->id5;
+        $this->actualizarEquipo($id_5,$est5,$hora,$fecha);
+        $est6=$request->eq6;
+        $id_6=$request->id6;
+        $this->actualizarEquipo($id_6,$est6,$hora,$fecha);
+        $est7=$request->eq7;
+        $id_7=$request->id7;
+        $this->actualizarEquipo($id_7,$est7,$hora,$fecha);
+        $est8=$request->eq8;
+        $id_8=$request->id8;
+        $this->actualizarEquipo($id_8,$est8,$hora,$fecha);
+
+
 
     return view('welcome');
 
@@ -875,7 +899,7 @@ $conteo= DB::table('operacions')
 
     }
 
-/*Metodo que recibe el estado del checkbox y el id del equipo a procesar, */
+/*Metodo que recibe el estado del checkbox y el id del equipo a procesar y asi actualizar su estado */
     public function actualizarEquipo($id,$estado,$hora,$fecha){
 
         //se busca mediante el id el equipo que se desea actualizar
