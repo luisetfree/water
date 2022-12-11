@@ -233,10 +233,10 @@
                                 @case(1)
                                     @foreach ($equipo_1 as $eqi)
 
-                                        <a href="/editar-equipos/{{$eqi->hora}}/{{$eqi->fecha}}/{{$eqi->id_estacion}}">
+                                        
                                          {{ $eqi->nombre}}-
                                                                                    
-                                        </a>
+                                        
 
                                      @endforeach 
                                 @break

@@ -40,8 +40,11 @@ class CalidadController extends Controller
     }
 
 
+/*recopila la informacion que se mostrará en la vista BITACORA*/
+public function bitacora(){
 
-
+return view('bitacora');
+}
 
 
 
