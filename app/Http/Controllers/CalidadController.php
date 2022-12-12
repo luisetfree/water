@@ -40,10 +40,321 @@ class CalidadController extends Controller
     }
 
 
-/*recopila la informacion que se mostrará en la vista BITACORA*/
+/*Recopila toda la informacion que se mostrará en la vista BITACORA*/
 public function bitacora(){
 
-return view('bitacora');
+$fecha=date("Y-m-d");//fecha actual
+
+$valor=$this->promedio($fecha,1,'turbidez');
+
+
+//Extrayendo el mes de una determinada fecha, se pasa a entero para que pueda funcionar bien la extracción
+$mes = date("m", intval($fecha));
+$anio= date("Y", strtotime($fecha));//capturando el año de la fecha dada
+
+//se harmaran los dias de acuerdo a la fecha que se pase por parametro.
+$dia1=$anio.'-'.$mes.'-'.'1';
+
+$array=array();
+//For que permite generar un arreglo y llenarlo con los dias del mes, tomando como referencia el mes según la fecha que se pasa por parametro
+for ($i=0; $i < 32; $i++) { 
+    $array[$i]=$anio.'-'.$mes.'-'.$i;//llenando el arreglo con las fechas
+}
+
+
+//obtiene el valor promedio de una columna en el mes y año actual
+$prom_mes = DB::table('calidads')
+            ->whereRaw('month(fecha) = month(now())')
+            ->whereRaw('year(fecha) = year(now())')                 
+            ->avg('turbidez');
+
+/*Prom - Caudal BT*/
+//$bt1=$this->promedio($array[1],1,'caudal');
+
+$bt_caudal=array();//arreglo que llenará los promedios del caudal de BT por dia, segun la fecha que se pase
+//For que recorre y llena el arreglo con los promedios de caudales de BT
+for ($i=0; $i <32 ; $i++) { 
+    
+
+    $bt_caudal[$i] = DB::table('produccions')
+                ->where('fecha' ,'=', $array[$i])//array hace referencia a la fecha que se llena segun el mes
+                ->where('id_estacion' ,'=' ,1)//1 significa el id de BT
+                ->avg('caudal');
+
+    }
+
+
+    /*CLORO RESIDUAL EB1*/
+    $cloro_eb1_prom=array();
+    $cloro_eb1_min=array();
+    $cloro_eb1_max=array();
+for ($i=0; $i <32 ; $i++) { 
+    
+    //PROMEDIO
+    $cloro_eb1_prom[$i] = DB::table('produccions')
+                ->where('fecha' ,'=', $array[$i])//array hace referencia a la fecha que se llena segun el mes
+                ->where('id_estacion' ,'=' ,2)//2 significa el id de EB1
+                ->avg('cloro_residual');
+                //Minimo
+    $cloro_eb1_min[$i]=DB::table('produccions')
+                ->where('fecha' ,'=', $array[$i])
+                ->where('id_estacion' ,'=' ,2)
+                ->min('cloro_residual');
+                //Maximo
+    $cloro_eb1_max[$i]=DB::table('produccions')
+                ->where('fecha' ,'=', $array[$i])
+                ->where('id_estacion' ,'=' ,2)
+                ->max('cloro_residual');
+
+    }
+
+/*COAGULANTE*/
+    $coag_min=array();
+    $coag_max=array();
+    $coag_prom=array();
+
+    for ($i=0; $i <32 ; $i++) { 
+    
+                //PROMEDIO
+    $coag_prom[$i] = DB::table('consumos')
+                ->where('fecha' ,'=', $array[$i])//array hace referencia a la fecha que se llena segun el mes
+                ->where('id_quimico' ,'=' ,5)//5 es el id del sulfato
+                ->avg('dosis');
+                //Minimo
+    $coag_min[$i]=DB::table('consumos')
+                ->where('fecha' ,'=', $array[$i])
+                ->where('id_quimico' ,'=' ,5)
+                ->min('dosis');
+                //Maximo
+    $coag_max[$i]=DB::table('consumos')
+                ->where('fecha' ,'=', $array[$i])
+                ->where('id_quimico' ,'=' ,5)
+                ->max('dosis');
+
+    }
+
+    /*CAUDAL BT SUMATORIA DEL DIA*/
+
+    $bt_suma=array();
+    for ($i=0; $i <32 ; $i++) { 
+    
+                //PROMEDIO
+    $bt_suma[$i] = DB::table('produccions')
+                ->where('fecha' ,'=', $array[$i])//array hace referencia a la fecha que se llena segun el mes
+                ->where('id_estacion' ,'=' ,1)//1 es el id del sulfato
+                ->sum('caudal');
+
+
+    }
+
+    /*HORAS TRABAJADAS DE BT*/
+    $bt_horas=array();
+for ($i=0; $i <32 ; $i++) { 
+    
+                //PROMEDIO
+    $bt_horas[$i] = DB::table('produccions')
+                ->where('fecha' ,'=', $array[$i])//array hace referencia a la fecha que se llena segun el mes
+                ->where('id_estacion' ,'=' ,1)//1 es el id de BT
+                ->where('caudal' ,'>' ,0)
+                ->count();
+
+    }
+
+    /*CALIDAD DE AGUA CRUDA*/
+    $cruda_min=array();
+    $cruda_max=array();
+    $cruda_prom=array();
+
+for ($i=0; $i <32 ; $i++) { 
+    
+                //min
+        //fecha, id_agua, campo
+        $id_cruda=1;
+        $campo='turbidez';
+        //minimo
+        $cruda_min[$i] = $this->minimosAgua($array[$i],$id_cruda,$campo);
+        //maximo
+         $cruda_max[$i] = $this->maximoAgua($array[$i],$id_cruda,$campo);
+        //promedio
+         $cruda_prom[$i] = $this->promedioAgua($array[$i],$id_cruda,$campo);
+
+
+    }
+       /*PH DE AGUA CRUDA*/
+    $cruda_ph_m=array();
+    $cruda_ph_mx=array();
+    $cruda_ph_p=array();
+
+for ($i=0; $i <32 ; $i++) { 
+    
+                //min
+        $ph='ph';
+    $cruda_ph_m[$i] = $this->minimosAgua($array[$i],$id_cruda,$ph);
+                //maximo
+    $cruda_ph_mx[$i] = $this->maximoAgua($array[$i],$id_cruda,$ph);
+                //promedio
+    $cruda_ph_p[$i] = $this->promedioAgua($array[$i],$id_cruda,$ph);
+
+
+    }
+
+      /*CALIDAD DE AGUA CLARIFICADA*/
+    $clari_min=array();
+    $clari_max=array();
+    $clari_prom=array();
+
+for ($i=0; $i <32 ; $i++) { 
+    
+                //min
+        //fecha, id_agua, campo
+        $id_clari=2;
+        
+        //minimo
+        $clari_min[$i] = $this->minimosAgua($array[$i],$id_clari,$campo);
+        //maximo
+         $clari_max[$i] = $this->maximoAgua($array[$i],$id_clari,$campo);
+        //promedio
+         $clari_prom[$i] = $this->promedioAgua($array[$i],$id_clari,$campo);
+
+
+    }
+    /*PH DE AGUA CLARIFICADA*/
+    $clari_ph_m=array();
+    $clari_ph_mx=array();
+    $clari_ph_p=array();
+
+for ($i=0; $i <32 ; $i++) { 
+    
+                //min
+        
+    $clari_ph_m[$i] = $this->minimosAgua($array[$i],$id_clari,$ph);
+                //maximo
+    $clari_ph_mx[$i] = $this->maximoAgua($array[$i],$id_clari,$ph);
+                //promedio
+    $clari_ph_p[$i] = $this->promedioAgua($array[$i],$id_clari,$ph);
+
+
+    }
+
+    /*CALIDAD DE AGUA FILTRADA*/
+    $fil_min=array();
+    $fil_max=array();
+    $fil_prom=array();
+
+for ($i=0; $i <32 ; $i++) { 
+    
+                //min
+        //fecha, id_agua, campo
+        $id_filt=3;
+        
+        //minimo
+        $fil_min[$i] = $this->minimosAgua($array[$i],$id_filt,$campo);
+        //maximo
+         $fil_max[$i] = $this->maximoAgua($array[$i],$id_filt,$campo);
+        //promedio
+         $fil_prom[$i] = $this->promedioAgua($array[$i],$id_filt,$campo);
+
+
+    }
+    /*PH DE AGUA FILTRADA*/
+    $fil_ph_m=array();
+    $fil_ph_mx=array();
+    $fil_ph_p=array();
+
+for ($i=0; $i <32 ; $i++) { 
+    
+                //min
+        
+    $fil_ph_m[$i] = $this->minimosAgua($array[$i],$id_filt,$ph);
+                //maximo
+    $fil_ph_mx[$i] = $this->maximoAgua($array[$i],$id_filt,$ph);
+                //promedio
+    $fil_ph_p[$i] = $this->promedioAgua($array[$i],$id_filt,$ph);
+
+
+    }
+
+
+/*CALIDAD DE AGUA TRATADA*/
+    $trat_min=array();
+    $trat_max=array();
+    $trat_prom=array();
+
+for ($i=0; $i <32 ; $i++) { 
+    
+                //min
+        //fecha, id_agua, campo
+        $id_trat=4;
+        
+        //minimo
+        $trat_min[$i] = $this->minimosAgua($array[$i],$id_trat,$campo);
+        //maximo
+         $trat_max[$i] = $this->maximoAgua($array[$i],$id_trat,$campo);
+        //promedio
+         $trat_prom[$i] = $this->promedioAgua($array[$i],$id_trat,$campo);
+
+
+    }
+     /*PH DE AGUA TRATADA*/
+    $trat_ph_m=array();
+    $trat_ph_mx=array();
+    $trat_ph_p=array();
+
+for ($i=0; $i <32 ; $i++) { 
+    
+                //min
+        
+    $trat_ph_m[$i] = $this->minimosAgua($array[$i],$id_trat,$ph);
+                //maximo
+    $trat_ph_mx[$i] = $this->maximoAgua($array[$i],$id_trat,$ph);
+                //promedio
+    $trat_ph_p[$i] = $this->promedioAgua($array[$i],$id_trat,$ph);
+
+
+    }
+
+
+
+
+
+
+return view('bitacora', compact('fecha','valor','mes','prom_mes','anio','dia1','array','bt_caudal','cloro_eb1_prom','cloro_eb1_min','cloro_eb1_max','coag_min','coag_max','coag_prom','bt_suma','bt_horas','cruda_min','cruda_max','cruda_prom','cruda_ph_m','cruda_ph_mx','cruda_ph_p','clari_min','clari_max','clari_prom','clari_ph_m','clari_ph_mx','clari_ph_p','fil_min','fil_max','fil_prom','fil_ph_m','fil_ph_mx','fil_ph_p','trat_min','trat_max','trat_prom','trat_ph_m','trat_ph_mx','trat_ph_p'));
+
+}
+
+//Busca y retorna el valor minimo de un campo en especifico y tipo de agua que reciba por parametro según fecha. 
+public function minimosAgua($fecha, $id_agua, $campo){
+
+    $valor_minimo = DB::table('calidads')
+                ->where('fecha' ,'=', $fecha)
+                ->where('id_agua' ,'=' ,$id_agua)
+                ->min($campo);
+
+                return $valor_minimo;
+
+}
+//Busca y retorna el valor maximo de un campo en especifico y tipo de agua que reciba por parametro según fecha. 
+public function maximoAgua($fecha, $id_agua, $campo){
+
+    $valor_max = DB::table('calidads')
+                ->where('fecha' ,'=', $fecha)
+                ->where('id_agua' ,'=' ,$id_agua)
+                ->max($campo);
+
+                return $valor_max;
+
+}
+//Busca y retorna el valor promedio de un campo en especifico y tipo de agua que reciba por parametro según fecha. 
+public function promedioAgua($fecha, $id_agua, $campo){
+
+    $valor_prom = DB::table('calidads')
+                ->where('fecha' ,'=', $fecha)
+                ->where('id_agua' ,'=' ,$id_agua)
+                ->avg($campo);
+
+                return round($valor_prom,2) ;//redondea a 2 decimales y devuelve el valor
+                
+
 }
 
 

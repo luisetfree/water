@@ -156,88 +156,98 @@
 
     </div>
 
-    <!-- Tabla que muestra los valores almacenados -->
-        <table>
-            
-
    
-                <!-- Encabezados de la tabla -->
+      
+<!-- Fecha  -->
+        <div><label>{{$fecha}} </label>   </div>
 
-              <tr>
-                <th>Fecha</th>
-                <th>Caudal BT(m³/h)</th>
-                <th>Cloro</th>
-                <th colspan="6">Partes Por Millón
+        {{$valor}} 
 
-                </th>
-                <th>Equipos Operando</th>
-                <th colspan="2">Coagulante</th>
-                             
-                                
-                <th colspan="2">Dosificación Polimero</th>
-                <th colspan="2" >Dosificación Permanganato</th>
-                <th colspan="2" >Dosificación CAL</th>
-                <th colspan="2" >Dosificación Carbon</th>
-                <th>Cloro mg/L</th>
-                <th colspan="2" >Cloro residual</th>
-                <th colspan="2" >Niveles tanques %</th>
-              </tr>
+<br><br>
+        {{$mes}} 
 
-              <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th > 
-                  g
-                </th>
-                <th >o</th>
-                <th>%</th>
-                <th>mg/L</th>
-                <th>%</th>
-                <th>mg/L</th>
-                <th>%</th>
-                <th>mg/L</th>
-                <th>%</th>
-                <th>mg/L</th>
-                <th>%</th>
-                <th>mg/L</th>
-                <th></th>
-                <th>EB-2</th>
-                <th>EB-3</th>
-                <th>TTS</th>
-                <th>B. Vista</th>
-              </tr>
-             <td>jjj</td>
-               
-           
+       
 
-               
-               
+        {{$prom_mes}}
 
-                
-        </table>
+        {{$anio}}
 
-        <br>
+        {{$dia1}}
 
+
+Hola
+{{$array[31]}}
+
+
+ <!-- Tabla resumen de Bitacora -->
       <TABLE >
 
                     
             <TR>
-              <TH COLSPAN=2>PPM</TH>
-              <TH COLSPAN=2>Head2</TH>
-            </TR>
-            <TR>
-              <TH>Cloro residual</TH> <TH>Coagulante</TH> 
+              <th rowspan="3">Fecha</th>
+              <th rowspan="3">Caudal BT(m³/h) - X̅</th>
+              <th rowspan="3">Cloro</th>
+              <TH COLSPAN=6>PPM</TH>
+              <th rowspan="3">Caudal BT (m³/d)</th>
+              <th rowspan="3">Horas trabajadas</th>
+              <TH COLSPAN=6>Agua Cruda</TH>
+              <TH COLSPAN=6>Agua Clarificada</TH>
+              <TH COLSPAN=6>Agua Filtrada</TH>
+              <TH COLSPAN=6>Agua Tratada</TH>
+
               
             </TR>
             <TR>
-              <TD>A</TD> <TD>B</TD> <TD>C</TD> <TD>D</TD> 
+              
+              
+              
+              <TH COLSPAN=3>Cloro residual</TH> <TH COLSPAN=3>Coagulante</TH> 
+               
+              
+              <th colspan="3">Turbidez</th><th colspan="3">PH</th>
+              <th colspan="3">Turbidez</th><th colspan="3">PH</th>
+              <th colspan="3">Turbidez</th><th colspan="3">PH</th>
+              <th colspan="3">Turbidez</th><th colspan="3">PH</th>
+              
             </TR>
             <TR>
-              <TD>E</TD> <TD>F</TD> <TD>G</TD> <TD>H</TD> 
+              
+              
+              
+              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
+              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
+              
+              
+              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
+              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
+              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
+              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
+              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
+              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
+              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
+              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
+            </TR>
+            <TR>
+              <td>{{$array[12]}}</td>
+              <td>{{$bt_caudal[12]}}</td>
+              <td></td>
+              <td>{{$cloro_eb1_min[12]}}</td><td>{{$cloro_eb1_max[12]}}</td><td>{{$cloro_eb1_prom[12]}}</td>
+              <td>{{$coag_min[12]}}</td><td>{{$coag_max[12]}}</td><td>{{$coag_prom[12]}}</td>
+              <td>{{$bt_suma[12]}}</td>
+              <td>{{$bt_horas[12]}}</td>
+              <td>{{$cruda_min[12]}}</td><td>{{$cruda_max[12]}}</td><td>{{$cruda_prom[12]}}</td>
+              <td>{{$cruda_ph_m[12]}}</td><td>{{$cruda_ph_mx[12]}}</td><td>{{$cruda_ph_p[12]}}</td>
+              <td>{{$clari_min[12]}}</td><td>{{$clari_max[12]}}</td><td>{{$clari_prom[12]}}</td>
+              <td>{{$clari_ph_m[12]}}</td><td>{{$clari_ph_mx[12]}}</td><td>{{$clari_ph_p[12]}}</td>
+              <td>{{$fil_min[12]}}</td><td>{{$fil_max[12]}}</td><td>{{$fil_prom[12]}}</td>
+              <td>{{$fil_ph_m[12]}}</td><td>{{$fil_ph_mx[12]}}</td><td>{{$fil_ph_p[12]}}</td>
+              <td>{{$trat_min[12]}}</td><td>{{$trat_max[12]}}</td><td>{{$trat_prom[12]}}</td>
+              <td>{{$trat_ph_m[12]}}</td><td>{{$trat_ph_mx[12]}}</td><td>{{$trat_ph_p[12]}}</td>
+              
             </TR>
              <TR>
-              <TD>i</TD> <TD>y</TD> <TD>7</TD> <TD>0</TD> 
+              <td></td>
+              
             </TR>
 
 
