@@ -137,8 +137,9 @@
        @csrf
        
 
-
-
+        <!-- Fecha  -->
+        <input type="date" name="fecha" value="{{$fecha}}">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ver</button>
 
 
 
@@ -158,31 +159,16 @@
 
    
       
-<!-- Fecha  -->
-        <div><label>{{$fecha}} </label>   </div>
-
-        {{$valor}} 
-
-<br><br>
-        {{$mes}} 
-
-       
-
-        {{$prom_mes}}
-
-        {{$anio}}
-
-        {{$dia1}}
 
 
-Hola
-{{$array[31]}}
+        
+
 
 
  <!-- Tabla resumen de Bitacora -->
       <TABLE >
 
-                    
+                  <!-- Encabezados principales -->  
             <TR>
               <th rowspan="3">Fecha</th>
               <th rowspan="3">Caudal BT(m³/h) - X̅</th>
@@ -197,6 +183,7 @@ Hola
 
               
             </TR>
+            <!-- Encabezados secundarios -->  
             <TR>
               
               
@@ -227,28 +214,36 @@ Hola
               <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
               <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
             </TR>
+            
+
+            
+       <!-- De forma automatica se imprimen todos los dias del mes mediante este FOR -->
+            @for ($i = 1; $i < 32; $i++)
+              
+
+
             <TR>
-              <td>{{$array[12]}}</td>
-              <td>{{$bt_caudal[12]}}</td>
-              <td></td>
-              <td>{{$cloro_eb1_min[12]}}</td><td>{{$cloro_eb1_max[12]}}</td><td>{{$cloro_eb1_prom[12]}}</td>
-              <td>{{$coag_min[12]}}</td><td>{{$coag_max[12]}}</td><td>{{$coag_prom[12]}}</td>
-              <td>{{$bt_suma[12]}}</td>
-              <td>{{$bt_horas[12]}}</td>
-              <td>{{$cruda_min[12]}}</td><td>{{$cruda_max[12]}}</td><td>{{$cruda_prom[12]}}</td>
-              <td>{{$cruda_ph_m[12]}}</td><td>{{$cruda_ph_mx[12]}}</td><td>{{$cruda_ph_p[12]}}</td>
-              <td>{{$clari_min[12]}}</td><td>{{$clari_max[12]}}</td><td>{{$clari_prom[12]}}</td>
-              <td>{{$clari_ph_m[12]}}</td><td>{{$clari_ph_mx[12]}}</td><td>{{$clari_ph_p[12]}}</td>
-              <td>{{$fil_min[12]}}</td><td>{{$fil_max[12]}}</td><td>{{$fil_prom[12]}}</td>
-              <td>{{$fil_ph_m[12]}}</td><td>{{$fil_ph_mx[12]}}</td><td>{{$fil_ph_p[12]}}</td>
-              <td>{{$trat_min[12]}}</td><td>{{$trat_max[12]}}</td><td>{{$trat_prom[12]}}</td>
-              <td>{{$trat_ph_m[12]}}</td><td>{{$trat_ph_mx[12]}}</td><td>{{$trat_ph_p[12]}}</td>
+              <td>{{$array[$i]}}</td><!-- Es fecha -->
+              <td>{{$bt_caudal[$i]}}</td>
+              <td>{{$cloro[$i]}}</td>
+              <td>{{$cloro_eb1_min[$i]}}</td><td>{{$cloro_eb1_max[$i]}}</td><td>{{$cloro_eb1_prom[$i]}}</td>
+              <td>{{$coag_min[$i]}}</td><td>{{$coag_max[$i]}}</td><td>{{$coag_prom[$i]}}</td>
+              <td>{{$bt_suma[$i]}}</td>
+              <td>{{$bt_horas[$i]}}</td>
+              <td>{{$cruda_min[$i]}}</td><td>{{$cruda_max[$i]}}</td><td>{{$cruda_prom[$i]}}</td>
+              <td>{{$cruda_ph_m[$i]}}</td><td>{{$cruda_ph_mx[$i]}}</td><td>{{$cruda_ph_p[$i]}}</td>
+              <td>{{$clari_min[$i]}}</td><td>{{$clari_max[$i]}}</td><td>{{$clari_prom[$i]}}</td>
+              <td>{{$clari_ph_m[$i]}}</td><td>{{$clari_ph_mx[$i]}}</td><td>{{$clari_ph_p[$i]}}</td>
+              <td>{{$fil_min[$i]}}</td><td>{{$fil_max[$i]}}</td><td>{{$fil_prom[$i]}}</td>
+              <td>{{$fil_ph_m[$i]}}</td><td>{{$fil_ph_mx[$i]}}</td><td>{{$fil_ph_p[$i]}}</td>
+              <td>{{$trat_min[$i]}}</td><td>{{$trat_max[$i]}}</td><td>{{$trat_prom[$i]}}</td>
+              <td>{{$trat_ph_m[$i]}}</td><td>{{$trat_ph_mx[$i]}}</td><td>{{$trat_ph_p[$i]}}</td>
               
             </TR>
-             <TR>
-              <td></td>
-              
-            </TR>
+
+            @endfor
+
+
 
 
       </TABLE>

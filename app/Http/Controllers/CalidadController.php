@@ -313,14 +313,63 @@ for ($i=0; $i <32 ; $i++) {
 
     }
 
+/*Calculo cloro*/
+$cloro=array();
+for ($i=0; $i <32 ; $i++) { 
+$cloro[$i]=$this->calculoCloro($array[$i],8,1,2);
+}
 
 
-
-
-
-return view('bitacora', compact('fecha','valor','mes','prom_mes','anio','dia1','array','bt_caudal','cloro_eb1_prom','cloro_eb1_min','cloro_eb1_max','coag_min','coag_max','coag_prom','bt_suma','bt_horas','cruda_min','cruda_max','cruda_prom','cruda_ph_m','cruda_ph_mx','cruda_ph_p','clari_min','clari_max','clari_prom','clari_ph_m','clari_ph_mx','clari_ph_p','fil_min','fil_max','fil_prom','fil_ph_m','fil_ph_mx','fil_ph_p','trat_min','trat_max','trat_prom','trat_ph_m','trat_ph_mx','trat_ph_p'));
+return view('bitacora', compact('fecha','valor','mes','prom_mes','anio','dia1','array','bt_caudal','cloro_eb1_prom','cloro_eb1_min','cloro_eb1_max','coag_min','coag_max','coag_prom','bt_suma','bt_horas','cruda_min','cruda_max','cruda_prom','cruda_ph_m','cruda_ph_mx','cruda_ph_p','clari_min','clari_max','clari_prom','clari_ph_m','clari_ph_mx','clari_ph_p','fil_min','fil_max','fil_prom','fil_ph_m','fil_ph_mx','fil_ph_p','trat_min','trat_max','trat_prom','trat_ph_m','trat_ph_mx','trat_ph_p','cloro'));
 
 }
+
+
+
+/*
+Funcion que calcula el cloro aplicado en un dia segun la formula (media de dosis_cloro/1000 * media de Caudal_bt), 
+*/
+
+public function calculoCloro($fecha,$id_cloro,$id_bocatoma,$id_eb1){
+
+$cloroAplicado=DB::table('consumos')
+                ->where('fecha','=',$fecha)
+                ->where('id_quimico', '=', $id_cloro)
+                ->avg('dosis');
+
+
+$caudal_bt=DB::table('produccions')
+                ->where('fecha','=',$fecha)
+                ->where('id_estacion', '=', $id_bocatoma)
+                ->avg('caudal');
+//En caso que BT este suspendida se debera considerar el caudal de Eb1
+$caudal_eb1=DB::table('produccions')
+                ->where('fecha','=',$fecha)
+                ->where('id_estacion', '=', $id_eb1)
+                ->avg('caudal');
+
+//recorre los datos de ambas busquedas y realiza el calculo dosis_cloro/Caudal_bt
+
+                //retornando los valores y realizando calculo y division, round para redondear con 2 decimales
+            if (($caudal_bt) > 0){
+            return round((($cloroAplicado)/1000)*($caudal_bt), 2);
+        }else{
+           //Se ha considerado el caudal de EB1 cuando BT esta suspendida
+
+                //se retorna el valor utilizando caudal de EB1
+                return round((($cloroAplicado)/1000)*($caudal_bt), 2);
+
+
+        }
+
+
+}
+
+
+
+
+
+
 
 //Busca y retorna el valor minimo de un campo en especifico y tipo de agua que reciba por parametro según fecha. 
 public function minimosAgua($fecha, $id_agua, $campo){
