@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Resumen de Bitacora</title>
+    <title>Quimicos</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Libreria para iconos -->
@@ -126,22 +126,43 @@
   @endif
   <div class="card">
     <div class="card-header text-center font-weight-bold">
-      CONTROL DE DATOS
+      CARGA DE QUIMICOS
 
     </div>
     <div class="card-body">
 
 
 
-      <form name="add-blog-post-form" id="add-blog-post-form" method="post" action="{{url('bitacora')}}">
+      <form name="" id="" method="post" action="{{url('')}}">
        @csrf
        
 
         <!-- Fecha  -->
         
-        <label>Fecha</label>
-        <input type="date" name="fecha" value="">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ver</button>
+        
+        <label for="cantidad">Quimico</label>
+        <!-- Lista que se llena con los quimicos que se encuentran en la DB -->
+        <select>
+          @foreach($quimicos as $quimic)
+
+            <option value="{{$quimic->id}}">{{$quimic->nombre}}</option>
+
+          @endforeach
+
+           
+
+        </select>
+
+        <label for="cantidad">Cantidad</label>
+        <input id="cantidad" type="text" name="" placeholder="Cantidad">
+        <label for="">Fecha</label>
+        <input type="date" name="">
+        <label for="">Hora</label>
+        <select>
+          <option value="">1</option>
+        </select>
+
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Guardar</button>
 
 
 
@@ -158,103 +179,6 @@
 
 
     </div>
-
-   
-      
-
-
-        
-
-
-
- <!-- Tabla resumen de Bitacora -->
-      <TABLE >
-
-                  <!-- Encabezados principales -->  
-            <TR>
-              <th rowspan="3">Fecha</th>
-              <th rowspan="3">Caudal BT(m³/h) - X̅</th>
-              <th rowspan="3">Cloro</th>
-              <TH COLSPAN=6>PPM</TH>
-              <th rowspan="3">Caudal BT (m³/d)</th>
-              <th rowspan="3">Horas trabajadas</th>
-              <TH COLSPAN=6>Agua Cruda</TH>
-              <TH COLSPAN=6>Agua Clarificada</TH>
-              <TH COLSPAN=6>Agua Filtrada</TH>
-              <TH COLSPAN=6>Agua Tratada</TH>
-
-              
-            </TR>
-            <!-- Encabezados secundarios -->  
-            <TR>
-              
-              
-              
-              <TH COLSPAN=3>Cloro residual</TH> <TH COLSPAN=3>Coagulante</TH> 
-               
-              
-              <th colspan="3">Turbidez</th><th colspan="3">PH</th>
-              <th colspan="3">Turbidez</th><th colspan="3">PH</th>
-              <th colspan="3">Turbidez</th><th colspan="3">PH</th>
-              <th colspan="3">Turbidez</th><th colspan="3">PH</th>
-              
-            </TR>
-            <TR>
-              
-              
-              
-              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
-              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
-              
-              
-              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
-              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
-              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
-              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
-              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
-              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
-              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
-              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
-            </TR>
-            
-
-            
-       <!-- De forma automatica se imprimen todos los dias del mes mediante este FOR -->
-            @for ($i = 1; $i < 32; $i++)
-              
-
-
-            <TR>
-              <td>{{$array[$i]}}</td><!-- Es fecha -->
-              <td>{{$bt_caudal[$i]}}</td>
-              <td>{{$cloro[$i]}}</td>
-              <td>{{$cloro_eb1_min[$i]}}</td><td>{{$cloro_eb1_max[$i]}}</td><td>{{$cloro_eb1_prom[$i]}}</td>
-              <td>{{$coag_min[$i]}}</td><td>{{$coag_max[$i]}}</td><td>{{$coag_prom[$i]}}</td>
-              <td>{{$bt_suma[$i]}}</td>
-              <td>{{$bt_horas[$i]}}</td>
-              <td>{{$cruda_min[$i]}}</td><td>{{$cruda_max[$i]}}</td><td>{{$cruda_prom[$i]}}</td>
-              <td>{{$cruda_ph_m[$i]}}</td><td>{{$cruda_ph_mx[$i]}}</td><td>{{$cruda_ph_p[$i]}}</td>
-              <td>{{$clari_min[$i]}}</td><td>{{$clari_max[$i]}}</td><td>{{$clari_prom[$i]}}</td>
-              <td>{{$clari_ph_m[$i]}}</td><td>{{$clari_ph_mx[$i]}}</td><td>{{$clari_ph_p[$i]}}</td>
-              <td>{{$fil_min[$i]}}</td><td>{{$fil_max[$i]}}</td><td>{{$fil_prom[$i]}}</td>
-              <td>{{$fil_ph_m[$i]}}</td><td>{{$fil_ph_mx[$i]}}</td><td>{{$fil_ph_p[$i]}}</td>
-              <td>{{$trat_min[$i]}}</td><td>{{$trat_max[$i]}}</td><td>{{$trat_prom[$i]}}</td>
-              <td>{{$trat_ph_m[$i]}}</td><td>{{$trat_ph_mx[$i]}}</td><td>{{$trat_ph_p[$i]}}</td>
-              
-            </TR>
-
-            @endfor
-
-
-
-
-      </TABLE>
-
-
-
-
-         
-
 
   </div>
 

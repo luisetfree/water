@@ -40,16 +40,24 @@ class CalidadController extends Controller
     }
 
 
-/*Recopila toda la informacion que se mostrará en la vista BITACORA*/
-public function bitacora(){
+/*Recopila toda la informacion que se mostrará en la vista BITACORA y la manda a la vista, se filtra la informacion mediante la fecha recibida*/
+public function bitacora($fechas){
 
-$fecha=date("Y-m-d");//fecha actual
+
+    
+$fecha=$fechas;
+
+
 
 $valor=$this->promedio($fecha,1,'turbidez');
 
+//tomamos la fecha que se pasa por parametro y extraemos el mes
+$mes_entero= explode("-", $fecha);
+
+
 
 //Extrayendo el mes de una determinada fecha, se pasa a entero para que pueda funcionar bien la extracción
-$mes = date("m", intval($fecha));
+$mes = $mes_entero[1];//asignamos el mes extraido anteriormente a la variable mes
 $anio= date("Y", strtotime($fecha));//capturando el año de la fecha dada
 
 //se harmaran los dias de acuerdo a la fecha que se pase por parametro.
@@ -63,24 +71,27 @@ for ($i=0; $i < 32; $i++) {
 
 
 //obtiene el valor promedio de una columna en el mes y año actual
-$prom_mes = DB::table('calidads')
+/*$prom_mes = DB::table('calidads')
             ->whereRaw('month(fecha) = month(now())')
             ->whereRaw('year(fecha) = year(now())')                 
-            ->avg('turbidez');
+            ->avg('turbidez');*/
 
 /*Prom - Caudal BT*/
 //$bt1=$this->promedio($array[1],1,'caudal');
 
 $bt_caudal=array();//arreglo que llenará los promedios del caudal de BT por dia, segun la fecha que se pase
 //For que recorre y llena el arreglo con los promedios de caudales de BT
+//Arreglo temporal para almacenar valores de bt 
+$temporal=array();
 for ($i=0; $i <32 ; $i++) { 
     
 
-    $bt_caudal[$i] = DB::table('produccions')
+        $temporal[$i] = DB::table('produccions')
                 ->where('fecha' ,'=', $array[$i])//array hace referencia a la fecha que se llena segun el mes
                 ->where('id_estacion' ,'=' ,1)//1 significa el id de BT
                 ->avg('caudal');
 
+        $bt_caudal[$i]=round($temporal[$i],2);//Se redondean los valores y asi se devuelven a la vista.
     }
 
 
@@ -88,13 +99,17 @@ for ($i=0; $i <32 ; $i++) {
     $cloro_eb1_prom=array();
     $cloro_eb1_min=array();
     $cloro_eb1_max=array();
+    $temp_prom=array();//se usa un arreglo temporal para luego redondear los datos a dos decimales
+
 for ($i=0; $i <32 ; $i++) { 
     
     //PROMEDIO
-    $cloro_eb1_prom[$i] = DB::table('produccions')
+   $temp_prom[$i] = DB::table('produccions')
                 ->where('fecha' ,'=', $array[$i])//array hace referencia a la fecha que se llena segun el mes
                 ->where('id_estacion' ,'=' ,2)//2 significa el id de EB1
                 ->avg('cloro_residual');
+
+    $cloro_eb1_prom[$i] = round($temp_prom[$i],2); //se redondea a 2 decimales
                 //Minimo
     $cloro_eb1_min[$i]=DB::table('produccions')
                 ->where('fecha' ,'=', $array[$i])
@@ -136,6 +151,7 @@ for ($i=0; $i <32 ; $i++) {
     /*CAUDAL BT SUMATORIA DEL DIA*/
 
     $bt_suma=array();
+    
     for ($i=0; $i <32 ; $i++) { 
     
                 //PROMEDIO
@@ -144,6 +160,7 @@ for ($i=0; $i <32 ; $i++) {
                 ->where('id_estacion' ,'=' ,1)//1 es el id del sulfato
                 ->sum('caudal');
 
+    
 
     }
 
@@ -320,9 +337,28 @@ $cloro[$i]=$this->calculoCloro($array[$i],8,1,2);
 }
 
 
-return view('bitacora', compact('fecha','valor','mes','prom_mes','anio','dia1','array','bt_caudal','cloro_eb1_prom','cloro_eb1_min','cloro_eb1_max','coag_min','coag_max','coag_prom','bt_suma','bt_horas','cruda_min','cruda_max','cruda_prom','cruda_ph_m','cruda_ph_mx','cruda_ph_p','clari_min','clari_max','clari_prom','clari_ph_m','clari_ph_mx','clari_ph_p','fil_min','fil_max','fil_prom','fil_ph_m','fil_ph_mx','fil_ph_p','trat_min','trat_max','trat_prom','trat_ph_m','trat_ph_mx','trat_ph_p','cloro'));
+return view('bitacora', compact('fecha','valor','array','bt_caudal','cloro_eb1_prom','cloro_eb1_min','cloro_eb1_max','coag_min','coag_max','coag_prom','bt_suma','bt_horas','cruda_min','cruda_max','cruda_prom','cruda_ph_m','cruda_ph_mx','cruda_ph_p','clari_min','clari_max','clari_prom','clari_ph_m','clari_ph_mx','clari_ph_p','fil_min','fil_max','fil_prom','fil_ph_m','fil_ph_mx','fil_ph_p','trat_min','trat_max','trat_prom','trat_ph_m','trat_ph_mx','trat_ph_p','cloro'));
 
 }
+
+
+  /**
+     * Se encarga de capturar la fecha que el usuario quiere ver de la vista BITACORA y la procesa para ser mostrada
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+public function cargarBitacora(Request  $request){
+    //
+    if (empty($request->fecha)) {
+        $fecha=date("Y-m-d");
+    } else {
+        $fecha=$request->fecha;
+    }
+    
+    return $this->bitacora($fecha);
+}
+
+
 
 
 

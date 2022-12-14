@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+//se agregan los controladores que se deben utilizar
 use App\Http\Controllers\AguaController;
 use App\Http\Controllers\ProduccionController;
 use App\Http\Controllers\OperacionController;
 use App\Http\Controllers\CalidadController;
+use App\Http\Controllers\CargaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +42,7 @@ resumen todos los valores almacenados en la tabla Produccion.*/
 Route::get('/resumen', [ProduccionController::class, 'index']);
 
 /*Maneja la ruta de la vista bitacora*/
-Route::get('/bitacora', [CalidadController::class, 'bitacora']);
+Route::get('/bitacora', [CalidadController::class, 'cargarBitacora']);
 
 
 /*Maneja la vista del historial de los equipos trabajando por estacion, muestra por defecto los equipos operando del dia actual*/
@@ -49,6 +51,9 @@ Route::get('/operacion', [OperacionController::class, 'index']);
 /*Maneja las calidades de agua*/
 
 Route::get('/calidad', [CalidadController::class, 'index']);
+
+/*Controla y muestra la vista Quimicos*/
+Route::get('/cargas', [CargaController::class, 'index']);
 
 Route::get('/agua/{tipo}', [AguaController::class, 'store']);
 
@@ -71,6 +76,9 @@ Route::post('/calidades', [CalidadController::class, 'store']);
 
 /*Maneja la busqueda de calidades por fecha y las muestra */
 Route::post('muestra', [CalidadController::class, 'buscar']);
+
+/*Maneja la busqueda de los datos de bitacora por fecha*/
+Route::post('bitacora', [CalidadController::class, 'cargarBitacora']);
 
 
 //Guarda los datos del formulario para actualizar datos
