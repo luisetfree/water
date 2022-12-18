@@ -7,6 +7,11 @@
     <!-- Libreria para iconos -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
+
+
+
+
   <!-- Controla el menu -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -38,19 +43,35 @@
 
         }
 
+          .card{
+            margin: 10%;
 
+             display: flex;
 
-            /*Maneja los encabezados bocatoma-eb1-2-3*/
-            .grid-container {
-              display: grid;
-              /*auto representa cada columna*/
-              grid-template-columns: auto auto auto auto auto auto auto auto auto;
-              grid-template-rows: 80px 120px;
-              gap: 10px;
-              
-              padding: 10px;
+           
+            width: 50%;
+  
+          }
+
+            /*centrando todo el contenido*/
+            .container{
+
+               display: flex;
+              justify-content: center;
             }
 
+              /*Div donde estan internamente los elementos del formulario*/
+            .grid-container {
+           
+              display: grid;
+              /*auto representa cada columna*/
+              
+              
+              gap: 10px;
+              padding: 10px;
+
+            }
+            
 
             .checkbox{
               font-size: 15px;
@@ -117,8 +138,8 @@
 </head>
 <body>
    
-
-  <div class="container-fluid">
+<!-- container-fluid -->
+  <div class="container">
   @if(session('status'))
     <div class="alert alert-success">
         {{ session('status') }}
@@ -129,20 +150,23 @@
       CARGA DE QUIMICOS
 
     </div>
-    <div class="card-body">
+    <div class="card-body ">
 
 
 
-      <form name="" id="" method="post" action="{{url('')}}">
+
+      <form name="" id="" method="post" action="{{url('cargas')}}">
        @csrf
        
+       <div class="grid-container">
 
         <!-- Fecha  -->
         
         
         <label for="cantidad">Quimico</label>
-        <!-- Lista que se llena con los quimicos que se encuentran en la DB -->
-        <select>
+        <!-- Lista que se llena con los quimicos que se encuentran en la DB, en el valor se almacena 
+          el id que servirá para guardar la carga-->
+        <select name="idquimico">
           @foreach($quimicos as $quimic)
 
             <option value="{{$quimic->id}}">{{$quimic->nombre}}</option>
@@ -154,18 +178,39 @@
         </select>
 
         <label for="cantidad">Cantidad</label>
-        <input id="cantidad" type="text" name="" placeholder="Cantidad">
+        <input id="cantidad" type="number" name="cantidad" placeholder="Cantidad ">
         <label for="">Fecha</label>
-        <input type="date" name="">
+        <input type="date" name="fecha">
         <label for="">Hora</label>
-        <select>
-          <option value="">1</option>
+        <select name="hora">
+          @for($i = 1; $i < 25; $i++)
+
+
+            @if ($i <= 9)
+                <option value="0{{$i}}:00">0{{$i}}:00</option>
+          
+            @else
+                <option value="{{$i}}:00">{{$i}}:00</option>
+            @endif
+          
+
+          @endfor
+          
+        </select>
+        <label for="">Grupo de turno</label>
+        <select name="grupo">
+                
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+   
         </select>
 
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Guardar</button>
 
 
-
+      </div>
 
 
       </form>
@@ -184,6 +229,46 @@
 
 </div>
 
+<div class="container">
+  <h4>Resumen de cargas</h4>
+
+ <!-- Tabla que muestra el movimiento de las cargas de los quimicos para el mes
+
+  -->
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>Fecha</th>
+        <th>Quimico</th>
+        <th>Carga</th>
+        <th>Hora</th>
+        <th>Grupo</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+
+
+  @foreach($cargas_mes as $carga)
+
+<!-- Fecha  Quimico   Carga   Hora  Grupo -->
+      <tr>
+        <td>{{$carga->fecha}}</td>
+        <td>{{$carga->nombre}}</td>
+        <td>{{$carga->cantidad}}</td>
+        <td>{{$carga->hora}}</td>
+        <td>{{$carga->grupo}}</td>
+      </tr>
+
+  @endforeach
+
+
+
+       
+    </tbody>
+  </table>
+</div>
      
 </body>
 </html>

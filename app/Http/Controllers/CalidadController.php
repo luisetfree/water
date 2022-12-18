@@ -57,7 +57,7 @@ $mes_entero= explode("-", $fecha);
 
 
 //Extrayendo el mes de una determinada fecha, se pasa a entero para que pueda funcionar bien la extracción
-$mes = $mes_entero[1];//asignamos el mes extraido anteriormente a la variable mes
+$mes = $mes_entero[1];//asignamos el mes extraido anteriormente a la variable mes, el 1 significa la posicion donde se encuentra el mes que deseamos extraer
 $anio= date("Y", strtotime($fecha));//capturando el año de la fecha dada
 
 //se harmaran los dias de acuerdo a la fecha que se pase por parametro.

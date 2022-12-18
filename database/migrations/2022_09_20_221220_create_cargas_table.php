@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('concentracion_tk');
             $table->string('fecha');
             $table->string('hora');
+            $table->string('grupo');//hace referencia al grupo de trabajo que se encuentra trabajando en la planta
 
 
 

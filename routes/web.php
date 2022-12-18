@@ -100,3 +100,6 @@ Route::post('actualiza_caudal', [ProduccionController::class, 'update']);
 
 /*Maneja las producciones de las estaciones y las muestra segun la fecha requerida*/
 Route::post('producciones', [ProduccionController::class, 'muestraProducciones']);
+
+/*Controla las cargas de los quimicos*/
+Route::post('cargas', [CargaController::class, 'store']);
