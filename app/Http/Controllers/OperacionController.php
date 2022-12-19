@@ -784,7 +784,7 @@ $conteo= DB::table('operacions')
 
         $id= DB::table('operacions')
         ->join('equipos', 'operacions.id_equipo', '=', 'equipos.id')
-        ->select('operacions.id','operacions.id_equipo','equipos.id_estacion')
+        ->select('operacions.id','operacions.id_equipo','equipos.id_estacion','operacions.estado')
         //->select('operacions.id_equipo')
         //->where('estado','=','Operando')
         ->where('fecha','=',$fecha)

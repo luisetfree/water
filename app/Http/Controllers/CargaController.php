@@ -61,7 +61,10 @@ for ($i=0; $i < 32; $i++) {
                 $carg=DB::table('cargas')
                 ->join('quimicos', 'cargas.id_quimico', '=', 'quimicos.id')
                 //->where('fecha','=', $anio.'-'.$mes.'-'.$i)
-                ->where('fecha','=', $fecha)
+                ->whereRaw('month(fecha) = month(now())')
+                 ->whereRaw('year(fecha) = year(now())')  
+                //->where('fecha','=', $fecha)
+                 ->select('cargas.fecha','quimicos.nombre','cargas.cantidad','cargas.hora','cargas.grupo')
                 ->get();
 }                    
          

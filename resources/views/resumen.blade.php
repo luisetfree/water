@@ -386,7 +386,7 @@
               
               
               
-              
+              <label>Equipos Operando</label>
               
               <!-- Representa el id de Bocatoma -->
               <input type="hidden" id="" name="id_estacion" class="form-control" value="1" >
@@ -425,6 +425,7 @@
               <input type="text" id="" name="nivel1" class="form-control" placeholder="N.Camara">
               <input type="text" id="" name="cloro1" class="form-control" placeholder="Cloro">
               
+              <label>Equipos Operando</label>
               
               <!-- EB1 -->
                 <div class="checkbox" >
@@ -466,6 +467,7 @@
               <input type="text" id="" name="cloro2" class="form-control" placeholder="Cloro">
               
               <!-- EB2 -->
+              <label>Equipos Operando</label>
               <div class="checkbox" >
                     <label> 1</label>
                     <input type="checkbox" id="" name= "eb21" value="Operando">
@@ -507,6 +509,7 @@
                <!-- Representa el id de EB3 -->
               <input type="hidden" id="" name="id_eb3" class="form-control" value="4" >
               <!-- EB3 -->
+              <label>Equipos Operando</label>
               <div class="checkbox" >
                     <label> 1</label>
                     <input type="checkbox" id="" name= "eb31" value="Operando">
@@ -607,10 +610,10 @@
 
               <tr>
                 <th>Hora</th>
-                <th>Caudal BT(m³/h)</th>
-                <th>Nivel Cámara BT</th>
-                <th>Nivel Rio (msnm)</th>
-                <th>Equipos Operando</th>
+                <th>Caudal BT <br>(m³/h)</th>
+                <th>Nivel <br> Cámara BT</th>
+                <th>Nivel Rio <br> (msnm)</th>
+                <th>Nº Equipos <br> Operando</th>
                 <th colspan="2">Coagulante</th>
                              
                                 

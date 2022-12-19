@@ -166,52 +166,101 @@
                                 @case(1)
                     <label > 1</label>
 
-                    <input type="checkbox" id="" name= "eq1" value="Operando">
+                    
+                    <!-- Se valida en los checkbox si previamente los equipos estaban operando, de ser asi se seleccionan  -->
+                    <input type="checkbox" id="" name= "eq1" value="Operando" 
+
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+
+                    >
+                 
+
+                    
                     <input type="hidden" id="" name= "ideq1" value="1">
                     <!-- se obtiene previamente el id correspondiente del equipo a modificar el estado y se agrega a este elemento oculto para luego enviarlo por el formulario -->
                     <input type="hidden" id="" name= "id1" value="{{$prod->id}}">
                                 @break
                                 @case(2)
                                 <label> 2</label>
-                    <input type="checkbox" id="" name= "eq2" value="Operando">
+                    <input type="checkbox" id="" name= "eq2" value="Operando"
+                     
+                     <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+
+                    >
                     <input type="hidden" id="" name= "ideq2" value="2">
                     <!-- Manejando el id del campo a modificar en la tabla operacions -->
                     <input type="hidden" id="" name= "id2" value="{{$prod->id}}">
                                 @break
                                 @case(3)
                     <label> 3</label>
-                    <input type="checkbox" id="" name= "eq3" value="Operando">
+                    <input type="checkbox" id="" name= "eq3" value="Operando"
+
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+
+                    >
                     <input type="hidden" id="" name= "ideq3" value="3">
                     <input type="hidden" id="" name= "id3" value="{{$prod->id}}">
                                 @break
                             @case(4)
                     <label> 4</label>
-                    <input type="checkbox" id="" name= "eq4" value="Operando">
+                    <input type="checkbox" id="" name= "eq4" value="Operando"
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+
+                    >
                     <input type="hidden" id="" name= "ideq4" value="4">
                     <input type="hidden" id="" name= "id4" value="{{$prod->id}}">
 
                             @break
                             @case(5)
                     <label> 5</label>
-                    <input type="checkbox" id="" name= "eq5" value="Operando">
+                    <input type="checkbox" id="" name= "eq5" value="Operando"
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+
+
+                    >
                     <input type="hidden" id="" name= "ideq5" value="5">
                     <input type="hidden" id="" name= "id5" value="{{$prod->id}}">
                             @break
                             @case(6)
                     <label> 6</label>
-                    <input type="checkbox" id="" name= "eq6" value="Operando">
+                    <input type="checkbox" id="" name= "eq6" value="Operando"
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+
+                    >
                     <input type="hidden" id="" name= "ideq6" value="6">
                     <input type="hidden" id="" name= "id6" value="{{$prod->id}}">
                             @break
                             @case(7)
                     <label> 7</label>
-                    <input type="checkbox" id="" name= "eq7" value="Operando">
+                    <input type="checkbox" id="" name= "eq7" value="Operando"
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+
+                    >
                     <input type="hidden" id="" name= "ideq7" value="7">
                     <input type="hidden" id="" name= "id7" value="{{$prod->id}}">
                             @break
                             @case(8)
                     <label> 8</label>
-                    <input type="checkbox" id="" name= "eq8" value="Operando">
+                    <input type="checkbox" id="" name= "eq8" value="Operando"
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+
+                    >
                     <input type="hidden" id="" name= "ideq8" value="8">
                     <input type="hidden" id="" name= "id8" value="{{$prod->id}}">
                             @break
@@ -244,43 +293,75 @@
         @switch($prod->id_equipo)
         @case(9)
         <label> 1</label>
-        <input type="checkbox" id="" name= "eb11" value="Operando">
+        <input type="checkbox" id="" name= "eb11" value="Operando" 
+        <?php if ($prod->estado === "Operando"): ?>
+                        checked
+        <?php endif ?>
+
+        >
         <input type="hidden" id="" name= "ideq11" value="9">
         <input type="hidden" id="" name= "id9" value="{{$prod->id}}">
         @break
         @case(10)
         <label> 2</label>
-        <input type="checkbox" id="" name= "eb12" value="Operando">
+        <input type="checkbox" id="" name= "eb12" value="Operando"
+                <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+
+        >
         <input type="hidden" id="" name= "ideq21" value="10">
         <input type="hidden" id="" name= "id10" value="{{$prod->id}}">
         @break
         @case(11)
         <label> 3</label>
-        <input type="checkbox" id="" name= "eb13" value="Operando ">
+        <input type="checkbox" id="" name= "eb13" value="Operando "
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+
+        >
         <input type="hidden" id="" name= "ideq31" value="11">
         <input type="hidden" id="" name= "id11" value="{{$prod->id}}">
         @break
         @case(12)
          <label> 4</label>
-        <input type="checkbox" id="" name= "eb14" value="Operando">
+        <input type="checkbox" id="" name= "eb14" value="Operando"
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+
+        >
         <input type="hidden" id="" name= "ideq41" value="12">
         <input type="hidden" id="" name= "id12" value="{{$prod->id}}">
         @break
         @case(13)
         <label> 5</label>
-        <input type="checkbox" id="" name= "eb15" value="Operando">
+        <input type="checkbox" id="" name= "eb15" value="Operando"
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+        >
         <input type="hidden" id="" name= "ideq51" value="13">
         <input type="hidden" id="" name= "id13" value="{{$prod->id}}">
         @break
         @case(14)
           <label> 6</label>
-        <input type="checkbox" id="" name= "eb16" value="Operando">
+        <input type="checkbox" id="" name= "eb16" value="Operando"
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+        >
         <input type="hidden" id="" name= "ideq61" value="14">
         <input type="hidden" id="" name= "id14" value="{{$prod->id}}">
         @break
         @case(15)
         <label> 7</label>
-        <input type="checkbox" id="" name= "eb17" value="Operando">
+        <input type="checkbox" id="" name= "eb17" value="Operando"
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+        >
         <input type="hidden" id="" name= "ideq71" value="15">
         <input type="hidden" id="" name= "id15" value="{{$prod->id}}">
         @break
@@ -321,48 +402,81 @@
         @switch($prod->id_equipo)
         @case(16)
         <label> 1</label>
-        <input type="checkbox" id="" name= "eb21" value="Operando">
+        <input type="checkbox" id="" name= "eb21" value="Operando" 
+        <?php if ($prod->estado === "Operando"): ?>
+                        checked
+        <?php endif ?>
+
+        >
         <input type="hidden" id="" name= "ideq12" value="16">
         <input type="hidden" id="" name= "id16" value="{{$prod->id}}">
         @break
         @case(17)
         <label> 2</label>
-        <input type="checkbox" id="" name= "eb22" value="Operando">
+        <input type="checkbox" id="" name= "eb22" value="Operando"
+            <?php if ($prod->estado === "Operando"): ?>
+                        checked
+            <?php endif ?>
+        >
         <input type="hidden" id="" name= "ideq22" value="17">
         
         <input type="hidden" id="" name= "id17" value="{{$prod->id}}">
         @break
         @case(18)
         <label> 3</label>
-        <input type="checkbox" id="" name= "eb23" value="Operando">
+        <input type="checkbox" id="" name= "eb23" value="Operando"
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+
+        >
         <input type="hidden" id="" name= "ideq32" value="18">
         
         <input type="hidden" id="" name= "id18" value="{{$prod->id}}">
         @break
         @case(19)
          <label> 4</label>
-        <input type="checkbox" id="" name= "eb24" value="Operando">
+        <input type="checkbox" id="" name= "eb24" value="Operando"
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+
+        >
         <input type="hidden" id="" name= "ideq42" value="19">
         
         <input type="hidden" id="" name= "id19" value="{{$prod->id}}">
         @break
         @case(20)
         <label> 5</label>
-         <input type="checkbox" id="" name= "eb25" value="Operando">
+         <input type="checkbox" id="" name= "eb25" value="Operando"
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+
+         >
         <input type="hidden" id="" name= "ideq52" value="20">
         
         <input type="hidden" id="" name= "id20" value="{{$prod->id}}">
         @break
         @case(21)
           <label> 6</label>
-        <input type="checkbox" id="" name= "eb26" value="Operando">
+        <input type="checkbox" id="" name= "eb26" value="Operando"
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+        >
         <input type="hidden" id="" name= "ideq62" value="21">
         
         <input type="hidden" id="" name= "id21" value="{{$prod->id}}">
         @break
         @case(22)
         <label> 7</label>
-        <input type="checkbox" id="" name= "eb27" value="Operando">
+        <input type="checkbox" id="" name= "eb27" value="Operando"
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+
+        >
         <input type="hidden" id="" name= "ideq72" value="22">
         
         <input type="hidden" id="" name= "id22" value="{{$prod->id}}">
@@ -393,48 +507,80 @@
         @switch($prod->id_equipo)
         @case(23)
         <label> 1</label>
-        <input type="checkbox" id="" name= "eb31" value="Operando">
+        <input type="checkbox" id="" name= "eb31" value="Operando"
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+
+        >
         
         <input type="hidden" id="" name= "id23" value="{{$prod->id}}">
         @break
         @case(24)
         <label> 2</label>
-        <input type="checkbox" id="" name= "eb32" value="Operando">
+        <input type="checkbox" id="" name= "eb32" value="Operando"
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+
+        >
         
         
         <input type="hidden" id="" name= "id24" value="{{$prod->id}}">
         @break
         @case(25)
         <label> 3</label>
-        <input type="checkbox" id="" name= "eb33" value="Operando">
+        <input type="checkbox" id="" name= "eb33" value="Operando"
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+        >
         
         
         <input type="hidden" id="" name= "id25" value="{{$prod->id}}">
         @break
         @case(26)
          <label> 4</label>
-        <input type="checkbox" id="" name= "eb34" value="Operando">
+        <input type="checkbox" id="" name= "eb34" value="Operando"
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+
+        >
         
         
         <input type="hidden" id="" name= "id26" value="{{$prod->id}}">
         @break
         @case(27)
         <label> 5</label>
-         <input type="checkbox" id="" name= "eb35" value="Operando">
+         <input type="checkbox" id="" name= "eb35" value="Operando"
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+
+         >
         
         
         <input type="hidden" id="" name= "id27" value="{{$prod->id}}">
         @break
         @case(28)
           <label> 6</label>
-        <input type="checkbox" id="" name= "eb36" value="Operando">
+        <input type="checkbox" id="" name= "eb36" value="Operando"
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+        >
         
         
         <input type="hidden" id="" name= "id28" value="{{$prod->id}}">
         @break
         @case(29)
         <label> 7</label>
-        <input type="checkbox" id="" name= "eb37" value="Operando">
+        <input type="checkbox" id="" name= "eb37" value="Operando"
+                    <?php if ($prod->estado === "Operando"): ?>
+                        checked
+                    <?php endif ?>
+        >
         
         
         <input type="hidden" id="" name= "id29" value="{{$prod->id}}">

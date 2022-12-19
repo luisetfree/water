@@ -147,7 +147,7 @@
   @endif
   <div class="card">
     <div class="card-header text-center font-weight-bold">
-      CARGA DE QUIMICOS
+      CONSUMO DE QUIMICOS
 
     </div>
     <div class="card-body ">
@@ -230,12 +230,15 @@
 </div>
 
 <div class="container">
-  <h4>Resumen de cargas</h4>
+  
+  <h4>Consumo de quimicos</h4>
 
  <!-- Tabla que muestra el movimiento de las cargas de los quimicos para el mes
 
   -->
+
   <table class="table">
+
     <thead class="thead-light">
       <tr>
         <th>Fecha</th>
