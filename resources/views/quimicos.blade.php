@@ -31,7 +31,7 @@
           border: 1px solid black;
           text-align: center;
           padding: 4px;
-          font-size: 14px;
+          font-size: 16px;
         }
         /*maneja los encabezados de las tablas*/
         th {
@@ -53,11 +53,13 @@
   
           }
 
-            /*centrando todo el contenido*/
+            /*Centrando todo el contenido*/
             .container{
 
-               display: flex;
+
+               /*display: flex;*/
               justify-content: center;
+
             }
 
               /*Div donde estan internamente los elementos del formulario*/
@@ -163,7 +165,7 @@
         <!-- Fecha  -->
         
         
-        <label for="cantidad">Quimico</label>
+        <label for="cantidad">Químico</label>
         <!-- Lista que se llena con los quimicos que se encuentran en la DB, en el valor se almacena 
           el id que servirá para guardar la carga-->
         <select name="idquimico">
@@ -227,22 +229,28 @@
 
   </div>
 
+
+
+
+
 </div>
+
+
 
 <div class="container">
   
-  <h4>Consumo de quimicos</h4>
+  
 
  <!-- Tabla que muestra el movimiento de las cargas de los quimicos para el mes
 
   -->
-
+<h4>Consumo de químicos</h4>
   <table class="table">
 
     <thead class="thead-light">
       <tr>
         <th>Fecha</th>
-        <th>Quimico</th>
+        <th>Químico</th>
         <th>Carga</th>
         <th>Hora</th>
         <th>Grupo</th>

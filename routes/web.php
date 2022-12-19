@@ -41,6 +41,9 @@ resumen todos los valores almacenados en la tabla Produccion.*/
 /*Utilizando este metodo se muestra por defecto los valores de Bocatoma desde el metodo index*/
 Route::get('/resumen', [ProduccionController::class, 'index']);
 
+/*Muestra el dashboard resumen*/
+Route::get('/dashboard', [ProduccionController::class, 'dashboard']);
+
 /*Maneja la ruta de la vista bitacora*/
 Route::get('/bitacora', [CalidadController::class, 'cargarBitacora']);
 

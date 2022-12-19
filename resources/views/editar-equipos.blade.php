@@ -116,20 +116,13 @@
              </select>
 
 
-
-
+<br><br>
+<h5>Equipos operando</h5>  
 
             <div class="grid-container">
 
-                <!-- Extrayendo los ids de la tabla OPERACIONS de los equipos Operando BT -->
-                @foreach ($ids as $prod)
-                                          {{$prod->id}}-
-
-                                          {{$prod->id_equipo}}/
-                @endforeach
                 
-                 
-                                          
+                                        
                                           
                                           
                 
