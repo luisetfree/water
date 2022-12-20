@@ -64,7 +64,17 @@
       <div class="card">
         <section class="card-header" >Producciones 
 
-          Bocatoma: {{$bt_prod[19]}} m³
+         
+         
+         
+        
+        @for($i=0; $i<32; $i++)
+
+             {{$bt_prod[$i]}}  
+
+        @endfor
+          
+
          
 
 

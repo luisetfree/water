@@ -1700,6 +1700,13 @@ $suma_caudal=DB::table('produccions')
 public function dashboard(){
 
 $bt_prod= $this->dashProduccion(1);
+
+     
+            
+
+          
+
+
 /*$bt_eb1= $this->dashProduccion(2);
 $bt_eb2= $this->dashProduccion(3);
 $bt_eb3= $this->dashProduccion(4);*/
@@ -1712,24 +1719,24 @@ return view('dashboard', compact('bt_prod'));
 public function dashProduccion($id_estacion){
 
 
-$suma_prod_bt=DB::table('produccions')
+/*$suma_prod_bt=DB::table('produccions')
                 //->join('quimicos', 'cargas.id_quimico', '=', 'quimicos.id')
                 //->where('fecha','=', $anio.'-'.$mes.'-'.$i)
                  ->whereRaw('month(fecha) = month(now())')
                  ->whereRaw('year(fecha) = year(now())')  
                 ->where('id_estacion','=', $id_estacion)
                  ->select('caudal')
-                 ->get();
+                 ->get();*/
 
- $suma=0;
+ //$suma=0;
 //recorriendo los valores de la base de datos y sumando
-                foreach ($suma_prod_bt as $cau) {
+                /*foreach ($suma_prod_bt as $cau) {
                     
                   $valor1=$cau->caudal;
                   $suma += $valor1;
                                   
 
-                }
+                }*/
 
                 //return $suma;
 
@@ -1746,8 +1753,7 @@ $mes_entero= explode("-", $fecha);
 $mes = $mes_entero[1];//asignamos el mes extraido anteriormente a la variable mes, el 1 significa la posicion donde se encuentra el mes que deseamos extraer
 $anio= date("Y", strtotime($fecha));//capturando el año de la fecha dada
 
-//se harmaran los dias de acuerdo a la fecha que se pase por parametro.
-$dia1=$anio.'-'.$mes.'-'.'1';
+
 
 $array=array();
 //For que permite generar un arreglo y llenarlo con los dias del mes, tomando como referencia el mes según la fecha que se pasa por parametro
@@ -1759,18 +1765,30 @@ for ($i=0; $i < 32; $i++) {
 
 $bt_caudal=array();//arreglo que llenará los promedios del caudal de BT por dia, segun la fecha que se pase
 //For que recorre y llena el arreglo con los promedios de caudales de BT
-//Arreglo temporal para almacenar valores de bt 
-$temporal=array();
-for ($i=0; $i <32 ; $i++) { 
-    
 
-        $temporal[$i] = DB::table('produccions')
+$suma=0;
+    for ($i=0; $i < 32; $i++) { 
+
+        $bt_caudal[$i] = DB::table('produccions')
                 ->where('fecha' ,'=', $array[$i])//array hace referencia a la fecha que se llena segun el mes
+                //->whereRaw('month(fecha) = month(12)')
                 ->where('id_estacion' ,'=' ,1)//1 significa el id de BT
-                ->avg('caudal');
+                ->get('caudal');
 
-        $bt_caudal[$i]=round($temporal[$i],2);//Se redondean los valores y asi se devuelven a la vista.
-    }     
+
+
+
+      }  
+         
+
+
+ /* foreach ($bt_caudal as $cau) {
+                    
+                  $valor1=$cau->caudal;
+                  $suma += $valor1;
+                                  
+
+                }*/
 
 
 return $bt_caudal;
