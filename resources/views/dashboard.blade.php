@@ -17,21 +17,37 @@
 
 
 <style>
-        table {
-          font-family: times, sans-serif;
-          border-collapse: collapse;
-          width: 100%;
-        }
 
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: left;
-          padding: 8px;
-        }
+  table, td, th {
+  border: 1px solid #dddddd;
+  font-size: 10px;
+  font-family: times;
+}
+          
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
 
-        tr:nth-child(even) {
-          background-color: #dddddd;
-        }
+th {
+  height: 10px;
+}
+   
+
+  .card{
+    width: 40%;          
+    text-align: center;
+     height: 100%;
+
+   }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  margin-left: 10%;
+}
+
+
 </style>
 
 
@@ -48,53 +64,70 @@
   <a href="http://127.0.0.1:8000"> <i class="fas fa-home"></i> </a>
   </div>
 
-  <div class="container mt-4">
+  <div class="grid-container">
       @if(session('status'))
         <div class="alert alert-success">
             {{ session('status') }}
         </div>
       @endif
+     
       <div class="card">
-        <section class="card-header"> Torogoz</section>
-       
+        <section class="card-header" >
+          <h6>  Producción del mes (m³) </h6>
+
+          <table class=" table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Día</th>
+                <th scope="col">Bocatoma</th>
+                <th scope="col">EB1</th>
+                <th scope="col">EB2</th>
+                <th scope="col">EB3</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            @for($i=1; $i<32; $i++)
+              <tr>
+                <th scope="row">{{$i}}</th>
+                <td>{{$bt_prod[$i]}} </td>
+                <td>{{$eb1_prod[$i]}}</td>
+                <td>{{$eb2_prod[$i]}}</td>
+                <td>{{$eb3_prod[$i]}}</td>
+              </tr>
+            @endfor
+            
+            </tbody>
+         </table>
+      
+
+        </section>
+
+
 
 
       </div>
-
+      
       <div class="card">
-        <section class="card-header" >Producciones 
+        <section class="card-header">
+          <h6> Consumo de químicos </h6>
 
-         
-         
-         
-        
-        @for($i=0; $i<32; $i++)
 
-             {{$bt_prod[$i]}}  
-
-        @endfor
-          
-
-         
 
 
         </section>
-       
+      </div> 
 
 
-      </div>
-      <div class="card">
-        <section >Consumo de químicos </section>
-       
-
-
-      </div>
-
+      
 
           
 
   
   </div>
+
+
+
 
 
 

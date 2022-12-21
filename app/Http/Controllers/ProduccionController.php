@@ -1696,54 +1696,18 @@ $suma_caudal=DB::table('produccions')
 
 /*---------------------------------------SECCION EXCLUSIVA DE DASHBOARD----------------------------------*/
 
-/*Controla la informacion de la vista Dashboard*/
+/*Controla la informacion de la vista Dashboard con los caudales del mes de cada estacion y mas informacion*/
 public function dashboard(){
 
-$bt_prod= $this->dashProduccion(1);
+$fecha=date('Y-m-d');
 
-     
-            
-
-          
-
-
-/*$bt_eb1= $this->dashProduccion(2);
-$bt_eb2= $this->dashProduccion(3);
-$bt_eb3= $this->dashProduccion(4);*/
+$id_bocatoma=1;
+$id_eb1=2;
+$id_eb2=3;
+$id_eb3=4;
 
 
-return view('dashboard', compact('bt_prod'));
-}
-
-//Obtiene y muestra las producciones MENSUALES de las estaciones exclusivamente para el dashboard
-public function dashProduccion($id_estacion){
-
-
-/*$suma_prod_bt=DB::table('produccions')
-                //->join('quimicos', 'cargas.id_quimico', '=', 'quimicos.id')
-                //->where('fecha','=', $anio.'-'.$mes.'-'.$i)
-                 ->whereRaw('month(fecha) = month(now())')
-                 ->whereRaw('year(fecha) = year(now())')  
-                ->where('id_estacion','=', $id_estacion)
-                 ->select('caudal')
-                 ->get();*/
-
- //$suma=0;
-//recorriendo los valores de la base de datos y sumando
-                /*foreach ($suma_prod_bt as $cau) {
-                    
-                  $valor1=$cau->caudal;
-                  $suma += $valor1;
-                                  
-
-                }*/
-
-                //return $suma;
-
-
-$fecha='2022-11-10';
-
-
+/*desgloce de fechas*/
 //tomamos la fecha que se pasa por parametro y extraemos el mes
 $mes_entero= explode("-", $fecha);
 
@@ -1753,51 +1717,108 @@ $mes_entero= explode("-", $fecha);
 $mes = $mes_entero[1];//asignamos el mes extraido anteriormente a la variable mes, el 1 significa la posicion donde se encuentra el mes que deseamos extraer
 $anio= date("Y", strtotime($fecha));//capturando el año de la fecha dada
 
-
-
-$array=array();
+//Representa un arreglo para las fechas
+$dias=array();
 //For que permite generar un arreglo y llenarlo con los dias del mes, tomando como referencia el mes según la fecha que se pasa por parametro
 for ($i=0; $i < 32; $i++) { 
-    $array[$i]=$anio.'-'.$mes.'-'.$i;//llenando el arreglo con las fechas
+    $dias[$i]=$anio.'-'.$mes.'-'.$i;//llenando el arreglo con las fechas
 }
 
+/*Fin desgloce de fechas*/
+
+$bt_prod =array();
+
+//llenando el arreglo con las sumas de los caudales de BT para la fecha determinada (mes)
+for ($i=1; $i <32 ; $i++) { 
+    // code...
+    $bt_prod[$i]= $this->dashProduccion($id_bocatoma,$dias[$i]);
+}
+
+$eb1_prod =array();
+
+//llenando el arreglo con las sumas de los caudales de EB1 para la fecha determinada (mes)
+for ($i=1; $i <32 ; $i++) { 
+    // code...
+    $eb1_prod[$i]= $this->dashProduccion($id_eb1,$dias[$i]);
+}
+
+$eb2_prod =array();
+
+//llenando el arreglo con las sumas de los caudales de EB2 para la fecha determinada (mes)
+for ($i=1; $i <32 ; $i++) { 
+    // code...
+    $eb2_prod[$i]= $this->dashProduccion($id_eb2,$dias[$i]);
+}
+$eb3_prod =array();
+
+//llenando el arreglo con las sumas de los caudales de EB3 para la fecha determinada (mes)
+for ($i=1; $i <32 ; $i++) { 
+    // code...
+    $eb3_prod[$i]= $this->dashProduccion($id_eb3,$dias[$i]);
+}
+
+ 
+            
 
 
-$bt_caudal=array();//arreglo que llenará los promedios del caudal de BT por dia, segun la fecha que se pase
-//For que recorre y llena el arreglo con los promedios de caudales de BT
+
+
+return view('dashboard', compact('bt_prod','dias','eb1_prod','eb2_prod','eb3_prod'));
+}
+
+//Obtiene las producciones de una fecha determinada de las estaciones exclusivamente para el dashboard
+public function dashProduccion($id_estacion,$fecha){
 
 $suma=0;
-    for ($i=0; $i < 32; $i++) { 
+  
 
-        $bt_caudal[$i] = DB::table('produccions')
-                ->where('fecha' ,'=', $array[$i])//array hace referencia a la fecha que se llena segun el mes
+        $bt_caudal = DB::table('produccions')
+                ->select('caudal')
+                ->where('fecha' ,'=', $fecha)//array hace referencia a la fecha que se llena segun el mes
                 //->whereRaw('month(fecha) = month(12)')
-                ->where('id_estacion' ,'=' ,1)//1 significa el id de BT
-                ->get('caudal');
+                ->where('id_estacion' ,'=' ,$id_estacion)
+                ->get();
 
-
-
-
-      }  
-         
-
-
- /* foreach ($bt_caudal as $cau) {
+  foreach ($bt_caudal as $cau) {
                     
                   $valor1=$cau->caudal;
                   $suma += $valor1;
-                                  
 
-                }*/
+                }
 
+$resultado= number_format($suma);//asignando formato de miles a la suma
 
-return $bt_caudal;
-
-
-
+return $resultado;
 
 
 }
+
+/*Obtiene la sumatoria del consumo de quimicos segun fecha*/
+public function consumoQuimicos($id_quimic,$fecha){
+
+$sumatoria=0;
+  
+
+        $consumo = DB::table('cargas')
+                ->select('cantidad')
+                ->where('fecha' ,'=', $fecha)//array hace referencia a la fecha que se llena segun el mes
+                //->whereRaw('month(fecha) = month(12)')
+                ->where('id_quimico' ,'=' ,$id_quimic)
+                ->get();
+
+  foreach ($consumo as $carga) {
+                    
+                  $valor1=$carga->cantidad;
+                  $suma += $valor1;
+
+                }
+
+$result= number_format($sumatoria);//asignando formato de miles a la suma
+
+return $result;
+
+}
+
 
 
 
