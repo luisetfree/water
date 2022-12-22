@@ -1707,10 +1707,55 @@ $id_eb2=3;
 $id_eb3=4;
 
 
-/*desgloce de fechas*/
+$dias=array();
+//obtiene un arreglo con todos los dias del mes segun la fecha que se pase
+$dias=$this->desgloceFecha($fecha);
+
+$bt_prod =array();
+//llenando el arreglo con las sumas de los caudales de BT para la fecha determinada (mes)
+$bt_prod=$this->sumaCaudalesMes($id_eb1,$dias);
+
+$eb1_prod =array();
+
+//llenando el arreglo con las sumas de los caudales de EB1 para la fecha determinada (mes)
+$eb1_prod=$this->sumaCaudalesMes($id_eb1,$dias);
+$eb2_prod =array();
+
+//llenando el arreglo con las sumas de los caudales de EB2 para la fecha determinada (mes)
+$eb2_prod=$this->sumaCaudalesMes($id_eb2,$dias);
+
+$eb3_prod =array();
+//llenando el arreglo con las sumas de los caudales de EB3 para la fecha determinada (mes)
+$eb3_prod=$this->sumaCaudalesMes($id_eb3,$dias);
+
+ 
+
+
+return view('dashboard', compact('bt_prod','dias','eb1_prod','eb2_prod','eb3_prod'));
+}
+
+/*Obtiene los caudales del mes de una estacion en particular*/
+ public function sumaCaudalesMes($id_estacion,$dias)
+{
+    // arreglo para almacenar los datos de todos los dias del mes solicitado
+    $datos_estacion =array();
+
+//llenando el arreglo con las sumas de los caudales segun fecha determinada (mes)
+for ($i=1; $i <32 ; $i++) { 
+    //llenando el arreglo con la sumatoria de los caudales dia por dia
+    $datos_estacion[$i]= $this->dashProduccion($id_estacion,$dias[$i]);
+}
+
+return $datos_estacion;
+
+}
+
+/*Funcion que recibe una fecha en particular y se encarga de devolver un arreglo con todos los dias del mes en cuestion */
+public function desgloceFecha($fecha){
+
+
 //tomamos la fecha que se pasa por parametro y extraemos el mes
 $mes_entero= explode("-", $fecha);
-
 
 
 //Extrayendo el mes de una determinada fecha, se pasa a entero para que pueda funcionar bien la extracción
@@ -1724,46 +1769,16 @@ for ($i=0; $i < 32; $i++) {
     $dias[$i]=$anio.'-'.$mes.'-'.$i;//llenando el arreglo con las fechas
 }
 
-/*Fin desgloce de fechas*/
 
-$bt_prod =array();
 
-//llenando el arreglo con las sumas de los caudales de BT para la fecha determinada (mes)
-for ($i=1; $i <32 ; $i++) { 
-    // code...
-    $bt_prod[$i]= $this->dashProduccion($id_bocatoma,$dias[$i]);
+return $dias;
+
 }
 
-$eb1_prod =array();
-
-//llenando el arreglo con las sumas de los caudales de EB1 para la fecha determinada (mes)
-for ($i=1; $i <32 ; $i++) { 
-    // code...
-    $eb1_prod[$i]= $this->dashProduccion($id_eb1,$dias[$i]);
-}
-
-$eb2_prod =array();
-
-//llenando el arreglo con las sumas de los caudales de EB2 para la fecha determinada (mes)
-for ($i=1; $i <32 ; $i++) { 
-    // code...
-    $eb2_prod[$i]= $this->dashProduccion($id_eb2,$dias[$i]);
-}
-$eb3_prod =array();
-
-//llenando el arreglo con las sumas de los caudales de EB3 para la fecha determinada (mes)
-for ($i=1; $i <32 ; $i++) { 
-    // code...
-    $eb3_prod[$i]= $this->dashProduccion($id_eb3,$dias[$i]);
-}
-
- 
-            
+public function sumatoriaDiasCaudales($id_estacion,){
 
 
 
-
-return view('dashboard', compact('bt_prod','dias','eb1_prod','eb2_prod','eb3_prod'));
 }
 
 //Obtiene las producciones de una fecha determinada de las estaciones exclusivamente para el dashboard
