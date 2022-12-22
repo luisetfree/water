@@ -1711,6 +1711,8 @@ $dias=array();
 //obtiene un arreglo con todos los dias del mes segun la fecha que se pase
 $dias=$this->desgloceFecha($fecha);
 
+/*MANEJO DE PRODUCCIONES DE ESTACIONES*/
+
 $bt_prod =array();
 //llenando el arreglo con las sumas de los caudales de BT para la fecha determinada (mes)
 $bt_prod=$this->sumaCaudalesMes($id_eb1,$dias);
@@ -1728,11 +1730,67 @@ $eb3_prod =array();
 //llenando el arreglo con las sumas de los caudales de EB3 para la fecha determinada (mes)
 $eb3_prod=$this->sumaCaudalesMes($id_eb3,$dias);
 
- 
+ /*CONSUMO DE QUIMICOS -RESUMEN DE CARGAS*/
+
+$perm=array();
+$id_perm=1;
+$perm=$this->sumaCargas($id_perm,$dias);
+
+$carbon=array();
+$id_carb=2;
+$carbon=$this->sumaCargas($id_carb,$dias);
+
+$hip=array();
+$id_hip=3;
+$hip=$this->sumaCargas($id_hip,$dias);
+
+$cal=array();
+$id_cal=4;
+$cal=$this->sumaCargas($id_cal,$dias);
+
+$sulfato=array();
+$id_sulfato=5;
+$sulfato=$this->sumaCargas($id_sulfato,$dias);
+
+$pac=array();
+$id_cal=6;
+$pac=$this->sumaCargas($id_cal,$dias);
+
+$polimero=array();
+$id_polimero=7;
+//llenando el arreglo con las sumas de las cargas segun fecha determinada (mes)
+$polimero=$this->sumaCargas($id_polimero,$dias);
+
+$cloro=array();
+$id_cloro=8;
+//llenando el arreglo con las sumas de las cargas segun fecha determinada (mes)
+$cloro=$this->sumaCargas($id_cloro,$dias);
+
+$polimeroA=array();
+$id_polialta=10;
+//llenando el arreglo con las sumas de las cargas segun fecha determinada (mes)
+$polimeroA=$this->sumaCargas($id_polialta,$dias);
 
 
-return view('dashboard', compact('bt_prod','dias','eb1_prod','eb2_prod','eb3_prod'));
+
+
+return view('dashboard', compact('bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA'));
 }
+
+//Devuelve la suma de todas las cargas de los dias de un mes
+public function sumaCargas($id_quimico,$dias){
+$quimico=array();
+
+//llenando el arreglo con las sumas de las cargas segun fecha determinada (mes)
+for ($i=1; $i <32 ; $i++) { 
+    //llenando el arreglo con la sumatoria de las cargas dia por dia
+    $quimico[$i]= $this->consumoQuimicos($id_quimico,$dias[$i]);
+}
+
+return $quimico;
+
+}
+
 
 /*Obtiene los caudales del mes de una estacion en particular*/
  public function sumaCaudalesMes($id_estacion,$dias)
@@ -1775,11 +1833,7 @@ return $dias;
 
 }
 
-public function sumatoriaDiasCaudales($id_estacion,){
 
-
-
-}
 
 //Obtiene las producciones de una fecha determinada de las estaciones exclusivamente para el dashboard
 public function dashProduccion($id_estacion,$fecha){
@@ -1789,7 +1843,7 @@ $suma=0;
 
         $bt_caudal = DB::table('produccions')
                 ->select('caudal')
-                ->where('fecha' ,'=', $fecha)//array hace referencia a la fecha que se llena segun el mes
+                ->where('fecha' ,'=', $fecha)
                 //->whereRaw('month(fecha) = month(12)')
                 ->where('id_estacion' ,'=' ,$id_estacion)
                 ->get();
@@ -1808,28 +1862,43 @@ return $resultado;
 
 }
 
-/*Obtiene la sumatoria del consumo de quimicos segun fecha*/
+/*Hace la sumatoria del consumo de quimicos de un dia segun fecha*/
 public function consumoQuimicos($id_quimic,$fecha){
 
 $sumatoria=0;
+$suma_mes=0;
   
 
         $consumo = DB::table('cargas')
                 ->select('cantidad')
-                ->where('fecha' ,'=', $fecha)//array hace referencia a la fecha que se llena segun el mes
+                ->where('fecha' ,'=', $fecha)
                 //->whereRaw('month(fecha) = month(12)')
                 ->where('id_quimico' ,'=' ,$id_quimic)
                 ->get();
-
+//Obteniendo sumatoria del dia
   foreach ($consumo as $carga) {
                     
                   $valor1=$carga->cantidad;
-                  $suma += $valor1;
-
+                  $sumatoria += $valor1;
+                    
                 }
+
+//Sumatoria de todos los dias
+$total_mensual=array();
+//$id_quimico=5;
+//llenando el arreglo con las sumas de las cargas segun fecha determinada (mes)
+for ($i=1; $i <32 ; $i++) { 
+    //llenando el arreglo con la sumatoria de las cargas dia por dia
+    $total_mensual[$i]=$sumatoria;
+
+    $valor2=$total_mensual[$i];
+    $suma_mes += $valor2;
+}
+
 
 $result= number_format($sumatoria);//asignando formato de miles a la suma
 
+//return $sumatoria;
 return $result;
 
 }

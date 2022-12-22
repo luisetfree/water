@@ -31,6 +31,7 @@ table {
 
 th {
   height: 10px;
+  width: 10px;
 }
    
 
@@ -47,6 +48,10 @@ th {
   margin-left: 10%;
 }
 
+#dia{
+width: 5px;
+
+}
 
 </style>
 
@@ -78,8 +83,8 @@ th {
           <table class=" table-striped">
             <thead>
               <tr>
-                <th scope="col">Día</th>
-                <th scope="col">Bocatoma</th>
+                <th scope="col" id="dia">Día</th>
+                <th scope="col">BT</th>
                 <th scope="col">EB1</th>
                 <th scope="col">EB2</th>
                 <th scope="col">EB3</th>
@@ -110,8 +115,47 @@ th {
       
       <div class="card">
         <section class="card-header">
-          <h6> Consumo de químicos </h6>
+          <p> Consumo mensual de químicos </p>
+          <table class=" table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Día</th>
+                <th scope="col">Sulfato</th>
+               
+                <th scope="col">Polimero B</th>
+                <th scope="col">Polimero A</th>
+                <th scope="col">Permanganato</th>
+                <th scope="col">Carbón</th>
+                <th scope="col">Hipoclorito</th>
+                <th scope="col">Cal</th>
+                <th scope="col">Pac</th>
+                <th scope="col">Cloro</th>
 
+          
+              </tr>
+            </thead>
+            <tbody>
+
+            @for($i=1; $i<32; $i++)
+              <tr>
+                <td scope="row">{{$i}} </td>
+                <td>{{$sulfato[$i]}} </td>
+                <td>{{$polimero[$i]}} </td>
+                <td>{{$polimeroA[$i]}} </td>
+                <td>{{$perm[$i]}} </td>
+                <td> {{$carbon[$i]}}</td>
+                <td> {{$hip[$i]}}</td>
+                <td> {{$cal[$i]}}</td>
+                <td> {{$pac[$i]}}</td>
+                <td> {{$cloro[$i]}}</td>
+              
+              </tr>
+            @endfor
+            
+            
+            </tbody>
+         </table>
+      
 
 
 
