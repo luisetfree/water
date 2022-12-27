@@ -36,16 +36,17 @@ th {
    
 
   .card{
-    width: 40%;          
+    width: 100%;          
     text-align: center;
      height: 100%;
+
 
    }
 
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto;
-  margin-left: 10%;
+  grid-template-columns: auto auto auto auto auto;
+  margin-left: 3%;
 }
 
 #dia{
@@ -100,7 +101,23 @@ width: 5px;
                 <td>{{$eb2_prod[$i]}}</td>
                 <td>{{$eb3_prod[$i]}}</td>
               </tr>
+
+
             @endfor
+
+            <tr>
+              <td></td>
+                  <td>
+               
+
+                 
+
+                
+                  </td>
+              <td>c</td>
+              <td>d</td>
+              <td>e</td>
+            </tr>
             
             </tbody>
          </table>
@@ -112,6 +129,159 @@ width: 5px;
 
 
       </div>
+<!-- Tabla calidades -->
+
+<div class="card">
+        <section class="card-header">
+          <p> Calidades</p>
+          <table class=" table-striped">
+            <thead>
+                    <!-- Encabezados principales -->  
+            <TR>
+              <th rowspan="3">Día</th>
+            
+              <TH COLSPAN=6>Agua Cruda</TH>
+              
+              <TH COLSPAN=6>Agua Tratada</TH>
+
+              
+            </TR>
+            <!-- Encabezados secundarios -->  
+            <TR>
+              
+              
+              
+              
+               
+              
+              
+              <th colspan="3">Turbidez</th><th colspan="3">PH</th>
+              <th colspan="3">Turbidez</th><th colspan="3">PH</th>
+              
+              
+            </TR>
+            <TR>
+              
+              
+              
+              
+             
+              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
+              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
+              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
+              <TD>Minimo</TD> <TD>Maximo</TD> <TD>X̅</TD>
+              
+            </TR>
+            
+            </thead>
+            <tbody>
+@for($i=1; $i<32; $i++)
+          <tr>
+
+            <td>{{$i}}</td>
+            <td>{{$min_cruda[$i]}}</td>
+            <td>{{$max_cruda[$i]}}</td>
+            <td>{{$prom_cruda[$i]}}</td>
+            <td>{{$min_c_ph[$i]}}</td>
+            <td>{{$max_cruda_ph[$i]}}</td>
+            <td>{{$prom_cruda_ph[$i]}}</td>
+            <td>{{$min_trat[$i]}}</td>
+            <td>{{$max_trat[$i]}}</td>
+            <td>{{$prom_trat[$i]}}</td>
+            <td>{{$min_t_ph[$i]}}</td>
+            <td>{{$max_trat_ph[$i]}}</td>
+            <td>{{$prom_trat_ph[$i]}}</td>
+
+
+          </tr>
+ @endfor           
+            </tbody>
+         </table>
+
+
+
+
+             
+            
+      
+
+
+
+        </section>
+      </div> 
+
+
+<div class="card">
+        <section class="card-header">
+          <p> Nivel del Rio </p>
+          <table class=" table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Día</th>
+                <th scope="col">Promedio</th>
+               
+            
+
+          
+              </tr>
+            </thead>
+            <tbody>
+
+            @for($i=1; $i<32; $i++)
+              <tr>
+                <td scope="row">{{$i}} </td>
+                <td>NR </td>
+                
+              
+              </tr>
+            @endfor
+          
+            
+            </tbody>
+         </table>
+      
+
+
+
+        </section>
+  </div> 
+
+<div class="card">
+        <section class="card-header">
+          <p> Nivel Reservorio</p>
+          <table class=" table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Día</th>
+                <th scope="col">Promedio </th>
+               
+            
+
+          
+              </tr>
+            </thead>
+            <tbody>
+
+            @for($i=1; $i<32; $i++)
+              <tr>
+                <td scope="row">{{$i}} </td>
+                <td>NR </td>
+                
+              
+              </tr>
+            @endfor
+          
+            
+            </tbody>
+         </table>
+      
+
+
+
+        </section>
+  </div> 
+
+
       
       <div class="card">
         <section class="card-header">
@@ -151,7 +321,7 @@ width: 5px;
               
               </tr>
             @endfor
-            
+          
             
             </tbody>
          </table>
@@ -164,6 +334,10 @@ width: 5px;
 
 
       
+
+
+
+
 
           
 

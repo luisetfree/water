@@ -1700,6 +1700,7 @@ $suma_caudal=DB::table('produccions')
 public function dashboard(){
 
 $fecha=date('Y-m-d');
+//$fecha="2022-12-01";
 
 $id_bocatoma=1;
 $id_eb1=2;
@@ -1715,7 +1716,8 @@ $dias=$this->desgloceFecha($fecha);
 
 $bt_prod =array();
 //llenando el arreglo con las sumas de los caudales de BT para la fecha determinada (mes)
-$bt_prod=$this->sumaCaudalesMes($id_eb1,$dias);
+$bt_prod=$this->sumaCaudalesMes($id_bocatoma,$dias);
+
 
 $eb1_prod =array();
 
@@ -1752,6 +1754,11 @@ $sulfato=array();
 $id_sulfato=5;
 $sulfato=$this->sumaCargas($id_sulfato,$dias);
 
+
+
+
+
+
 $pac=array();
 $id_cal=6;
 $pac=$this->sumaCargas($id_cal,$dias);
@@ -1772,10 +1779,142 @@ $id_polialta=10;
 $polimeroA=$this->sumaCargas($id_polialta,$dias);
 
 
+/*CALIDADES DE AGUA*/
+
+//Agua cruda - Turbidez
+$min_cruda=array();
+$id_aguaC=1;
+$campo='turbidez';
+$min_cruda=$this->minimoDia($dias,$id_aguaC,$campo);
+
+$max_cruda=array();
+$max_cruda=$this->maximoDia($dias,$id_aguaC,$campo);
+$prom_cruda=array();
+$prom_cruda=$this->promedioDia($dias,$id_aguaC,$campo);
+
+//Agua cruda - PH
+$min_c_ph=array();
+$campo_ph='ph';
+$min_c_ph=$this->minimoDia($dias,$id_aguaC,$campo_ph);
+$max_cruda_ph=array();
+$max_cruda_ph=$this->maximoDia($dias,$id_aguaC,$campo_ph);
+$prom_cruda_ph=array();
+$prom_cruda_ph=$this->promedioDia($dias,$id_aguaC,$campo_ph);
 
 
-return view('dashboard', compact('bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA'));
+//Agua tratada
+$min_trat=array();
+$id_agua_trat=4;
+$campo='turbidez';
+$min_trat=$this->minimoDia($dias,$id_agua_trat,$campo);
+$max_trat=array();
+$max_trat=$this->maximoDia($dias,$id_agua_trat,$campo);
+$prom_trat=array();
+$prom_trat=$this->promedioDia($dias,$id_agua_trat,$campo);
+//Agua tratada - PH
+$min_t_ph=array();
+$min_t_ph=$this->minimoDia($dias,$id_agua_trat,$campo_ph);
+$max_trat_ph=array();
+$max_trat_ph=$this->maximoDia($dias,$id_agua_trat,$campo_ph);
+$prom_trat_ph=array();
+$prom_trat_ph=$this->promedioDia($dias,$id_agua_trat,$campo_ph);
+
+
+return view('dashboard', compact('bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph'));
 }
+
+
+//Obtiene el valor minimo de la calidad de agua de un mes
+public function minimoDia($dia,$id_agua,$campo)
+{
+
+$minimo=array();
+
+//llenando el arreglo con las sumas de las cargas segun fecha determinada (mes)
+for ($i=1; $i <32 ; $i++) { 
+    //llenando el arreglo con los valores minimos dia por dia
+    $minimo[$i]= $this->minimosAgua($dia[$i],$id_agua,$campo);
+}
+
+return $minimo;
+
+    
+}
+
+//Busca y retorna el valor minimo de un campo en especifico, para un tipo de agua que reciba por parametro según fecha. 
+public function minimosAgua($fecha, $id_agua, $campo)
+{
+
+    $valor_minimo = DB::table('calidads')
+                ->where('fecha' ,'=', $fecha)
+                ->where('id_agua' ,'=' ,$id_agua)
+                ->min($campo);
+
+                return $valor_minimo;
+
+}
+
+//Obtiene el valor Maximo de la calidad de agua de un mes
+public function maximoDia($dia,$id_agua,$campo)
+{
+    // code...
+    $maximo=array();
+
+//llenando el arreglo con los  valores maximos (dia a dia)
+for ($i=1; $i <32 ; $i++) { 
+    //llenando el arreglo con los valores maximos dia por dia
+    $maximo[$i]= $this->maximoAgua($dia[$i],$id_agua,$campo);
+}
+
+return $maximo;
+
+}
+
+
+//Busca y retorna el valor maximo de un campo en especifico y tipo de agua que reciba por parametro según fecha. 
+public function maximoAgua($fecha, $id_agua, $campo){
+
+    $valor_max = DB::table('calidads')
+                ->where('fecha' ,'=', $fecha)
+                ->where('id_agua' ,'=' ,$id_agua)
+                ->max($campo);
+
+                return $valor_max;
+
+}
+
+
+
+//Obtiene el valor Promedio de la calidad de agua de un mes
+public function promedioDia($dia,$id_agua,$campo)
+{
+    // code...
+    $promedio=array();
+
+//llenando el arreglo con los  valores promedios (dia a dia)
+for ($i=1; $i <32 ; $i++) { 
+    //llenando el arreglo con los valores promedios dia por dia
+    $promedio[$i]= $this->promedioAgua($dia[$i],$id_agua,$campo);
+}
+
+return $promedio;
+
+}
+
+
+//Busca y retorna el valor promedio de un campo en especifico y tipo de agua que reciba por parametro según fecha. 
+public function promedioAgua($fecha, $id_agua, $campo){
+
+    $valor_prom = DB::table('calidads')
+                ->where('fecha' ,'=', $fecha)
+                ->where('id_agua' ,'=' ,$id_agua)
+                ->avg($campo);
+
+                return round($valor_prom,2) ;//redondea a 2 decimales y devuelve el valor
+                
+
+}
+
 
 //Devuelve la suma de todas las cargas de los dias de un mes
 public function sumaCargas($id_quimico,$dias){
@@ -1832,6 +1971,14 @@ for ($i=0; $i < 32; $i++) {
 return $dias;
 
 }
+
+
+
+
+
+
+
+
 
 
 
