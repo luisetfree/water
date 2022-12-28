@@ -1819,8 +1819,20 @@ $max_trat_ph=$this->maximoDia($dias,$id_agua_trat,$campo_ph);
 $prom_trat_ph=array();
 $prom_trat_ph=$this->promedioDia($dias,$id_agua_trat,$campo_ph);
 
+/*NIVEL DEL RIO*/
+$nivel='nivel_rio';
+$nivel_rio=array();
+$nivel_rio=$this->promedioDiaRio($dias,$id_bocatoma,$nivel);
 
-return view('dashboard', compact('bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph'));
+/*NIVEL DEL RESERVORIO*/
+//en este caso utilizaremos las mismas funciones anteriores, solamente modificamos EB1 y nivel_camara
+$camara_nivel='nivel_camara';
+$nivel_reservorio=array();
+//utilizando la misma funcion solamente se cambio los datos a consultar, en este caso nivel de camara de EB1 que hace referencia al nivel del reservorio
+$nivel_reservorio=$this->promedioDiaRio($dias,$id_eb1,$camara_nivel);
+
+
+return view('dashboard', compact('bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph','nivel_rio','nivel_reservorio'));
 }
 
 
@@ -1914,6 +1926,38 @@ public function promedioAgua($fecha, $id_agua, $campo){
                 
 
 }
+
+
+
+//Funcion que llena un arreglo con todos los dias de un mes en particular, con los valores promedio del nivel del rio.
+public function promedioDiaRio($dia,$id_estacion,$campo)
+{
+    
+    $prom=array();
+
+//For que llena el arreglo con los  valores promedios
+for ($i=1; $i <32 ; $i++) { 
+    //llenando el arreglo con los valores promedios dia por dia(de todo el mes)
+    $prom[$i]= $this->promedioRio($dia[$i],$id_estacion,$campo);
+}
+
+return $prom;
+
+}
+
+//Obtiene el valor promedio del nivel del Rio para una fecha especifica
+public function promedioRio($fecha, $id_estacion, $campo)
+{
+    $val_prom = DB::table('produccions')
+                ->where('fecha' ,'=', $fecha)
+                ->where('id_estacion' ,'=' ,$id_estacion)
+                ->avg($campo);
+
+                return round($val_prom,2) ;//redondea a 2 decimales y devuelve el valor
+               
+}
+
+
 
 
 //Devuelve la suma de todas las cargas de los dias de un mes

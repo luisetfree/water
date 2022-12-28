@@ -218,7 +218,7 @@ width: 5px;
             <thead>
               <tr>
                 <th scope="col">Día</th>
-                <th scope="col">Promedio</th>
+                <th scope="col">Promedio (msnm)</th>
                
             
 
@@ -230,7 +230,8 @@ width: 5px;
             @for($i=1; $i<32; $i++)
               <tr>
                 <td scope="row">{{$i}} </td>
-                <td>NR </td>
+                <td>{{$nivel_rio[$i]}}</td>
+
                 
               
               </tr>
@@ -265,9 +266,8 @@ width: 5px;
             @for($i=1; $i<32; $i++)
               <tr>
                 <td scope="row">{{$i}} </td>
-                <td>NR </td>
-                
-              
+                <td>{{$nivel_reservorio[$i]}}%</td>
+                              
               </tr>
             @endfor
           
@@ -291,7 +291,6 @@ width: 5px;
               <tr>
                 <th scope="col">Día</th>
                 <th scope="col">Sulfato</th>
-               
                 <th scope="col">Polimero B</th>
                 <th scope="col">Polimero A</th>
                 <th scope="col">Permanganato</th>

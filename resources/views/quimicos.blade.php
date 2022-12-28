@@ -182,7 +182,7 @@
         <label for="cantidad">Cantidad</label>
         <input id="cantidad" type="number" name="cantidad" placeholder="Cantidad ">
         <label for="">Fecha</label>
-        <input type="date" name="fecha">
+        <input type="date" name="fecha" required>
         <label for="">Hora</label>
         <select name="hora">
           @for($i = 1; $i < 25; $i++)
@@ -273,7 +273,7 @@
       </tr>
 
   @endforeach
-
+ 
 
 
        
