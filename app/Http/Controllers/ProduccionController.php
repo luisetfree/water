@@ -1844,8 +1844,14 @@ $cal_=$this->sumaTotalCargas($dias,$id_cal);
 $pac_=$this->sumaTotalCargas($dias,$id_pac);
 $clor_=$this->sumaTotalCargas($dias,$id_cloro);
 
+/*SUMATORIA PRODUCCIONES DEL MES*/
 
-return view('dashboard', compact('bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph','nivel_rio','nivel_reservorio','poli_alta','sulf','pol_b','perma','carbon_','hipo','cal_','pac_','clor_'));
+$total_bt=$this->sumaTotalCaudal($dias,$id_bocatoma);
+$total_eb1=$this->sumaTotalCaudal($dias,$id_eb1);
+$total_eb2=$this->sumaTotalCaudal($dias,$id_eb2);
+$total_eb3=$this->sumaTotalCaudal($dias,$id_eb3);
+
+return view('dashboard', compact('bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph','nivel_rio','nivel_reservorio','poli_alta','sulf','pol_b','perma','carbon_','hipo','cal_','pac_','clor_','total_bt','total_eb1','total_eb2','total_eb3'));
 }
 
 //Realiza la sumatoria de las cargas de quimicos y los llena los 31 dias del mes
@@ -2002,6 +2008,36 @@ for ($i=1; $i <32 ; $i++) {
 
 return $quimico;
 
+}
+
+
+//Realiza la sumatoria de los caudales de una estacion y los llena los 31 dias del mes
+public function sumaTotalCaudal($dias,$id_estacion)
+{
+    $sumacaudal=0;
+    for ($i=1; $i < 32; $i++) 
+    { 
+    $valor=0;
+    $valor =$this->totalMesCaudales($dias[$i],$id_estacion);
+    $sumacaudal += $valor;
+
+    }
+
+return number_format($sumacaudal) ;
+
+
+}
+
+//Obtiene la sumatoria de los caudales en una fecha en particular
+public function totalMesCaudales($fecha,$id_estacion)
+{
+    
+    $caudal = DB::table('produccions')
+   ->where('fecha' ,'=', $fecha)
+    ->where('id_estacion' ,'=' ,$id_estacion)
+    ->sum('caudal');
+
+    return $caudal;
 }
 
 //Obtiene la sumatoria de las cargas de una quimico en una fecha en particular

@@ -53,6 +53,11 @@ th {
 width: 5px;
 
 }
+/*Controla los totales de las tablas*/
+#totales{
+
+font-weight: bold;
+}
 
 </style>
 
@@ -107,18 +112,12 @@ width: 5px;
 
             @endfor
 
-            <tr>
-              <td></td>
-                  <td>
-               
-
-                 
-
-                
-                  </td>
-              <td>c</td>
-              <td>d</td>
-              <td>e</td>
+            <tr id="totales">
+              <td>Total</td>
+              <td>{{$total_bt}}</td>
+              <td>{{$total_eb1}}</td>
+              <td>{{$total_eb2}}</td>
+              <td>{{$total_eb3}}</td>
             </tr>
             
             </tbody>
@@ -340,7 +339,8 @@ width: 5px;
               </tr>
             @endfor
             <!-- Totales de carga del mes -->
-           <tr>
+           <tr id="totales">
+            
                 <td>Total</td>
                 <td>{{$sulf}}</td>
                 <td>{{$pol_b}}</td>
@@ -351,6 +351,7 @@ width: 5px;
                 <td>{{$cal_}}</td>
                 <td>{{$pac_}}</td>
                 <td>{{$clor_}}</td>
+
             </tr>
 
             
