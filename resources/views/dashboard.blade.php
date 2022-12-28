@@ -80,6 +80,8 @@ width: 5px;
       <div class="card">
         <section class="card-header" >
           <h6>  Producción del mes (m³) </h6>
+          <br>
+          <br>
 
           <table class=" table-striped">
             <thead>
@@ -194,7 +196,10 @@ width: 5px;
 
 
           </tr>
- @endfor           
+ @endfor    
+
+
+
             </tbody>
          </table>
 
@@ -255,10 +260,8 @@ width: 5px;
               <tr>
                 <th scope="col">Día</th>
                 <th scope="col">Promedio </th>
-               
-            
 
-          
+            
               </tr>
             </thead>
             <tbody>
@@ -267,12 +270,28 @@ width: 5px;
               <tr>
                 <td scope="row">{{$i}} </td>
                 <td>{{$nivel_reservorio[$i]}}%</td>
-                              
+
               </tr>
             @endfor
-          
+      
             
             </tbody>
+            <tr>
+              <td>Mínimo</td>
+              
+              
+            </tr>
+            <tr>
+             
+              <td>Máximo</td>
+              
+            </tr>
+             <tr>
+             
+              <td>Promedio</td>
+              
+            </tr>
+
          </table>
       
 
@@ -320,7 +339,20 @@ width: 5px;
               
               </tr>
             @endfor
-          
+            <!-- Totales de carga del mes -->
+           <tr>
+                <td>Total</td>
+                <td>{{$sulf}}</td>
+                <td>{{$pol_b}}</td>
+                <td>{{$poli_alta}}</td>
+                <td>{{$perma}}</td>
+                <td>{{$carbon_}}</td>
+                <td>{{$hipo}}</td>
+                <td>{{$cal_}}</td>
+                <td>{{$pac_}}</td>
+                <td>{{$clor_}}</td>
+            </tr>
+
             
             </tbody>
          </table>

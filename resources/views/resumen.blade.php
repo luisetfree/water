@@ -324,7 +324,7 @@
                 <h5>Dosificaciones</h5>
 
                 <!-- verficar para mostrar el input deacuerdo al item seleccionado -->
-                <select class="">
+              <!--   <select class="">
                     
                     <option name="sulf" value="sulfato">Sulfato</option>
                     <option value="pac">Pac</option>
@@ -332,11 +332,11 @@
 
                    
 
-                </select>
+                </select> -->
                        
 
                      <!-- coagulante cambiar a un select para tomar en cuenta el PAC tambien-->
-                <input type="text" id="" name="dosificacion_coagulante" class="form-control" placeholder="Sulfato - PPM" required="">
+                <input type="text" id="" name="dosificacion_coagulante" class="form-control" placeholder="Coagulante - PPM" required="">
                 
                         
                 

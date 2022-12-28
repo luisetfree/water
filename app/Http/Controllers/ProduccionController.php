@@ -6,6 +6,7 @@ use App\Models\Produccion;
 use App\Models\Estacion;
 use App\Models\Operacion;
 use App\Models\Consumo;
+use App\Models\Carga;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Arr;
@@ -35,6 +36,7 @@ class ProduccionController extends Controller
       $id_permanganato=1;
       $id_cal=4;
       $id_carbon=2;//Carbon activo
+      $id_polimeroAlta=10;
 
 
     
@@ -1706,6 +1708,7 @@ $id_bocatoma=1;
 $id_eb1=2;
 $id_eb2=3;
 $id_eb3=4;
+$id_polialta=10;
 
 
 $dias=array();
@@ -1757,14 +1760,12 @@ $sulfato=$this->sumaCargas($id_sulfato,$dias);
 
 
 
-
-
 $pac=array();
-$id_cal=6;
-$pac=$this->sumaCargas($id_cal,$dias);
+$id_pac=6;
+$pac=$this->sumaCargas($id_pac,$dias);
 
 $polimero=array();
-$id_polimero=7;
+$id_polimero=7;//polimero baja
 //llenando el arreglo con las sumas de las cargas segun fecha determinada (mes)
 $polimero=$this->sumaCargas($id_polimero,$dias);
 
@@ -1774,7 +1775,7 @@ $id_cloro=8;
 $cloro=$this->sumaCargas($id_cloro,$dias);
 
 $polimeroA=array();
-$id_polialta=10;
+
 //llenando el arreglo con las sumas de las cargas segun fecha determinada (mes)
 $polimeroA=$this->sumaCargas($id_polialta,$dias);
 
@@ -1831,8 +1832,37 @@ $nivel_reservorio=array();
 //utilizando la misma funcion solamente se cambio los datos a consultar, en este caso nivel de camara de EB1 que hace referencia al nivel del reservorio
 $nivel_reservorio=$this->promedioDiaRio($dias,$id_eb1,$camara_nivel);
 
+/*Sumatoria CARGA DE QUIMICOS */
 
-return view('dashboard', compact('bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph','nivel_rio','nivel_reservorio'));
+$sulf=$this->sumaTotalCargas($dias,$id_sulfato);
+$poli_alta=$this->sumaTotalCargas($dias,$id_polialta);
+$pol_b=$this->sumaTotalCargas($dias,$id_polimero);
+$perma=$this->sumaTotalCargas($dias,$id_perm);
+$carbon_=$this->sumaTotalCargas($dias,$id_carb);
+$hipo=$this->sumaTotalCargas($dias,$id_hip);
+$cal_=$this->sumaTotalCargas($dias,$id_cal);
+$pac_=$this->sumaTotalCargas($dias,$id_pac);
+$clor_=$this->sumaTotalCargas($dias,$id_cloro);
+
+
+return view('dashboard', compact('bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph','nivel_rio','nivel_reservorio','poli_alta','sulf','pol_b','perma','carbon_','hipo','cal_','pac_','clor_'));
+}
+
+//Realiza la sumatoria de las cargas de quimicos y los llena los 31 dias del mes
+public function sumaTotalCargas($dias,$id_quimico)
+{
+    $sumacargas=0;
+    for ($i=1; $i < 32; $i++) 
+    { 
+    $valor=0;
+    $valor =$this->sumatoriaMesQuimicos($dias[$i],$id_quimico);
+    $sumacargas += $valor;
+
+    }
+
+return $sumacargas;
+
+
 }
 
 
@@ -1972,6 +2002,18 @@ for ($i=1; $i <32 ; $i++) {
 
 return $quimico;
 
+}
+
+//Obtiene la sumatoria de las cargas de una quimico en una fecha en particular
+public function sumatoriaMesQuimicos($fecha,$id_quimico)
+{
+    
+    $cargas = DB::table('cargas')
+   ->where('fecha' ,'=', $fecha)
+    ->where('id_quimico' ,'=' ,$id_quimico)
+    ->sum('cantidad');
+
+    return $cargas;
 }
 
 

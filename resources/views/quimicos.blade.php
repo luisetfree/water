@@ -180,7 +180,7 @@
         </select>
 
         <label for="cantidad">Cantidad</label>
-        <input id="cantidad" type="number" name="cantidad" placeholder="Cantidad ">
+        <input id="cantidad" type="number" name="cantidad" placeholder="Cantidad " required>
         <label for="">Fecha</label>
         <input type="date" name="fecha" required>
         <label for="">Hora</label>
