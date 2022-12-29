@@ -1701,8 +1701,8 @@ $suma_caudal=DB::table('produccions')
 /*Controla la informacion de la vista Dashboard con los caudales del mes de cada estacion y mas informacion*/
 public function dashboard(){
 
-$fecha=date('Y-m-d');
-//$fecha="2022-12-01";
+//$fecha=date('Y-m-d');
+$fecha="2022-04-01";
 
 $id_bocatoma=1;
 $id_eb1=2;
@@ -1837,9 +1837,10 @@ $camara_nivel='nivel_camara';
 $nivel_reservorio=array();
 //utilizando la misma funcion solamente se cambio los datos a consultar, en este caso nivel de camara de EB1 que hace referencia al nivel del reservorio
 $nivel_reservorio=$this->promedioDiaRio($dias,$id_eb1,$camara_nivel);
+//Calculos de minimo-maximo-promedio del nivel del reservorio
 $nivel_reser_min=min($nivel_reservorio);
 $nivel_reser_max=max($nivel_reservorio);
-//$nivel_reser_prom=max($nivel_reservorio);
+$nivel_reser_prom= round((array_sum($nivel_reservorio)/count($nivel_reservorio)),2);//calculando promedio y redondeando a 2 decimales
 
 
 
@@ -1868,14 +1869,14 @@ $total_eb3=$this->sumaTotalCaudal($dias,$id_eb3);
 
 
 
-return view('dashboard', compact('bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph','nivel_rio','nivel_reservorio','nivel_reser_min','nivel_reser_max','poli_alta','sulf','pol_b','perma','carbon_','hipo','cal_','pac_','clor_','total_bt','total_eb1','total_eb2','total_eb3','promedio_nivel_rio'));
+return view('dashboard', compact('bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph','nivel_rio','nivel_reservorio','nivel_reser_min','nivel_reser_max','nivel_reser_prom','poli_alta','sulf','pol_b','perma','carbon_','hipo','cal_','pac_','clor_','total_bt','total_eb1','total_eb2','total_eb3','promedio_nivel_rio'));
 }
 
 //Realiza la sumatoria de las cargas de quimicos y los llena los 31 dias del mes
 public function sumaTotalCargas($dias,$id_quimico)
 {
     $sumacargas=0;
-    for ($i=1; $i < 32; $i++) 
+    for ($i=1; $i < count($dias); $i++) 
     { 
     $valor=0;
     $valor =$this->sumatoriaMesQuimicos($dias[$i],$id_quimico);
@@ -1883,7 +1884,7 @@ public function sumaTotalCargas($dias,$id_quimico)
 
     }
 
-return $sumacargas;
+return number_format($sumacargas);
 
 
 }
@@ -1896,7 +1897,7 @@ public function minimoDia($dia,$id_agua,$campo)
 $minimo=array();
 
 //llenando el arreglo con las sumas de las cargas segun fecha determinada (mes)
-for ($i=1; $i <32 ; $i++) { 
+for ($i=1; $i <count($dia) ; $i++) { 
     //llenando el arreglo con los valores minimos dia por dia
     $minimo[$i]= $this->minimosAgua($dia[$i],$id_agua,$campo);
 }
@@ -1926,7 +1927,7 @@ public function maximoDia($dia,$id_agua,$campo)
     $maximo=array();
 
 //llenando el arreglo con los  valores maximos (dia a dia)
-for ($i=1; $i <32 ; $i++) { 
+for ($i=1; $i <count($dia) ; $i++) { 
     //llenando el arreglo con los valores maximos dia por dia
     $maximo[$i]= $this->maximoAgua($dia[$i],$id_agua,$campo);
 }
@@ -1957,7 +1958,7 @@ public function promedioDia($dia,$id_agua,$campo)
     $promedio=array();
 
 //llenando el arreglo con los  valores promedios (dia a dia)
-for ($i=1; $i <32 ; $i++) { 
+for ($i=1; $i <count($dia) ; $i++) { 
     //llenando el arreglo con los valores promedios dia por dia
     $promedio[$i]= $this->promedioAgua($dia[$i],$id_agua,$campo);
 }
@@ -1989,7 +1990,7 @@ public function promedioDiaRio($dia,$id_estacion,$campo)
     $prom=array();
 
 //For que llena el arreglo con los  valores promedios
-for ($i=1; $i <32 ; $i++) { 
+for ($i=1; $i <count($dia) ; $i++) { 
     //llenando el arreglo con los valores promedios dia por dia(de todo el mes)
     $prom[$i]= $this->promedioRio($dia[$i],$id_estacion,$campo);
 }
@@ -2004,7 +2005,7 @@ public function promedioRioTotal($dia,$id_estacion,$campo)
     $prom=array();
 
 //For que llena el arreglo con los  valores promedios
-for ($i=1; $i <32 ; $i++) { 
+for ($i=1; $i <count($dia) ; $i++) { 
     //llenando el arreglo con los valores promedios dia por dia(de todo el mes)
     $prom[$i]= $this->promedioRio($dia[$i],$id_estacion,$campo);
 }
@@ -2037,7 +2038,7 @@ public function sumaCargas($id_quimico,$dias){
 $quimico=array();
 
 //llenando el arreglo con las sumas de las cargas segun fecha determinada (mes)
-for ($i=1; $i <32 ; $i++) { 
+for ($i=1; $i <count($dias) ; $i++) { 
     //llenando el arreglo con la sumatoria de las cargas dia por dia
     $quimico[$i]= $this->consumoQuimicos($id_quimico,$dias[$i]);
 }
@@ -2051,7 +2052,7 @@ return $quimico;
 public function sumaTotalCaudal($dias,$id_estacion)
 {
     $sumacaudal=0;
-    for ($i=1; $i < 32; $i++) 
+    for ($i=1; $i < count($dias); $i++) 
     { 
     $valor=0;
     $valor =$this->totalMesCaudales($dias[$i],$id_estacion);
@@ -2096,7 +2097,7 @@ public function sumatoriaMesQuimicos($fecha,$id_quimico)
     $datos_estacion =array();
 
 //llenando el arreglo con las sumas de los caudales segun fecha determinada (mes)
-for ($i=1; $i <32 ; $i++) { 
+for ($i=1; $i <count($dias) ; $i++) { 
     //llenando el arreglo con la sumatoria de los caudales dia por dia
     $datos_estacion[$i]= $this->dashProduccion($id_estacion,$dias[$i]);
 }
@@ -2107,6 +2108,16 @@ return $datos_estacion;
 
 /*Funcion que recibe una fecha en particular y se encarga de devolver un arreglo con todos los dias del mes en cuestion */
 public function desgloceFecha($fecha){
+
+//Determinacion de meses con 31 dias
+//01,03,05,07,08,12,10
+$enero=01;
+$marzo=03;
+$mayo=05;
+$julio=07;
+//$agosto=08;
+$octubre=10;
+$diciembre=12;
 
 
 //tomamos la fecha que se pasa por parametro y extraemos el mes
@@ -2119,10 +2130,22 @@ $anio= date("Y", strtotime($fecha));//capturando el año de la fecha dada
 
 //Representa un arreglo para las fechas
 $dias=array();
+
 //For que permite generar un arreglo y llenarlo con los dias del mes, tomando como referencia el mes según la fecha que se pasa por parametro
+
+
+if ($mes==$enero || $mes==$marzo || $mes==$mayo || $mes==$julio ||  $mes==$octubre || $mes==$diciembre) {
+    for ($i=0; $i < 33; $i++) { 
+    $dias[$i]=$anio.'-'.$mes.'-'.$i;//llenando el arreglo con las fechas
+}
+}else{
 for ($i=0; $i < 32; $i++) { 
     $dias[$i]=$anio.'-'.$mes.'-'.$i;//llenando el arreglo con las fechas
 }
+}
+
+/*AGREGAR A LA RESTRICCION EL MES DE AGOSTO Y FEBRERO*/
+
 
 
 

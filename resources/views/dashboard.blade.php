@@ -100,7 +100,7 @@ font-weight: bold;
             </thead>
             <tbody>
 
-            @for($i=1; $i<32; $i++)
+            @for($i=1; $i<count($bt_prod); $i++)
               <tr>
                 <th scope="row">{{$i}}</th>
                 <td>{{$bt_prod[$i]}} </td>
@@ -176,7 +176,7 @@ font-weight: bold;
             
             </thead>
             <tbody>
-@for($i=1; $i<32; $i++)
+@for($i=1; $i<count($bt_prod); $i++)
           <tr>
 
             <td>{{$i}}</td>
@@ -200,6 +200,62 @@ font-weight: bold;
 
 
             </tbody>
+          <tr id="totales">
+              <td>Mínimo</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+
+              
+            </tr>
+            <tr id="totales">
+             
+              <td>Máximo</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+
+            </tr>
+             <tr id="totales">
+             
+              <td>Promedio</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+
+            </tr>
+
+
+
+
+
          </table>
 
 
@@ -231,7 +287,7 @@ font-weight: bold;
             </thead>
             <tbody>
 
-            @for($i=1; $i<32; $i++)
+            @for($i=1; $i<count($bt_prod); $i++)
               <tr>
                 <td scope="row">{{$i}} </td>
                 <td>{{$nivel_rio[$i]}}</td>
@@ -269,7 +325,7 @@ font-weight: bold;
             </thead>
             <tbody>
 
-            @for($i=1; $i<32; $i++)
+            @for($i=1; $i<count($bt_prod); $i++)
               <tr>
                 <td scope="row">{{$i}} </td>
                 <td>{{$nivel_reservorio[$i]}}%</td>
@@ -279,22 +335,23 @@ font-weight: bold;
       
             
             </tbody>
-            <tr>
+
+            <tr id="totales">
               <td>Mínimo</td>
               <td>{{$nivel_reser_min}}</td>
               
               
             </tr>
-            <tr>
+            <tr id="totales">
              
               <td>Máximo</td>
               <td>{{$nivel_reser_max}}</td>
               
             </tr>
-             <tr>
+             <tr id="totales">
              
               <td>Promedio</td>
-              <td></td>
+              <td>{{$nivel_reser_prom}}</td>
               
             </tr>
 
@@ -330,7 +387,7 @@ font-weight: bold;
             </thead>
             <tbody>
 
-            @for($i=1; $i<32; $i++)
+            @for($i=1; $i<count($bt_prod); $i++)
               <tr>
                 <td scope="row">{{$i}} </td>
                 <td>{{$sulfato[$i]}} </td>
