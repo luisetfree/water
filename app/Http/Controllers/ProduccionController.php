@@ -1824,6 +1824,12 @@ $prom_trat_ph=$this->promedioDia($dias,$id_agua_trat,$campo_ph);
 $nivel='nivel_rio';
 $nivel_rio=array();
 $nivel_rio=$this->promedioDiaRio($dias,$id_bocatoma,$nivel);
+//calcula y muestra el promedio total del nivel del rio para el mes en cuestion
+$promedio_nivel_rio=$this->promedioRioTotal($dias,$id_bocatoma,$nivel);
+
+
+
+
 
 /*NIVEL DEL RESERVORIO*/
 //en este caso utilizaremos las mismas funciones anteriores, solamente modificamos EB1 y nivel_camara
@@ -1831,6 +1837,11 @@ $camara_nivel='nivel_camara';
 $nivel_reservorio=array();
 //utilizando la misma funcion solamente se cambio los datos a consultar, en este caso nivel de camara de EB1 que hace referencia al nivel del reservorio
 $nivel_reservorio=$this->promedioDiaRio($dias,$id_eb1,$camara_nivel);
+$nivel_reser_min=min($nivel_reservorio);
+$nivel_reser_max=max($nivel_reservorio);
+//$nivel_reser_prom=max($nivel_reservorio);
+
+
 
 /*Sumatoria CARGA DE QUIMICOS */
 
@@ -1851,7 +1862,13 @@ $total_eb1=$this->sumaTotalCaudal($dias,$id_eb1);
 $total_eb2=$this->sumaTotalCaudal($dias,$id_eb2);
 $total_eb3=$this->sumaTotalCaudal($dias,$id_eb3);
 
-return view('dashboard', compact('bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph','nivel_rio','nivel_reservorio','poli_alta','sulf','pol_b','perma','carbon_','hipo','cal_','pac_','clor_','total_bt','total_eb1','total_eb2','total_eb3'));
+
+
+
+
+
+
+return view('dashboard', compact('bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph','nivel_rio','nivel_reservorio','nivel_reser_min','nivel_reser_max','poli_alta','sulf','pol_b','perma','carbon_','hipo','cal_','pac_','clor_','total_bt','total_eb1','total_eb2','total_eb3','promedio_nivel_rio'));
 }
 
 //Realiza la sumatoria de las cargas de quimicos y los llena los 31 dias del mes
@@ -1979,6 +1996,25 @@ for ($i=1; $i <32 ; $i++) {
 
 return $prom;
 
+}
+
+/*Obtiene el promedio mensual del nivel del Rio*/
+public function promedioRioTotal($dia,$id_estacion,$campo)
+{
+    $prom=array();
+
+//For que llena el arreglo con los  valores promedios
+for ($i=1; $i <32 ; $i++) { 
+    //llenando el arreglo con los valores promedios dia por dia(de todo el mes)
+    $prom[$i]= $this->promedioRio($dia[$i],$id_estacion,$campo);
+}
+
+$total= count($prom);
+$suma_elemen= array_sum($prom);
+
+ $promedio=$suma_elemen/$total;
+
+    return round($promedio,2);//redondeando los valores a dos decimales
 }
 
 //Obtiene el valor promedio del nivel del Rio para una fecha especifica

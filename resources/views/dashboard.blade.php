@@ -240,7 +240,11 @@ font-weight: bold;
               
               </tr>
             @endfor
-          
+            
+            <tr id="totales">
+              <td>X̅</td>
+              <td>{{$promedio_nivel_rio}}</td>
+            </tr>
             
             </tbody>
          </table>
@@ -277,17 +281,20 @@ font-weight: bold;
             </tbody>
             <tr>
               <td>Mínimo</td>
+              <td>{{$nivel_reser_min}}</td>
               
               
             </tr>
             <tr>
              
               <td>Máximo</td>
+              <td>{{$nivel_reser_max}}</td>
               
             </tr>
              <tr>
              
               <td>Promedio</td>
+              <td></td>
               
             </tr>
 
