@@ -225,7 +225,7 @@
 
 
             <TR>
-              <td>{{$array[$i]}}</td><!-- Es fecha -->
+              <td>{{$fecha_[$i]}}</td><!-- Es fecha -->
               <td>{{$bt_caudal[$i]}}</td>
               <td>{{$cloro[$i]}}</td>
               <td>{{$cloro_eb1_min[$i]}}</td><td>{{$cloro_eb1_max[$i]}}</td><td>{{$cloro_eb1_prom[$i]}}</td>

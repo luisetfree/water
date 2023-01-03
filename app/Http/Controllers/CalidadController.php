@@ -61,33 +61,36 @@ $mes = $mes_entero[1];//asignamos el mes extraido anteriormente a la variable me
 $anio= date("Y", strtotime($fecha));//capturando el año de la fecha dada
 
 //se harmaran los dias de acuerdo a la fecha que se pase por parametro.
-$dia1=$anio.'-'.$mes.'-'.'1';
+//$dia1=$anio.'-'.$mes.'-'.'1';
 
-$array=array();
+$fecha_=array();
 //For que permite generar un arreglo y llenarlo con los dias del mes, tomando como referencia el mes según la fecha que se pasa por parametro
-for ($i=0; $i < 32; $i++) { 
-    $array[$i]=$anio.'-'.$mes.'-'.$i;//llenando el arreglo con las fechas
+
+
+
+for ($i=1; $i < 32; $i++) { 
+    //validando que del 1 al 9 se agregue la fecha en formato 01,02,03,04,05,06,07,08,09
+    if ($i<10) {
+         $fecha_[$i]=$anio.'-'.$mes.'-'.'0'.$i;//llenando el arreglo con las fechas del 1 al 9
+        }else {
+        $fecha_[$i]=$anio.'-'.$mes.'-'.$i;//llenando el arreglo con las fechas
+        }
+   
 }
 
 
-//obtiene el valor promedio de una columna en el mes y año actual
-/*$prom_mes = DB::table('calidads')
-            ->whereRaw('month(fecha) = month(now())')
-            ->whereRaw('year(fecha) = year(now())')                 
-            ->avg('turbidez');*/
 
-/*Prom - Caudal BT*/
-//$bt1=$this->promedio($array[1],1,'caudal');
 
 $bt_caudal=array();//arreglo que llenará los promedios del caudal de BT por dia, segun la fecha que se pase
 //For que recorre y llena el arreglo con los promedios de caudales de BT
 //Arreglo temporal para almacenar valores de bt 
 $temporal=array();
-for ($i=0; $i <32 ; $i++) { 
+
+for ($i=1; $i <32 ; $i++) { 
     
 
         $temporal[$i] = DB::table('produccions')
-                ->where('fecha' ,'=', $array[$i])//array hace referencia a la fecha que se llena segun el mes
+                ->where('fecha' ,'=', $fecha_[$i])//array hace referencia a la fecha que se llena segun el mes
                 ->where('id_estacion' ,'=' ,1)//1 significa el id de BT
                 ->avg('caudal');
 
@@ -101,23 +104,23 @@ for ($i=0; $i <32 ; $i++) {
     $cloro_eb1_max=array();
     $temp_prom=array();//se usa un arreglo temporal para luego redondear los datos a dos decimales
 
-for ($i=0; $i <32 ; $i++) { 
+for ($i=1; $i <32 ; $i++) { 
     
     //PROMEDIO
    $temp_prom[$i] = DB::table('produccions')
-                ->where('fecha' ,'=', $array[$i])//array hace referencia a la fecha que se llena segun el mes
+                ->where('fecha' ,'=', $fecha_[$i])//array hace referencia a la fecha que se llena segun el mes
                 ->where('id_estacion' ,'=' ,2)//2 significa el id de EB1
                 ->avg('cloro_residual');
 
     $cloro_eb1_prom[$i] = round($temp_prom[$i],2); //se redondea a 2 decimales
                 //Minimo
     $cloro_eb1_min[$i]=DB::table('produccions')
-                ->where('fecha' ,'=', $array[$i])
+                ->where('fecha' ,'=', $fecha_[$i])
                 ->where('id_estacion' ,'=' ,2)
                 ->min('cloro_residual');
                 //Maximo
     $cloro_eb1_max[$i]=DB::table('produccions')
-                ->where('fecha' ,'=', $array[$i])
+                ->where('fecha' ,'=', $fecha_[$i])
                 ->where('id_estacion' ,'=' ,2)
                 ->max('cloro_residual');
 
@@ -128,21 +131,21 @@ for ($i=0; $i <32 ; $i++) {
     $coag_max=array();
     $coag_prom=array();
 
-    for ($i=0; $i <32 ; $i++) { 
+    for ($i=1; $i <32 ; $i++) { 
     
                 //PROMEDIO
     $coag_prom[$i] = DB::table('consumos')
-                ->where('fecha' ,'=', $array[$i])//array hace referencia a la fecha que se llena segun el mes
+                ->where('fecha' ,'=', $fecha_[$i])//array hace referencia a la fecha que se llena segun el mes
                 ->where('id_quimico' ,'=' ,5)//5 es el id del sulfato
                 ->avg('dosis');
                 //Minimo
     $coag_min[$i]=DB::table('consumos')
-                ->where('fecha' ,'=', $array[$i])
+                ->where('fecha' ,'=', $fecha_[$i])
                 ->where('id_quimico' ,'=' ,5)
                 ->min('dosis');
                 //Maximo
     $coag_max[$i]=DB::table('consumos')
-                ->where('fecha' ,'=', $array[$i])
+                ->where('fecha' ,'=', $fecha_[$i])
                 ->where('id_quimico' ,'=' ,5)
                 ->max('dosis');
 
@@ -152,11 +155,11 @@ for ($i=0; $i <32 ; $i++) {
 
     $bt_suma=array();
     
-    for ($i=0; $i <32 ; $i++) { 
+    for ($i=1; $i <32 ; $i++) { 
     
                 //PROMEDIO
     $bt_suma[$i] = DB::table('produccions')
-                ->where('fecha' ,'=', $array[$i])//array hace referencia a la fecha que se llena segun el mes
+                ->where('fecha' ,'=', $fecha_[$i])//array hace referencia a la fecha que se llena segun el mes
                 ->where('id_estacion' ,'=' ,1)//1 es el id del sulfato
                 ->sum('caudal');
 
@@ -166,11 +169,11 @@ for ($i=0; $i <32 ; $i++) {
 
     /*HORAS TRABAJADAS DE BT*/
     $bt_horas=array();
-for ($i=0; $i <32 ; $i++) { 
+for ($i=1; $i <32 ; $i++) { 
     
                 //PROMEDIO
     $bt_horas[$i] = DB::table('produccions')
-                ->where('fecha' ,'=', $array[$i])//array hace referencia a la fecha que se llena segun el mes
+                ->where('fecha' ,'=', $fecha_[$i])//array hace referencia a la fecha que se llena segun el mes
                 ->where('id_estacion' ,'=' ,1)//1 es el id de BT
                 ->where('caudal' ,'>' ,0)
                 ->count();
@@ -182,18 +185,18 @@ for ($i=0; $i <32 ; $i++) {
     $cruda_max=array();
     $cruda_prom=array();
 
-for ($i=0; $i <32 ; $i++) { 
+for ($i=1; $i <32 ; $i++) { 
     
                 //min
         //fecha, id_agua, campo
         $id_cruda=1;
         $campo='turbidez';
         //minimo
-        $cruda_min[$i] = $this->minimosAgua($array[$i],$id_cruda,$campo);
+        $cruda_min[$i] = $this->minimosAgua($fecha_[$i],$id_cruda,$campo);
         //maximo
-         $cruda_max[$i] = $this->maximoAgua($array[$i],$id_cruda,$campo);
+         $cruda_max[$i] = $this->maximoAgua($fecha_[$i],$id_cruda,$campo);
         //promedio
-         $cruda_prom[$i] = $this->promedioAgua($array[$i],$id_cruda,$campo);
+         $cruda_prom[$i] = $this->promedioAgua($fecha_[$i],$id_cruda,$campo);
 
 
     }
@@ -202,15 +205,15 @@ for ($i=0; $i <32 ; $i++) {
     $cruda_ph_mx=array();
     $cruda_ph_p=array();
 
-for ($i=0; $i <32 ; $i++) { 
+for ($i=1; $i <32 ; $i++) { 
     
                 //min
         $ph='ph';
-    $cruda_ph_m[$i] = $this->minimosAgua($array[$i],$id_cruda,$ph);
+    $cruda_ph_m[$i] = $this->minimosAgua($fecha_[$i],$id_cruda,$ph);
                 //maximo
-    $cruda_ph_mx[$i] = $this->maximoAgua($array[$i],$id_cruda,$ph);
+    $cruda_ph_mx[$i] = $this->maximoAgua($fecha_[$i],$id_cruda,$ph);
                 //promedio
-    $cruda_ph_p[$i] = $this->promedioAgua($array[$i],$id_cruda,$ph);
+    $cruda_ph_p[$i] = $this->promedioAgua($fecha_[$i],$id_cruda,$ph);
 
 
     }
@@ -220,18 +223,18 @@ for ($i=0; $i <32 ; $i++) {
     $clari_max=array();
     $clari_prom=array();
 
-for ($i=0; $i <32 ; $i++) { 
+for ($i=1; $i <32 ; $i++) { 
     
                 //min
         //fecha, id_agua, campo
         $id_clari=2;
         
         //minimo
-        $clari_min[$i] = $this->minimosAgua($array[$i],$id_clari,$campo);
+        $clari_min[$i] = $this->minimosAgua($fecha_[$i],$id_clari,$campo);
         //maximo
-         $clari_max[$i] = $this->maximoAgua($array[$i],$id_clari,$campo);
+         $clari_max[$i] = $this->maximoAgua($fecha_[$i],$id_clari,$campo);
         //promedio
-         $clari_prom[$i] = $this->promedioAgua($array[$i],$id_clari,$campo);
+         $clari_prom[$i] = $this->promedioAgua($fecha_[$i],$id_clari,$campo);
 
 
     }
@@ -240,15 +243,15 @@ for ($i=0; $i <32 ; $i++) {
     $clari_ph_mx=array();
     $clari_ph_p=array();
 
-for ($i=0; $i <32 ; $i++) { 
+for ($i=1; $i <32 ; $i++) { 
     
                 //min
         
-    $clari_ph_m[$i] = $this->minimosAgua($array[$i],$id_clari,$ph);
+    $clari_ph_m[$i] = $this->minimosAgua($fecha_[$i],$id_clari,$ph);
                 //maximo
-    $clari_ph_mx[$i] = $this->maximoAgua($array[$i],$id_clari,$ph);
+    $clari_ph_mx[$i] = $this->maximoAgua($fecha_[$i],$id_clari,$ph);
                 //promedio
-    $clari_ph_p[$i] = $this->promedioAgua($array[$i],$id_clari,$ph);
+    $clari_ph_p[$i] = $this->promedioAgua($fecha_[$i],$id_clari,$ph);
 
 
     }
@@ -258,18 +261,18 @@ for ($i=0; $i <32 ; $i++) {
     $fil_max=array();
     $fil_prom=array();
 
-for ($i=0; $i <32 ; $i++) { 
+for ($i=1; $i <32 ; $i++) { 
     
                 //min
         //fecha, id_agua, campo
         $id_filt=3;
         
         //minimo
-        $fil_min[$i] = $this->minimosAgua($array[$i],$id_filt,$campo);
+        $fil_min[$i] = $this->minimosAgua($fecha_[$i],$id_filt,$campo);
         //maximo
-         $fil_max[$i] = $this->maximoAgua($array[$i],$id_filt,$campo);
+         $fil_max[$i] = $this->maximoAgua($fecha_[$i],$id_filt,$campo);
         //promedio
-         $fil_prom[$i] = $this->promedioAgua($array[$i],$id_filt,$campo);
+         $fil_prom[$i] = $this->promedioAgua($fecha_[$i],$id_filt,$campo);
 
 
     }
@@ -278,15 +281,15 @@ for ($i=0; $i <32 ; $i++) {
     $fil_ph_mx=array();
     $fil_ph_p=array();
 
-for ($i=0; $i <32 ; $i++) { 
+for ($i=1; $i <32 ; $i++) { 
     
                 //min
         
-    $fil_ph_m[$i] = $this->minimosAgua($array[$i],$id_filt,$ph);
+    $fil_ph_m[$i] = $this->minimosAgua($fecha_[$i],$id_filt,$ph);
                 //maximo
-    $fil_ph_mx[$i] = $this->maximoAgua($array[$i],$id_filt,$ph);
+    $fil_ph_mx[$i] = $this->maximoAgua($fecha_[$i],$id_filt,$ph);
                 //promedio
-    $fil_ph_p[$i] = $this->promedioAgua($array[$i],$id_filt,$ph);
+    $fil_ph_p[$i] = $this->promedioAgua($fecha_[$i],$id_filt,$ph);
 
 
     }
@@ -297,18 +300,18 @@ for ($i=0; $i <32 ; $i++) {
     $trat_max=array();
     $trat_prom=array();
 
-for ($i=0; $i <32 ; $i++) { 
+for ($i=1; $i <32 ; $i++) { 
     
                 //min
         //fecha, id_agua, campo
         $id_trat=4;
         
         //minimo
-        $trat_min[$i] = $this->minimosAgua($array[$i],$id_trat,$campo);
+        $trat_min[$i] = $this->minimosAgua($fecha_[$i],$id_trat,$campo);
         //maximo
-         $trat_max[$i] = $this->maximoAgua($array[$i],$id_trat,$campo);
+         $trat_max[$i] = $this->maximoAgua($fecha_[$i],$id_trat,$campo);
         //promedio
-         $trat_prom[$i] = $this->promedioAgua($array[$i],$id_trat,$campo);
+         $trat_prom[$i] = $this->promedioAgua($fecha_[$i],$id_trat,$campo);
 
 
     }
@@ -317,27 +320,27 @@ for ($i=0; $i <32 ; $i++) {
     $trat_ph_mx=array();
     $trat_ph_p=array();
 
-for ($i=0; $i <32 ; $i++) { 
+for ($i=1; $i <32 ; $i++) { 
     
                 //min
         
-    $trat_ph_m[$i] = $this->minimosAgua($array[$i],$id_trat,$ph);
+    $trat_ph_m[$i] = $this->minimosAgua($fecha_[$i],$id_trat,$ph);
                 //maximo
-    $trat_ph_mx[$i] = $this->maximoAgua($array[$i],$id_trat,$ph);
+    $trat_ph_mx[$i] = $this->maximoAgua($fecha_[$i],$id_trat,$ph);
                 //promedio
-    $trat_ph_p[$i] = $this->promedioAgua($array[$i],$id_trat,$ph);
+    $trat_ph_p[$i] = $this->promedioAgua($fecha_[$i],$id_trat,$ph);
 
 
     }
 
 /*Calculo cloro*/
 $cloro=array();
-for ($i=0; $i <32 ; $i++) { 
-$cloro[$i]=$this->calculoCloro($array[$i],8,1,2);
+for ($i=1; $i <32 ; $i++) { 
+$cloro[$i]=$this->calculoCloro($fecha_[$i],8,1,2);
 }
 
 
-return view('bitacora', compact('fecha','valor','array','bt_caudal','cloro_eb1_prom','cloro_eb1_min','cloro_eb1_max','coag_min','coag_max','coag_prom','bt_suma','bt_horas','cruda_min','cruda_max','cruda_prom','cruda_ph_m','cruda_ph_mx','cruda_ph_p','clari_min','clari_max','clari_prom','clari_ph_m','clari_ph_mx','clari_ph_p','fil_min','fil_max','fil_prom','fil_ph_m','fil_ph_mx','fil_ph_p','trat_min','trat_max','trat_prom','trat_ph_m','trat_ph_mx','trat_ph_p','cloro'));
+return view('bitacora', compact('fecha','valor','fecha_','bt_caudal','cloro_eb1_prom','cloro_eb1_min','cloro_eb1_max','coag_min','coag_max','coag_prom','bt_suma','bt_horas','cruda_min','cruda_max','cruda_prom','cruda_ph_m','cruda_ph_mx','cruda_ph_p','clari_min','clari_max','clari_prom','clari_ph_m','clari_ph_mx','clari_ph_p','fil_min','fil_max','fil_prom','fil_ph_m','fil_ph_mx','fil_ph_p','trat_min','trat_max','trat_prom','trat_ph_m','trat_ph_mx','trat_ph_p','cloro'));
 
 }
 
