@@ -1786,12 +1786,29 @@ $polimeroA=$this->sumaCargas($id_polialta,$dias);
 $min_cruda=array();
 $id_aguaC=1;
 $campo='turbidez';
-$min_cruda=$this->minimoDia($dias,$id_aguaC,$campo);
+$min_cruda= $this->minimoDia($dias,$id_aguaC,$campo);
+//Manejo de datos totales
+$min_cruda_t=min($min_cruda);
+$max_cruda_t=max($min_cruda);
+$prom_cruda_t=round((array_sum($min_cruda)/count($min_cruda)),2);
 
 $max_cruda=array();
 $max_cruda=$this->maximoDia($dias,$id_aguaC,$campo);
 $prom_cruda=array();
 $prom_cruda=$this->promedioDia($dias,$id_aguaC,$campo);
+//minimo-maximo-promedio del valor promedio de turbidez
+$min_cruda_t_prom=min($prom_cruda);
+$max_cruda_t_prom=max($prom_cruda);
+$prom_prom_cruda=round((array_sum($prom_cruda)/count($prom_cruda)),2);//calculo del promedio del promedio
+
+
+//manejo de totales 
+$min_cruda_m=min($max_cruda);
+$max_cruda_m=max($max_cruda);
+$prom_cruda_m=round((array_sum($max_cruda)/count($max_cruda)),2);
+
+
+
 
 //Agua cruda - PH
 $min_c_ph=array();
@@ -1801,6 +1818,19 @@ $max_cruda_ph=array();
 $max_cruda_ph=$this->maximoDia($dias,$id_aguaC,$campo_ph);
 $prom_cruda_ph=array();
 $prom_cruda_ph=$this->promedioDia($dias,$id_aguaC,$campo_ph);
+//totales del minimo del ph
+$min_crud_ph_t=min($min_c_ph);
+$max_crud_ph_t=max($min_c_ph);
+$prom_min_crud_ph_t=round((array_sum($min_c_ph)/count($min_c_ph)),2);//promedio del minimo del ph de agua cruda
+//totales del promedio ph
+$min_prom_ph_t=min($prom_cruda_ph);
+$max_prom_ph_t=max($prom_cruda_ph);
+$prom_max_prom_ph_t=round((array_sum($prom_cruda_ph)/count($prom_cruda_ph)),2);//promedio del promedio del ph de agua cruda
+
+//totales del maximo
+$min_crud_ph_t1=min($max_cruda_ph);
+$max_crud_ph_t1=max($max_cruda_ph);
+$prom_max_ph_t=round((array_sum($max_cruda_ph)/count($max_cruda_ph)),2);//promedio del maximo del ph de agua cruda
 
 
 //Agua tratada
@@ -1820,11 +1850,26 @@ $max_trat_ph=$this->maximoDia($dias,$id_agua_trat,$campo_ph);
 $prom_trat_ph=array();
 $prom_trat_ph=$this->promedioDia($dias,$id_agua_trat,$campo_ph);
 
+//min-max-prom del minimo de tratada
+$min_trat_t=min($min_trat);
+$max_trat_t=max($min_trat);
+$prom_min_trat_t=round((array_sum($min_trat)/count($min_trat)),2);//promedio del minimo de turbidez de agua tratada
+
+//min-max-prom del maximo de tratada
+$min_trat_m_t=min($max_trat);
+$max_trat_m_t=max($max_trat);
+$prom_min_trat_m_t=round((array_sum($max_trat)/count($max_trat)),2);//promedio del maximo de turbidez de agua tratada
+//min-max-prom del promedio de tratada
+$min_trat_p_t=min($prom_trat);
+$max_trat_p_t=max($prom_trat);
+$prom_min_trat_p_t=round((array_sum($prom_trat)/count($prom_trat)),2);//promedio del promedio de turbidez de agua tratada
+
+
 /*NIVEL DEL RIO*/
 $nivel='nivel_rio';
 $nivel_rio=array();
 $nivel_rio=$this->promedioDiaRio($dias,$id_bocatoma,$nivel);
-//calcula y muestra el promedio total del nivel del rio para el mes en cuestion
+//Calcula y muestra el promedio total del nivel del rio para el mes en cuestion
 $promedio_nivel_rio=$this->promedioRioTotal($dias,$id_bocatoma,$nivel);
 
 
@@ -1869,7 +1914,7 @@ $total_eb3=$this->sumaTotalCaudal($dias,$id_eb3);
 
 
 
-return view('dashboard', compact('bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph','nivel_rio','nivel_reservorio','nivel_reser_min','nivel_reser_max','nivel_reser_prom','poli_alta','sulf','pol_b','perma','carbon_','hipo','cal_','pac_','clor_','total_bt','total_eb1','total_eb2','total_eb3','promedio_nivel_rio'));
+return view('dashboard', compact('bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph','nivel_rio','nivel_reservorio','nivel_reser_min','nivel_reser_max','nivel_reser_prom','poli_alta','sulf','pol_b','perma','carbon_','hipo','cal_','pac_','clor_','total_bt','total_eb1','total_eb2','total_eb3','promedio_nivel_rio','min_cruda_t','max_cruda_t','prom_cruda_t','min_cruda_m','max_cruda_m','prom_cruda_m','min_crud_ph_t','max_crud_ph_t','min_crud_ph_t1','max_crud_ph_t1','min_prom_ph_t','max_prom_ph_t','prom_max_prom_ph_t','min_cruda_t_prom','max_cruda_t_prom','prom_prom_cruda','prom_min_crud_ph_t','prom_max_ph_t','min_trat_t','max_trat_t','prom_min_trat_t','min_trat_m_t','max_trat_m_t','prom_min_trat_m_t','min_trat_p_t','max_trat_p_t','prom_min_trat_p_t'));
 }
 
 //Realiza la sumatoria de las cargas de quimicos y los llena los 31 dias del mes
@@ -1904,7 +1949,10 @@ for ($i=1; $i < count($dia); $i++) {
     $minimo[$i]= $this->minimosAgua($dia[$i],$id_agua,$campo);
 }
 
-return $minimo;
+    
+
+return  $minimo;
+
 
     
 }

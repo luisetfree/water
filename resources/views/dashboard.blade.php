@@ -203,15 +203,15 @@ font-weight: bold;
             </tbody>
           <tr id="totales">
               <td>Mínimo</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>{{$min_cruda_t}}</td>
+              <td>{{$min_cruda_m}}</td>
+              <td>{{$min_cruda_t_prom}}</td>
+              <td>{{$min_crud_ph_t}}</td>
+              <td>{{$min_crud_ph_t1}}</td>
+              <td>{{$min_prom_ph_t}}</td>
+              <td>{{$min_trat_t}}</td>
+              <td>{{$min_trat_m_t}}</td>
+              <td>{{$min_trat_p_t}}</td>
               <td></td>
               <td></td>
               <td></td>
@@ -221,15 +221,15 @@ font-weight: bold;
             <tr id="totales">
              
               <td>Máximo</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>{{$max_cruda_t}}</td>
+              <td>{{$max_cruda_m}}</td>
+              <td>{{$max_cruda_t_prom}}</td>
+              <td>{{$max_crud_ph_t}}</td>
+              <td>{{$max_crud_ph_t1}}</td>
+              <td>{{$max_prom_ph_t}}</td>
+              <td>{{$max_trat_t}}</td>
+              <td>{{$max_trat_m_t}}</td>
+              <td>{{$max_trat_p_t}}</td>
               <td></td>
               <td></td>
               <td></td>
@@ -238,15 +238,15 @@ font-weight: bold;
              <tr id="totales">
              
               <td>Promedio</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>{{$prom_cruda_t}}</td>
+              <td>{{$prom_cruda_m}}</td>
+              <td>{{$prom_prom_cruda}}</td>
+              <td>{{$prom_min_crud_ph_t}}</td>
+              <td>{{$prom_max_ph_t}}</td>
+              <td>{{$prom_max_prom_ph_t}}</td>
+              <td>{{$prom_min_trat_t}}</td>
+              <td>{{$prom_min_trat_m_t}}</td>
+              <td>{{$prom_min_trat_p_t}}</td>
               <td></td>
               <td></td>
               <td></td>
