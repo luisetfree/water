@@ -9,27 +9,34 @@ use App\Models\Carga;
 class CargaController extends Controller
 {
     /**
-     * Se encarga de desplegar la informacion necesaria para la vista QUIMICOS
-     *
+     * Se encarga de desplegar la informacion de las cargas realizadas en el mes para la vista QUIMICOS
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request  $request)
     {
         //
 
+        $id_de_quimico=$request->idquimico;
 
         $quimicos = $this->show();
 
         $fecha = date("Y-m-d");
 
-        $cargas_mes= $this->cargas($fecha);
+        $cargas_mes= $this->cargas($fecha,$id_de_quimico);
 
         return view('quimicos',compact('quimicos','cargas_mes'));
     }
 
 
-    /*Extrae la información de las cargas realizadas en un mes determinado para ser mostradas*/
-    public function cargas($date){
+    
+    /**
+     * Extrae la información de las cargas realizadas en un mes determinado para ser mostradas
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+public function cargas($date,$idquimic){
 
 
 $fecha=$date;
@@ -52,21 +59,49 @@ for ($i=0; $i < 32; $i++) {
     $array[$i]=$anio.'-'.$mes.'-'.$i;//llenando el arreglo con las fechas
 }
 
-//arreglo para almacenar las cargas del mes
+
 $carg = array();
 
-//for que llena el arreglo para almacenar las cargas del mes
-for ($i=0; $i < 32; $i++) { 
+//Validacion que verifica si se ha recibido por parametro una busqueda de un quimico en particular, de lo contrario se mostraran las cargas de todos los quimicos en el mes
+  if (empty($idquimic)) {
+
+//arreglo para almacenar las cargas del mes
+    for ($i=0; $i < 32; $i++) { 
             //$array[$i]=$anio.'-'.$mes.'-'.$i;
                 $carg=DB::table('cargas')
                 ->join('quimicos', 'cargas.id_quimico', '=', 'quimicos.id')
                 //->where('fecha','=', $anio.'-'.$mes.'-'.$i)
                 ->whereRaw('month(fecha) = month(now())')
                  ->whereRaw('year(fecha) = year(now())')  
+
+
                 //->where('fecha','=', $fecha)
                  ->select('cargas.fecha','quimicos.nombre','cargas.cantidad','cargas.hora','cargas.grupo')
                 ->get();
-}                    
+} 
+                     
+                 }else{
+                    //Llenando el arreglo para todos los dias del mes pero filtrado por un quimico en especifico
+                        for ($i=0; $i < 32; $i++) { 
+            //$array[$i]=$anio.'-'.$mes.'-'.$i;
+                $carg=DB::table('cargas')
+                ->join('quimicos', 'cargas.id_quimico', '=', 'quimicos.id')
+                //->where('fecha','=', $anio.'-'.$mes.'-'.$i)
+                ->whereRaw('month(fecha) = month(now())')
+                 ->whereRaw('year(fecha) = year(now())')  
+                  ->where('id_quimico','=', $idquimic)
+
+                //->where('fecha','=', $fecha)
+                 ->select('cargas.fecha','quimicos.nombre','cargas.cantidad','cargas.hora','cargas.grupo')
+                ->get();
+} 
+                   
+                 }
+
+
+//for que llena el arreglo para almacenar las cargas del mes
+
+                   
          
  
 
@@ -107,11 +142,13 @@ for ($i=0; $i < 32; $i++) {
              $carga->save();
 
 
-             return $this->index();
+             //$quimicos=0;
+             //se pasa el parametro $request a index como referencia para que se muestre la pagina con normalidad
+             return $this->index($request);
     }
 
     /**
-     * Extrae los quimicos disponibles y su respectiva informacion
+     * Extrae los quimicos disponibles y su respectiva informacion para utilizarse en las listas que se desplegan en la vista
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

@@ -109,3 +109,6 @@ Route::post('cargas', [CargaController::class, 'store']);
 
 /*filtra por fecha segun se indica en la vista Dashboard*/
 Route::post('dashboard', [ProduccionController::class, 'dashboard']);
+
+/*Filtra y muestra por quimico que se necesita ver en la vista QUIMICOS */
+Route::post('quimico', [CargaController::class, 'index']);

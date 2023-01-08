@@ -184,7 +184,8 @@
         <label for="">Fecha</label>
         <input type="date" name="fecha" required>
         <label for="">Hora</label>
-        <select name="hora">
+        <!-- <input type="text" name="hora" placeholder="00:00" required> -->
+         <select name="hora">
           @for($i = 1; $i < 25; $i++)
 
 
@@ -245,6 +246,30 @@
 
   -->
 <h4>Consumo de químicos</h4>
+
+<form name="" id="" method="post" action="{{url('quimico') }}">
+@csrf
+
+<!-- Listado de quimicos a mostrar -->
+<label>Químico:</label>
+
+ <select name="idquimico">
+          @foreach($quimicos as $quimic)
+
+            <option value="{{$quimic->id}}">{{$quimic->nombre}}</option>
+
+          @endforeach
+
+           
+
+  </select>
+  <button>Mostrar</button>
+</form>
+
+
+
+
+
   <table class="table">
 
     <thead class="thead-light">
