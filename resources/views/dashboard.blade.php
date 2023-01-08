@@ -68,12 +68,22 @@ font-weight: bold;
 
 </head>
 <body>
+<!-- Controla la fecha que se desea ver -->
+ <form name="" id="" method="post" action="{{url('dashboard') }}">
+       @csrf
 
+      <div class="container">
+        
+        <a href="http://127.0.0.1:8000"> <i class="fas fa-home"></i> </a>
+        <!-- Fecha -->
+        <label >Fecha:</label>
+        <input class="" type="date" name="fecha" value="{{$fecha}}">
+        <button class="btn btn-outline-success" type="submit">Ver</button>
+      </div>
 
-  <div class="container">
-  
-  <a href="http://127.0.0.1:8000"> <i class="fas fa-home"></i> </a>
-  </div>
+  </form>
+
+ 
 
   <div class="grid-container">
       @if(session('status'))
@@ -203,7 +213,16 @@ font-weight: bold;
             </tbody>
           <tr id="totales">
               <td>Mínimo</td>
-              <td>{{$min_cruda_t}}</td>
+              <td>
+                @if(empty($min_cruda_t))
+                0
+                @else
+                {{$min_cruda_t}}
+                @endif
+
+
+
+              </td>
               <td>{{$min_cruda_m}}</td>
               <td>{{$min_cruda_t_prom}}</td>
               <td>{{$min_crud_ph_t}}</td>

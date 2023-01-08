@@ -106,3 +106,6 @@ Route::post('producciones', [ProduccionController::class, 'muestraProducciones']
 
 /*Controla las cargas de los quimicos*/
 Route::post('cargas', [CargaController::class, 'store']);
+
+/*filtra por fecha segun se indica en la vista Dashboard*/
+Route::post('dashboard', [ProduccionController::class, 'dashboard']);

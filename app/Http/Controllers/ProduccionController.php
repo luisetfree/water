@@ -1698,10 +1698,25 @@ $suma_caudal=DB::table('produccions')
 
 /*---------------------------------------SECCION EXCLUSIVA DE DASHBOARD----------------------------------*/
 
-/*Controla la informacion de la vista Dashboard con los caudales del mes de cada estacion y mas informacion*/
-public function dashboard(){
 
-$fecha=date('Y-m-d');
+ /**
+     * 
+     *Controla la informacion de la vista Dashboard con los caudales del mes de cada estacion y mas informacion, Recibe una fecha en particular para filtrar la información
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+
+public function dashboard(Request  $request){
+
+/*Validando si el usuario ha pedido una fecha en particular, de lo contrario la fecha que se muestra es la del mes actual*/
+    if (empty($request->fecha)) {
+        $fecha=date('Y-m-d');
+    }else{
+        $fecha=$request->fecha;//fecha que se recibe por parametro
+    }
+
+
 //$fecha="2023-05-01";
 
 $id_bocatoma=1;
@@ -1836,7 +1851,7 @@ $prom_max_ph_t=round((array_sum($max_cruda_ph)/count($max_cruda_ph)),2);//promed
 //Agua tratada
 $min_trat=array();
 $id_agua_trat=4;
-$campo='turbidez';
+//$campo='turbidez';
 $min_trat=$this->minimoDia($dias,$id_agua_trat,$campo);
 $max_trat=array();
 $max_trat=$this->maximoDia($dias,$id_agua_trat,$campo);
@@ -1928,7 +1943,7 @@ $total_eb3=$this->sumaTotalCaudal($dias,$id_eb3);
 
 
 
-return view('dashboard', compact('bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph','nivel_rio','nivel_reservorio','nivel_reser_min','nivel_reser_max','nivel_reser_prom','poli_alta','sulf','pol_b','perma','carbon_','hipo','cal_','pac_','clor_','total_bt','total_eb1','total_eb2','total_eb3','promedio_nivel_rio','min_cruda_t','max_cruda_t','prom_cruda_t','min_cruda_m','max_cruda_m','prom_cruda_m','min_crud_ph_t','max_crud_ph_t','min_crud_ph_t1','max_crud_ph_t1','min_prom_ph_t','max_prom_ph_t','prom_max_prom_ph_t','min_cruda_t_prom','max_cruda_t_prom','prom_prom_cruda','prom_min_crud_ph_t','prom_max_ph_t','min_trat_t','max_trat_t','prom_min_trat_t','min_trat_m_t','max_trat_m_t','prom_min_trat_m_t','min_trat_p_t','max_trat_p_t','prom_min_trat_p_t','min_trat_t_ph','max_trat_t_ph','prom_min_trat_t_ph','min_trat_m_ph','max_trat_m_ph','prom_max_trat_m_ph','min_trat_prom_ph','max_trat_prom_ph','prom_prom_trat_ph'));
+return view('dashboard', compact('fecha','bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph','nivel_rio','nivel_reservorio','nivel_reser_min','nivel_reser_max','nivel_reser_prom','poli_alta','sulf','pol_b','perma','carbon_','hipo','cal_','pac_','clor_','total_bt','total_eb1','total_eb2','total_eb3','promedio_nivel_rio','min_cruda_t','max_cruda_t','prom_cruda_t','min_cruda_m','max_cruda_m','prom_cruda_m','min_crud_ph_t','max_crud_ph_t','min_crud_ph_t1','max_crud_ph_t1','min_prom_ph_t','max_prom_ph_t','prom_max_prom_ph_t','min_cruda_t_prom','max_cruda_t_prom','prom_prom_cruda','prom_min_crud_ph_t','prom_max_ph_t','min_trat_t','max_trat_t','prom_min_trat_t','min_trat_m_t','max_trat_m_t','prom_min_trat_m_t','min_trat_p_t','max_trat_p_t','prom_min_trat_p_t','min_trat_t_ph','max_trat_t_ph','prom_min_trat_t_ph','min_trat_m_ph','max_trat_m_ph','prom_max_trat_m_ph','min_trat_prom_ph','max_trat_prom_ph','prom_prom_trat_ph'));
 }
 
 //Realiza la sumatoria de las cargas de quimicos y los llena los 31 dias del mes
@@ -2185,10 +2200,12 @@ $enero=01;
 $marzo=03;
 $mayo=05;
 $julio=07;
-//$agosto=08;
+
 $octubre=10;
 $diciembre=12;
 
+//$agosto=08;
+//$aug='08';
 //$fecha='2022-01-01';
 
 
@@ -2205,7 +2222,7 @@ $dias=array();
 
 //For que permite generar un arreglo y llenarlo con los dias del mes, tomando como referencia el mes según la fecha que se pasa por parametro
 
-
+//meses de 31 dias
 if ($mes==$enero || $mes==$marzo || $mes==$mayo || $mes==$julio ||  $mes==$octubre || $mes==$diciembre) {
     for ($i=0; $i < 33; $i++) { 
             //validacion para que del 1 al 9 se lean las fechas con el formato correcto: 2000-01-01
