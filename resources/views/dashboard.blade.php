@@ -212,9 +212,9 @@ font-weight: bold;
               <td>{{$min_trat_t}}</td>
               <td>{{$min_trat_m_t}}</td>
               <td>{{$min_trat_p_t}}</td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>{{$min_trat_t_ph}}</td>
+              <td>{{$min_trat_m_ph}}</td>
+              <td>{{$min_trat_prom_ph}}</td>
 
               
             </tr>
@@ -230,9 +230,9 @@ font-weight: bold;
               <td>{{$max_trat_t}}</td>
               <td>{{$max_trat_m_t}}</td>
               <td>{{$max_trat_p_t}}</td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>{{$max_trat_t_ph}}</td>
+              <td>{{$max_trat_m_ph}}</td>
+              <td>{{$max_trat_prom_ph}}</td>
 
             </tr>
              <tr id="totales">
@@ -247,9 +247,9 @@ font-weight: bold;
               <td>{{$prom_min_trat_t}}</td>
               <td>{{$prom_min_trat_m_t}}</td>
               <td>{{$prom_min_trat_p_t}}</td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>{{$prom_min_trat_t_ph}}</td>
+              <td>{{$prom_max_trat_m_ph}}</td>
+              <td>{{$prom_prom_trat_ph}}</td>
 
             </tr>
 
