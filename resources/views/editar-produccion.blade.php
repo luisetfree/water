@@ -84,7 +84,14 @@
        <!-- @method('put') Permitirá actualizar valores -->
 
         <!-- Fecha -->
-       <input type="date" name="fecha" value="" required="required">
+       <input type="date" name="fecha" value="                       
+                                             
+
+                        
+
+
+
+       " required="required">
 
         <!-- Select mostrará unicamente las horas que hacen falta agregar al registro diario -->
        <label for="hora">Hora</label>

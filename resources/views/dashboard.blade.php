@@ -107,6 +107,8 @@ font-weight: bold;
                 <th scope="col">EB1</th>
                 <th scope="col">EB2</th>
                 <th scope="col">EB3</th>
+                <th scope="col">Aporte ZN</th>
+                <th scope="col">Las Pavas</th>
               </tr>
             </thead>
             <tbody>
@@ -114,11 +116,14 @@ font-weight: bold;
             @for($i=1; $i<count($bt_prod); $i++)
               <tr>
                 <th scope="row">{{$i}}</th>
-                <td>{{$bt_prod[$i]}} </td>
-                <td>{{$eb1_prod[$i]}}</td>
-                <td>{{$eb2_prod[$i]}}</td>
-                <td>{{$eb3_prod[$i]}}</td>
+                <td>{{number_format($bt_prod[$i])}} </td>
+                <td>{{number_format($eb1_prod[$i])}}</td>
+                <td>{{number_format($eb2_prod[$i])}}</td>
+                <td>{{number_format($eb3_prod[$i])}}</td>
+                <td>{{ number_format($aporte_ec[$i])}}</td>
+                <td>B</td>
               </tr>
+
 
 
             @endfor
@@ -129,6 +134,7 @@ font-weight: bold;
               <td>{{$total_eb1}}</td>
               <td>{{$total_eb2}}</td>
               <td>{{$total_eb3}}</td>
+              <td>t</td>
             </tr>
             
             </tbody>

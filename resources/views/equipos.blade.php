@@ -101,7 +101,7 @@
 
              
               <!-- Filtra la fecha que se desea ver -->
-            <div class="col-sm-4">
+            <div class="grid-container">
               <label>Fecha</label>
              <input type="date" class=" form-control"  name="fecha" required="" value="{{$fechas}}"/> <br>
               
@@ -109,7 +109,7 @@
 
             </div>
               <div class="col-sm-8">
-                <label>Operación</label>
+                <h5>Operación</h5>
                 <table>
 
                     <tr>

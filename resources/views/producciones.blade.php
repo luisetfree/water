@@ -34,7 +34,7 @@
 .grid-container {
   display: grid;
   /*auto representa cada columna*/
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto auto  ;
   grid-template-rows: 35px 70px;
   gap: 10px;
   
@@ -93,8 +93,8 @@
 
              
               <!-- Filtra la fecha que se desea ver -->
-            <div class="col-sm-4">
-              <label>Fecha</label>
+            <div class="grid-container">
+              <label for="fecha">Fecha</label>
              <input type="date" class=" form-control"  name="fecha" required="" value="{{$fecha}}"/> <br>
               
                <button type="submit" class="btn btn-outline-primary">Ver</button>
