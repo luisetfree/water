@@ -113,17 +113,17 @@
                         <th>EB2</th>
                         <th>EB3</th>
                         <th>Aporte ZN</th>
-                        <th>Las Pavas</th>
+                        <th>Tanque Las Pavas</th>
 
                     </tr>
 
                     <tr>
-                        <td>{{$suma_bocatoma}} m³/d</td>
-                        <td>{{$suma_eb1}} m³/d</td>
-                        <td>{{$suma_eb2}} m³/d</td>
-                        <td>{{$suma_eb3}} m³/d</td>
-                        <td>{{$aporte_zn}} m³/d</td>
-                        <td> m³/d</td>
+                        <td>{{number_format($suma_bocatoma)}} m³/d</td>
+                        <td>{{number_format($suma_eb1)}} m³/d</td>
+                        <td>{{number_format($suma_eb2)}} m³/d</td>
+                        <td>{{number_format($suma_eb3)}} m³/d</td>
+                        <td>{{number_format($aporte_zn)}} m³/d</td>
+                        <td> {{number_format($aporte_tanque_pavas) }} m³/d</td>
                     </tr>
 
                 </table>
