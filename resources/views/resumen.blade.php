@@ -571,7 +571,22 @@
               <input type="hidden" id="" name="id_viejo" class="form-control" value="7" >
               
             </div>
+
+
+            <!-- Se verifica que no se haya agregado un valor anteriormente a Tanque Las Pavas durante el dia, de lo contrario no se mostrarán los controles en la vista -->
+            @if( empty($tanque_pavas ))
+             <div class="form-group" >
+                <h5>Tanque Las Pavas</h5>
+              
+              <label for="">Aporte (m³/d)</label>
+              <input type="text" id="" name="aporte_pavas" class="form-control" placeholder="Tanque Las Pavas">
             
+              <input type="hidden" id="" name="id_pavas" class="form-control" value="8" >
+              
+            </div>
+            
+            @endif
+           
                     
 
 

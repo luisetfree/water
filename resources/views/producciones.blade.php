@@ -113,6 +113,7 @@
                         <th>EB2</th>
                         <th>EB3</th>
                         <th>Aporte ZN</th>
+                        <th>Las Pavas</th>
 
                     </tr>
 
@@ -122,6 +123,7 @@
                         <td>{{$suma_eb2}} m³/d</td>
                         <td>{{$suma_eb3}} m³/d</td>
                         <td>{{$aporte_zn}} m³/d</td>
+                        <td> m³/d</td>
                     </tr>
 
                 </table>

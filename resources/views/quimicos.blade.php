@@ -184,8 +184,8 @@
         <label for="">Fecha</label>
         <input type="date" name="fecha" required>
         <label for="">Hora</label>
-        <!-- <input type="text" name="hora" placeholder="00:00" required> -->
-         <select name="hora">
+         <input type="text" name="hora" placeholder="Formato: 00:00" required> 
+        <!--  <select name="hora">
           @for($i = 1; $i < 25; $i++)
 
 
@@ -199,7 +199,7 @@
 
           @endfor
           
-        </select>
+        </select> -->
         <label for="">Grupo de turno</label>
         <select name="grupo">
                 

@@ -76,7 +76,7 @@ font-weight: bold;
         
         <a href="http://127.0.0.1:8000"> <i class="fas fa-home"></i> </a>
         <!-- Fecha -->
-        <label >Fecha:</label>
+        <label >Mes/Año:</label>
         <input class="" type="date" name="fecha" value="{{$fecha}}">
         <button class="btn btn-outline-success" type="submit">Ver</button>
       </div>
