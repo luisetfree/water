@@ -120,7 +120,7 @@ font-weight: bold;
                 <td>{{number_format($eb1_prod[$i])}}</td>
                 <td>{{number_format($eb2_prod[$i])}}</td>
                 <td>{{number_format($eb3_prod[$i])}}</td>
-                <td>{{ number_format($aporte_ec[$i])}}</td>
+                <td>{{ number_format($eb2_prod[$i]-$eb3_prod[$i])}}</td><!-- Calculo de aporte a zona norte -->
                 <td>B</td>
               </tr>
 
@@ -130,11 +130,11 @@ font-weight: bold;
 
             <tr id="totales">
               <td>Total</td>
-              <td>{{$total_bt}}</td>
-              <td>{{$total_eb1}}</td>
-              <td>{{$total_eb2}}</td>
-              <td>{{$total_eb3}}</td>
-              <td>t</td>
+              <td>{{number_format($total_bt)}}</td>
+              <td>{{number_format($total_eb1)}}</td>
+              <td>{{number_format($total_eb2)}}</td>
+              <td>{{number_format($total_eb3)}}</td>
+              <td>{{number_format($total_eb2-$total_eb3)}}</td><!-- total de aporte a zona norte -->
             </tr>
             
             </tbody>
