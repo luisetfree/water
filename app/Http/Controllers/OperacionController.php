@@ -1006,7 +1006,4 @@ $conteo= DB::table('operacions')
 
 
 
-
-
-
 }

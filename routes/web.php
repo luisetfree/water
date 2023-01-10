@@ -7,6 +7,7 @@ use App\Http\Controllers\ProduccionController;
 use App\Http\Controllers\OperacionController;
 use App\Http\Controllers\CalidadController;
 use App\Http\Controllers\CargaController;
+use App\Http\Controllers\SuspensionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,9 @@ resumen todos los valores almacenados en la tabla Produccion.*/
 
 /*Utilizando este metodo se muestra por defecto los valores de Bocatoma desde el metodo index*/
 Route::get('/resumen', [ProduccionController::class, 'index']);
+
+/*Muestra Paro de operaciones*/
+Route::get('/paros', [SuspensionController::class, 'index']);
 
 /*Muestra el dashboard resumen*/
 Route::get('/dashboard', [ProduccionController::class, 'dashboard']);

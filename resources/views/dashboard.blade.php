@@ -135,6 +135,7 @@ font-weight: bold;
               <td>{{number_format($total_eb2)}}</td>
               <td>{{number_format($total_eb3)}}</td>
               <td>{{number_format($total_eb2-$total_eb3)}}</td><!-- total de aporte a zona norte -->
+              <td>{{$suma_pavas}}</td><!--Sumatoria de aporte tanque Las Pavas-->
             </tr>
             
             </tbody>
