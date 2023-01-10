@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('hora_inicio');
             $table->string('hora_fin');
             $table->string('causa');
+            $table->string('grupo');
 
             $table->unsignedBigInteger('id_estacion');
     

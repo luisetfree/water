@@ -116,3 +116,6 @@ Route::post('dashboard', [ProduccionController::class, 'dashboard']);
 
 /*Filtra y muestra por quimico que se necesita ver en la vista QUIMICOS */
 Route::post('quimico', [CargaController::class, 'index']);
+
+/*Procesa y gurada en la BD la informacion de una suspension del formulario de la vista PAROS*/
+Route::post('suspension', [SuspensionController::class, 'store']);

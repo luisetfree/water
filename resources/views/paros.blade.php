@@ -179,7 +179,7 @@
 
 
 
-      <form name="" id="" method="post" action="{{url('')}}">
+      <form name="" id="" method="post" action="{{url('suspension')}}">
        @csrf
        
        <div class="">
@@ -190,10 +190,13 @@
         <label for="cantidad">Estación:</label>
         <!-- Lista que se llena con los quimicos que se encuentran en la DB, en el valor se almacena 
           el id que servirá para guardar la carga-->
-        <select name="idquimico">
+        <select name="id_estacion">
           
 
-            <option value=""></option>
+            <option value="1">BT</option>
+            <option value="2">EB1</option>
+            <option value="3">EB2</option>
+            <option value="4">EB3</option>
 
           
 
@@ -203,15 +206,25 @@
         <label for="">Fecha:</label>
         <input type="date" name="fecha" required>
 <br>
-        <label for="cantidad">Suspensión:</label>
-        <input id="cantidad" type="number" name="" placeholder="Hora " required>
+        <label for="cantidad">Hora suspensión:</label>
+        <input id="cantidad" type="text" name="hora_inicio" placeholder="00:00" required>
         
-        <input id="cantidad" type="number" name="" placeholder="Minutos " required>
+        
         <br>
         
-        <label for="">Arranque:</label>
-         <input type="number" name="" placeholder="Hora" required> 
-         <input type="number" name="" placeholder="Minutos" required> 
+        <label for="">Hora arranque:</label>
+         <input type="text" name="hora_fin" placeholder="00:00" required> 
+         <br>
+         <label for="">Causa:</label>
+         <select name="causa">
+         
+            <option value="Corte de energía">Corte de energía</option>
+            <option value="Alta Turbidez en rio">Alta Turbidez en rio</option>
+            <option value="Paro programado">Paro programado</option>
+
+        
+         </select>
+         
          <br>
         
         <label for="">Grupo de turno:</label>
