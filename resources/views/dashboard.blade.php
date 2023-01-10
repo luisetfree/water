@@ -121,7 +121,7 @@ font-weight: bold;
                 <td>{{number_format($eb2_prod[$i])}}</td>
                 <td>{{number_format($eb3_prod[$i])}}</td>
                 <td>{{ number_format($eb2_prod[$i]-$eb3_prod[$i])}}</td><!-- Calculo de aporte a zona norte -->
-                <td>B</td>
+                <td>{{$pavas_aporte[$i]}}</td>
               </tr>
 
 

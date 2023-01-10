@@ -1795,6 +1795,7 @@ $id_eb1=2;
 $id_eb2=3;
 $id_eb3=4;
 $id_polialta=10;
+$id_tanquePavas=8;
 
 
 $dias=array();
@@ -2013,13 +2014,34 @@ $total_eb2=$this->sumaTotalCaudal($dias,$id_eb2);
 $total_eb3=$this->sumaTotalCaudal($dias,$id_eb3);
 
 
+$pavas_aporte=array();
 
-
-
-
-
-return view('dashboard', compact('fecha','bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph','nivel_rio','nivel_reservorio','nivel_reser_min','nivel_reser_max','nivel_reser_prom','poli_alta','sulf','pol_b','perma','carbon_','hipo','cal_','pac_','clor_','total_bt','total_eb1','total_eb2','total_eb3','promedio_nivel_rio','min_cruda_t','max_cruda_t','prom_cruda_t','min_cruda_m','max_cruda_m','prom_cruda_m','min_crud_ph_t','max_crud_ph_t','min_crud_ph_t1','max_crud_ph_t1','min_prom_ph_t','max_prom_ph_t','prom_max_prom_ph_t','min_cruda_t_prom','max_cruda_t_prom','prom_prom_cruda','prom_min_crud_ph_t','prom_max_ph_t','min_trat_t','max_trat_t','prom_min_trat_t','min_trat_m_t','max_trat_m_t','prom_min_trat_m_t','min_trat_p_t','max_trat_p_t','prom_min_trat_p_t','min_trat_t_ph','max_trat_t_ph','prom_min_trat_t_ph','min_trat_m_ph','max_trat_m_ph','prom_max_trat_m_ph','min_trat_prom_ph','max_trat_prom_ph','prom_prom_trat_ph'));
+for ($i=1; $i < count($dias); $i++) { 
+    $pavas_aporte[$i]=$this->aportePavas($dias[$i],$id_tanquePavas);
 }
+
+
+return view('dashboard', compact('fecha','bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph','nivel_rio','nivel_reservorio','nivel_reser_min','nivel_reser_max','nivel_reser_prom','poli_alta','sulf','pol_b','perma','carbon_','hipo','cal_','pac_','clor_','total_bt','total_eb1','total_eb2','total_eb3','promedio_nivel_rio','min_cruda_t','max_cruda_t','prom_cruda_t','min_cruda_m','max_cruda_m','prom_cruda_m','min_crud_ph_t','max_crud_ph_t','min_crud_ph_t1','max_crud_ph_t1','min_prom_ph_t','max_prom_ph_t','prom_max_prom_ph_t','min_cruda_t_prom','max_cruda_t_prom','prom_prom_cruda','prom_min_crud_ph_t','prom_max_ph_t','min_trat_t','max_trat_t','prom_min_trat_t','min_trat_m_t','max_trat_m_t','prom_min_trat_m_t','min_trat_p_t','max_trat_p_t','prom_min_trat_p_t','min_trat_t_ph','max_trat_t_ph','prom_min_trat_t_ph','min_trat_m_ph','max_trat_m_ph','prom_max_trat_m_ph','min_trat_prom_ph','max_trat_prom_ph','prom_prom_trat_ph','pavas_aporte'));
+}
+
+/*Obtiene el Aporte a tanque Las Pavas para una fecha determinada*/
+public function aportePavas($fecha,$id_pavas)
+{
+     $aporte = DB::table('produccions')
+                ->select('caudal')
+                ->where('fecha' ,'=', $fecha)
+                ->where('id_estacion' ,'=' ,$id_pavas)
+                ->get();
+
+                foreach ($aporte as $dato) {
+                   return $dato->caudal;
+                }
+
+               // return $aporte;
+
+                
+}
+
 
 //Realiza la sumatoria de las cargas de quimicos y los llena los 31 dias del mes
 public function sumaTotalCargas($dias,$id_quimico)
