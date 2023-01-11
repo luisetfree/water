@@ -88,6 +88,7 @@
             border: solid #e5e3e3;
             margin: 1%;
             width: 100%;
+            text-align: center;
 
 
             }
@@ -281,14 +282,12 @@
           <!-- Listado de quimicos a mostrar -->
           <label>Estación:</label>
 
-           <select name="idquimico">
-                    
-
-                      <option value=""></option>
-
-                    
-
-                     
+           <select name="id_estacion">
+   
+                      <option value="1">BT</option>
+                      <option value="2">EB1</option>
+                      <option value="3">EB2</option>
+                      <option value="4">EB3</option>
 
             </select>
             <button class="btn btn-outline-success" type="submit">Mostrar</button>
@@ -297,7 +296,7 @@
 
 
 
-
+<!-- Tabla que muestra el historial de los paros  -->
             <table class="table">
 
               <thead class="thead-light">
@@ -318,16 +317,19 @@
             
 
           <!-- Fecha  Quimico   Carga   Hora  Grupo -->
+          @foreach($total_paros as $dato)
                 <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                      
+                      <td>{{$dato->fecha}}</td>
+                      <td>{{$dato->nombre}}</td>
+                      <td>{{$dato->hora_inicio}}</td>
+                      <td>{{$dato->hora_fin}}</td>
+                      <td>{{intval($dato->hora_fin)-intval($dato->hora_inicio)}}</td>
+                      <td>{{$dato->causa}}</td>
+                      
                 </tr>
-
-            
+          
+          @endforeach
            
 
 

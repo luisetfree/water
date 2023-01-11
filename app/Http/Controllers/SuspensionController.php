@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Suspension;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class SuspensionController extends Controller
 {
     /**
@@ -15,8 +15,21 @@ class SuspensionController extends Controller
     public function index()
     {
        
+       $fecha=date('Y-m-d');
+       $id_bt=1;
+       $id_eb1=2;
+       $id_eb2=3;
+       $id_eb3=4;
+
+       $total_paros=$this->buscaParo($fecha);
+       $tiempo=0;
+
+       foreach ($total_paros as $time) {
+           $tiempo=intval($time->hora_inicio)-intval($time->hora_fin);
+       }
+
     
-        return view('paros');
+        return view('paros',compact('total_paros'));
 
 
     }
@@ -39,7 +52,11 @@ class SuspensionController extends Controller
      */
     public function store(Request $request)
     {
-        //asignacion de variables y valores procedentes del formulario de la vista PAROS
+        if (empty($request)) {
+            return $this->index();
+        }else{
+
+             //asignacion de variables y valores procedentes del formulario de la vista PAROS
         $id_estacion= $request->id_estacion;
         $fecha=$request->fecha;
         $hora_inicio=$request->hora_inicio;//hora en que inicia el paro de operacion
@@ -47,7 +64,7 @@ class SuspensionController extends Controller
         $causa=$request->causa;
         $grupo_turno=$request->grupo;
 
-
+//Guardando los datos recibidos desde el formulario
         $paro = new Suspension;
         $paro->fecha=$fecha;
         $paro->hora_inicio=$hora_inicio;
@@ -58,8 +75,15 @@ class SuspensionController extends Controller
 
         $paro->save();
 
+    
+
 
         return $this->index();
+
+        }
+
+
+       
     }
 
     /**
@@ -71,6 +95,8 @@ class SuspensionController extends Controller
     public function show(Suspension $suspension)
     {
         //
+
+        return $suspension;
     }
 
     /**
@@ -106,4 +132,21 @@ class SuspensionController extends Controller
     {
         //
     }
+
+    //Devuelve todos los paros registrados en una fecha determinada para una estacion
+    public function buscaParo($fecha)
+    {
+        $paros=DB::table('suspensions')
+                ->join('estacions', 'suspensions.id_estacion', '=', 'estacions.id')
+                ->where('fecha','=',$fecha)
+                //->where('id_estacion', '=', $estacion)
+                ->get();
+
+
+              
+                return $paros;
+        
+    }
+
+
 }
