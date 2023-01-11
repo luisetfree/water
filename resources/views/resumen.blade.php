@@ -131,8 +131,17 @@
     </div>
     <div class="card-body">
 
+<!-- Formulario exclusivo para mostrar una fecha determinada -->
+        <form name="add-blog-post-form" id="add-blog-post-form" method="post" action="{{url('muestra')}}">
+       @csrf
+
+        <input type="date" name="fecha" value="{{$fecha}}">  
+        <button type="submit" class="btn btn-outline-primary">Mostrar</button>
 
 
+        </form>
+
+<!-- Formulario exclusivo para guardar toda la informacion -->
       <form name="add-blog-post-form" id="add-blog-post-form" method="post" action="{{url('store-form')}}">
        @csrf
        

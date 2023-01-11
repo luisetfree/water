@@ -40,7 +40,7 @@ resumen todos los valores almacenados en la tabla Produccion.*/
 
 
 /*Utilizando este metodo se muestra por defecto los valores de Bocatoma desde el metodo index*/
-Route::get('/resumen', [ProduccionController::class, 'index']);
+Route::get('/resumen{fecha}', [ProduccionController::class, 'index']);
 
 /*Muestra Paro de operaciones*/
 Route::get('/paros', [SuspensionController::class, 'index']);
@@ -84,6 +84,10 @@ Route::post('/calidades', [CalidadController::class, 'store']);
 /*Maneja la busqueda de calidades por fecha y las muestra */
 Route::post('muestra', [CalidadController::class, 'buscar']);
 
+/*Recibe de la vista Resumen la fecha que el usuario selecciono para cambiar los datos de la vista */
+Route::post('muestra', [ProduccionController::class, 'cargarFecha']);
+
+
 /*Maneja la busqueda de los datos de bitacora por fecha*/
 Route::post('bitacora', [CalidadController::class, 'cargarBitacora']);
 
@@ -119,3 +123,4 @@ Route::post('quimico', [CargaController::class, 'index']);
 
 /*Procesa y gurada en la BD la informacion de una suspension del formulario de la vista PAROS*/
 Route::post('suspension', [SuspensionController::class, 'store']);
+

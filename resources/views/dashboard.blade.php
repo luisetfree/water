@@ -76,7 +76,8 @@ font-weight: bold;
         
         <a href="http://127.0.0.1:8000"> <i class="fas fa-home"></i> </a>
         <!-- Fecha -->
-        <label >Mes/Año:</label>
+        <label >Fecha:</label>
+
         <input class="" type="date" name="fecha" value="{{$fecha}}">
         <button class="btn btn-outline-success" type="submit">Ver</button>
       </div>
@@ -95,9 +96,8 @@ font-weight: bold;
       <div class="card">
         <section class="card-header" >
           <h6>  Producción del mes (m³) </h6>
+          <br>
           
-          <br>
-          <br>
 
           <table class=" table-striped">
             <thead>
@@ -301,6 +301,7 @@ font-weight: bold;
 <div class="card">
         <section class="card-header">
           <p> Nivel del Rio </p>
+          <br>
           <table class=" table-striped">
             <thead>
               <tr>
@@ -341,6 +342,7 @@ font-weight: bold;
 <div class="card">
         <section class="card-header">
           <p> Nivel Reservorio</p>
+          <br>
           <table class=" table-striped">
             <thead>
               <tr>
@@ -395,6 +397,7 @@ font-weight: bold;
       <div class="card">
         <section class="card-header">
           <p> Consumo mensual de químicos </p>
+          <br>
           <table class=" table-striped">
             <thead>
               <tr>
