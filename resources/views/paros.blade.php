@@ -219,9 +219,18 @@
          <label for="">Causa:</label>
          <select name="causa">
          
-            <option value="Corte de energía">Corte de energía</option>
+            <option value="Corte de energía en BT">Corte de energía en BT</option>
+            <option value="Corte de energía en EB1">Corte de energía en EB1</option>
+            <option value="Corte de energía en EB2">Corte de energía en EB2</option>
+            <option value="Corte de energía en EB3">Corte de energía en EB3</option>
+            <option value="Variación de voltaje en BT">Variación de voltaje en BT</option>
+            <option value="Variación de voltaje en EB1">Variación de voltaje en EB1</option>
+            <option value="Variación de voltaje en EB2">Variación de voltaje en EB2</option>
+            <option value="Variación de voltaje en EB3">Variación de voltaje en EB3</option>
             <option value="Alta Turbidez en rio">Alta Turbidez en rio</option>
-            <option value="Paro programado">Paro programado</option>
+            <option value="Paro programado interno">Paro programado interno</option>
+            <option value="Paro programado externo">Paro programado externo</option>
+            <option value="Falla en linea de producción">Falla en linea de producción</option>
 
         
          </select>
@@ -324,16 +333,59 @@
                       <td>{{$dato->nombre}}</td>
                       <td>{{$dato->hora_inicio}}</td>
                       <td>{{$dato->hora_fin}}</td>
-                      <td>{{intval($dato->hora_fin)-intval($dato->hora_inicio)}}</td>
+                      <!-- Calculo de tiempo suspendido -->
+                      <td>
+
+ <?php 
+            //separando horas y minutos
+            $minutos_inicio=explode(':',$dato->hora_inicio);
+            $minutos_fin=explode(':',$dato->hora_fin);
+
+            //resta de las horas
+            $tiempo=intval($dato->hora_fin)-intval($dato->hora_inicio);
+
+            $rest_minutos=($minutos_fin[1]-$minutos_inicio[1]);
+
+            //validacion para que a un valor negativo le sean sumados 60 minutos, de esta forma se obtiene el valor real
+            if ($rest_minutos < 0) {
+                $rest_minutos=$rest_minutos + 60;
+                //reajustando las horas, pues al ser minutos negativos se debe disminuir una hora de la resta de las horas
+                $tiempo = $tiempo - 1;
+            }
+
+
+
+            //formando nuevamente la hora completa a formato 00:00
+            if ($rest_minutos < 10) {
+                // si obtenemos minutos abajo de 10 le anteponemos un 0
+                 $hora=$tiempo.':0'.$rest_minutos;
+            }
+            else{ 
+
+                $hora=$tiempo.':'.$rest_minutos;
+            }
+           
+            
+            echo $hora;
+
+ ?>
+
+                      </td>
                       <td>{{$dato->causa}}</td>
+                      
+                      
                       
                 </tr>
           
+
+
           @endforeach
            
+         
 
-
-                 
+            
+         
+             
               </tbody>
             </table>
 

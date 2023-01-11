@@ -20,16 +20,26 @@ class SuspensionController extends Controller
        $id_eb1=2;
        $id_eb2=3;
        $id_eb3=4;
-
+       //obteniendo los paros realizados en la fecha 
        $total_paros=$this->buscaParo($fecha);
        $tiempo=0;
 
-       foreach ($total_paros as $time) {
-           $tiempo=intval($time->hora_inicio)-intval($time->hora_fin);
-       }
+      
+         
+
+       
+       
+        $array = []; 
+     
+       $sum_minutes = 0;
+          foreach($array as $time) {
+              $explodedTime = array_map('intval', explode(':', $time ));
+              $sum_minutes += $explodedTime[0]*60+$explodedTime[1];
+          }
+        $sumTime = floor($sum_minutes/60).':'.floor($sum_minutes % 60);
 
     
-        return view('paros',compact('total_paros'));
+        return view('paros',compact('total_paros','sumTime','tiempo'));
 
 
     }
@@ -146,6 +156,47 @@ class SuspensionController extends Controller
               
                 return $paros;
         
+    }
+
+    /*Funcion que calcula el tiempo transcurrido (suspendido) entre dos horas*/
+    public function tiempoSuspendido($hora_ini,$hora_fin)
+    {
+          //$tiempo_suspendido=array();
+
+       
+           //separando los minutos para realizar resta
+            $minutos_inicio=explode(':',$hora_ini);
+            $minutos_fin=explode(':',$hora_fin);
+
+            //resta de las horas
+            $tiempo=intval($hora_fin)-intval($hora_ini);
+
+            $rest_minutos=($minutos_fin[1]-$minutos_inicio[1]);
+
+            //validacion para que a un valor negativo le sean sumados 60 minutos, de esta forma se obtiene el valor real
+            if ($rest_minutos < 0) {
+                $rest_minutos=$rest_minutos + 60;
+                //reajustando las horas, pues al ser minutos negativos se debe disminuir una hora de la resta de las horas
+                $tiempo = $tiempo - 1;
+            }
+
+
+
+            //formando nuevamente la hora completa a formato 00:00
+            if ($rest_minutos < 10) {
+                // si obtenemos minutos abajo de 10 le anteponemos un 0
+                 $hora=$tiempo.':0'.$rest_minutos;
+            }
+            else{ 
+
+                $hora=$tiempo.':'.$rest_minutos;
+            }
+           
+            
+            return $hora;
+
+
+       
     }
 
 
