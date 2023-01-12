@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class SuspensionController extends Controller
 {
     /**
-     * Controla la vista Paros y carga la informacion necesaria sobre los paros de operacion del mes en cuestion
+     * Controla la vista Paros y carga la informacion necesaria sobre los paros de operacion, utilizamos fecha actual
      *
      * @return \Illuminate\Http\Response
      */
@@ -20,26 +20,14 @@ class SuspensionController extends Controller
        $id_eb1=2;
        $id_eb2=3;
        $id_eb3=4;
-       //obteniendo los paros realizados en la fecha 
-       $total_paros=$this->buscaParo($fecha);
-       $tiempo=0;
+       //Para index dejamos vacio este campo pues no nos intereza filtrar la info por estacion
+       $id_estacion='';
 
-      
-         
-
+       //retornamos la funcion y esta ultima manda a la vista todos los valores
+       return $this->buscaParo($fecha,$id_estacion);
        
-       
-        $array = []; 
-     
-       $sum_minutes = 0;
-          foreach($array as $time) {
-              $explodedTime = array_map('intval', explode(':', $time ));
-              $sum_minutes += $explodedTime[0]*60+$explodedTime[1];
-          }
-        $sumTime = floor($sum_minutes/60).':'.floor($sum_minutes % 60);
 
-    
-        return view('paros',compact('total_paros','sumTime','tiempo'));
+        //return view('paros',compact('total_paros'));
 
 
     }
@@ -144,17 +132,32 @@ class SuspensionController extends Controller
     }
 
     //Devuelve todos los paros registrados en una fecha determinada para una estacion
-    public function buscaParo($fecha)
-    {
-        $paros=DB::table('suspensions')
-                ->join('estacions', 'suspensions.id_estacion', '=', 'estacions.id')
-                ->where('fecha','=',$fecha)
-                //->where('id_estacion', '=', $estacion)
-                ->get();
+    public function buscaParo($fecha, $estacion)
+    {$total_paros='';
+
+        //si el parametro de estacion no fue pasado se devuelven solo los paros para una fecha determinada
+        if (empty($estacion )) {
+             $total_paros=DB::table('suspensions')
+                        ->join('estacions', 'suspensions.id_estacion', '=', 'estacions.id')
+                        ->where('fecha','=',$fecha)
+                        //->where('id_estacion', '=', $estacion)
+                        ->get();
+        }//caso contrario se utiliza estacion para filtrar la busqueda
+        else
+        {
+
+                $total_paros=DB::table('suspensions')
+                        ->join('estacions', 'suspensions.id_estacion', '=', 'estacions.id')
+                        ->where('fecha','=',$fecha)
+                        ->where('id_estacion', '=', $estacion)
+                        ->get();
+
+        }
+               
 
 
-              
-                return $paros;
+              return view('paros',compact('total_paros'));
+                //return $paros;
         
     }
 
@@ -198,6 +201,23 @@ class SuspensionController extends Controller
 
        
     }
+
+
+/**
+* Obtiene la informacion para filtrar un corte de operacion en especial
+* @param  \Illuminate\Http\Request  $request
+*/
+function filtroCortes(Request $request)
+{
+    $fecha=$request->fecha;
+    $id_estacion=$request->id_estacion;
+
+    return $this->buscaParo($fecha,$id_estacion);
+
+
+
+}
+
 
 
 }

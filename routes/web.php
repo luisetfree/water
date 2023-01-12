@@ -124,3 +124,8 @@ Route::post('quimico', [CargaController::class, 'index']);
 /*Procesa y gurada en la BD la informacion de una suspension del formulario de la vista PAROS*/
 Route::post('suspension', [SuspensionController::class, 'store']);
 
+/*Captura y procesa: fecha y estacion de la cual se desean filtrar los paros de operacion en la vista PAROS*/
+Route::post('filtrar-cortes', [SuspensionController::class, 'filtroCortes']);
+
+
+

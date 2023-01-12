@@ -66,7 +66,7 @@
             .grid-container {
                 /*grid*/
               display: grid;
-              grid-template-columns: 800px 800px ;
+              grid-template-columns: 850px 850px;
               
               /*border: solid #e5e3e3;*/
              
@@ -285,7 +285,7 @@
 <section class="card-body">
 
 
-          <form name="" id="" method="post" action="{{url('') }}">
+          <form name="" id="" method="post" action="{{url('filtrar-cortes') }}">
           @csrf
 
           <!-- Listado de quimicos a mostrar -->
@@ -299,6 +299,7 @@
                       <option value="4">EB3</option>
 
             </select>
+            <input type="date" name="fecha" required>
             <button class="btn btn-outline-success" type="submit">Mostrar</button>
           </form>
 
@@ -316,6 +317,7 @@
                   <th>Hora Fin</th>
                   <th>Tiempo suspendido</th>
                   <th>Causa</th>
+                  <th>Editar</th>
 
 
                 </tr>
@@ -372,6 +374,11 @@
 
                       </td>
                       <td>{{$dato->causa}}</td>
+                      <td>
+                                          <a href="">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                      </td>
                       
                       
                       
