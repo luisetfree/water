@@ -98,14 +98,32 @@ class SuspensionController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
+     * Captura el id del paro enviado desde la vista PAROS y lo manda a la vista editarParo
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Suspension  $suspension
      * @return \Illuminate\Http\Response
      */
-    public function edit(Suspension $suspension)
+    public function edit($id)
     {
-        //
+        //return $suspension->id;
+        $datos_paro=$this->precargarParo($id);
+        return view('editar-paros',compact('datos_paro'));
+    }
+
+    //Obtiene los datos de un paro en especifico mediante el ID
+    public function precargarParo($id)
+    {
+        $datos= DB::table('suspensions')
+        ->where('id','=',$id)
+        ->get();
+
+        //extrayendo los valores para ser accedido directamente desde la vista editarParo
+        foreach ($datos as $valor) {
+            $valor;
+        }
+
+
+        return $valor;
     }
 
     /**
@@ -139,8 +157,8 @@ class SuspensionController extends Controller
         if (empty($estacion )) {
              $total_paros=DB::table('suspensions')
                         ->join('estacions', 'suspensions.id_estacion', '=', 'estacions.id')
+                        ->select('suspensions.id','suspensions.fecha','suspensions.hora_inicio','suspensions.hora_fin','suspensions.causa','suspensions.id_estacion','suspensions.grupo','estacions.nombre')
                         ->where('fecha','=',$fecha)
-                        //->where('id_estacion', '=', $estacion)
                         ->get();
         }//caso contrario se utiliza estacion para filtrar la busqueda
         else
@@ -148,6 +166,7 @@ class SuspensionController extends Controller
 
                 $total_paros=DB::table('suspensions')
                         ->join('estacions', 'suspensions.id_estacion', '=', 'estacions.id')
+                        ->select('suspensions.id','suspensions.fecha','suspensions.hora_inicio','suspensions.hora_fin','suspensions.causa','suspensions.id_estacion','suspensions.grupo','estacions.nombre')
                         ->where('fecha','=',$fecha)
                         ->where('id_estacion', '=', $estacion)
                         ->get();
@@ -156,7 +175,7 @@ class SuspensionController extends Controller
                
 
 
-              return view('paros',compact('total_paros'));
+              return view('paros',compact('total_paros','fecha'));
                 //return $paros;
         
     }

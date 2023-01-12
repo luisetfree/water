@@ -42,6 +42,11 @@ resumen todos los valores almacenados en la tabla Produccion.*/
 /*Utilizando este metodo se muestra por defecto los valores de Bocatoma desde el metodo index*/
 Route::get('/resumen{fecha}', [ProduccionController::class, 'index']);
 
+/*Muestra el formulario para editar un paro de operacion en especifico*/
+Route::get('/editarParo{id_paro}', [SuspensionController::class, 'edit']);
+
+
+
 /*Muestra Paro de operaciones*/
 Route::get('/paros', [SuspensionController::class, 'index']);
 

@@ -21,27 +21,7 @@
   <!-- Fin barra menu -->
 
     <style>
-        table {
-          font-family: times, sans-serif;
-          border-collapse: collapse;
-          width: 50%;
-        }
-
-        td, th {
-          border: 1px solid #e5e3e3;
-          text-align: center;
-          padding: 4px;
-          font-size: 16px;
-        }
-        /*maneja los encabezados de las tablas*/
-        th {
-        background-color: #e5e3e3;
-        }
-
-        tr:nth-child(even) {
-          /* background-color: #dddddd;*/
-
-        }
+        
 
           .card{
             margin: 2%;
@@ -53,20 +33,13 @@
   
           }
 
-            /*Centrando todo el contenido*/
-            .container{
-
-
-               /*display: flex;*/
-              /*justify-content: center;*/
-
-            }
+         
 
               /*Div donde estan internamente los elementos del formulario*/
             .grid-container {
                 /*grid*/
               display: grid;
-              grid-template-columns: 850px 850px;
+              grid-template-columns: 850px ;
               
               /*border: solid #e5e3e3;*/
              
@@ -172,7 +145,7 @@
   @endif
   <div class="card">
     <div class="card-header text-center font-weight-bold">
-      Registro de paro de operación
+      Editar paro de operación
 
     </div>
     <div id="formulario" class="card-body ">
@@ -180,7 +153,7 @@
 
 
 
-      <form name="" id="" method="post" action="{{url('suspension')}}">
+      <form name="" id="" method="post" action="{{url('')}}">
        @csrf
        
        <div class="">
@@ -205,20 +178,20 @@
 
         </select>
         <label for="">Fecha:</label>
-        <input type="date" name="fecha" value="{{$fecha}}" required>
+        <input type="date" name="fecha" value="{{$datos_paro->fecha}}" required>
 <br>
         <label for="cantidad">Hora suspensión:</label>
-        <input id="cantidad" type="text" name="hora_inicio" placeholder="00:00" required>
+        <input id="cantidad" type="text" name="hora_inicio" placeholder="00:00" value="{{$datos_paro->hora_inicio}}" required>
         
         
         <br>
         
         <label for="">Hora arranque:</label>
-         <input type="text" name="hora_fin" placeholder="00:00" required> 
+         <input type="text" name="hora_fin" placeholder="00:00" value="{{$datos_paro->hora_fin}}" required> 
          <br>
          <label for="">Causa:</label>
          <select name="causa">
-         
+            <option value="{{$datos_paro->causa}}" default >{{$datos_paro->causa}}</option>
             <option value="Corte de energía en BT">Corte de energía en BT</option>
             <option value="Corte de energía en EB1">Corte de energía en EB1</option>
             <option value="Corte de energía en EB2">Corte de energía en EB2</option>
@@ -239,7 +212,7 @@
         
         <label for="">Grupo de turno:</label>
         <select name="grupo">
-                
+                <option value="{{$datos_paro->grupo}}" default >{{$datos_paro->grupo}}</option>
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
@@ -249,6 +222,8 @@
         <br>
 
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Guardar</button>
+
+
 
 
       </div>
@@ -270,140 +245,7 @@
 
 
 
-<div class="historial">
-  
-  
 
- <!-- Tabla que muestra los cortes de operación para el mes
-
-  -->
-  <section class="card-header font-weight-bold">
-
-   Historial de cortes
-  </section>
-
-<section class="card-body">
-
-
-          <form name="" id="" method="post" action="{{url('filtrar-cortes') }}">
-          @csrf
-
-          <!-- Listado de quimicos a mostrar -->
-          <label>Estación:</label>
-
-           <select name="id_estacion">
-                      <!-- <option value="0">Todas</option> -->
-                      <option value="1">BT</option>
-                      <option value="2">EB1</option>
-                      <option value="3">EB2</option>
-                      <option value="4">EB3</option>
-
-            </select>
-            <input type="date" name="fecha" required value="{{$fecha}}">
-            <button class="btn btn-outline-success" type="submit">Mostrar</button>
-          </form>
-
-
-
-
-<!-- Tabla que muestra el historial de los paros  -->
-            <table class="table">
-
-              <thead class="thead-light">
-                <tr>
-                  <th>Fecha</th>
-                  <th>Estación</th>
-                  <th>Hora inicio</th>
-                  <th>Hora Fin</th>
-                  <th>Tiempo suspendido</th>
-                  <th>Causa</th>
-                  <th>Grupo</th>
-                  <th>Editar</th>
-
-
-                </tr>
-              </thead>
-              <tbody>
-
-
-            
-
-          <!-- Fecha  Quimico   Carga   Hora  Grupo -->
-          @foreach($total_paros as $dato)
-                <tr>
-                      
-                      <td>{{$dato->fecha}}</td>
-                      <td>{{$dato->nombre}}</td>
-                      <td>{{$dato->hora_inicio}}</td>
-                      <td>{{$dato->hora_fin}}</td>
-                      <!-- Calculo de tiempo suspendido -->
-                      <td>
-
- <?php 
-            //separando horas y minutos
-            $minutos_inicio=explode(':',$dato->hora_inicio);
-            $minutos_fin=explode(':',$dato->hora_fin);
-
-            //resta de las horas
-            $tiempo=intval($dato->hora_fin)-intval($dato->hora_inicio);
-
-            $rest_minutos=($minutos_fin[1]-$minutos_inicio[1]);
-
-            //validacion para que a un valor negativo le sean sumados 60 minutos, de esta forma se obtiene el valor real
-            if ($rest_minutos < 0) {
-                $rest_minutos=$rest_minutos + 60;
-                //reajustando las horas, pues al ser minutos negativos se debe disminuir una hora de la resta de las horas
-                $tiempo = $tiempo - 1;
-            }
-
-
-
-            //formando nuevamente la hora completa a formato 00:00
-            if ($rest_minutos < 10) {
-                // si obtenemos minutos abajo de 10 le anteponemos un 0
-                 $hora=$tiempo.':0'.$rest_minutos;
-            }
-            else{ 
-
-                $hora=$tiempo.':'.$rest_minutos;
-            }
-           
-            
-            echo $hora;
-
- ?>
-
-                      </td>
-                      <td>{{$dato->causa}}</td>
-                       <td>
-                           {{$dato->grupo}}          
-                           
-                      </td>
-                      <td>
-                                          <a href="/editarParo{{$dato->id}}">
-                                            <img src="{{ asset('img/editar.png')}}"  />
-                                          </a>
-                      </td>
-                     
-                      
-                      
-                      
-                </tr>
-          
-
-
-          @endforeach
-           
-         
-
-            
-         
-             
-              </tbody>
-            </table>
-
-  </section>
-</div>
 
 
 </div>
