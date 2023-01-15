@@ -135,6 +135,8 @@ Route::post('filtrar-cortes', [SuspensionController::class, 'filtroCortes']);
 /*Captura y procesa un paro en especifico para ser eliminado*/
 Route::post('eliminar-paro', [SuspensionController::class, 'destroy']);
 
+/*Actualizacion de datos de un paro en la BD*/
+Route::post('actualizar-paro', [SuspensionController::class, 'update']);
 
 
 

@@ -137,7 +137,7 @@
 
 
 
-      <form name="" id="" method="post" action="{{url('')}}">
+      <form name="" id="" method="post" action="{{url('actualizar-paro')}}">
        @csrf
        
        <div class="">
@@ -163,6 +163,8 @@
         </select>
         <label for="">Fecha:</label>
         <input type="date" name="fecha" value="{{$datos_paro->fecha}}" required>
+        <!-- ID del paro a actualizar -->
+        <input type="hidden" name="id_paro" value="{{$datos_paro->id}}">
 <br>
         <label for="cantidad">Hora suspensión:</label>
         <input id="cantidad" type="text" name="hora_inicio" placeholder="00:00" value="{{$datos_paro->hora_inicio}}" required>
@@ -235,7 +237,7 @@
         <form name="" id="" method="post" action="{{url('eliminar-paro')}}">
          @csrf
 
-        <!-- Elemento oculto que captura el id unico de este paro y lo utilizamos para eliminar los daots en la BD -->
+        <!-- Elemento oculto que captura el id unico de este paro y lo utilizamos para eliminar los datos en la BD -->
         <input type="hidden" name="id_paro" value="{{$datos_paro->id}}">
         <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Eliminar</button>
 

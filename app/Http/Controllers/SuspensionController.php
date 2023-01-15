@@ -127,15 +127,37 @@ class SuspensionController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in storage. Actualiza en la BD los valores editados en la vista editarParo
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Suspension  $suspension
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Suspension $suspension)
+    public function update(Request $request)
     {
         //
+        //asignacion de variables y valores procedentes del formulario de la vista editarParos
+        $id_estacion= $request->id_estacion;
+        $fecha=$request->fecha;
+        $hora_inicio=$request->hora_inicio;//hora en que inicia el paro de operacion
+        $hora_fin=$request->hora_fin;//hora que termina el paro e inicia operacion
+        $causa=$request->causa;
+        $grupo_turno=$request->grupo;
+
+//Actualizacion de los datos recibidos desde el formulario
+        $susp= Suspension::find($request->id_paro);
+        $susp->fecha=$fecha;
+        $susp->hora_inicio=$hora_inicio;
+        $susp->hora_fin=$hora_fin;
+        $susp->causa=$causa;
+        $susp->id_estacion= $id_estacion;
+        $susp->grupo= $grupo_turno;
+
+        $susp->save();
+
+
+            //retornamos al usuario a la vista principal de los paros de operacion
+        return $this->index();
     }
 
     /**
