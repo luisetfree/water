@@ -292,7 +292,7 @@
           <label>Estación:</label>
 
            <select name="id_estacion">
-                      <!-- <option value="0">Todas</option> -->
+                       <option value="0" default >Todas</option>
                       <option value="1">BT</option>
                       <option value="2">EB1</option>
                       <option value="3">EB2</option>

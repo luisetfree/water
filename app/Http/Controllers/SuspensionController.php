@@ -179,14 +179,15 @@ class SuspensionController extends Controller
     public function buscaParo($fecha, $estacion)
     {$total_paros='';
 
-        //si el parametro de estacion no fue pasado se devuelven solo los paros para una fecha determinada
+        //Si el parametro de estacion no fue pasado se devuelven solo los paros para un mes determinado (cualquier mes y cualquier año)
         if (empty($estacion )) {
              $total_paros=DB::table('suspensions')
                         ->join('estacions', 'suspensions.id_estacion', '=', 'estacions.id')
                         ->select('suspensions.id','suspensions.fecha','suspensions.hora_inicio','suspensions.hora_fin','suspensions.causa','suspensions.id_estacion','suspensions.grupo','estacions.nombre')
-                        //->where('fecha','=',$fecha)
-                            ->whereRaw('month(fecha) = month(now())')
-                            ->whereRaw('year(fecha) = year(now())') 
+                            //->where('fecha','=',$fecha)
+                           // ->whereRaw('month(fecha) = month(now())')
+                             ->whereRaw('month(fecha) = month(?)', [$fecha])
+                            ->whereRaw('year(fecha) = year(?)', [$fecha]) 
                             ->orderBy('fecha')
                         ->get();
         }//caso contrario se utiliza estacion para filtrar la busqueda
@@ -259,6 +260,13 @@ class SuspensionController extends Controller
 function filtroCortes(Request $request)
 {
     $fecha=$request->fecha;
+
+    //Si en la vista Paros alguien selecciono Todas (las estaciones) el id_estacion se deja vacio y se mostraran todas las estaciones del mes actual
+    if (($request->id_estacion) == 0) {
+        // code...
+        $id_estacion='';
+    }
+
     $id_estacion=$request->id_estacion;
 
     return $this->buscaParo($fecha,$id_estacion);
