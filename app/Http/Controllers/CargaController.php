@@ -21,11 +21,18 @@ class CargaController extends Controller
 
         $quimicos = $this->show();
 
-        $fecha = date("Y-m-d");
+        //si no se recibe una fecha por parametro entonces se asigna fecha actual, de lo contrario se trabaja con la recibida desde el formulario
+        if (empty($request->fecha)) {
+               $fecha = date("Y-m-d");
+        }else{
+            $fecha=$request->fecha;
+        }
+
+     
 
         $cargas_mes= $this->cargas($fecha,$id_de_quimico);
 
-        return view('quimicos',compact('quimicos','cargas_mes'));
+        return view('quimicos',compact('quimicos','cargas_mes','fecha'));
     }
 
 
@@ -71,12 +78,13 @@ $carg = array();
                 $carg=DB::table('cargas')
                 ->join('quimicos', 'cargas.id_quimico', '=', 'quimicos.id')
                 //->where('fecha','=', $anio.'-'.$mes.'-'.$i)
-                ->whereRaw('month(fecha) = month(now())')
-                 ->whereRaw('year(fecha) = year(now())')  
+                ->whereRaw('month(fecha) = month(?)',[$date])
+                 ->whereRaw('year(fecha) = year(?)',[$date])  
 
 
                 //->where('fecha','=', $fecha)
                  ->select('cargas.fecha','quimicos.nombre','cargas.cantidad','cargas.hora','cargas.grupo')
+                 ->orderBy('fecha')
                 ->get();
 } 
                      
@@ -87,12 +95,13 @@ $carg = array();
                 $carg=DB::table('cargas')
                 ->join('quimicos', 'cargas.id_quimico', '=', 'quimicos.id')
                 //->where('fecha','=', $anio.'-'.$mes.'-'.$i)
-                ->whereRaw('month(fecha) = month(now())')
-                 ->whereRaw('year(fecha) = year(now())')  
+                 ->whereRaw('month(fecha) = month(?)',[$date])
+                 ->whereRaw('year(fecha) = year(?)',[$date])   
                   ->where('id_quimico','=', $idquimic)
 
                 //->where('fecha','=', $fecha)
                  ->select('cargas.fecha','quimicos.nombre','cargas.cantidad','cargas.hora','cargas.grupo')
+                 ->orderBy('fecha')
                 ->get();
 } 
                    
@@ -159,6 +168,7 @@ $carg = array();
 
     $quimicos= DB::table('quimicos')
         ->select('id','nombre','unidad')
+        ->orderBy('nombre', 'asc')
         ->get();
 
         return $quimicos;

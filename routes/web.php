@@ -64,7 +64,7 @@ Route::get('/operacion', [OperacionController::class, 'index']);
 
 Route::get('/calidad', [CalidadController::class, 'index']);
 
-/*Controla y muestra la vista Quimicos*/
+/*Controla y muestra la carga de quimicos en la vista Quimicos*/
 Route::get('/cargas', [CargaController::class, 'index']);
 
 Route::get('/agua/{tipo}', [AguaController::class, 'store']);

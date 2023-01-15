@@ -21,10 +21,16 @@
   <!-- Fin barra menu -->
 
     <style>
+
+     /* body{
+        align-content: center;
+      }*/
+
         table {
           font-family: times, sans-serif;
           border-collapse: collapse;
           width: 100%;
+        
         }
 
         td, th {
@@ -43,14 +49,33 @@
 
         }
 
+
+
+
           .card{
-            margin: 10%;
-
+          
+ /* 
              display: flex;
-
+*/
            
             width: 50%;
+
+            margin: 10%;
+            display: grid;
+        
+            
+            
+            border-radius: 30px;
+            border: solid #e5e3e3;
   
+          }
+
+          /*boton guardar*/
+          .card-footer{
+
+            background-color: white;
+
+
           }
 
             /*Centrando todo el contenido*/
@@ -58,7 +83,7 @@
 
 
                /*display: flex;*/
-              justify-content: center;
+             /* justify-content: center;*/
 
             }
 
@@ -68,17 +93,35 @@
               display: grid;
               /*auto representa cada columna*/
               
-              
+              grid-template-columns: 750px 750px;
               gap: 10px;
               padding: 10px;
 
             }
+
+            /*Formulario */
+            .card-body{
+
+              display: grid;
+              /*grid-template-columns: 150px ;
+              border: solid black;*/
+              padding: 5%;
+            }
+            .formulario {
+
+              text-align: left;
+                display: grid;
+
+                
+                
+            }
             
 
-            .checkbox{
-              font-size: 15px;
-            }
+           /*historial*/
+           .historial{
 
+
+           }
 
 
 
@@ -119,10 +162,7 @@
         <a class="nav-link disabled" href="#">Más</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-    </form>
+  
   </div>
 </nav>
 
@@ -139,6 +179,19 @@
 
 </head>
 <body>
+
+
+  <!-- @if (auth()->check())
+  @else
+  
+  @endif -->
+
+
+
+
+
+
+  <div class="grid-container">
    
 <!-- container-fluid -->
   <div class="container">
@@ -149,68 +202,60 @@
   @endif
   <div class="card">
     <div class="card-header text-center font-weight-bold">
-      CONSUMO DE QUIMICOS
+      Registrar consumo de químicos
 
     </div>
+
+
     <div class="card-body ">
 
 
-
+      <!-- Formulario para agregar una carga -->
 
       <form name="" id="" method="post" action="{{url('cargas')}}">
        @csrf
        
-       <div class="grid-container">
+       <div class="formulario">
 
-        <!-- Fecha  -->
-        
-        
-        <label for="cantidad">Químico</label>
-        <!-- Lista que se llena con los quimicos que se encuentran en la DB, en el valor se almacena 
-          el id que servirá para guardar la carga-->
-        <select name="idquimico">
-          @foreach($quimicos as $quimic)
+              <!-- Fecha  -->
+              
+              
+              <label for="cantidad">Químico</label>
+              <!-- Lista que se llena con los quimicos que se encuentran en la DB, en el valor se almacena 
+                el id que servirá para guardar la carga-->
+              <select name="idquimico">
+                @foreach($quimicos as $quimic)
 
-            <option value="{{$quimic->id}}">{{$quimic->nombre}}</option>
+                  <option value="{{$quimic->id}}">{{$quimic->nombre}}</option>
 
-          @endforeach
+                @endforeach
 
-           
+                 
 
-        </select>
+              </select>
 
-        <label for="cantidad">Cantidad</label>
-        <input id="cantidad" type="number" name="cantidad" placeholder="Cantidad " required>
-        <label for="">Fecha</label>
-        <input type="date" name="fecha" required>
-        <label for="">Hora</label>
-         <input type="text" name="hora" placeholder="Formato: 00:00" required> 
-        <!--  <select name="hora">
-          @for($i = 1; $i < 25; $i++)
+              <label for="cantidad">Cantidad</label>
+              <input id="cantidad" type="number" name="cantidad" placeholder="Cantidad " required>
+              <label for="">Fecha</label>
+              <input type="date" name="fecha" required>
+              <label for="">Hora</label>
+               <input type="text" name="hora" placeholder="Formato: 00:00" required> 
+             
+              <label for="">Grupo de turno</label>
+              <select name="grupo">
+                      
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                      <option value="D">D</option>
+         
+              </select>
 
 
-            @if ($i <= 9)
-                <option value="0{{$i}}:00">0{{$i}}:00</option>
-          
-            @else
-                <option value="{{$i}}:00">{{$i}}:00</option>
-            @endif
-          
+              <div class="card-footer">
 
-          @endfor
-          
-        </select> -->
-        <label for="">Grupo de turno</label>
-        <select name="grupo">
-                
-                <option value="A">A</option>
-                <option value="B">B</option>
-                <option value="C">C</option>
-                <option value="D">D</option>
-   
-        </select>
-
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Guardar</button>
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Guardar</button>
+              </div>
 
 
       </div>
@@ -236,75 +281,86 @@
 
 </div>
 
+ <!-- Tabla que muestra el movimiento de las cargas de los quimicos para el mes  -->
 
-
-<div class="container">
+<div class="historial">
   
-  
-
- <!-- Tabla que muestra el movimiento de las cargas de los quimicos para el mes
-
-  -->
-<h4>Consumo de químicos</h4>
-
-<form name="" id="" method="post" action="{{url('quimico') }}">
-@csrf
-
-<!-- Listado de quimicos a mostrar -->
-<label>Químico:</label>
-
- <select name="idquimico">
-          @foreach($quimicos as $quimic)
-
-            <option value="{{$quimic->id}}">{{$quimic->nombre}}</option>
-
-          @endforeach
-
-           
-
-  </select>
-  <button class="btn btn-outline-success" type="submit">Mostrar</button>
-</form>
+        
 
 
 
 
+      <h5>Historial de consumo de químicos</h5>
 
-  <table class="table">
+      <!-- Formulario para realizar busqueda -->
+      <form name="" id="" method="post" action="{{url('quimico') }}">
+      @csrf
 
-    <thead class="thead-light">
-      <tr>
-        <th>Fecha</th>
-        <th>Químico</th>
-        <th>Carga</th>
-        <th>Hora</th>
-        <th>Grupo</th>
+      <!-- Listado de quimicos a mostrar -->
+      <label>Químico:</label>
 
+       <select name="idquimico">
+            <option value=" ">Todos</option>
+                @foreach($quimicos as $quimic)
 
-      </tr>
-    </thead>
-    <tbody>
+                  <option value="{{$quimic->id}}">{{$quimic->nombre}}</option>
 
+                @endforeach
 
-  @foreach($cargas_mes as $carga)
+                 
 
-<!-- Fecha  Quimico   Carga   Hora  Grupo -->
-      <tr>
-        <td>{{$carga->fecha}}</td>
-        <td>{{$carga->nombre}}</td>
-        <td>{{$carga->cantidad}}</td>
-        <td>{{$carga->hora}}</td>
-        <td>{{$carga->grupo}}</td>
-      </tr>
-
-  @endforeach
- 
+        </select>
+        <label for="fecha">Fecha:</label>
+         <input type="date" name="fecha" value="{{$fecha}}">
+        <button class="btn btn-outline-success" type="submit">Mostrar</button>
+      </form>
 
 
+
+
+
+        <table class="table">
+
+          <thead class="thead-light">
+            <tr>
+              <th>Fecha</th>
+              <th>Químico</th>
+              <th>Carga</th>
+              <th>Hora</th>
+              <th>Grupo</th>
+
+
+            </tr>
+          </thead>
+          <tbody>
+
+
+        @foreach($cargas_mes as $carga)
+
+      <!-- Fecha  Quimico   Carga   Hora  Grupo -->
+            <tr>
+              <td>{{$carga->fecha}}</td>
+              <td>{{$carga->nombre}}</td>
+              <td>{{$carga->cantidad}}</td>
+              <td>{{$carga->hora}}</td>
+              <td>{{$carga->grupo}}</td>
+            </tr>
+
+        @endforeach
        
-    </tbody>
-  </table>
+
+
+             
+          </tbody>
+        </table>
 </div>
+
+
+
+</div>
+
+
+
      
 </body>
 </html>
