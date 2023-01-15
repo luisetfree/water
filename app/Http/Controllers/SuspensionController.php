@@ -139,14 +139,18 @@ class SuspensionController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from storage. Elimina un paro en especifico (el que se carga previmente en la vista editarParo)
      *
      * @param  \App\Models\Suspension  $suspension
      * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request  $request
      */
-    public function destroy(Suspension $suspension)
+    public function destroy(Request  $request)
     {
-        //
+        //Creamos un objeto de tipo suspension y lo buscamos mediante el id para ser eliminado
+        $suspension = Suspension::find($request->id_paro);
+        $suspension->delete();
+        return $this->index();
     }
 
     //Devuelve todos los paros registrados en una fecha determinada para una estacion
@@ -161,6 +165,7 @@ class SuspensionController extends Controller
                         //->where('fecha','=',$fecha)
                             ->whereRaw('month(fecha) = month(now())')
                             ->whereRaw('year(fecha) = year(now())') 
+                            ->orderBy('fecha')
                         ->get();
         }//caso contrario se utiliza estacion para filtrar la busqueda
         else
@@ -171,6 +176,7 @@ class SuspensionController extends Controller
                         ->select('suspensions.id','suspensions.fecha','suspensions.hora_inicio','suspensions.hora_fin','suspensions.causa','suspensions.id_estacion','suspensions.grupo','estacions.nombre')
                         ->where('fecha','=',$fecha)
                         ->where('id_estacion', '=', $estacion)
+                        ->orderBy('fecha')
                         ->get();
 
         }

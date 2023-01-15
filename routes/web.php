@@ -132,5 +132,9 @@ Route::post('suspension', [SuspensionController::class, 'store']);
 /*Captura y procesa: fecha y estacion de la cual se desean filtrar los paros de operacion en la vista PAROS*/
 Route::post('filtrar-cortes', [SuspensionController::class, 'filtroCortes']);
 
+/*Captura y procesa un paro en especifico para ser eliminado*/
+Route::post('eliminar-paro', [SuspensionController::class, 'destroy']);
+
+
 
 

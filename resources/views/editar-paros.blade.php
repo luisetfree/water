@@ -26,8 +26,8 @@
           .card{
             margin: 2%;
             display: flex;
-            grid-template-columns: 60% 60%;
-            width: 70%;
+            
+            
             border-radius: 30px;
             border: solid #e5e3e3;
   
@@ -39,7 +39,7 @@
             .grid-container {
                 /*grid*/
               display: grid;
-              grid-template-columns: 850px ;
+              grid-template-columns: 750px ;
               
               /*border: solid #e5e3e3;*/
              
@@ -51,27 +51,11 @@
             }
             
 
-            .checkbox{
-              font-size: 15px;
-            }
 
+            /*Boton de eliminar */
+            .card-footer{
 
-            .historial{
-            border-radius: 30px;
-            border: solid #e5e3e3;
-            margin: 1%;
-            width: 100%;
-            text-align: center;
-
-
-            }
-
-            #formulario{
-
-            display: flex;
-            grid-template-columns: auto auto;
-            align-content: center;
-
+              text-align: center;
             }
 
 
@@ -148,7 +132,7 @@
       Editar paro de operación
 
     </div>
-    <div id="formulario" class="card-body ">
+    <div  class="card-body ">
 
 
 
@@ -182,6 +166,7 @@
 <br>
         <label for="cantidad">Hora suspensión:</label>
         <input id="cantidad" type="text" name="hora_inicio" placeholder="00:00" value="{{$datos_paro->hora_inicio}}" required>
+       
         
         
         <br>
@@ -221,19 +206,44 @@
         </select>
         <br>
 
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Guardar</button>
+        
+        
 
 
 
 
       </div>
 
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Guardar</button>
 
       </form>
 
 
 
+
     </div>
+
+    <div class="card-footer">
+
+
+
+
+
+
+
+        <!--Formulario para la eliminacion de un paro en específico-->
+        <form name="" id="" method="post" action="{{url('eliminar-paro')}}">
+         @csrf
+
+        <!-- Elemento oculto que captura el id unico de este paro y lo utilizamos para eliminar los daots en la BD -->
+        <input type="hidden" name="id_paro" value="{{$datos_paro->id}}">
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Eliminar</button>
+
+        
+
+        </form>
+    </div>
+     
 
   </div>
 
