@@ -45,7 +45,8 @@ Route::get('/resumen{fecha}', [ProduccionController::class, 'index']);
 /*Muestra el formulario para editar un paro de operacion en especifico*/
 Route::get('/editarParo{id_paro}', [SuspensionController::class, 'edit']);
 
-
+/*Muestra el formulario para editar un paro de operacion en especifico*/
+Route::get('/editarCarga{id_carga}', [CargaController::class, 'edit']);
 
 /*Muestra Paro de operaciones*/
 Route::get('/paros', [SuspensionController::class, 'index']);

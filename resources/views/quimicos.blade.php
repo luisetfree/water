@@ -328,6 +328,7 @@
               <th>Carga</th>
               <th>Hora</th>
               <th>Grupo</th>
+              <th>Editar</th>
 
 
             </tr>
@@ -344,6 +345,12 @@
               <td>{{$carga->cantidad}}</td>
               <td>{{$carga->hora}}</td>
               <td>{{$carga->grupo}}</td>
+                <td>
+                                          <a href="/editarCarga{{$carga->id}}">
+                                            <img src="{{ asset('img/editar.png')}}"  />
+                                          </a>
+                 </td>
+                 <td>{{$carga->id}}</td>
             </tr>
 
         @endforeach

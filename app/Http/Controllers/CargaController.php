@@ -83,7 +83,7 @@ $carg = array();
 
 
                 //->where('fecha','=', $fecha)
-                 ->select('cargas.fecha','quimicos.nombre','cargas.cantidad','cargas.hora','cargas.grupo')
+                 ->select('cargas.fecha','quimicos.nombre','cargas.cantidad','cargas.hora','cargas.grupo','cargas.id')
                  ->orderBy('fecha')
                 ->get();
 } 
@@ -100,7 +100,7 @@ $carg = array();
                   ->where('id_quimico','=', $idquimic)
 
                 //->where('fecha','=', $fecha)
-                 ->select('cargas.fecha','quimicos.nombre','cargas.cantidad','cargas.hora','cargas.grupo')
+                 ->select('cargas.fecha','quimicos.nombre','cargas.cantidad','cargas.hora','cargas.grupo','cargas.id')
                  ->orderBy('fecha')
                 ->get();
 } 
@@ -176,7 +176,7 @@ $carg = array();
     }
 
     /**
-     * Descuenta de la tabla quimicos la cantidad de quimico que se encuentra almacenado, esto segun el descuento que se realiza de las cargas
+     * Precarga la informacion de una carga en la vista EditarCarga para su posterior edicion
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -184,6 +184,11 @@ $carg = array();
     public function edit($id)
     {
         //
+        //obteniendo la carga especifica mediante el id
+        $carga = Carga::find($id);
+        //$suspension->delete();
+
+        return view('editar-carga',compact('id','carga')) ;
 
     }
 
