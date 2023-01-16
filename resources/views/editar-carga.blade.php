@@ -141,12 +141,13 @@
 
 
 
-      <form name="" id="" method="post" action="{{url('')}}">
+      <form name="" id="" method="post" action="{{url('actualizar-carga')}}">
        @csrf
        
        <div class="">
 
-        <!-- Fecha  -->
+        <!-- Elemento oculto que captura el id de la carga a actualizar  -->
+        <input type="hidden" name="id_carga" value="{{$id}}">
         
         
         <label for="cantidad">Químico:</label>
@@ -163,8 +164,7 @@
 <br>
         <label for="">Fecha:</label>
         <input type="date" name="fecha" value="{{$carga->fecha}}" required>
-        <!-- ID del paro a actualizar -->
-        <input type="hidden" name="id_paro" value="">
+        
 <br>
         <label for="cantidad">Cantidad:</label>
         <input id="cantidad" type="text" name="cantidad" placeholder="00:00" value=" {{$carga->cantidad}}" required>

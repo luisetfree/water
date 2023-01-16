@@ -82,11 +82,15 @@
 
       <form name="form-calidad" id="" method="post" action="{{url('actualizar')}}">
        @csrf
-       <!-- @method('put') Permitirá actualizar valores -->
+   
 
         <!-- Fecha -->
-       <input type="date" name="fecha_calidad" value="" required="required">
+       <input type="date" name="fecha_calidad" value="{{$datos->fecha}}"  required >
 
+
+
+      
+          
 
         <!-- Select mostrará unicamente las horas que hacen falta agregar al registro diario -->
        <label for="hora">Hora</label>
@@ -96,17 +100,17 @@
             <select id="" name="hora" class="" required=""> 
                    <!-- Validando para hora que no se haya ingresado un dato previamente -->
                   
-                 <option value="@foreach ($datos as $hora)
+                 <option value="
                    
-                                              {{$hora->hora}} 
+                                              {{$datos->hora}} 
 
-                        @endforeach ">
+          ">
 
-                        @foreach ($datos as $h)
+                        
                    
-                                              {{$h->hora}} 
+                                              {{$datos->hora}} 
 
-                        @endforeach 
+                        
 
 
                 </option>
@@ -156,31 +160,31 @@
                         <input type="hidden" name="id_agua_c" value="1" >  -->
                         <label>Turbidez</label>
                         <input type="text" name="turb_c" placeholder="Turbidez" required="" value="
-                        @foreach ($datos as $turb)
+                        
                    
-                                              {{ $turb->turbidez}} 
+                                              {{ $datos->turbidez}} 
 
-                        @endforeach    ">
+                           ">
                     
 
                         <label>PH</label>
                         <input type="text" name="ph_c" placeholder="PH" required="" value="
-                        @foreach ($datos as $p)
+                        
                    
-                                              {{$p->ph}} 
+                                              {{$datos->ph}} 
 
-                        @endforeach 
+                        
 
 
 
                         ">
                         <label>Temperatura</label>
                         <input type="text" name="temp_c" placeholder="temperatura" required="" value="
-                        @foreach ($datos as $tmp)
+                        
                    
-                                              {{$tmp->temperatura}} 
+                                              {{$datos->temperatura}} 
 
-                        @endforeach 
+                         
 
 
 
@@ -188,11 +192,11 @@
                         ">
                         <label>Color</label>
                         <input type="text" name="color_c" placeholder="Color" value="
-                        @foreach ($datos as $cl)
+                        
                    
-                                              {{$cl->color}} 
+                                              {{$datos->color}} 
 
-                        @endforeach 
+                        
 
 
 

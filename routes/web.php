@@ -142,3 +142,5 @@ Route::post('actualizar-paro', [SuspensionController::class, 'update']);
 /*Captura y procesa una carga especifica para ser eliminada*/
 Route::post('eliminar-carga', [CargaController::class, 'destroy']);
 
+/*Captura y procesa una carga especifica para ser eliminada*/
+Route::post('actualizar-carga', [CargaController::class, 'update']);

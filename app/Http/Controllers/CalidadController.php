@@ -975,19 +975,14 @@ public function minimos($fecha,$id_aguas,$campo_consultar)
 //Funcion que recibe un ID, busca los datos de calidad y los envía a la vista EDITAR-CALIDAD
 public function precargar($id){
 
-$datos= DB::table('calidads')
-        ->where('id','=',$id)
-        ->get();
-
-/*foreach ($datos as $turb) {
-    $turbidez= $turb->turbidez;
-}*/
+//Obteniendo los datos
+$datos= Calidad::find($id);
 
 
-foreach ($datos as $agua) {
+
     //se obtiene el id_agua segun el ID que se pasa por parametro, para identificar de cual agua se trata
-    $tipo=$agua->id_agua;
-}
+    $tipo=$datos->id_agua;
+
 
 
 

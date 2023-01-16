@@ -53,6 +53,8 @@
   
           }
 
+
+
             /*Centrando todo el contenido*/
             .container{
 
@@ -100,11 +102,15 @@
                   margin: 0.5rem;
                 }
 */
-            #formulario{
 
-            display: flex;
-            grid-template-columns: auto auto;
-            align-content: center;
+
+            #formulario{
+            
+                text-align: left;
+                display: grid;
+                padding: 5%;
+
+
 
             }
 
@@ -183,7 +189,7 @@
       Registro de paro de operación
 
     </div>
-    <div id="formulario" class="card-body ">
+    <div id="formulario" >
 
 
 
@@ -211,7 +217,7 @@
 
            
 
-        </select>
+        </select> <br>
         <label for="">Fecha:</label>
         <input type="date" name="fecha" value="{{$fecha}}" required>
 <br>

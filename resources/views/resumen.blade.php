@@ -20,6 +20,7 @@
           font-family: times, sans-serif;
           border-collapse: collapse;
           width: 100%;
+
         }
 
         td, th {
@@ -27,6 +28,7 @@
           text-align: center;
           padding: 4px;
           font-size: 14px;
+
         }
         /*maneja los encabezados de las tablas*/
         th {
@@ -35,6 +37,7 @@
 
         tr:nth-child(even) {
           /* background-color: #dddddd;*/
+
 
         }
 
@@ -57,8 +60,23 @@
             }
 
 
+/*Formulario mostrar*/
+.mostrar{
 
+  position: absolute;
+  right: 0px;
+  width: 18%;
+/*  border: 3px solid #73AD21;*/
 
+  
+
+}
+
+.card{
+
+border-radius: 30px;
+border: solid #e5e3e3;
+}
 
 
     </style>
@@ -129,12 +147,14 @@
       Produccion 
 
     </div>
+
+    <!-- Controles de ingreso de datos -->
     <div class="card-body">
 
 <!-- Formulario exclusivo para mostrar una fecha determinada -->
-        <form name="add-blog-post-form" id="add-blog-post-form" method="post" action="{{url('muestra')}}">
+        <form name="" class="mostrar" method="post" action="{{url('muestra')}}">
        @csrf
-
+        <label>Ver fecha:</label>
         <input type="date" name="fecha" value="{{$fecha}}">  
         <button type="submit" class="btn btn-outline-primary">Mostrar</button>
 
@@ -148,7 +168,7 @@
 
        
        <!-- Select mostrará unicamente las horas que hacen falta agregar al registro diario -->
-       <label for="hora">Hora</label>
+       <label for="hora">Hora:</label>
 
             <select id="" name="hora" class="" required=""> 
                    <!-- Validando para hora que no se haya ingresado un dato previamente -->
@@ -321,6 +341,7 @@
                        
             </select>
             <!-- Muestra fecha actual -->
+            <label>Fecha:</label>
         <input type="date" name="fecha" value="{{$fecha}}">
 
 

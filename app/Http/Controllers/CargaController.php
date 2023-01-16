@@ -29,14 +29,51 @@ class CargaController extends Controller
             $fecha=$request->fecha;
         }
 
-     
+        //Obteniendo la suma de una quimico en especifico, se utiliza solamente cuando se visualiza un quimico en particular
+        $suma_carga=$this->sumaCargas($request->idquimico,$request->fecha);
 
+        //Obteniendo todas las cargas del mes segun fecha
         $cargas_mes= $this->cargas($fecha,$id_de_quimico);
+        //Obtenemos la unidad de peso con la que se guardò el quimico en la DB
+        $unidad=$this->datosQuimico($request->idquimico);
 
-        return view('quimicos',compact('quimicos','cargas_mes','fecha'));
+        return view('quimicos',compact('quimicos','cargas_mes','fecha','suma_carga','unidad'));
     }
 
 
+/*Funcion utilizada unicamente para extraer el nombre de la unidad con la que se almacena el quimico*/
+public function datosQuimico($id)
+{
+    // code...
+    $quimico = Quimico::find($id);
+    return $quimico;
+}
+
+//Obtiene la sumatoria de las cargas de un solo quimico para un mes en particular
+public function sumaCargas($id_quimico,$fecha)
+{
+        $sumatoria = 0;
+
+                 $carg=DB::table('cargas')
+                ->join('quimicos', 'cargas.id_quimico', '=', 'quimicos.id')
+                ->whereRaw('month(fecha) = month(?)',[$fecha])
+                 ->whereRaw('year(fecha) = year(?)',[$fecha])  
+
+                ->where('id_quimico','=', $id_quimico)
+                 ->select('cargas.fecha','quimicos.nombre','cargas.cantidad','cargas.hora','cargas.grupo','cargas.id')
+                 
+                ->get();
+
+                foreach ($carg as $carga) {
+                    // code...
+
+                    $sumatoria += $carga->cantidad;
+                }
+
+return $sumatoria;
+
+
+}
     
     /**
      * Extrae la información de las cargas realizadas en un mes determinado para ser mostradas
@@ -198,14 +235,25 @@ $carg = array();
 
     /**
      * Update the specified resource in storage.
-     *
+     * Actualiza los valores de una carga en particular
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+        $carga = Carga::find($request->id_carga);
+        $carga->cantidad = $request->cantidad;
+        $carga->fecha = $request->fecha;
+        $carga->hora = $request->hora;
+        $carga->id_quimico = $request->id_quimico;
+        $carga->grupo = $request->grupo;
+
+        $carga->save();
+
+        return $this->index($request);
+
     }
 
     /**

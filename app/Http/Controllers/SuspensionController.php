@@ -197,7 +197,9 @@ class SuspensionController extends Controller
                 $total_paros=DB::table('suspensions')
                         ->join('estacions', 'suspensions.id_estacion', '=', 'estacions.id')
                         ->select('suspensions.id','suspensions.fecha','suspensions.hora_inicio','suspensions.hora_fin','suspensions.causa','suspensions.id_estacion','suspensions.grupo','estacions.nombre')
-                        ->where('fecha','=',$fecha)
+                        //->where('fecha','=',$fecha)
+                        ->whereRaw('month(fecha) = month(?)', [$fecha])
+                        ->whereRaw('year(fecha) = year(?)', [$fecha]) 
                         ->where('id_estacion', '=', $estacion)
                         ->orderBy('fecha')
                         ->get();

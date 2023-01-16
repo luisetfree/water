@@ -117,11 +117,6 @@
             }
             
 
-           /*historial*/
-           .historial{
-
-
-           }
 
 
 
@@ -353,9 +348,29 @@
                  
             </tr>
 
-        @endforeach
-       
 
+
+        @endforeach
+
+<!-- Mostrando la sumatoria de la carga del quimico filtrado para un mes, se obtiene y se muestra de igual forma la unidad de peso con la que se almacenó en la BD. Los datos solo se muestran para un solo quimico en particular, por ello se pone la restriccion  -->
+        @if(($suma_carga) > 0)
+
+        <tr>
+
+          <td>Total</td>
+          <td></td>
+          <td> {{number_format($suma_carga)}} {{$unidad->unidad}}
+
+                
+           </td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        @endif
+       
+        
 
              
           </tbody>
