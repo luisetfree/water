@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Carga;
+use App\Models\Quimico;
 
 class CargaController extends Controller
 {
@@ -176,19 +177,22 @@ $carg = array();
     }
 
     /**
-     * Precarga la informacion de una carga en la vista EditarCarga para su posterior edicion
+     * Precarga la informacion de una carga específica en la vista EditarCarga para su posterior edicion
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
-        //obteniendo la carga especifica mediante el id
+        
+        //obteniendo la carga especifica mediante el id recibido
         $carga = Carga::find($id);
-        //$suspension->delete();
+        
 
-        return view('editar-carga',compact('id','carga')) ;
+        //Buscando el tipo de quimico obtenido, nos servira para extraer el nombre del quimico y mostrarlo en la vista editar-carga
+        $quimico = Quimico::find($carga->id_quimico);
+
+        return view('editar-carga',compact('id','carga','quimico')) ;
 
     }
 
@@ -206,13 +210,21 @@ $carg = array();
 
     /**
      * Remove the specified resource from storage.
+      Busca y elimina una carga mediante le id recibido
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+      * @param  \Illuminate\Http\Request  $request
      */
-    public function destroy($id)
+    public function destroy(Request  $request)
     {
-        //
+        //Obteniendo la carga y eliminando de la BD
+         $carga = Carga::find($request->id_carga);
+        $carga->delete();
+
+        return $this->index($request);
+
+
     }
 
 

@@ -43,14 +43,18 @@
               
               /*border: solid #e5e3e3;*/
              
-              justify-content: start;
+              justify-content: center;
 
               padding: 5%;
               
   
             }
             
-
+          input {
+                  width: 90%;
+                  height: 30px;
+                  margin: 0.5rem;
+                }
 
             /*Boton de eliminar */
             .card-footer{
@@ -161,7 +165,8 @@
            
 
         </select>
-        <label for="">Fecha:</label>
+        <br>
+        <label for="">Fecha:</label><br>
         <input type="date" name="fecha" value="{{$datos_paro->fecha}}" required>
         <!-- ID del paro a actualizar -->
         <input type="hidden" name="id_paro" value="{{$datos_paro->id}}">

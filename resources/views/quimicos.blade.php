@@ -350,7 +350,7 @@
                                             <img src="{{ asset('img/editar.png')}}"  />
                                           </a>
                  </td>
-                 <td>{{$carga->id}}</td>
+                 
             </tr>
 
         @endforeach

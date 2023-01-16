@@ -25,10 +25,14 @@
 
           .card{
             margin: 2%;
+            
             display: flex;
+            justify-content: center;
             
             border-radius: 30px;
             border: solid #e5e3e3;
+
+
   
           }
 
@@ -47,12 +51,11 @@
   
             }
             
-            .card-body{
-               display: grid;
-               grid-template-columns: 750px ;
-                justify-content: start;
-
-            }
+           input {
+                  width: 90%;
+                  height: 30px;
+                  margin: 0.5rem;
+                }
 
 
             /*Boton de eliminar */
@@ -132,7 +135,7 @@
       Editar carga
 
     </div>
-    {{$id}}
+
     <div  class="card-body">
 
 
@@ -152,12 +155,12 @@
         <select name="id_quimico">
           
 
-            <option value=""> {{$carga->id_quimico}}</option>
+            <option value="{{$quimico->id}}"> {{$quimico->nombre}}</option>
             
-
+           
 
         </select>
-
+<br>
         <label for="">Fecha:</label>
         <input type="date" name="fecha" value="{{$carga->fecha}}" required>
         <!-- ID del paro a actualizar -->
@@ -213,7 +216,7 @@
 
 
         <!--Formulario para la eliminacion de un paro en específico-->
-        <form name="" id="" method="post" action="{{url('')}}">
+        <form name="" id="" method="post" action="{{url('eliminar-carga')}}">
          @csrf
 
         <!-- Elemento oculto que captura el id unico de la carga de quimico y lo utilizamos para eliminar los datos en la BD -->

@@ -139,5 +139,6 @@ Route::post('eliminar-paro', [SuspensionController::class, 'destroy']);
 /*Actualizacion de datos de un paro en la BD*/
 Route::post('actualizar-paro', [SuspensionController::class, 'update']);
 
-
+/*Captura y procesa una carga especifica para ser eliminada*/
+Route::post('eliminar-carga', [CargaController::class, 'destroy']);
 

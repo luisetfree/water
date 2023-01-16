@@ -93,6 +93,13 @@
 
             }
 
+
+            /* input {
+                  width: 90%;
+                  height: 30px;
+                  margin: 0.5rem;
+                }
+*/
             #formulario{
 
             display: flex;
@@ -101,6 +108,7 @@
 
             }
 
+ 
 
 
     </style>
@@ -299,6 +307,7 @@
                       <option value="4">EB3</option>
 
             </select>
+            <label>Fecha:</label>
             <input type="date" name="fecha" required value="{{$fecha}}">
             <button class="btn btn-outline-success" type="submit">Mostrar</button>
           </form>
