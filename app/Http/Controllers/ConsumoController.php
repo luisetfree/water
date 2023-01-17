@@ -123,9 +123,8 @@ class ConsumoController extends Controller
      */
     public function update(Request $request)
     {
-        //Actualizando valores
+        //Actualizando valores de las dosificaciones
         
-
         $coagulante=Consumo::find($request->id_coagulante);
         $coagulante->dosis=$request->coagulante;
         $coagulante->save();
@@ -151,7 +150,8 @@ class ConsumoController extends Controller
         $cloro->save();
 
 
-       return redirect('/');
+        $fecha=$request->fecha;
+       return redirect('/resumen'.$fecha.'');
 
     }
 
