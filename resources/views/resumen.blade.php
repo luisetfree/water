@@ -1196,13 +1196,18 @@ border: solid #e5e3e3;
                                  
                                 @case(1)
                                       @foreach ($con_coagu_1 as $prod)
+                                      <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          
+                                      </a>
                                       @endforeach
                                 @break
                              
                                 @case(2)
                                     @foreach ($con_coagu_2 as $prod)
+                                         <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          </a>
                                       @endforeach
                                 @break
                                 @case(3)
@@ -2566,6 +2571,8 @@ border: solid #e5e3e3;
   </div>
 
 </div>
+
+
 
      
 </body>

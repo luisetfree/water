@@ -3,8 +3,6 @@
 <head>
     <title>Paros de operación</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Libreria para iconos -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -27,11 +25,14 @@
 
           .card{
             margin: 2%;
-            display: flex;
             
+            display: flex;
+            justify-content: center;
             
             border-radius: 30px;
             border: solid #e5e3e3;
+
+
   
           }
 
@@ -40,23 +41,22 @@
               /*Div donde estan internamente los elementos del formulario*/
             .grid-container {
                 /*grid*/
-              display: grid;
-              grid-template-columns: 750px ;
-              
-              /*border: solid #e5e3e3;*/
-             
-              justify-content: center;
-
-              padding: 5%;
+                display: grid;
+                justify-content: center;
+                grid-template-columns: 30% ;
+                gap: 10px;
+                
+                padding: 10px;
               
   
             }
             
-          input {
+           input {
                   width: 90%;
                   height: 30px;
                   margin: 0.5rem;
                 }
+
 
             /*Boton de eliminar */
             .card-footer{
@@ -101,10 +101,7 @@
         <a class="nav-link disabled" href="#">Más</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-    </form>
+   
   </div>
 </nav>
 
@@ -135,84 +132,64 @@
   @endif
   <div class="card">
     <div class="card-header text-center font-weight-bold">
-      Editar paro de operación
+      Editar Dosificaciones
 
     </div>
-    <div  class="card-body ">
+
+    <div  class="card-body">
 
 
 
 
-      <form name="" id="" method="post" action="{{url('actualizar-paro')}}">
+      <form name="" id="" method="post" action="{{url('actualizar-dosis')}}">
        @csrf
        
        <div class="">
 
-        <!-- Fecha  -->
+        <!-- Elemento oculto que captura el id de la carga a actualizar  -->
+        <input type="hidden" name="id_carga" value="">
         
         
-        <label for="cantidad">Estación:</label>
-        <!-- Lista que se llena con los quimicos que se encuentran en la DB, en el valor se almacena 
-          el id que servirá para guardar la carga-->
-        <select name="id_estacion">
-          
-
-            <option value="1">BT</option>
-            <option value="2">EB1</option>
-            <option value="3">EB2</option>
-            <option value="4">EB3</option>
-
-          
-
-           
-
-        </select>
-        <br>
-        <label for="">Fecha:</label><br>
-        <input type="date" name="fecha" value="{{$datos_paro->fecha}}" required>
-        <!-- ID del paro a actualizar -->
-        <input type="hidden" name="id_paro" value="{{$datos_paro->id}}">
+       
 <br>
-        <label for="cantidad">Hora suspensión:</label>
-        <input id="cantidad" type="text" name="hora_inicio" placeholder="00:00" value="{{$datos_paro->hora_inicio}}" required>
+        <label for="">Fecha:</label>
+        <input type="date" name="fecha" value="{{$coagulante->fecha}}" required>
+        <label for="">Hora:</label>
+        <select name="hora">
+          <option value="{{$coagulante->hora}}">{{$coagulante->hora}}</option>
+        </select>
+        
+<br>
+        <label for="cantidad">Coagulante:</label>
+        <input type="hidden" name="id_coagulante"  value="{{$coagulante->id}}" required>
+        <input id="cantidad" type="text" name="coagulante"  value="{{$coagulante->dosis}}" required>
        
         
         
         <br>
         
-        <label for="">Hora arranque:</label>
-         <input type="text" name="hora_fin" placeholder="00:00" value="{{$datos_paro->hora_fin}}" required> 
+        <label for="">Polímero:</label>
+        <input type="hidden" name="id_polimero"  value="{{$polime->id}}" required>
+         <input type="text" name="polimero"  value="{{$polime->dosis}}" required> 
          <br>
-         <label for="">Causa:</label>
-         <select name="causa">
-            <option value="{{$datos_paro->causa}}" default >{{$datos_paro->causa}}</option>
-            <option value="Corte de energía en BT">Corte de energía en BT</option>
-            <option value="Corte de energía en EB1">Corte de energía en EB1</option>
-            <option value="Corte de energía en EB2">Corte de energía en EB2</option>
-            <option value="Corte de energía en EB3">Corte de energía en EB3</option>
-            <option value="Variación de voltaje en BT">Variación de voltaje en BT</option>
-            <option value="Variación de voltaje en EB1">Variación de voltaje en EB1</option>
-            <option value="Variación de voltaje en EB2">Variación de voltaje en EB2</option>
-            <option value="Variación de voltaje en EB3">Variación de voltaje en EB3</option>
-            <option value="Alta Turbidez en rio">Alta Turbidez en rio</option>
-            <option value="Paro programado interno">Paro programado interno</option>
-            <option value="Paro programado externo">Paro programado externo</option>
-            <option value="Falla en linea de producción">Falla en linea de producción</option>
+          <label for="">Permanganato:</label>
+          <input type="hidden" name="id_permanganato"  value="{{$perma->id}}" required>
+         <input type="text" name="permanganato"  value="{{$perma->dosis}}" required> 
+        <br>
 
-        
-         </select>
-         
+        <label for="">Cal:</label><br>
+        <input type="hidden" name="id_cal"  value="{{$cal->id}}" required>
+         <input type="text" name="cal"  value="{{$cal->dosis}}" required> 
          <br>
-        
-        <label for="">Grupo de turno:</label>
-        <select name="grupo">
-                <option value="{{$datos_paro->grupo}}" default >{{$datos_paro->grupo}}</option>
-                <option value="A">A</option>
-                <option value="B">B</option>
-                <option value="C">C</option>
-                <option value="D">D</option>
-   
-        </select>
+         <label for="">Carbón:</label>
+         <input type="hidden" name="id_carbon"  value="{{$carbon->id}}" required>
+         <input type="text" name="carbon"  value="{{$carbon->dosis}}" required> 
+
+         <label for="">Cloro:</label>
+         <input type="hidden" name="id_cloro"  value="{{$cloro->id}}" required>
+         <input type="text" name="cloro"  value="{{$cloro->dosis}}" required> 
+         
+      
         <br>
 
         
@@ -241,11 +218,11 @@
 
 
         <!--Formulario para la eliminacion de un paro en específico-->
-        <form name="" id="" method="post" action="{{url('eliminar-paro')}}">
+        <form name="" id="" method="post" action="{{url('')}}">
          @csrf
 
-        <!-- Elemento oculto que captura el id unico de este paro y lo utilizamos para eliminar los datos en la BD -->
-        <input type="hidden" name="id_paro" value="{{$datos_paro->id}}">
+        <!-- Elemento oculto que captura el id unico de la carga de quimico y lo utilizamos para eliminar los datos en la BD -->
+        <input type="hidden" name="id_carga" value="">
         <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Eliminar</button>
 
         
@@ -268,14 +245,6 @@
 
 
 </div>
-
-
-
-
-
-
-
-
      
 </body>
 </html>

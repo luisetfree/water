@@ -8,6 +8,7 @@ use App\Http\Controllers\OperacionController;
 use App\Http\Controllers\CalidadController;
 use App\Http\Controllers\CargaController;
 use App\Http\Controllers\SuspensionController;
+use App\Http\Controllers\ConsumoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,9 @@ Route::get('/editarParo{id_paro}', [SuspensionController::class, 'edit']);
 
 /*Muestra el formulario para editar un paro de operacion en especifico*/
 Route::get('/editarCarga{id_carga}', [CargaController::class, 'edit']);
+
+/*Editar dosificaciones Coagulante-polimero, etc*/
+Route::get('/editardosis{id_dosis}', [ConsumoController::class, 'show']);
 
 /*Muestra Paro de operaciones*/
 Route::get('/paros', [SuspensionController::class, 'index']);
@@ -88,7 +92,7 @@ Route::post('/operacion', [OperacionController::class, 'index']);
 Route::post('/calidades', [CalidadController::class, 'store']);
 
 /*Maneja la busqueda de calidades por fecha y las muestra */
-Route::post('muestra', [CalidadController::class, 'buscar']);
+Route::post('muestra-calidad', [CalidadController::class, 'buscar']);
 
 /*Recibe de la vista Resumen la fecha que el usuario selecciono para cambiar los datos de la vista */
 Route::post('muestra', [ProduccionController::class, 'cargarFecha']);
@@ -144,3 +148,10 @@ Route::post('eliminar-carga', [CargaController::class, 'destroy']);
 
 /*Captura y procesa una carga especifica para ser eliminada*/
 Route::post('actualizar-carga', [CargaController::class, 'update']);
+
+/*Captura y actualiza las dosis de quimicos*/
+Route::post('actualizar-dosis', [ConsumoController::class, 'update']);
+
+
+/*Captura y procesa un elemento de calidad especifico para ser eliminado*/
+/*Route::post('eliminar-calidad', [CalidadController::class, 'destroy']);*/

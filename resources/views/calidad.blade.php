@@ -256,9 +256,9 @@
                         Cruda
                         <!-- este input hace referencia al id del agua cruda 1 -->
                         <input type="hidden" name="id_agua_c" value="1" >
-                        <input type="text" name="turb_c" placeholder="Turbidez" required="">
-                        <input type="text" name="ph_c" placeholder="PH" required="">
-                        <input type="text" name="temp_c" placeholder="temperatura" required="">
+                        <input type="text" name="turb_c" placeholder="Turbidez" >
+                        <input type="text" name="ph_c" placeholder="PH" >
+                        <input type="text" name="temp_c" placeholder="temperatura" >
                         <input type="text" name="color_c" placeholder="Color">
 
                     </section>
@@ -267,8 +267,8 @@
                         Clarificada
                         <input type="hidden" name="id_agua_cl" value="2" >
                         <input type="text" name="turb_cl" placeholder="Turbidez" >
-                        <input type="text" name="ph_cl" placeholder="PH" required="">
-                        <input type="text" name="temp_cl" placeholder="temperatura" required="" >
+                        <input type="text" name="ph_cl" placeholder="PH" >
+                        <input type="text" name="temp_cl" placeholder="temperatura"  >
                         <input type="text" name="color_cl" placeholder="Color">
 
                     </section>
@@ -277,8 +277,8 @@
 
                         <input type="hidden" name="id_agua_f" value="3" >
                         <input type="text" name="turb_f" placeholder="Turbidez" >
-                        <input type="text" name="ph_f" placeholder="PH" required="">
-                        <input type="text" name="temp_f" placeholder="temperatura" required="">
+                        <input type="text" name="ph_f" placeholder="PH" >
+                        <input type="text" name="temp_f" placeholder="temperatura" >
                         <input type="text" name="color_f" placeholder="Color">
 
                     </section>
@@ -310,7 +310,7 @@
 <div class="container">
 <!-- Controla la  busqueda por fecha -->
       
-    <form name="form-calidad" id="" method="post" action="{{url('muestra')}}">
+    <form name="form-calidad" id="" method="post" action="{{url('muestra-calidad')}}">
        @csrf
             
 
@@ -345,6 +345,8 @@
         <th colspan="4" >Clarificada</th>
         <th colspan="4" >Filtrada</th>
         <th colspan="5" >Tratada</th>
+        <th  >Cloro</th>
+
 
       </tr>
      <tr>
@@ -4390,6 +4392,7 @@
 
 
         </td>
+        
 
       </tr>
       @endfor

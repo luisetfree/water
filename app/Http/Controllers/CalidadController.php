@@ -1020,14 +1020,18 @@ $datos= Calidad::find($id);
 
 
     /**
-     * Remove the specified resource from storage.
-     *
+     * Remove the specified resource from storage. Elimina un elemento de calidad enviado desde la vista Editar-Calidad
+     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request  $request)
     {
-        //
+       /* $carga = Calidad::find($request->id_carga);
+        $carga->delete();
+
+        return $this->index();*/
+        
     }
 
 

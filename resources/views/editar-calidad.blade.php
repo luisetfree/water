@@ -7,47 +7,34 @@
     <!-- Libreria para iconos -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <style>
-        table {
-          font-family: times, sans-serif;
-          border-collapse: collapse;
-          width: 100%;
-
-        }
-
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: center;
-          padding: 8px;
-        }
-
-        tr:nth-child(even) {
-          background-color: #dddddd;
-
-        }
+<style>
+     
+      .card{
+        display: grid;
+        
+        width: 40%;
+        border: solid #e5e3e3;;
+        border-radius: 30px;
+     }
 
 
 
-/*Maneja los encabezados bocatoma-eb1-2-3*/
-.grid-container {
-  display: grid;
-  /*auto representa cada columna*/
-  grid-template-columns: auto auto auto ;
-  grid-template-rows: 80px 90px;
-  gap: 10px;
-  
-  padding: 10px;
+
+
+input{
+align-content: left;
+width: 100%;
+border-radius: 10px;
 }
 
+.card-footer{
 
-.checkbox{
-  font-size: 15px;
+text-align: center;
+/**border: solid black;*/
+
 }
 
-
-
-
-
+    
 
 
 </style>
@@ -74,23 +61,18 @@
     </div>
     <div class="card-body">
 
-            
-
-
-
-
-
+      
       <form name="form-calidad" id="" method="post" action="{{url('actualizar')}}">
        @csrf
    
 
-        <!-- Fecha -->
+        <!-- Fecha --><label>Fecha</label>
        <input type="date" name="fecha_calidad" value="{{$datos->fecha}}"  required >
 
 
 
       
-          
+          <br><br>
 
         <!-- Select mostrará unicamente las horas que hacen falta agregar al registro diario -->
        <label for="hora">Hora</label>
@@ -100,20 +82,7 @@
             <select id="" name="hora" class="" required=""> 
                    <!-- Validando para hora que no se haya ingresado un dato previamente -->
                   
-                 <option value="
-                   
-                                              {{$datos->hora}} 
-
-          ">
-
-                        
-                   
-                                              {{$datos->hora}} 
-
-                        
-
-
-                </option>
+            <option value="{{$datos->hora}}">{{$datos->hora}}  </option>
              
                                     
           
@@ -124,11 +93,11 @@
 
 <br><br>
 
-            <div class="grid-container">
+            
 
                 
 
-                   <section class="card ">
+                   <label>Tipo de Agua:</label>
                     <select id="" name="agua" class="" required=""> 
                 <!-- Recibe la variable Tipo que corresponde al ID del agua que se seleccionó, esto ayudará a mostrar el nombre correcto del agua-->
                   
@@ -158,97 +127,59 @@
                     
                         <!-- este input hace referencia al id del agua cruda 1 
                         <input type="hidden" name="id_agua_c" value="1" >  -->
+                        <br><br>
                         <label>Turbidez</label>
-                        <input type="text" name="turb_c" placeholder="Turbidez" required="" value="
-                        
-                   
-                                              {{ $datos->turbidez}} 
-
-                           ">
+                        <input type="text" name="turb_c" placeholder="Turbidez" required="" value="{{ $datos->turbidez}}">
                     
 
                         <label>PH</label>
-                        <input type="text" name="ph_c" placeholder="PH" required="" value="
-                        
-                   
-                                              {{$datos->ph}} 
-
-                        
-
-
-
-                        ">
+                        <input type="text" name="ph_c" placeholder="PH" required="" value="{{$datos->ph}}">
                         <label>Temperatura</label>
-                        <input type="text" name="temp_c" placeholder="temperatura" required="" value="
-                        
-                   
-                                              {{$datos->temperatura}} 
-
-                         
-
-
-
-
-                        ">
+                        <input type="text" name="temp_c" placeholder="temperatura" required="" value="{{$datos->temperatura}}">
                         <label>Color</label>
-                        <input type="text" name="color_c" placeholder="Color" value="
-                        
-                   
-                                              {{$datos->color}} 
-
-                        
+                        <input type="text" name="color_c" placeholder="Color" value="{{$datos->color}}">
 
 
-
-                        ">
-
-                    </section>
                
-            </div>
+            
 
-            <div class="">
+            
 
        <!--  <button type="submit" class="btn btn-outline-primary">Cargar</button> -->
-       <br><br><br><br><br>
+       <br><br><br>
     
         <button type="submit" class="btn btn-outline-primary">Actualizar</button>
          <!-- <input type="hidden" class="date" id="date" name="fecha_fantasma">  -->
 
-            </div>
+            
 
 
       </form>
+      <br>
 
-
-<div class="container">
-
-
-
-      
-
-</div> 
+    
 
 
 
     </div>
 
+   <!--  <div class="card-footer">
+
+        <form name="form-calidad" class="form" method="post" action="{{url('eliminar-calidad')}}">
+        @csrf
+        
+        <input type="hidden" name="id_calidad" value="{{$datos->id}}">
+        <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+        </form>
+    
+    </div> -->
 
 
-                                   
-                                 
-               
 
-                                          
-
-                                
-               
-                                          
-
-                                
-         
-
-
+                           
+   
   </div>
+
 
 </div>
 
