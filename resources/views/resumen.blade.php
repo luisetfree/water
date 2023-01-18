@@ -1213,113 +1213,157 @@ border: solid #e5e3e3;
                                 @break
                                 @case(3)
                                       @foreach ($con_coagu_3 as $prod)
+                                      <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                      </a>
                                       @endforeach
                                 @break
                                  @case(4)
                                     @foreach ($con_coagu_4 as $prod)
+                                        <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          </a>
                                       @endforeach
                                 @break
                                  @case(5)
                                       @foreach ($con_coagu_5 as $prod)
+                                      <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          </a>
                                       @endforeach
                                 @break
                                 @case(6)
                                      @foreach ($con_coagu_6 as $prod)
+                                     <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          </a>
                                       @endforeach
                                 @break
                                 @case(7)
                                      @foreach ($con_coagu_7 as $prod)
+                                     <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          </a>
                                       @endforeach
                                 @break
                                 @case(8)
                                     @foreach ($con_coagu_8 as $prod)
+                                    <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          </a>
                                       @endforeach
 
                                 @break
                                 @case(9)
                                       @foreach ($con_coagu_9 as $prod)
+                                      <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          </a>
                                       @endforeach
                                 @break
                                 @case(10)
                                       @foreach ($con_coagu_10 as $prod)
+                                      <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          </a>
                                       @endforeach
                                 @break
                                 @case(11)
                                       @foreach ($con_coagu_11 as $prod)
+                                      <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          </a>
                                       @endforeach
                                 @break
                                  @case(12)
                                       @foreach ($con_coagu_12 as $prod)
+                                      <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          </a>
                                       @endforeach
                                 @break
                                  @case(13)
                                       @foreach ($con_coagu_13 as $prod)
+                                      <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          </a>
                                       @endforeach
                                 @break
                                  @case(14)
                                       @foreach ($con_coagu_14 as $prod)
+                                      <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          </a>
                                       @endforeach
                                 @break
                                  @case(15)
                                       @foreach ($con_coagu_15 as $prod)
+                                      <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          </a>
                                       @endforeach
                                 @break
                                  @case(16)
                                       @foreach ($con_coagu_16 as $prod)
+                                      <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          </a>
                                       @endforeach
                                 @break
                                  @case(17)
                                       @foreach ($con_coagu_17 as $prod)
+                                      <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          </a>
                                       @endforeach
                                 @break
                                  @case(18)
                                       @foreach ($con_coagu_18 as $prod)
+                                      <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          </a>
                                       @endforeach
                                 @break
                                  @case(19)
                                       @foreach ($con_coagu_19 as $prod)
+                                      <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          </a>
                                       @endforeach
                                 @break
                                  @case(20)
                                       @foreach ($con_coagu_20 as $prod)
+                                      <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          </a>
                                       @endforeach
                                 @break
                                 @case(21)
                                       @foreach ($con_coagu_21 as $prod)
+                                      <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          </a>
                                       @endforeach
                                 @break
                                 @case(22)
                                       @foreach ($con_coagu_22 as $prod)
+                                      <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          </a>
                                       @endforeach
                                 @break
                                 @case(23)
                                       @foreach ($con_coagu_23 as $prod)
+                                      <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          </a>
                                       @endforeach
                                 @break
                                 @case(24)
                                       @foreach ($con_coagu_24 as $prod)
+                                      <a href="/editardosis{{$prod->id}}">
                                           {{$prod->dosis}}
+                                          </a>
                                       @endforeach
                                 @break
                              

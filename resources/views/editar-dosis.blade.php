@@ -311,7 +311,12 @@
 
             <!-- Se verifica que no se haya agregado un valor anteriormente a Tanque Las Pavas durante el dia, de lo contrario no se mostrarán los controles en la vista -->
             
-             <div class="" >
+
+              @if(empty($pv))
+
+              @else
+
+              <div class="" >
                 <h5>Tanque Las Pavas</h5>
               
               <label for="">Aporte (m³/d)</label>
@@ -320,6 +325,10 @@
               
               
             </div>
+              @endif
+
+
+             
             
             
            
@@ -330,8 +339,8 @@
 <!-- Fin inputs-->
 
 
-
       
+      <div></div>
 
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Actualizar</button>
 

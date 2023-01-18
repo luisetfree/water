@@ -180,12 +180,20 @@ class ConsumoController extends Controller
 
                /*Tanque Las Pavas*/
 
+
             $pavas=Produccion::where('id_estacion', $id_pavas)
                ->where('fecha', $coagulante->fecha)
                ->get();
                foreach ($pavas as $pv) {
                    $pv;
+                    
                }
+               //si no se ha guardado previamente el aporte a tanque las pavas se devuelve vacio y en la vista de edicion no se mostrará
+               if (empty($pv)) {
+                   // code...
+                $pv='';
+               }
+              
 
 
 
@@ -291,10 +299,16 @@ class ConsumoController extends Controller
 
 
          /*Actualizacion aporte diario a Tanque Las Pavas*/
+         //verificamos previamente que exista entre los datos que nos estan enviando desde la vista editar-dosis
+         if (empty($request->aporte_pavas)) {
+             // code...
+         }else {
+       $pv = Produccion::find($request->idpv);
+            $pv->caudal=$request->aporte_pavas;
+            $pv->save();
+         }
 
-        $pv = Produccion::find($request->idpv);
-        $pv->caudal=$request->aporte_pavas;
-        $pv->save();
+     
 
 
         $fecha=$request->fecha;
