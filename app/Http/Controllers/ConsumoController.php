@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Consumo;
+use App\Models\Produccion;
 use Illuminate\Support\Facades\DB;
 
 class ConsumoController extends Controller
@@ -47,7 +48,16 @@ class ConsumoController extends Controller
      */
     public function show($id)
     {
-        
+        $id_bt=1;
+        $id_eb1=2;
+        $id_eb2=3;
+        $id_eb3=4;
+        $id_tt=5;
+        $id_bvn=6;
+        $id_bvv=7;
+        $id_pavas=8;
+
+
         //Los datos se filtran mediante el id del coagulante, los demas datos se tomaran de acuerdo a la hora y fecha de este parámetro
         $coagulante = Consumo::find($id);
         /*Polimero*/
@@ -98,8 +108,90 @@ class ConsumoController extends Controller
                    $cloro;
                }
 
+               /*Bocatoma*/
 
-        return view('editar-dosis',compact('coagulante','polime','perma','carbon','cal','cloro'));
+            $bocatoma=Produccion::where('id_estacion', $id_bt)
+               ->where('fecha', $coagulante->fecha)
+               ->where('hora', $coagulante->hora)
+               ->get();
+               foreach ($bocatoma as $bt) {
+                   $bt;
+               }
+
+            /*EB1*/
+
+            $estacion_1=Produccion::where('id_estacion', $id_eb1)
+               ->where('fecha', $coagulante->fecha)
+               ->where('hora', $coagulante->hora)
+               ->get();
+               foreach ($estacion_1 as $eb1) {
+                   $eb1;
+               }
+
+               /*EB2*/
+
+            $estacion_2=Produccion::where('id_estacion', $id_eb2)
+               ->where('fecha', $coagulante->fecha)
+               ->where('hora', $coagulante->hora)
+               ->get();
+               foreach ($estacion_2 as $eb2) {
+                   $eb2;
+               }
+
+                /*EB3*/
+
+            $estacion_3=Produccion::where('id_estacion', $id_eb3)
+               ->where('fecha', $coagulante->fecha)
+               ->where('hora', $coagulante->hora)
+               ->get();
+               foreach ($estacion_3 as $eb3) {
+                   $eb3;
+               }
+
+                /*Tanques Terminales*/
+
+            $terminales=Produccion::where('id_estacion', $id_tt)
+               ->where('fecha', $coagulante->fecha)
+               ->where('hora', $coagulante->hora)
+               ->get();
+               foreach ($terminales as $tt) {
+                   $tt;
+               }
+
+                /*Bella vista Nuevo*/
+
+            $bella_n=Produccion::where('id_estacion', $id_bvn)
+               ->where('fecha', $coagulante->fecha)
+               ->where('hora', $coagulante->hora)
+               ->get();
+               foreach ($bella_n as $bvn) {
+                   $bvn;
+               }
+
+                /*Bella vista Viejo*/
+
+            $bella_v=Produccion::where('id_estacion', $id_bvv)
+               ->where('fecha', $coagulante->fecha)
+               ->where('hora', $coagulante->hora)
+               ->get();
+               foreach ($bella_v as $bvv) {
+                   $bvv;
+               }
+
+               /*Tanque Las Pavas*/
+
+            $pavas=Produccion::where('id_estacion', $id_pavas)
+               ->where('fecha', $coagulante->fecha)
+               ->get();
+               foreach ($pavas as $pv) {
+                   $pv;
+               }
+
+
+
+
+
+        return view('editar-dosis',compact('coagulante','polime','perma','carbon','cal','cloro','bt','eb1','eb2','eb3','tt','bvn','bvv','pv'));
     }
 
     /**
@@ -148,6 +240,61 @@ class ConsumoController extends Controller
         $cloro=Consumo::find($request->id_cloro);
         $cloro->dosis=$request->cloro;
         $cloro->save();
+
+        /*Actualizacion de Bocatoma*/
+
+        $bt = Produccion::find($request->idbt);
+        $bt->nivel_camara=$request->nivel_c_bt;
+        $bt->nivel_rio=$request->nivel_rio;
+        $bt->save();
+
+        /*Actualizacion de EB1*/
+
+        $eb1 = Produccion::find($request->ideb1);
+        $eb1->nivel_camara=$request->nivel1;
+        $eb1->cloro_residual=$request->cloro1;
+        $eb1->save();
+
+        /*Actualizacion de EB2*/
+
+        $eb2 = Produccion::find($request->ideb2);
+        $eb2->nivel_camara=$request->nivel2;
+        $eb2->cloro_residual=$request->cloro2;
+        $eb2->save();
+
+        /*Actualizacion de EB3*/
+
+        $eb3 = Produccion::find($request->ideb3);
+        $eb3->nivel_camara=$request->nivel3;
+        $eb3->cloro_residual=$request->cloro3;
+        $eb3->save();
+
+        /*Actualizacion de terminales*/
+
+        $tt = Produccion::find($request->idtt);
+        $tt->nivel_camara=$request->nivel4;
+        $tt->cloro_residual=$request->cloro4;
+        $tt->save();
+
+        /*Actualizacion de BvN*/
+
+        $bvn = Produccion::find($request->idbvn);
+        $bvn->nivel_camara=$request->nivel5;
+        $bvn->cloro_residual=$request->cloro5;
+        $bvn->save();
+
+         /*Actualizacion de Bv Viejo*/
+
+        $bvv = Produccion::find($request->idbvv);
+        $bvv->nivel_camara=$request->nivel6;
+        $bvv->save();
+
+
+         /*Actualizacion aporte diario a Tanque Las Pavas*/
+
+        $pv = Produccion::find($request->idpv);
+        $pv->caudal=$request->aporte_pavas;
+        $pv->save();
 
 
         $fecha=$request->fecha;
