@@ -26,11 +26,14 @@
           .card{
             margin: 2%;
             
-            display: flex;
-            justify-content: center;
+           /* display: flex;
+            justify-content: center;*/
             
             border-radius: 30px;
             border: solid #e5e3e3;
+
+
+
 
 
   
@@ -42,13 +45,12 @@
             .grid-container {
                 /*grid*/
                 display: grid;
-                justify-content: center;
-                grid-template-columns: 30% ;
-                gap: 10px;
-                
-                padding: 10px;
               
-  
+                padding: 10px;
+
+
+              
+            border: solid black;
             }
             
            input {
@@ -56,6 +58,20 @@
                   height: 30px;
                   margin: 0.5rem;
                 }
+
+                /*Contiene todos los inputs */
+              .form-principal{
+
+          display: grid;
+          grid-template-columns: 150px auto auto auto auto auto auto auto auto auto;
+          gap: 10px;
+          
+          padding: 10px;
+
+          
+                }
+                
+           
 
 
             /*Boton de eliminar */
@@ -119,12 +135,12 @@
 </head>
 <body>
    
-<div class="grid-container"> 
+<div class=""> 
 
 
 
 <!-- container-fluid -->
-  <div class="">
+  <div class="grid-container">
   @if(session('status'))
     <div class="alert alert-success">
         {{ session('status') }}
@@ -132,7 +148,7 @@
   @endif
   <div class="card">
     <div class="card-header text-center font-weight-bold">
-      Editar Dosificaciones
+      Editar Datos
 
     </div>
 
@@ -141,23 +157,25 @@
 
 
 
-      <form name="" id="" method="post" action="{{url('actualizar-dosis')}}">
+      <form name="" id="" class="form-principal" method="post" action="{{url('actualizar-dosis')}}">
        @csrf
        
-       <div class="">
-
-        <!-- Elemento oculto que captura el id de la carga a actualizar  -->
-        <input type="hidden" name="id_carga" value="">
-        
-        
        
-<br>
-        <label for="">Fecha:</label>
-        <input type="date" name="fecha" value="{{$coagulante->fecha}}" required>
-        <label for="">Hora:</label>
-        <select name="hora">
-          <option value="{{$coagulante->hora}}">{{$coagulante->hora}}</option>
-        </select>
+              <div>
+                      <!-- Elemento oculto que captura el id de la carga a actualizar  -->
+                      <input type="hidden" name="id_carga" value="">
+                      
+                  
+                      <label for="">Fecha:</label>
+                      <input type="date" name="fecha" class="form-control" value="{{$coagulante->fecha}}" required>
+                      <label for="">Hora:</label>
+                      <select name="hora" class="form-control">
+                        <option value="{{$coagulante->hora}}">{{$coagulante->hora}}</option>
+                      </select>
+
+
+              </div>
+         <!--
         
 <br>
         <label for="cantidad">Coagulante:</label>
@@ -191,16 +209,171 @@
          
       
         <br>
-
+ -->
         
         
+<!-- Ini -->
+<!-- Inicio inputs -->
+        
+       
+           <div class="" >
+
+                <h5>Dosificaciones PPM</h5>
+
+                                 
+
+                <!-- coagulante cambiar a un select para tomar en cuenta el PAC tambien-->
+                <label>Coagulante</label>
+                <input type="hidden"  name="id_coagulante"  value="{{$coagulante->id}}" required>
+                <input id="cantidad" type="text" class="form-control" name="coagulante"  value="{{$coagulante->dosis}}" placeholder="Coagulante - PPM" required>
+                
+                      
+                   <!-- Dosificacion de cal -->
+                  <label>Cal</label>
+                    <input type="hidden" name="id_cal"  value="{{$cal->id}}" required>
+                   <input type="text" class="form-control" name="cal"  value="{{$cal->dosis}}" required> 
+
+                     
+                        <!-- Dosificacion de permanganato -->
+                        <label>Permanganato</label>
+                      <input type="hidden" name="id_permanganato"  value="{{$perma->id}}" required>
+                      <input type="text" class="form-control" name="permanganato"  value="{{$perma->dosis}}" required> 
+
+                      <!-- Dosificacion polimero--> 
+                      <label>Polimero</label>
+                      <input type="hidden" name="id_polimero"  value="{{$polime->id}}" required>
+                      <input type="text" class="form-control" name="polimero"  value="{{$polime->dosis}}" required> 
+                      <!-- Dosificacion Carbon--> 
+                      <label>Carbón</label>
+                       
+                      <input type="hidden" name="id_carbon"  value="{{$carbon->id}}" required>
+                      <input type="text" name="carbon" class="form-control" value="{{$carbon->dosis}}" required> 
+                      <label>Cloro (kg/h)</label>
+                      <!-- Dosificacion Cloro -->
+                      
+                      <input type="hidden" name="id_cloro"  value="{{$cloro->id}}" required>
+                     <input type="text" name="cloro" class="form-control"  value="{{$cloro->dosis}}" required> 
+                     
+              
+
+            </div>
+
+             
 
 
 
 
-      </div>
+            <div class="" >
+                <h5 >Bocatoma</h5>
+              
+              <input type="text" id="" name="caudal" class="form-control"  placeholder="Caudal">
+              <input type="text" id="" name="nivel_camara" class="form-control" placeholder="N.Camara">
+              <input type="text" id="" name="nivel_rio" class="form-control" placeholder="N.Rio">
+              
+              
+            </div>
+            <div class="" >
+                <h5>EB1</h5>
+              
+             <input type="text" id="" name="caudaleb1" class="form-control" placeholder="Caudal">
+              <input type="text" id="" name="nivel1" class="form-control" placeholder="N.Camara">
+              <input type="text" id="" name="cloro1" class="form-control" placeholder="Cloro">
+              
+             
+              
+              
+              
+              <!-- Representa el id de EB1 -->
+              <input type="hidden" id="" name="id_eb1" class="form-control" value="2" >
+              
+            </div>
+            <div class="" >
+                <h5>EB2</h5>
+              
+              <input type="text" id="" name="caudaleb2" class="form-control" placeholder="Caudal">
+              <input type="text" id="" name="nivel2" class="form-control" placeholder="N.Camara">
+              <input type="text" id="" name="cloro2" class="form-control" placeholder="Cloro">
+              
+                 
+              
+              <!-- Representa el id de EB2 -->
+              <input type="hidden" id="" name="id_eb2" class="form-control" value="3" >
+              
+              
+            </div>
+             <div class="" >
+                <h5>EB3</h5>
+                <input type="text" id="" name="caudaleb3" class="form-control" placeholder="Caudal">
+                <input type="text" id="" name="nivel3" class="form-control" placeholder="N.Camara">
+              <input type="text" id="" name="cloro3" class="form-control" placeholder="Cloro">
+               <!-- Representa el id de EB3 -->
+              <input type="hidden" id="" name="id_eb3" class="form-control" value="4" >
+              <!-- EB3 -->
+              
 
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Guardar</button>
+              
+            </div>
+
+             <div class="" >
+                <h5>Terminales</h5>
+              
+              <label for="">Nivel</label>
+              <input type="text" id="" name="nivel4" class="form-control" placeholder="Terminales">
+              <label for="">Cloro</label>
+              <input type="text" id="" name="cloro4" class="form-control" placeholder="Terminales">
+               <!-- Representa el id de tanques terminales -->
+              <input type="hidden" id="" name="id_terminal" class="form-control" value="5" >
+              
+            </div>
+            <div class="" >
+                <h5>B.V. Nuevo </h5>
+              
+              <label for="">Nivel</label>
+              <input type="text" id="" name="nivel5" class="form-control" placeholder="Nuevo" >
+              <label for="">Cloro</label>
+              <input type="text" id="" name="cloro5" class="form-control" placeholder="B.V.Nuevo">
+               <!-- Representa el id de Bella vista nuevo -->
+              <input type="hidden" id="" name="id_nuevo" class="form-control" value="6" >
+              
+            </div>
+            <div class="" >
+                <h5>B.V. Viejo </h5>
+              
+              <label for="">Nivel</label>
+              <input type="text" id="" name="nivel6" class="form-control" placeholder="Viejo">
+             <!--  <label for="">Cloro</label>
+              <input type="text" id="" name="cloro6" class="form-control" placeholder="B.V.Viejo"> -->
+               <!-- Representa el id de Bella vista viejo -->
+              <input type="hidden" id="" name="id_viejo" class="form-control" value="7" >
+              
+            </div>
+
+
+            <!-- Se verifica que no se haya agregado un valor anteriormente a Tanque Las Pavas durante el dia, de lo contrario no se mostrarán los controles en la vista -->
+            
+             <div class="" >
+                <h5>Tanque Las Pavas</h5>
+              
+              <label for="">Aporte (m³/d)</label>
+              <input type="text" id="" name="aporte_pavas" class="form-control" placeholder="Tanque Las Pavas">
+            
+              <input type="hidden" id="" name="id_pavas" class="form-control" value="8" >
+              
+            </div>
+            
+            
+           
+                    
+
+
+        
+<!-- Fin inputs-->
+
+
+
+      
+
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Actualizar</button>
 
       </form>
 
@@ -208,13 +381,9 @@
 
 
     </div>
+    <!-- Fin card-body -->
 
     <div class="card-footer">
-
-
-
-
-
 
 
         <!--Formulario para la eliminacion de un paro en específico-->
@@ -238,6 +407,11 @@
 
 
 </div>
+
+
+
+
+
 
 
 

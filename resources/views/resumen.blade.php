@@ -346,7 +346,7 @@ border: solid #e5e3e3;
 
 
 
-       
+       <!-- Inicio inputs -->
         <div class="grid-container" >
        
            <div class="form-group" >
@@ -621,6 +621,7 @@ border: solid #e5e3e3;
 
 
         </div>
+        <!-- Fin inputs -->
         <br>
         <br>
         <br>
