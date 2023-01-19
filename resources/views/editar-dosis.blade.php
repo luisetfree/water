@@ -170,7 +170,7 @@
                       <input type="hidden" name="fecha" class="form-control" value="{{$coagulante->fecha}}" required>
                       
                       
-                      <input type="hidden" name="hora"  value="{{$coagulante->hora}}">
+                      <input type="hidden" name="hora" class="form-control"  value="{{$coagulante->hora}}">
 
 
               </div>
@@ -194,30 +194,37 @@
                 
                       
                    <!-- Dosificacion de cal -->
+                  
+                  <!-- Si el dato esta vacio se deberá guardar con la fecha y hora correspondiente -->
+                  @if(empty($cal))
+                 
+                  @else
                   <label>Cal</label>
-                    <input type="hidden" name="id_cal"  value="{{$cal->id}}" required>
-                   <input type="text" class="form-control" name="cal"  value="{{$cal->dosis}}" required> 
+                  <input type="hidden" name="id_cal"  value="{{$cal->id}}" >
+                  <input type="text" class="form-control" name="cal"  value="{{$cal->dosis}}" > 
+                  @endif
+                    
 
                      
                         <!-- Dosificacion de permanganato -->
                         <label>Permanganato</label>
-                      <input type="hidden" name="id_permanganato"  value="{{$perma->id}}" required>
-                      <input type="text" class="form-control" name="permanganato"  value="{{$perma->dosis}}" required> 
+                      <input type="hidden" name="id_permanganato"  value="{{$perma->id}}" >
+                      <input type="text" class="form-control" name="permanganato"  value="{{$perma->dosis}}" > 
 
                       <!-- Dosificacion polimero--> 
                       <label>Polimero</label>
-                      <input type="hidden" name="id_polimero"  value="{{$polime->id}}" required>
-                      <input type="text" class="form-control" name="polimero"  value="{{$polime->dosis}}" required> 
+                      <input type="hidden" name="id_polimero"  value="{{$polime->id}}" >
+                      <input type="text" class="form-control" name="polimero"  value="{{$polime->dosis}}" > 
                       <!-- Dosificacion Carbon--> 
                       <label>Carbón</label>
                        
-                      <input type="hidden" name="id_carbon"  value="{{$carbon->id}}" required>
-                      <input type="text" name="carbon" class="form-control" value="{{$carbon->dosis}}" required> 
+                      <input type="hidden" name="id_carbon"  value="{{$carbon->id}}" >
+                      <input type="text" name="carbon" class="form-control" value="{{$carbon->dosis}}" > 
                       <label>Cloro (kg/h)</label>
                       <!-- Dosificacion Cloro -->
                       
-                      <input type="hidden" name="id_cloro"  value="{{$cloro->id}}" required>
-                     <input type="text" name="cloro" class="form-control"  value="{{$cloro->dosis}}" required> 
+                      <input type="hidden" name="id_cloro"  value="{{$cloro->id}}" >
+                     <input type="text" name="cloro" class="form-control"  value="{{$cloro->dosis}}" > 
                      
               
 
@@ -322,6 +329,7 @@
               <label for="">Aporte (m³/d)</label>
               <input type="text" id="" name="aporte_pavas" class="form-control" value="{{$pv->caudal}}" placeholder="Tanque Las Pavas">
             <input type="hidden" name="idpv" value="{{$pv->id}}">
+
               
               
             </div>
@@ -355,17 +363,7 @@
     <div class="card-footer">
 
 
-        <!--Formulario para la eliminacion de un paro en específico-->
-        <form name="" id="" method="post" action="{{url('')}}">
-         @csrf
-
-        <!-- Elemento oculto que captura el id unico de la carga de quimico y lo utilizamos para eliminar los datos en la BD -->
-        <input type="hidden" name="id_carga" value="">
-        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Eliminar</button>
-
         
-
-        </form>
     </div>
      
 

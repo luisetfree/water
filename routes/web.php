@@ -152,6 +152,9 @@ Route::post('actualizar-carga', [CargaController::class, 'update']);
 /*Captura y actualiza las dosis de quimicos*/
 Route::post('actualizar-dosis', [ConsumoController::class, 'update']);
 
+/*Elimina los datos de dosificaciones-niveles de camara, niveles rio, cloros aporte las pavas segun la hora y fecha */
+/*Route::post('eliminar-procesos', [ConsumoController::class, 'destroy']);
+*/
 
 /*Captura y procesa un elemento de calidad especifico para ser eliminado*/
 /*Route::post('eliminar-calidad', [CalidadController::class, 'destroy']);*/

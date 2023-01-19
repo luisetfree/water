@@ -97,6 +97,12 @@ class ConsumoController extends Controller
                foreach ($ca as $cal) {
                    $cal;
                }
+               //si esta vacio este valor se devuelve vacio
+               if (empty($cal)) {
+                   // code...
+                $cal='';
+               }
+              
 
 
             $clor= Consumo::where('id_quimico', 8)
@@ -237,9 +243,18 @@ class ConsumoController extends Controller
         $permanganato->dosis=$request->permanganato;
         $permanganato->save();
 
-        $cal=Consumo::find($request->id_cal);
-        $cal->dosis=$request->cal;
-        $cal->save();
+
+        if (empty($request->id_cal)) {
+            // code...
+        
+        }else{
+
+            $cal=Consumo::find($request->id_cal);
+            $cal->dosis=$request->cal;
+            $cal->save();
+        }
+
+       
 
         $carbon=Consumo::find($request->id_carbon);
         $carbon->dosis=$request->carbon;
@@ -318,12 +333,12 @@ class ConsumoController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request  $request)
     {
-        //
+    
     }
 }
