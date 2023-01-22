@@ -256,39 +256,39 @@
                         Cruda
                         <!-- este input hace referencia al id del agua cruda 1 -->
                         <input type="hidden" name="id_agua_c" value="1" >
-                        <input type="text" name="turb_c" placeholder="Turbidez" >
-                        <input type="text" name="ph_c" placeholder="PH" >
-                        <input type="text" name="temp_c" placeholder="temperatura" >
-                        <input type="text" name="color_c" placeholder="Color">
+                        <input type="text" min="0"  name="turb_c" placeholder="Turbidez" >
+                        <input type="text" min="0"  name="ph_c" placeholder="PH" >
+                        <input type="text" min="0"  name="temp_c" placeholder="temperatura" >
+                        <input type="text" min="0"  name="color_c" placeholder="Color">
 
                     </section>
                 
                     <section class="card">
                         Clarificada
                         <input type="hidden" name="id_agua_cl" value="2" >
-                        <input type="text" name="turb_cl" placeholder="Turbidez" >
-                        <input type="text" name="ph_cl" placeholder="PH" >
-                        <input type="text" name="temp_cl" placeholder="temperatura"  >
-                        <input type="text" name="color_cl" placeholder="Color">
+                        <input type="text" min="0" name="turb_cl" placeholder="Turbidez" >
+                        <input type="text" min="0" name="ph_cl" placeholder="PH" >
+                        <input type="text" min="0" name="temp_cl" placeholder="temperatura"  >
+                        <input type="text" min="0" name="color_cl" placeholder="Color">
 
                     </section>
                     <section class="card">
                         Filtrada
 
                         <input type="hidden" name="id_agua_f" value="3" >
-                        <input type="text" name="turb_f" placeholder="Turbidez" >
-                        <input type="text" name="ph_f" placeholder="PH" >
-                        <input type="text" name="temp_f" placeholder="temperatura" >
+                        <input type="text" min="0" name="turb_f" placeholder="Turbidez" >
+                        <input type="text" min="0" name="ph_f" placeholder="PH" >
+                        <input type="text" min="0" name="temp_f" placeholder="temperatura" >
                         <input type="text" name="color_f" placeholder="Color">
 
                     </section>
                     <section class="card">
                         Tratada
                         <input type="hidden" name="id_agua_t" value="4" >
-                        <input type="text" name="turb_t" placeholder="Turbidez" >
-                        <input type="text" name="ph_t" placeholder="PH" required="">
-                        <input type="text" name="temp_t" placeholder="temperatura" required="">
-                        <input type="text" name="color_t" placeholder="Color">
+                        <input type="text"  min="0"  name="turb_t" placeholder="Turbidez" >
+                        <input type="text"  min="0"  name="ph_t" placeholder="PH" required="">
+                        <input type="text"  min="0"  name="temp_t" placeholder="temperatura" required="">
+                        <input type="text"    name="color_t" placeholder="Color">
 
                     </section>
 
@@ -345,7 +345,7 @@
         <th colspan="4" >Clarificada</th>
         <th colspan="4" >Filtrada</th>
         <th colspan="5" >Tratada</th>
-        <th  >Cloro</th>
+        
 
 
       </tr>
@@ -371,6 +371,8 @@
             <th>PH</th>
             <th>°C</th>
             <th>Color</th>
+            <!-- Cloro corresponde al de la cisterna de EB1 -->
+            <th>Cloro</th>
             
         
 
@@ -4383,6 +4385,257 @@
                                           {{ $c24->color}} 
 
                                 @endforeach               
+                                
+                                @break
+                             
+                                @default
+                                    ------
+            @endswitch
+
+
+        </td>
+        
+        <!-- Cloro de EB1 -->
+        <td>
+            @switch($i)
+                               
+                                @case(1)
+
+                                   
+                                   @foreach ($cl1 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach  
+                                 
+                                @break
+                                 @case(2)
+
+                                @foreach ($cl2 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach              
+                                  
+                                @break
+                                @case(3)
+
+                                     
+                                    @foreach ($cl3 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach                
+                                  
+                                @break
+                                @case(4)
+
+                                     
+                                   @foreach ($cl4 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach                  
+                                 
+                                @break
+                                @case(5)
+
+                                     
+                                   @foreach ($cl5 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach                 
+                                  
+                                @break
+                                @case(6)
+
+                                     
+                                    @foreach ($cl6 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach                 
+                                 
+                                @break
+                                 @case(7)
+
+                                     
+                                    @foreach ($cl7 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach                
+                                 
+                                @break
+                                 @case(8)
+
+                                     
+                                    @foreach ($cl8 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach                 
+                                 
+                                @break
+                                 @case(9)
+
+                                     
+                                    @foreach ($cl9 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach                 
+                                  
+                                @break
+                                 @case(10)
+
+                                     
+                                    @foreach ($cl10 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(11)
+
+                                     
+                                    @foreach ($cl11 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(12)
+
+                                     
+                                   @foreach ($cl12 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(13)
+
+                                     
+                                   @foreach ($cl13 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach                
+                                 
+                                @break
+                                @case(14)
+
+                                     
+                                   @foreach ($cl14 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach              
+                                  
+                                @break
+                                @case(15)
+
+                                     
+                                   @foreach ($cl15 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(16)
+
+                                     
+                                  @foreach ($cl16 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(17)
+
+                                     
+                                   @foreach ($cl17 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(18)
+
+                                     
+                                   @foreach ($cl18 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach              
+                                 
+                                @break
+                                @case(19)
+
+                                     
+                                @foreach ($cl19 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach              
+                                   
+                                @break
+                                @case(20)
+
+                                     
+                                   @foreach ($cl20 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach                
+                                  
+                                @break
+                                @case(21)
+
+                                     
+                                  @foreach ($cl21 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach               
+                                  
+                                @break
+                                @case(22)
+
+                                     
+                                   @foreach ($cl22 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach              
+                                 
+                                @break
+                                @case(23)
+
+                                     
+                                   @foreach ($cl23 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach               
+                                 
+                                @break
+                                @case(24)
+
+                                     
+                                     @foreach ($cl24 as $c1)
+                   
+                                              {{ $c1->cloro_residual}} 
+
+                                    @endforeach               
                                 
                                 @break
                              

@@ -366,7 +366,7 @@ border: solid #e5e3e3;
                        
 
                      <!-- coagulante cambiar a un select para tomar en cuenta el PAC tambien-->
-                <input type="number" id="" min="0" name="dosificacion_coagulante" class="form-control" placeholder="Coagulante - PPM" required="">
+                <input type="text" id=""  name="dosificacion_coagulante" class="form-control" placeholder="Coagulante - PPM" required="">
                 
                         
                 
@@ -375,7 +375,7 @@ border: solid #e5e3e3;
                 
 
                           <!-- Dosificacion de cal -->
-                <input type="number" id="" min="0" name="dosif_cal" class="form-control" placeholder="Cal - PPM">
+                <input type="text" id=""  name="dosif_cal" class="form-control" placeholder="Cal - PPM">
                          <!-- Representa el id de la Cal -->
                 <input type="hidden" id="" min="0" name="id_cal" class="form-control" value="4" >
 
@@ -385,16 +385,16 @@ border: solid #e5e3e3;
                       
                  
                         <!-- Dosificacion de permanganato -->
-                      <input type="number" id="" min="0" name="dosif_permanganato" class="form-control" placeholder="Permanganato ">
+                      <input type="text" id=""  name="dosif_permanganato" class="form-control" placeholder="Permanganato ">
 
                       <!-- Dosificacion polimero--> 
-                      <input type="number" id="" min="0" name="dosif_polimero" class="form-control" placeholder="Polimero ">
+                      <input type="text" id="" name="dosif_polimero" class="form-control" placeholder="Polimero ">
                      
                        <!-- Dosificacion Carbon--> 
-                      <input type="number" id="" min="0" name="dosif_carbon" class="form-control" placeholder="Carbon Act ">
+                      <input type="text" id=""  name="dosif_carbon" class="form-control" placeholder="Carbon Act ">
 
                       <!-- Dosificacion Cloro -->
-                      <input type="number" id="" min="0" name="dosif_cloro" class="form-control" placeholder="Cloro kg/h">
+                      <input type="text" id=""  name="dosif_cloro" class="form-control" placeholder="Cloro kg/h">
                      
                       
 
@@ -412,7 +412,7 @@ border: solid #e5e3e3;
               
               <input type="number" id="" min="0" name="caudal" class="form-control" required="" placeholder="Caudal">
               <input type="number" id="" min="0" name="nivel_camara" class="form-control" placeholder="N.Camara">
-              <input type="number" id="" min="0" name="nivel_rio" class="form-control" placeholder="N.Rio">
+              <input type="text" id=""  name="nivel_rio" class="form-control" placeholder="N.Rio">
               
               
               
@@ -453,7 +453,7 @@ border: solid #e5e3e3;
               
              <input type="number" id="" min="0" name="caudaleb1" class="form-control" placeholder="Caudal">
               <input type="number" id="" min="0" name="nivel1" class="form-control" placeholder="N.Camara">
-              <input type="number" id="" min="0" name="cloro1" class="form-control" placeholder="Cloro">
+              <input type="text" id=""  name="cloro1" class="form-control" placeholder="Cloro">
               
               <label>Equipos Operando</label>
               
@@ -494,7 +494,7 @@ border: solid #e5e3e3;
               
               <input type="number" id="" min="0" name="caudaleb2" class="form-control" placeholder="Caudal">
               <input type="number" id="" min="0" name="nivel2" class="form-control" placeholder="N.Camara">
-              <input type="number" id="" min="0" name="cloro2" class="form-control" placeholder="Cloro">
+              <input type="text" id=""  name="cloro2" class="form-control" placeholder="Cloro">
               
               <!-- EB2 -->
               <label>Equipos Operando</label>
@@ -535,7 +535,7 @@ border: solid #e5e3e3;
                 <h5>EB3</h5>
                 <input type="number" id="" min="0" name="caudaleb3" class="form-control" placeholder="Caudal">
                 <input type="number" id="" min="0" name="nivel3" class="form-control" placeholder="N.Camara">
-              <input type="number" id="" min="0" name="cloro3" class="form-control" placeholder="Cloro">
+              <input type="text" id=""  name="cloro3" class="form-control" placeholder="Cloro">
                <!-- Representa el id de EB3 -->
               <input type="hidden" id="" name="id_eb3" class="form-control" value="4" >
               <!-- EB3 -->
@@ -574,7 +574,7 @@ border: solid #e5e3e3;
               <label for="">Nivel</label>
               <input type="number" id="" min="0" name="nivel4" class="form-control" placeholder="Terminales">
               <label for="">Cloro</label>
-              <input type="number" id="" min="0" name="cloro4" class="form-control" placeholder="Terminales">
+              <input type="text" id="" name="cloro4" class="form-control" placeholder="Terminales">
                <!-- Representa el id de tanques terminales -->
               <input type="hidden" id="" name="id_terminal" class="form-control" value="5" >
               
@@ -585,7 +585,7 @@ border: solid #e5e3e3;
               <label for="">Nivel</label>
               <input type="number" id="" min="0" name="nivel5" class="form-control" placeholder="Nuevo" >
               <label for="">Cloro</label>
-              <input type="number" id="" min="0" name="cloro5" class="form-control" placeholder="B.V.Nuevo">
+              <input type="text" id=""  name="cloro5" class="form-control" placeholder="B.V.Nuevo">
                <!-- Representa el id de Bella vista nuevo -->
               <input type="hidden" id="" name="id_nuevo" class="form-control" value="6" >
               

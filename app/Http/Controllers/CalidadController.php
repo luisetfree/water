@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Calidad;
+use App\Models\Produccion;
 use Illuminate\Support\Facades\DB;
 
 class CalidadController extends Controller
@@ -454,7 +455,9 @@ public function promedioAgua($fecha, $id_agua, $campo){
      */
     public function verCalidades($fechas)
     {
-        //
+        //Variables
+
+        $id_eb1=2;
 
 $fecha=$fechas;//fecha actual
         
@@ -613,6 +616,33 @@ $fecha=$fechas;//fecha actual
         $a_trat_23= $this->show($id_tratada,$fecha,$hora23);
         $a_trat_24= $this->show($id_tratada,$fecha,$hora24);
 
+        /*Cloro de estacion 1*/
+
+        $cl1=$this->cloroEb1($id_eb1,$fecha,$hora1);
+        $cl2=$this->cloroEb1($id_eb1,$fecha,$hora2);
+        $cl3=$this->cloroEb1($id_eb1,$fecha,$hora3);
+        $cl4=$this->cloroEb1($id_eb1,$fecha,$hora4);
+        $cl5=$this->cloroEb1($id_eb1,$fecha,$hora5);
+        $cl6=$this->cloroEb1($id_eb1,$fecha,$hora6);
+        $cl7=$this->cloroEb1($id_eb1,$fecha,$hora7);
+        $cl8=$this->cloroEb1($id_eb1,$fecha,$hora8);
+        $cl9=$this->cloroEb1($id_eb1,$fecha,$hora9);
+        $cl10=$this->cloroEb1($id_eb1,$fecha,$hora10);
+        $cl11=$this->cloroEb1($id_eb1,$fecha,$hora11);
+        $cl12=$this->cloroEb1($id_eb1,$fecha,$hora12);
+        $cl13=$this->cloroEb1($id_eb1,$fecha,$hora13);
+        $cl14=$this->cloroEb1($id_eb1,$fecha,$hora14);
+        $cl15=$this->cloroEb1($id_eb1,$fecha,$hora15);
+        $cl16=$this->cloroEb1($id_eb1,$fecha,$hora16);
+        $cl17=$this->cloroEb1($id_eb1,$fecha,$hora17);
+        $cl18=$this->cloroEb1($id_eb1,$fecha,$hora18);
+        $cl19=$this->cloroEb1($id_eb1,$fecha,$hora19);
+        $cl20=$this->cloroEb1($id_eb1,$fecha,$hora20);
+        $cl21=$this->cloroEb1($id_eb1,$fecha,$hora21);
+        $cl22=$this->cloroEb1($id_eb1,$fecha,$hora22);
+        $cl23=$this->cloroEb1($id_eb1,$fecha,$hora23);
+        $cl24=$this->cloroEb1($id_eb1,$fecha,$hora24);
+
 
  /*VERIFICACION DE HORAS GUARDADAS*/
        $dato_hora_1=$this->buscarHora($fecha,$hora1,$id_cruda);
@@ -729,8 +759,26 @@ $fecha=$fechas;//fecha actual
                
 
         /*Se retorna a la vista CALIDAD y se pasan las variables con los datos que se mostraran en la tabla*/
-        return view('calidad', compact('a_cruda_24','a_cruda_1','a_cruda_2','a_cruda_3','a_cruda_4','a_cruda_5','a_cruda_6','a_cruda_7','a_cruda_8','a_cruda_9','a_cruda_10','a_cruda_11','a_cruda_12','a_cruda_13','a_cruda_14','a_cruda_15','a_cruda_16','a_cruda_17','a_cruda_18','a_cruda_19','a_cruda_20','a_cruda_21','a_cruda_22','a_cruda_23','a_clari_24','a_clari_1','a_clari_2','a_clari_3','a_clari_4','a_clari_5','a_clari_6','a_clari_7','a_clari_8','a_clari_9','a_clari_10','a_clari_11','a_clari_12','a_clari_13','a_clari_14','a_clari_15','a_clari_16','a_clari_17','a_clari_18','a_clari_19','a_clari_20','a_clari_21','a_clari_22','a_clari_23','a_fil_24','a_fil_1','a_fil_2','a_fil_3','a_fil_4','a_fil_5','a_fil_6','a_fil_7','a_fil_8','a_fil_9','a_fil_10','a_fil_11','a_fil_12','a_fil_13','a_fil_14','a_fil_15','a_fil_16','a_fil_17','a_fil_18','a_fil_19','a_fil_20','a_fil_21','a_fil_22','a_fil_23','a_trat_24','a_trat_1','a_trat_2','a_trat_3','a_trat_4','a_trat_5','a_trat_6','a_trat_7','a_trat_8','a_trat_9','a_trat_10','a_trat_11','a_trat_12','a_trat_13','a_trat_14','a_trat_15','a_trat_16','a_trat_17','a_trat_18','a_trat_19','a_trat_20','a_trat_21','a_trat_22','a_trat_23','dato_hora_1','dato_hora_2','dato_hora_3','dato_hora_4','dato_hora_5','dato_hora_6','dato_hora_7','dato_hora_8','dato_hora_9','dato_hora_10','dato_hora_11','dato_hora_12','dato_hora_13','dato_hora_14','dato_hora_15','dato_hora_16','dato_hora_17','dato_hora_18','dato_hora_19','dato_hora_20','dato_hora_21','dato_hora_22','dato_hora_23','dato_hora_24','fecha','prom_c_ntu','prom_c_ph','prom_c_temp','prom_c_col','prom_cl_ntu','prom_cl_ph','prom_cl_temp','prom_cl_col','prom_f_ntu','prom_f_ph','prom_f_temp','prom_f_col','prom_t_ntu','prom_t_ph','prom_t_temp','prom_t_col','max_c_ntu','max_c_ph','max_c_tmp','max_c_col','max_cl_ntu','max_cl_ph','max_cl_tmp','max_cl_col','max_f_ntu','max_f_ph','max_f_tmp','max_f_col','max_t_ntu','max_t_ph','max_t_tmp','max_t_col','min_c_ntu','min_c_ph','min_c_tmp','min_c_col','min_cl_ntu','min_cl_ph','min_cl_tmp','min_cl_col','min_f_ntu','min_f_ph','min_f_tmp','min_f_col','min_t_ntu','min_t_ph','min_t_tmp','min_t_col'));
+        return view('calidad', compact('a_cruda_24','a_cruda_1','a_cruda_2','a_cruda_3','a_cruda_4','a_cruda_5','a_cruda_6','a_cruda_7','a_cruda_8','a_cruda_9','a_cruda_10','a_cruda_11','a_cruda_12','a_cruda_13','a_cruda_14','a_cruda_15','a_cruda_16','a_cruda_17','a_cruda_18','a_cruda_19','a_cruda_20','a_cruda_21','a_cruda_22','a_cruda_23','a_clari_24','a_clari_1','a_clari_2','a_clari_3','a_clari_4','a_clari_5','a_clari_6','a_clari_7','a_clari_8','a_clari_9','a_clari_10','a_clari_11','a_clari_12','a_clari_13','a_clari_14','a_clari_15','a_clari_16','a_clari_17','a_clari_18','a_clari_19','a_clari_20','a_clari_21','a_clari_22','a_clari_23','a_fil_24','a_fil_1','a_fil_2','a_fil_3','a_fil_4','a_fil_5','a_fil_6','a_fil_7','a_fil_8','a_fil_9','a_fil_10','a_fil_11','a_fil_12','a_fil_13','a_fil_14','a_fil_15','a_fil_16','a_fil_17','a_fil_18','a_fil_19','a_fil_20','a_fil_21','a_fil_22','a_fil_23','a_trat_24','a_trat_1','a_trat_2','a_trat_3','a_trat_4','a_trat_5','a_trat_6','a_trat_7','a_trat_8','a_trat_9','a_trat_10','a_trat_11','a_trat_12','a_trat_13','a_trat_14','a_trat_15','a_trat_16','a_trat_17','a_trat_18','a_trat_19','a_trat_20','a_trat_21','a_trat_22','a_trat_23','dato_hora_1','dato_hora_2','dato_hora_3','dato_hora_4','dato_hora_5','dato_hora_6','dato_hora_7','dato_hora_8','dato_hora_9','dato_hora_10','dato_hora_11','dato_hora_12','dato_hora_13','dato_hora_14','dato_hora_15','dato_hora_16','dato_hora_17','dato_hora_18','dato_hora_19','dato_hora_20','dato_hora_21','dato_hora_22','dato_hora_23','dato_hora_24','fecha','prom_c_ntu','prom_c_ph','prom_c_temp','prom_c_col','prom_cl_ntu','prom_cl_ph','prom_cl_temp','prom_cl_col','prom_f_ntu','prom_f_ph','prom_f_temp','prom_f_col','prom_t_ntu','prom_t_ph','prom_t_temp','prom_t_col','max_c_ntu','max_c_ph','max_c_tmp','max_c_col','max_cl_ntu','max_cl_ph','max_cl_tmp','max_cl_col','max_f_ntu','max_f_ph','max_f_tmp','max_f_col','max_t_ntu','max_t_ph','max_t_tmp','max_t_col','min_c_ntu','min_c_ph','min_c_tmp','min_c_col','min_cl_ntu','min_cl_ph','min_cl_tmp','min_cl_col','min_f_ntu','min_f_ph','min_f_tmp','min_f_col','min_t_ntu','min_t_ph','min_t_tmp','min_t_col','cl1','cl2','cl3','cl4','cl5','cl6','cl7','cl8','cl9','cl10','cl11','cl12','cl13','cl14','cl15','cl16','cl17','cl18','cl19','cl20','cl21','cl22','cl23','cl24'));
 
+
+    }
+
+    /*Cloro EB1*/
+    public function cloroEb1($id_eb1,$fecha,$hora)
+    {
+        // Obteniendo datos de eb1
+        $cloro_eb1= Produccion::where('id_estacion', $id_eb1)        
+               ->where('fecha',$fecha)
+               ->where('hora',$hora)
+               ->get();
+
+               //recorriendo la informacion
+             /*  foreach ($cloro_eb1 as $cloro) {
+                   $cloro;
+               }*/
+
+               return $cloro_eb1;
 
     }
 
