@@ -82,8 +82,14 @@
       <form name="form-calidad" id="" method="post" action="{{url('calidades')}}">
        @csrf
 
-       
-        <!-- Select mostrará unicamente las horas que hacen falta agregar al registro diario -->
+        <div class="">
+
+    
+        
+          <input type="date" class="date" id="date" name="fecha_calidad" value="{{$fecha}}" required="">  
+
+
+          <!-- Select mostrará unicamente las horas que hacen falta agregar al registro diario -->
        <label for="hora">Hora</label>
             <select id="" name="hora" class="" required=""> 
                    <!-- Validando para hora que no se haya ingresado un dato previamente -->
@@ -243,6 +249,10 @@
     
                        
             </select>
+            <button type="submit" class="btn btn-outline-primary">Guardar</button>
+
+            </div>
+        
 
 
 
@@ -294,16 +304,7 @@
 
             </div>
 
-            <div class="">
-
-
-
-
-    
-        <button type="submit" class="btn btn-outline-primary">Guardar</button>
-          <input type="date" class="date" id="date" name="fecha_calidad" value="{{$fecha}}" required="">  
-
-            </div>
+           
 
 
       </form>
@@ -317,7 +318,7 @@
                 <!-- para filtrar por fecha -->
                 <input type="date" name="fecha_calidad" value="{{$fecha}}">  
                 <!-- mostrar calidades por fecha seleccionada -->
-                 <button type="submit" class="btn btn-outline-primary">Mostrar</button>
+                 <button type="submit" class="btn btn-outline-primary">Ver</button>
   
       </form>
 

@@ -84,7 +84,10 @@ font-weight: bold;
 
   </form>
 
- 
+<section>
+  <a href="{{url('/horas-trabajadas') }}">Horas trabajadas/Equipos de bombeo</a>
+
+ </section>
 
   <div class="grid-container">
       @if(session('status'))

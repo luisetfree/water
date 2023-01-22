@@ -32,7 +32,8 @@
 .grid-container {
   display: grid;
   /*auto representa cada columna*/
-  grid-template-columns: auto auto auto ;
+  grid-template-columns: auto auto auto auto ;
+
   grid-template-rows: 80px 90px;
   gap: 10px;
   
@@ -69,7 +70,7 @@
   @endif
   <div class="card">
     <div class="card-header text-center font-weight-bold">
-     Editar caudales de agua
+     Editar caudales de estaciones
     </div>
     <div class="card-body">
 
@@ -84,14 +85,8 @@
        <!-- @method('put') Permitirá actualizar valores -->
 
         <!-- Fecha -->
-       <input type="date" name="fecha" value="                       
-                                             
+       <input type="date" name="fecha" value="{{$fecha}}" required>
 
-                        
-
-
-
-       " required="required">
 
         <!-- Select mostrará unicamente las horas que hacen falta agregar al registro diario -->
        <label for="hora">Hora</label>
@@ -140,12 +135,7 @@
                 <!-- Precarga el caudal almacenado en la BD y el id correspondiente-->
                 <input type="hidden" name="id_bt" value="{{$id_bt}}">
 
-                <input type="text" name="caudalbt" placeholder="" required="" value="
-                            
-                            {{ $caudal}} 
-                           
-
-                             ">
+                <input type="text" name="caudalbt" placeholder="" required="" value="{{ $caudal}} ">
 
                 
           
@@ -159,11 +149,7 @@
                 <input type="hidden" name="id_eb1" value="{{$id_1}}">
 
                 <!-- Precarga el caudal almacenado en la BD -->
-                <input type="text" name="caudal1" placeholder="" required="" value="
-                            
-                            {{ $caudal1}} 
-                           
-                             ">
+                <input type="text" name="caudal1" placeholder="" required="" value="{{ $caudal1}} ">
           
           
                         
@@ -175,11 +161,7 @@
                 <label class="card-header">EB2</label>
                 <input type="hidden" name="id_eb2" value="{{$id_2}}">
                 <!-- Precarga el caudal almacenado en la BD -->
-                <input type="text" name="caudal2" placeholder="" required="" value="
-                            
-                            {{ $caudal2}} 
-                           
-                             ">
+                <input type="text" name="caudal2" placeholder="" required="" value="{{ $caudal2}} ">
           
                         
         </section>
@@ -190,11 +172,7 @@
                 <label class="card-header">EB3</label>
                 <input type="hidden" name="id_eb3" value="{{$id_3}}">
                 <!-- Precarga el caudal almacenado en la BD -->
-                <input type="text" name="caudal3" placeholder="" required="" value="
-                            
-                            {{ $caudal3}} 
-                           
-                             ">
+                <input type="text" name="caudal3" placeholder="" required="" value="{{ $caudal3}}">
           
                         
             </section>
@@ -204,30 +182,23 @@
 
                
             </div>
-<br><br><br><br>
+
             
            
 
-            <div class="">
+        <div class="">
 
        <!--  <button type="submit" class="btn btn-outline-primary">Cargar</button> -->
     
         <button type="submit" class="btn btn-outline-primary">Actualizar</button>
          <!-- <input type="hidden" class="date" id="date" name="fecha_fantasma">  -->
 
-            </div>
+        </div>
 
 
       </form>
 
 
-<div class="container">
-
-
-
-      
-
-</div> 
 
 
 

@@ -65,6 +65,9 @@ Route::get('/bitacora', [CalidadController::class, 'cargarBitacora']);
 /*Maneja la vista del historial de los equipos trabajando por estacion, muestra por defecto los equipos operando del dia actual*/
 Route::get('/operacion', [OperacionController::class, 'index']);
 
+/*Muestra las horas trabajadas de los equipos de bombeo*/
+Route::get('/horas-trabajadas', [OperacionController::class, 'horasTrabajadas']);
+
 /*Maneja las calidades de agua*/
 
 Route::get('/calidad', [CalidadController::class, 'index']);

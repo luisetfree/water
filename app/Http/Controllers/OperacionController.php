@@ -1000,10 +1000,55 @@ $conteo= DB::table('operacions')
 
     }
 
+/*Muestra la vista de horas trabajadas para los equipos de bombeo*/
+public function horasTrabajadas()
+{
+    // code...
+    $id_bt=1;
+    $fecha=date('Y-m-d');
+    //Obteniendo los equipos de BT
+    $eqbt=$this->equipos($id_bt);
+
+    $estado='Operando';
+    //Obteniendo las horas trabajadas de los equipos de BT
+    $id_eq1_bt=1;
+    $eq1_bt=$this->workTime($id_eq1_bt,$fecha,$estado);
+
+    return view('horas-trabajadas',compact('eqbt','eq1_bt','fecha'));
 
 
+}
 
+/*Devuelve los datos de los equipos de bombeo de una estación*/
+public function equipos($id_estacion)
+{
+    // code...
 
+     $equipo= DB::table('equipos')
+        ->where('id_estacion','=',$id_estacion)
+        ->get();
+ 
+
+    return $equipo;
+
+}
+
+//Calcula el tiempo en que un equipo ha operado hasta la fecha recibida
+public function workTime($id_eq,$fecha,$estado)
+{
+    //Contando las horas trabajadas para un determinado equipo
+
+    $equipo=Operacion::where('id_equipo',$id_eq)
+     ->where('estado','=',$estado)
+     ->where('fecha','=',$fecha)//Filtrando la informacion por un dia determinado
+      //->whereRaw('month(fecha) = month(?)',[$fecha]) //Filtrando la informacion por un mes determinado
+      //->whereRaw('year(fecha) = year(?)',[$fecha])  //Filtrando la informacion por un año determinado
+     ->count()
+     ;
+
+     return $equipo;
+
+}
 
 
 }

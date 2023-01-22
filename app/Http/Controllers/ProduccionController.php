@@ -1779,7 +1779,7 @@ $suma_caudal=DB::table('produccions')
 
 
     
-    return view ('editar-produccion', compact ('prod','id','id_bt','caudal','nombre','caudal1','id_1','caudal2','id_2','caudal3','id_3','key'));
+    return view ('editar-produccion', compact ('prod','id','id_bt','caudal','nombre','caudal1','id_1','caudal2','id_2','caudal3','id_3','key','fecha'));
 
     }
 
