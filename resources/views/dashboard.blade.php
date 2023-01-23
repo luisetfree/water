@@ -85,7 +85,7 @@ font-weight: bold;
   </form>
 
 <section>
-  <a href="{{url('/horas-trabajadas') }}">Horas trabajadas/Equipos de bombeo</a>
+  <a href="/horas-trabajadas/{{date('Y-m-d')}}/{{date('m')}}">Horas trabajadas/Equipos de bombeo</a>
 
  </section>
 
@@ -344,13 +344,15 @@ font-weight: bold;
 
 <div class="card">
         <section class="card-header">
-          <p> Nivel Reservorio</p>
+          <p> Nivel Cámaras</p>
           <br>
           <table class=" table-striped">
             <thead>
               <tr>
                 <th scope="col">Día</th>
-                <th scope="col">Promedio </th>
+                <th scope="col">X̅ Reservorio</th>
+                <th scope="col">X̅ EB2</th>
+                <th scope="col">X̅ EB3</th>
 
             
               </tr>

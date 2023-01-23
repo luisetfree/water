@@ -56,10 +56,25 @@ tr:nth-child(even) {
 
 </head>
 <body>
-
+<br>
+ <a href="/">Home</a>
 <div>
-        <label>Horas Trabajadas</label>
+     <form name="" id="" method="post" action="{{url('worktime')}}">
+        @csrf
+        <label>Horas Trabajadas:</label> 
+
+        <input type="date" name="fecha" value="{{$fecha}}">
+        
+        <label > Mes</label>
+        <input type="checkbox" id="" name= "mes" value="ok">
+                    
+                   
+        <button class="btn btn-outline-success my-2 my-sm-0">Ver</button>
+        {{$mes}}
+
+    </form>
 </div>
+
 <div class="grid-container">
     
 
@@ -334,6 +349,13 @@ tr:nth-child(even) {
             </table>
 
         </div>
+
+    </div>
+
+
+    <div class="Global">
+
+        <label>Global Horas Trabajadas</label>
 
     </div>
 

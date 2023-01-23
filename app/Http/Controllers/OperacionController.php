@@ -1000,94 +1000,95 @@ $conteo= DB::table('operacions')
 
     }
 
-/*Muestra la vista de horas trabajadas para los equipos de bombeo*/
-public function horasTrabajadas()
+/*Muestra la vista de horas trabajadas para los equipos de bombeo segun fecha que recibe por parametro*/
+public function horasTrabajadas($fechas,$mes)
 {
     // code...
     $id_bt=1;
     $id_eb1=2;
     $id_eb2=3;
     $id_eb3=4;
-    $fecha=date('Y-m-d');
+
+    $fecha=$fechas;
     //Obteniendo los equipos de BT
     $eqbt=$this->equipos($id_bt);
 
     $estado='Operando';
     //Obteniendo las horas trabajadas de los equipos de BT
     $id_eq1_bt=1;
-    $eq1_bt=$this->workTime($id_eq1_bt,$fecha,$estado);
+    $eq1_bt=$this->workTime($id_eq1_bt,$fecha,$estado,$mes);
     $id_eq2_bt=2;
-    $eq2_bt=$this->workTime($id_eq2_bt,$fecha,$estado);
+    $eq2_bt=$this->workTime($id_eq2_bt,$fecha,$estado,$mes);
     $id_eq3_bt=3;
-    $eq3_bt=$this->workTime($id_eq3_bt,$fecha,$estado);
+    $eq3_bt=$this->workTime($id_eq3_bt,$fecha,$estado,$mes);
     $id_eq4_bt=4;
-    $eq4_bt=$this->workTime($id_eq4_bt,$fecha,$estado);
+    $eq4_bt=$this->workTime($id_eq4_bt,$fecha,$estado,$mes);
     $id_eq5_bt=5;
-    $eq5_bt=$this->workTime($id_eq5_bt,$fecha,$estado);
+    $eq5_bt=$this->workTime($id_eq5_bt,$fecha,$estado,$mes);
     $id_eq6_bt=6;
-    $eq6_bt=$this->workTime($id_eq6_bt,$fecha,$estado);
+    $eq6_bt=$this->workTime($id_eq6_bt,$fecha,$estado,$mes);
     $id_eq7_bt=7;
-    $eq7_bt=$this->workTime($id_eq7_bt,$fecha,$estado);
+    $eq7_bt=$this->workTime($id_eq7_bt,$fecha,$estado,$mes);
     $id_eq8_bt=8;
-    $eq8_bt=$this->workTime($id_eq8_bt,$fecha,$estado);
+    $eq8_bt=$this->workTime($id_eq8_bt,$fecha,$estado,$mes);
 
     //Obteniendo los equipos de EB1
     $eqeb1=$this->equipos($id_eb1);
     //Obteniendo las horas trabajadas de los equipos de EB1
     $id_eq1_eb1=9;
-    $eq1_eb1=$this->workTime($id_eq1_eb1,$fecha,$estado);
+    $eq1_eb1=$this->workTime($id_eq1_eb1,$fecha,$estado,$mes);
     $id_eq2_eb1=10;
-    $eq2_eb1=$this->workTime($id_eq2_eb1,$fecha,$estado);
+    $eq2_eb1=$this->workTime($id_eq2_eb1,$fecha,$estado,$mes);
     $id_eq3_eb1=11;
-    $eq3_eb1=$this->workTime($id_eq3_eb1,$fecha,$estado);
+    $eq3_eb1=$this->workTime($id_eq3_eb1,$fecha,$estado,$mes);
     $id_eq4_eb1=12;
-    $eq4_eb1=$this->workTime($id_eq4_eb1,$fecha,$estado);
+    $eq4_eb1=$this->workTime($id_eq4_eb1,$fecha,$estado,$mes);
     $id_eq5_eb1=13;
-    $eq5_eb1=$this->workTime($id_eq5_eb1,$fecha,$estado);
+    $eq5_eb1=$this->workTime($id_eq5_eb1,$fecha,$estado,$mes);
     $id_eq6_eb1=14;
-    $eq6_eb1=$this->workTime($id_eq6_eb1,$fecha,$estado);
+    $eq6_eb1=$this->workTime($id_eq6_eb1,$fecha,$estado,$mes);
     $id_eq7_eb1=15;
-    $eq7_eb1=$this->workTime($id_eq7_eb1,$fecha,$estado);
+    $eq7_eb1=$this->workTime($id_eq7_eb1,$fecha,$estado,$mes);
     
     //Obteniendo los equipos de EB2
     $eqeb2=$this->equipos($id_eb2);
     //Obteniendo las horas trabajadas de los equipos de EB2
     $id_eq1_eb2=16;
-    $eq1_eb2=$this->workTime($id_eq1_eb2,$fecha,$estado);
+    $eq1_eb2=$this->workTime($id_eq1_eb2,$fecha,$estado,$mes);
     $id_eq2_eb2=17;
-    $eq2_eb2=$this->workTime($id_eq2_eb2,$fecha,$estado);
+    $eq2_eb2=$this->workTime($id_eq2_eb2,$fecha,$estado,$mes);
     $id_eq3_eb2=18;
-    $eq3_eb2=$this->workTime($id_eq3_eb2,$fecha,$estado);
+    $eq3_eb2=$this->workTime($id_eq3_eb2,$fecha,$estado,$mes);
     $id_eq4_eb2=19;
-    $eq4_eb2=$this->workTime($id_eq4_eb2,$fecha,$estado);
+    $eq4_eb2=$this->workTime($id_eq4_eb2,$fecha,$estado,$mes);
     $id_eq5_eb2=20;
-    $eq5_eb2=$this->workTime($id_eq5_eb2,$fecha,$estado);
+    $eq5_eb2=$this->workTime($id_eq5_eb2,$fecha,$estado,$mes);
     $id_eq6_eb2=21;
-    $eq6_eb2=$this->workTime($id_eq6_eb2,$fecha,$estado);
+    $eq6_eb2=$this->workTime($id_eq6_eb2,$fecha,$estado,$mes);
     $id_eq7_eb2=22;
-    $eq7_eb2=$this->workTime($id_eq7_eb2,$fecha,$estado);
+    $eq7_eb2=$this->workTime($id_eq7_eb2,$fecha,$estado,$mes);
 
     //Obteniendo los equipos de EB3
     $eqeb3=$this->equipos($id_eb3);
     //Obteniendo las horas trabajadas de los equipos de EB3
     $id_eq1_eb3=23;
-    $eq1_eb3=$this->workTime($id_eq1_eb3,$fecha,$estado);
+    $eq1_eb3=$this->workTime($id_eq1_eb3,$fecha,$estado,$mes);
     $id_eq2_eb3=24;
-    $eq2_eb3=$this->workTime($id_eq2_eb3,$fecha,$estado);
+    $eq2_eb3=$this->workTime($id_eq2_eb3,$fecha,$estado,$mes);
     $id_eq3_eb3=25;
-    $eq3_eb3=$this->workTime($id_eq3_eb3,$fecha,$estado);
+    $eq3_eb3=$this->workTime($id_eq3_eb3,$fecha,$estado,$mes);
     $id_eq4_eb3=26;
-    $eq4_eb3=$this->workTime($id_eq4_eb3,$fecha,$estado);
+    $eq4_eb3=$this->workTime($id_eq4_eb3,$fecha,$estado,$mes);
     $id_eq5_eb3=27;
-    $eq5_eb3=$this->workTime($id_eq5_eb3,$fecha,$estado);
+    $eq5_eb3=$this->workTime($id_eq5_eb3,$fecha,$estado,$mes);
     $id_eq6_eb3=28;
-    $eq6_eb3=$this->workTime($id_eq6_eb3,$fecha,$estado);
+    $eq6_eb3=$this->workTime($id_eq6_eb3,$fecha,$estado,$mes);
     $id_eq7_eb3=29;
-    $eq7_eb3=$this->workTime($id_eq7_eb3,$fecha,$estado);
+    $eq7_eb3=$this->workTime($id_eq7_eb3,$fecha,$estado,$mes);
 
 
 
-    return view('horas-trabajadas',compact('eqbt','eqeb1','eq1_bt','fecha','eq2_bt','eq3_bt','eq4_bt','eq5_bt','eq6_bt','eq7_bt','eq8_bt','eq1_eb1','eq2_eb1','eq3_eb1','eq4_eb1','eq5_eb1','eq6_eb1','eq7_eb1','eq1_eb2','eq2_eb2','eq3_eb2','eq4_eb2','eq5_eb2','eq6_eb2','eq7_eb2','eqeb2','eq1_eb3','eq2_eb3','eq3_eb3','eq4_eb3','eq5_eb3','eq6_eb3','eq7_eb3','eqeb3'));
+    return view('horas-trabajadas',compact('eqbt','eqeb1','eq1_bt','fecha','eq2_bt','eq3_bt','eq4_bt','eq5_bt','eq6_bt','eq7_bt','eq8_bt','eq1_eb1','eq2_eb1','eq3_eb1','eq4_eb1','eq5_eb1','eq6_eb1','eq7_eb1','eq1_eb2','eq2_eb2','eq3_eb2','eq4_eb2','eq5_eb2','eq6_eb2','eq7_eb2','eqeb2','eq1_eb3','eq2_eb3','eq3_eb3','eq4_eb3','eq5_eb3','eq6_eb3','eq7_eb3','eqeb3','mes'));
 
 
 }
@@ -1106,21 +1107,44 @@ public function equipos($id_estacion)
 
 }
 
-//Calcula el tiempo en que un equipo ha operado hasta la fecha recibida
-public function workTime($id_eq,$fecha,$estado)
+//Calcula el tiempo en que un equipo ha operado hasta la fecha recibida o por mes segun se pida en la vista horas-trabajadas
+public function workTime($id_eq,$fecha,$estado,$mes)
 {
-    //Contando las horas trabajadas para un determinado equipo
+    //Si mes = 'ok' significa que en la vista necesitan hacer una busqueda por mes, de lo contrario se mostraran las horas trabajadas de los equipos solo por la fecha asignada
 
-    $equipo=Operacion::where('id_equipo',$id_eq)
+    if (($mes)=='ok') {
+        // code...
+         $equipo=Operacion::where('id_equipo',$id_eq)
+     ->where('estado','=',$estado)
+     //->where('fecha','=',$fecha)//Filtrando la informacion por un dia determinado
+     ->whereRaw('month(fecha) = month(?)',[$fecha]) //Filtrando la informacion por un mes determinado
+      //->whereRaw('year(fecha) = year(?)',[$fecha])  //Filtrando la informacion por un año determinado
+     ->count()
+     ;
+    }else{
+     $equipo=Operacion::where('id_equipo',$id_eq)
      ->where('estado','=',$estado)
      ->where('fecha','=',$fecha)//Filtrando la informacion por un dia determinado
-      //->whereRaw('month(fecha) = month(?)',[$fecha]) //Filtrando la informacion por un mes determinado
+     //->whereRaw('month(fecha) = month(?)',[$fecha]) //Filtrando la informacion por un mes determinado
       //->whereRaw('year(fecha) = year(?)',[$fecha])  //Filtrando la informacion por un año determinado
      ->count()
      ;
 
+    }
+   
+
      return $equipo;
 
+}
+
+/**
+* Captura la fecha que se manda desde la vista horas-trabajadas y que el usuario quiere ver, luego redirige y muestra la informacion requerida
+* @param  \Illuminate\Http\Request  $request
+*/
+
+public function horasTrabajo(Request  $request)
+{
+    return $this->horasTrabajadas($request->fecha,$request->mes);
 }
 
 

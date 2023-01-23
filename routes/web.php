@@ -65,8 +65,8 @@ Route::get('/bitacora', [CalidadController::class, 'cargarBitacora']);
 /*Maneja la vista del historial de los equipos trabajando por estacion, muestra por defecto los equipos operando del dia actual*/
 Route::get('/operacion', [OperacionController::class, 'index']);
 
-/*Muestra las horas trabajadas de los equipos de bombeo*/
-Route::get('/horas-trabajadas', [OperacionController::class, 'horasTrabajadas']);
+/*Muestra las horas trabajadas de los equipos de bombeo, recibe fecha actual y mes qe hace referencia a una busqueda*/
+Route::get('/horas-trabajadas/{fecha}/{mes}', [OperacionController::class, 'horasTrabajadas']);
 
 /*Maneja las calidades de agua*/
 
@@ -154,6 +154,10 @@ Route::post('actualizar-carga', [CargaController::class, 'update']);
 
 /*Captura y actualiza las dosis de quimicos*/
 Route::post('actualizar-dosis', [ConsumoController::class, 'update']);
+
+/*Muestra las horas trabajadas de los equipos segun la fecha requerida*/
+Route::post('worktime', [OperacionController::class, 'horasTrabajo']);
+
 
 /*Elimina los datos de dosificaciones-niveles de camara, niveles rio, cloros aporte las pavas segun la hora y fecha */
 /*Route::post('eliminar-procesos', [ConsumoController::class, 'destroy']);
