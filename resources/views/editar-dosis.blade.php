@@ -96,31 +96,34 @@
         <a href="/"><button class="btn"><i class="fa fa-home" ></i></button> </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="/resumen{{date('Y-m-d')}}">Control de Procesos</a>
+      </li>
+         <li class="nav-item">
         <a class="nav-link" href="/calidad">Calidades</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/operacion">Equipos</a>
+        <li class="nav-item">
+        <a class="nav-link" href="/cargas">Carga de Químicos</a>
       </li>
-       
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Herramientas
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/producciones">Producciones</a>
-          <a class="dropdown-item" href="#">Bitacora</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+        <li class="nav-item">
+        <a class="nav-link" href="/paros">Paros de Operación</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Más</a>
+        <a class="nav-link" href="/producciones">Producciones</a>
       </li>
-    </ul>
+
    
+      <li class="nav-item">
+        <a class="nav-link" href="/operacion">Operación Equipos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/bitacora">Bitacora</a>
+      </li>
+     
+  
+    </ul>
+    
   </div>
 </nav>
-
 
 
 
