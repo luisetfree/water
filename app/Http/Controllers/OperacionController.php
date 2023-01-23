@@ -1005,6 +1005,9 @@ public function horasTrabajadas()
 {
     // code...
     $id_bt=1;
+    $id_eb1=2;
+    $id_eb2=3;
+    $id_eb3=4;
     $fecha=date('Y-m-d');
     //Obteniendo los equipos de BT
     $eqbt=$this->equipos($id_bt);
@@ -1013,8 +1016,78 @@ public function horasTrabajadas()
     //Obteniendo las horas trabajadas de los equipos de BT
     $id_eq1_bt=1;
     $eq1_bt=$this->workTime($id_eq1_bt,$fecha,$estado);
+    $id_eq2_bt=2;
+    $eq2_bt=$this->workTime($id_eq2_bt,$fecha,$estado);
+    $id_eq3_bt=3;
+    $eq3_bt=$this->workTime($id_eq3_bt,$fecha,$estado);
+    $id_eq4_bt=4;
+    $eq4_bt=$this->workTime($id_eq4_bt,$fecha,$estado);
+    $id_eq5_bt=5;
+    $eq5_bt=$this->workTime($id_eq5_bt,$fecha,$estado);
+    $id_eq6_bt=6;
+    $eq6_bt=$this->workTime($id_eq6_bt,$fecha,$estado);
+    $id_eq7_bt=7;
+    $eq7_bt=$this->workTime($id_eq7_bt,$fecha,$estado);
+    $id_eq8_bt=8;
+    $eq8_bt=$this->workTime($id_eq8_bt,$fecha,$estado);
 
-    return view('horas-trabajadas',compact('eqbt','eq1_bt','fecha'));
+    //Obteniendo los equipos de EB1
+    $eqeb1=$this->equipos($id_eb1);
+    //Obteniendo las horas trabajadas de los equipos de EB1
+    $id_eq1_eb1=9;
+    $eq1_eb1=$this->workTime($id_eq1_eb1,$fecha,$estado);
+    $id_eq2_eb1=10;
+    $eq2_eb1=$this->workTime($id_eq2_eb1,$fecha,$estado);
+    $id_eq3_eb1=11;
+    $eq3_eb1=$this->workTime($id_eq3_eb1,$fecha,$estado);
+    $id_eq4_eb1=12;
+    $eq4_eb1=$this->workTime($id_eq4_eb1,$fecha,$estado);
+    $id_eq5_eb1=13;
+    $eq5_eb1=$this->workTime($id_eq5_eb1,$fecha,$estado);
+    $id_eq6_eb1=14;
+    $eq6_eb1=$this->workTime($id_eq6_eb1,$fecha,$estado);
+    $id_eq7_eb1=15;
+    $eq7_eb1=$this->workTime($id_eq7_eb1,$fecha,$estado);
+    
+    //Obteniendo los equipos de EB2
+    $eqeb2=$this->equipos($id_eb2);
+    //Obteniendo las horas trabajadas de los equipos de EB2
+    $id_eq1_eb2=16;
+    $eq1_eb2=$this->workTime($id_eq1_eb2,$fecha,$estado);
+    $id_eq2_eb2=17;
+    $eq2_eb2=$this->workTime($id_eq2_eb2,$fecha,$estado);
+    $id_eq3_eb2=18;
+    $eq3_eb2=$this->workTime($id_eq3_eb2,$fecha,$estado);
+    $id_eq4_eb2=19;
+    $eq4_eb2=$this->workTime($id_eq4_eb2,$fecha,$estado);
+    $id_eq5_eb2=20;
+    $eq5_eb2=$this->workTime($id_eq5_eb2,$fecha,$estado);
+    $id_eq6_eb2=21;
+    $eq6_eb2=$this->workTime($id_eq6_eb2,$fecha,$estado);
+    $id_eq7_eb2=22;
+    $eq7_eb2=$this->workTime($id_eq7_eb2,$fecha,$estado);
+
+    //Obteniendo los equipos de EB3
+    $eqeb3=$this->equipos($id_eb3);
+    //Obteniendo las horas trabajadas de los equipos de EB3
+    $id_eq1_eb3=23;
+    $eq1_eb3=$this->workTime($id_eq1_eb3,$fecha,$estado);
+    $id_eq2_eb3=24;
+    $eq2_eb3=$this->workTime($id_eq2_eb3,$fecha,$estado);
+    $id_eq3_eb3=25;
+    $eq3_eb3=$this->workTime($id_eq3_eb3,$fecha,$estado);
+    $id_eq4_eb3=26;
+    $eq4_eb3=$this->workTime($id_eq4_eb3,$fecha,$estado);
+    $id_eq5_eb3=27;
+    $eq5_eb3=$this->workTime($id_eq5_eb3,$fecha,$estado);
+    $id_eq6_eb3=28;
+    $eq6_eb3=$this->workTime($id_eq6_eb3,$fecha,$estado);
+    $id_eq7_eb3=29;
+    $eq7_eb3=$this->workTime($id_eq7_eb3,$fecha,$estado);
+
+
+
+    return view('horas-trabajadas',compact('eqbt','eqeb1','eq1_bt','fecha','eq2_bt','eq3_bt','eq4_bt','eq5_bt','eq6_bt','eq7_bt','eq8_bt','eq1_eb1','eq2_eb1','eq3_eb1','eq4_eb1','eq5_eb1','eq6_eb1','eq7_eb1','eq1_eb2','eq2_eb2','eq3_eb2','eq4_eb2','eq5_eb2','eq6_eb2','eq7_eb2','eqeb2','eq1_eb3','eq2_eb3','eq3_eb3','eq4_eb3','eq5_eb3','eq6_eb3','eq7_eb3','eqeb3'));
 
 
 }
