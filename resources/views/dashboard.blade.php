@@ -33,7 +33,10 @@ th {
   height: 10px;
   width: 10px;
 }
-   
+/*Fecha y boton ver*/   
+.form-group{
+  padding: 1%;
+}
 
   .card{
     width: 100%;          
@@ -62,7 +65,49 @@ font-weight: bold;
 </style>
 
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Torogoz App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a href="/"><button class="btn"><i class="fa fa-home" ></i></button> </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/resumen{{date('Y-m-d')}}">Control de Procesos</a>
+      </li>
+         <li class="nav-item">
+        <a class="nav-link" href="/calidad">Calidades</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/cargas">Carga de Químicos</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/paros">Paros de Operación</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/producciones">Producciones</a>
+      </li>
+
+   
+      <li class="nav-item">
+        <a class="nav-link" href="/operacion">Operación Equipos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/bitacora">Bitacora</a>
+      </li>
+     
+      <li class="nav-item">
+        
+         <a class="nav-link"  href="/horas-trabajadas/{{date('Y-m-d')}}/{{date('m')}}">Horas trabajadas/Eq.</a>
+      </li>
+    </ul>
+    
+  </div>
+</nav>
 
 
 
@@ -72,9 +117,9 @@ font-weight: bold;
  <form name="" id="" method="post" action="{{url('dashboard') }}">
        @csrf
 
-      <div class="container">
+      <div class="form-group">
         
-        <a href="http://127.0.0.1:8000"> <i class="fas fa-home"></i> </a>
+        
         <!-- Fecha -->
         <label >Fecha:</label>
 
@@ -85,7 +130,7 @@ font-weight: bold;
   </form>
 
 <section>
-  <a href="/horas-trabajadas/{{date('Y-m-d')}}/{{date('m')}}">Horas trabajadas/Equipos de bombeo</a>
+ 
 
  </section>
 

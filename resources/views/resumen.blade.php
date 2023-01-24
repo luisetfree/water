@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -78,6 +80,20 @@ border-radius: 30px;
 border: solid #e5e3e3;
 }
 
+/*Division entre controles y tabla de datos*/
+.linea{
+border: solid #e5e3e3;
+margin: 1%;
+border-radius: 10px;
+opacity: 40%;
+}
+
+.resumen{
+
+    text-align: center;
+    font-weight: bold;
+
+}
 
     </style>
 
@@ -145,7 +161,7 @@ border: solid #e5e3e3;
   @endif
   <div class="card">
     <div class="card-header text-center font-weight-bold">
-      Produccion 
+      Producción 
 
     </div>
 
@@ -156,7 +172,7 @@ border: solid #e5e3e3;
         <form name="" class="mostrar" method="post" action="{{url('muestra')}}">
        @csrf
         <label>Ver fecha:</label>
-        <input type="date" name="fecha" value="{{$fecha}}">  
+        <input type="date" name="fecha" class="" value="{{$fecha}}">  
         <button type="submit" class="btn btn-outline-primary">Mostrar</button>
 
 
@@ -623,11 +639,10 @@ border: solid #e5e3e3;
 
         </div>
         <!-- Fin inputs -->
-        <br>
-        <br>
-        <br>
-        <br>
 
+        <br>
+        <br>
+       <section class="linea"></section>
 
     
         <button type="submit" class="btn btn-outline-primary">Guardar</button>
@@ -649,6 +664,8 @@ border: solid #e5e3e3;
     </div>
 
     <!-- Tabla que muestra los valores almacenados -->
+
+    <div class="resumen">Tabla Resumen</div>
         <table>
             
 

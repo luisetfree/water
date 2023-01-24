@@ -9,7 +9,11 @@ use App\Http\Controllers\CalidadController;
 use App\Http\Controllers\CargaController;
 use App\Http\Controllers\SuspensionController;
 use App\Http\Controllers\ConsumoController;
-
+use App\Http\Controllers\LoginController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\ValidatedInput;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +28,12 @@ use App\Http\Controllers\ConsumoController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('login', function () {
+    return view('login');
+});
+
+Route::post('/login',[LoginController::class, 'authenticate']);
 
 /*Route::get('/resumen', function () {
     return view('resumen');
