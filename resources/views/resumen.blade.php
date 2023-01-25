@@ -44,7 +44,6 @@
         }
 
 
-
             /*Maneja los encabezados bocatoma-eb1-2-3*/
             .grid-container {
               display: grid;

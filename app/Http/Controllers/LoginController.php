@@ -33,7 +33,7 @@ class LoginController extends Controller
         }
  
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+            'name' => 'Estas credenciales no se encuentran en nuestros registros',
+        ])->onlyInput('name');
     }
 }

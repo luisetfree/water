@@ -320,7 +320,7 @@ input[type=password]:placeholder {
 
 
     </head>
-    <body class="antialiased">
+<body class="antialiased">
        
         
 
@@ -334,13 +334,21 @@ input[type=password]:placeholder {
         </div> -->
 
         <!-- Login Form -->
-        <form method="post" action="{{url('/login')}}">
+        <form method="post" action="{{url('register')}}">
             @csrf
             <br>
-          <input type="text" id="login" class="fadeIn second" name="name" placeholder="Usuario" >
-          <input type="password" id="password" class="fadeIn third" name="password" placeholder="Contraseña" >
+          <input type="text" id="login" class="fadeIn second" name="name" placeholder="Usuario" value="{{old('name')}}">
+          <input type="text" id="login" class="fadeIn second" name="email" placeholder="em@il" value="{{old('email')}}">
+          <input type="password" id="password" class="fadeIn third" name="password"  placeholder="Contraseña"  >
+          <input type="password" id="password" class="fadeIn third" name="password_confirmation"   placeholder="Repetir Contraseña" >
 
-          <input type="submit" class="fadeIn fourth" value="Iniciar">
+          <input type="submit" class="fadeIn fourth" value="Registrar">
+
+          @if(session('mensaje'))
+            <div class="alert alert-success">
+                {{ session('mensaje') }}
+            </div>
+          @endif
         </form>
 
         <!-- Remind Passowrd 
@@ -351,9 +359,6 @@ input[type=password]:placeholder {
       </div>
 </div>
 
-    <div class="card-body">
-
-     <h4>Bienvenido . {{ auth()->id()}} </h4>
-  </div>
+   
     </body>
 </html>

@@ -10,6 +10,7 @@ use App\Http\Controllers\CargaController;
 use App\Http\Controllers\SuspensionController;
 use App\Http\Controllers\ConsumoController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -33,21 +34,15 @@ Route::get('login', function () {
     return view('login');
 });
 
+Route::get('register', function () {
+    return view('register');
+});
+
 Route::post('/login',[LoginController::class, 'authenticate']);
+Route::post('register',[RegisterController::class, 'register']);
 
-/*Route::get('/resumen', function () {
-    return view('resumen');
-});*/
 
-//Route::get('/agua/{tipo}', 'AguaController@store');
 
-//para enviar a la vista los datos y que sean mostrados
-//Route::get('/resumen, [ProduccionController::class, 'index']);
-
-/*cuando se accede a la url: /resumen, se invoca al metodo show de ProduccionController y este manda a la vista
-
-resumen todos los valores almacenados en la tabla Produccion.*/
-//Route::get('/resumen/{id}', [ProduccionController::class, 'show']);
 
 
 /*Utilizando este metodo se muestra por defecto los valores de Bocatoma desde el metodo index*/

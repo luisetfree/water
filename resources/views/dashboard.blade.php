@@ -65,6 +65,8 @@ font-weight: bold;
 </style>
 
 
+
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Torogoz App</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -105,6 +107,10 @@ font-weight: bold;
          <a class="nav-link"  href="/horas-trabajadas/{{date('Y-m-d')}}/{{date('m')}}">Horas trabajadas/Eq.</a>
       </li>
     </ul>
+
+    
+  
+
     
   </div>
 </nav>
