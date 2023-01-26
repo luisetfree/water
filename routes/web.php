@@ -53,122 +53,122 @@ Route::get('logout', [LoginController::class, 'logout']);
 
 
 /*Utilizando este metodo se muestra por defecto los valores de Bocatoma desde el metodo index*/
-Route::get('/resumen{fecha}', [ProduccionController::class, 'index']);
+Route::get('/resumen{fecha}', [ProduccionController::class, 'index'])->middleware('auth');
 
 /*Muestra el formulario para editar un paro de operacion en especifico*/
-Route::get('/editarParo{id_paro}', [SuspensionController::class, 'edit']);
+Route::get('/editarParo{id_paro}', [SuspensionController::class, 'edit'])->middleware('auth');
 
 /*Muestra el formulario para editar un paro de operacion en especifico*/
-Route::get('/editarCarga{id_carga}', [CargaController::class, 'edit']);
+Route::get('/editarCarga{id_carga}', [CargaController::class, 'edit'])->middleware('auth');
 
 /*Editar dosificaciones Coagulante-polimero, etc*/
-Route::get('/editardosis{id_dosis}', [ConsumoController::class, 'show']);
+Route::get('/editardosis{id_dosis}', [ConsumoController::class, 'show'])->middleware('auth');
 
 /*Muestra Paro de operaciones*/
-Route::get('/paros', [SuspensionController::class, 'index']);
+Route::get('/paros', [SuspensionController::class, 'index'])->middleware('auth');
 
 /*Muestra el dashboard resumen*/
-Route::get('/dashboard', [ProduccionController::class, 'dashboard']);
+Route::get('/dashboard', [ProduccionController::class, 'dashboard'])->middleware('auth');
 
 /*Maneja la ruta de la vista bitacora*/
-Route::get('/bitacora', [CalidadController::class, 'cargarBitacora']);
+Route::get('/bitacora', [CalidadController::class, 'cargarBitacora'])->middleware('auth');
 
 
 /*Maneja la vista del historial de los equipos trabajando por estacion, muestra por defecto los equipos operando del dia actual*/
-Route::get('/operacion', [OperacionController::class, 'index']);
+Route::get('/operacion', [OperacionController::class, 'index'])->middleware('auth');
 
 /*Muestra las horas trabajadas de los equipos de bombeo, recibe fecha actual y mes qe hace referencia a una busqueda*/
-Route::get('/horas-trabajadas/{fecha}/{mes}', [OperacionController::class, 'horasTrabajadas']);
+Route::get('/horas-trabajadas/{fecha}/{mes}', [OperacionController::class, 'horasTrabajadas'])->middleware('auth');
 
 /*Maneja las calidades de agua*/
 
-Route::get('/calidad', [CalidadController::class, 'index']);
+Route::get('/calidad', [CalidadController::class, 'index'])->middleware('auth');
 
 /*Controla y muestra la carga de quimicos en la vista Quimicos*/
-Route::get('/cargas', [CargaController::class, 'index']);
+Route::get('/cargas', [CargaController::class, 'index'])->middleware('auth');
 
-Route::get('/agua/{tipo}', [AguaController::class, 'store']);
+Route::get('/agua/{tipo}', [AguaController::class, 'store'])->middleware('auth');
 
-Route::get('/prod/{caudal}', [ProduccionController::class, 'store']);
+Route::get('/prod/{caudal}', [ProduccionController::class, 'store'])->middleware('auth');
 
 /*Controla la vista producciones que muestra los datos de las 4 estaciones*/
-Route::get('/producciones', [ProduccionController::class, 'producciones']);
+Route::get('/producciones', [ProduccionController::class, 'producciones'])->middleware('auth');
 
 //Recibe desde el formulario en la vista resumen y guarda la informacion
-Route::post('store-form', [ProduccionController::class, 'store']);
+Route::post('store-form', [ProduccionController::class, 'store'])->middleware('auth');
 
 //Recibe el id desde el formulario-mostrar para filtrar y buscar la estacion que se necesita
-Route::post('mostrar', [ProduccionController::class, 'mostrar']);
+Route::post('mostrar', [ProduccionController::class, 'mostrar'])->middleware('auth');
 
 //Recibe la fecha del formulario en la vista Equipos para filtrar la informacion segun fecha específicada
-Route::post('/operacion', [OperacionController::class, 'index']);
+Route::post('/operacion', [OperacionController::class, 'index'])->middleware('auth');
 
 /*Maneja y guarda las calidades del agua*/
-Route::post('/calidades', [CalidadController::class, 'store']);
+Route::post('/calidades', [CalidadController::class, 'store'])->middleware('auth');
 
 /*Maneja la busqueda de calidades por fecha y las muestra */
-Route::post('muestra-calidad', [CalidadController::class, 'buscar']);
+Route::post('muestra-calidad', [CalidadController::class, 'buscar'])->middleware('auth');
 
 /*Recibe de la vista Resumen la fecha que el usuario selecciono para cambiar los datos de la vista */
-Route::post('muestra', [ProduccionController::class, 'cargarFecha']);
+Route::post('muestra', [ProduccionController::class, 'cargarFecha'])->middleware('auth');
 
 
 /*Maneja la busqueda de los datos de bitacora por fecha*/
-Route::post('bitacora', [CalidadController::class, 'cargarBitacora']);
+Route::post('bitacora', [CalidadController::class, 'cargarBitacora'])->middleware('auth');
 
 
 //Guarda los datos del formulario para actualizar datos
-Route::post('actualizar', [CalidadController::class, 'update']);
+Route::post('actualizar', [CalidadController::class, 'update'])->middleware('auth');
 
 //Recibe el id de un tipo de agua en particular y precarga los datos en la vista Editar-Calidad para su posterior edicion de los valores
-Route::get('/edit/{id}', [CalidadController::class, 'precargar']);
+Route::get('/edit/{id}', [CalidadController::class, 'precargar'])->middleware('auth');
 
 //Controla la edicion de las producciones recibiendo un id 
-Route::get('/produccion/{id}', [ProduccionController::class, 'precargar']);
+Route::get('/produccion/{id}', [ProduccionController::class, 'precargar'])->middleware('auth');
 
 //Controla la edicion de los equipos operando
-Route::get('/editar-equipos/{hora}/{fecha}/{id_estacion}', [OperacionController::class, 'precargar']);
+Route::get('/editar-equipos/{hora}/{fecha}/{id_estacion}', [OperacionController::class, 'precargar'])->middleware('auth');
 /*Actualiza los valores de los equipos operando*/
-Route::post('updatEquipos', [OperacionController::class, 'actualizarEquipos']);
+Route::post('updatEquipos', [OperacionController::class, 'actualizarEquipos'])->middleware('auth');
 
 //Guarda los datos del formulario de la vista Editar-Produccion para actualizar caudales
-Route::post('actualiza_caudal', [ProduccionController::class, 'update']);
+Route::post('actualiza_caudal', [ProduccionController::class, 'update'])->middleware('auth');
 
 /*Maneja las producciones de las estaciones y las muestra segun la fecha requerida*/
-Route::post('producciones', [ProduccionController::class, 'muestraProducciones']);
+Route::post('producciones', [ProduccionController::class, 'muestraProducciones'])->middleware('auth');
 
 /*Controla las cargas de los quimicos*/
-Route::post('cargas', [CargaController::class, 'store']);
+Route::post('cargas', [CargaController::class, 'store'])->middleware('auth');
 
 /*filtra por fecha segun se indica en la vista Dashboard*/
-Route::post('dashboard', [ProduccionController::class, 'dashboard']);
+Route::post('dashboard', [ProduccionController::class, 'dashboard'])->middleware('auth');
 
 /*Filtra y muestra por quimico que se necesita ver en la vista QUIMICOS */
-Route::post('quimico', [CargaController::class, 'index']);
+Route::post('quimico', [CargaController::class, 'index'])->middleware('auth');
 
 /*Procesa y gurada en la BD la informacion de una suspension del formulario de la vista PAROS*/
-Route::post('suspension', [SuspensionController::class, 'store']);
+Route::post('suspension', [SuspensionController::class, 'store'])->middleware('auth');
 
 /*Captura y procesa: fecha y estacion de la cual se desean filtrar los paros de operacion en la vista PAROS*/
-Route::post('filtrar-cortes', [SuspensionController::class, 'filtroCortes']);
+Route::post('filtrar-cortes', [SuspensionController::class, 'filtroCortes'])->middleware('auth');
 
 /*Captura y procesa un paro en especifico para ser eliminado*/
-Route::post('eliminar-paro', [SuspensionController::class, 'destroy']);
+Route::post('eliminar-paro', [SuspensionController::class, 'destroy'])->middleware('auth');
 
 /*Actualizacion de datos de un paro en la BD*/
-Route::post('actualizar-paro', [SuspensionController::class, 'update']);
+Route::post('actualizar-paro', [SuspensionController::class, 'update'])->middleware('auth');
 
 /*Captura y procesa una carga especifica para ser eliminada*/
-Route::post('eliminar-carga', [CargaController::class, 'destroy']);
+Route::post('eliminar-carga', [CargaController::class, 'destroy'])->middleware('auth');
 
 /*Captura y procesa una carga especifica para ser eliminada*/
-Route::post('actualizar-carga', [CargaController::class, 'update']);
+Route::post('actualizar-carga', [CargaController::class, 'update'])->middleware('auth');
 
 /*Captura y actualiza las dosis de quimicos*/
-Route::post('actualizar-dosis', [ConsumoController::class, 'update']);
+Route::post('actualizar-dosis', [ConsumoController::class, 'update'])->middleware('auth');
 
 /*Muestra las horas trabajadas de los equipos segun la fecha requerida*/
-Route::post('worktime', [OperacionController::class, 'horasTrabajo']);
+Route::post('worktime', [OperacionController::class, 'horasTrabajo'])->middleware('auth');
 
 
 /*Elimina los datos de dosificaciones-niveles de camara, niveles rio, cloros aporte las pavas segun la hora y fecha */
