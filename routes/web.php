@@ -26,13 +26,20 @@ use Illuminate\Support\ValidatedInput;
 |
 */
 
+//Auth::routes();
+
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('auth');
 
-Route::get('login', function () {
+/*Route::get('login', function () {
     return view('login');
 });
+*/
+Route::get('login',array('as'=>'login',function(){
+    return view('login');
+}));
+
 
 Route::get('register', function () {
     return view('register');
@@ -41,7 +48,7 @@ Route::get('register', function () {
 Route::post('/login',[LoginController::class, 'authenticate']);
 Route::post('register',[RegisterController::class, 'register']);
 
-
+Route::get('logout', [LoginController::class, 'logout']);
 
 
 
