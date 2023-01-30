@@ -1,0 +1,75 @@
+table {
+          font-family: times, sans-serif;
+          border-collapse: collapse;
+          width: 50%;
+        }
+
+        td, th {
+          border: 1px solid #e5e3e3;
+          text-align: center;
+          padding: 4px;
+          font-size: 16px;
+        }
+        /*maneja los encabezados de las tablas*/
+        th {
+        background-color: #e5e3e3;
+        }
+
+        tr:nth-child(even) {
+          /* background-color: #dddddd;*/
+
+        }
+
+          .card{
+            margin: 2%;
+            display: flex;
+            grid-template-columns: 60% 60%;
+            width: 70%;
+            border-radius: 30px;
+            border: solid #e5e3e3;
+  
+          }
+
+
+              /*Div donde estan internamente los elementos del formulario*/
+            .grid-container {
+                /*grid*/
+              display: grid;
+              grid-template-columns: 750px 950px;
+              
+              /*border: solid #e5e3e3;*/
+             
+              justify-content: start;
+
+              padding: 5%;
+              
+  
+            }
+            
+
+            .checkbox{
+              font-size: 15px;
+            }
+
+
+            .historial{
+            border-radius: 30px;
+            border: solid #e5e3e3;
+            margin: 1%;
+            width: 100%;
+            text-align: center;
+
+
+            }
+
+            #formulario{
+            
+                text-align: left;
+                display: grid;
+                padding: 5%;
+
+
+
+            }
+
+ 

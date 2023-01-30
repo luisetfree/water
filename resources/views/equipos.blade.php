@@ -11,49 +11,9 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 
-    <style>
-        table {
-          font-family: times, sans-serif;
-          border-collapse: collapse;
-          width: 100%;
-        }
-
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: left;
-          padding: 8px;
-        }
-
-        tr:nth-child(even) {
-          background-color: #dddddd;
-        }
+<link rel="stylesheet" href="{{ asset('css/operacion.css') }}" />
 
 
-
-/*Maneja los encabezados bocatoma-eb1-2-3*/
-.grid-container {
-  display: grid;
-  /*auto representa cada columna*/
-  grid-template-columns: auto auto auto auto;
-  grid-template-rows: 35px 70px;
-  gap: 10px;
-  
-  padding: 10px;
-  
-}
-
-
-.checkbox{
-  font-size: 15px;
-}
-
-.button { font-size: 14px;  }
-
-
-
-
-
-</style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Torogoz App</a>

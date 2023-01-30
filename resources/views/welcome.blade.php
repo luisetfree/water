@@ -64,7 +64,7 @@
              
 
                     <!-- LOGO -->
-                    <img src="{{ asset('img/logo-ANDA.png')}}"  width="280" height="150" />
+                    <img src="{{ asset('img/logo-ANDA.png')}}"  width="280" height="130" />
 
 
                 </div>

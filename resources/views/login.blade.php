@@ -15,7 +15,11 @@
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
-        <style>
+<style>
+
+
+   
+
         /* BASIC */
 
 html {
@@ -191,6 +195,8 @@ input[type=password]:focus {
 input[type=password]:placeholder {
   color: #cccccc;
 }
+
+
 /*input[type=password]:focus {
   background-color: #fff;
   border-bottom: 2px solid #5fbae9;
@@ -199,6 +205,7 @@ input[type=password]:placeholder {
 input[type=password]:placeholder {
   color: #cccccc;
 }*/
+
 
 /* ANIMATIONS */
 
@@ -320,10 +327,9 @@ input[type=password]:placeholder {
 
 
     </head>
-    <body class="antialiased">
+<body class="antialiased">
        
         
-
 <div class="wrapper fadeInDown">
       <div id="formContent">
         <!-- Tabs Titles -->
@@ -337,6 +343,7 @@ input[type=password]:placeholder {
         <form method="post" action="{{url('/login')}}">
             @csrf
             <br>
+          <img src="{{ asset('img/logo-ANDA.png')}}"  width="280" height="130" />
           <input type="text" id="login" class="fadeIn second" name="name" placeholder="Usuario" >
           <input type="password" id="password" class="fadeIn third" name="password" placeholder="Contraseña" >
 
@@ -348,12 +355,9 @@ input[type=password]:placeholder {
           <a class="underlineHover" href="#">Forgot Password?</a>-->
         </div>
 
-      </div>
 </div>
 
-    <div class="card-body">
 
-     <h4>Bienvenido . {{ auth()->id()}} </h4>
-  </div>
+ 
     </body>
 </html>

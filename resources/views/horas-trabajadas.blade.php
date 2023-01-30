@@ -8,57 +8,68 @@
 
 
 
-
+<link rel="stylesheet" href="{{ asset('css/stilo.css') }}" />
 
 <style>
-       
-
-/*Maneja los encabezados bocatoma-eb1-2-3*/
-.grid-container {
-  display: grid;
-  /*auto representa cada columna*/
-  grid-template-columns: auto auto auto auto;
-  
-  gap: 10px;
-  
-  padding: 10px;
-
-  
-}
-
-
-
-
-.button { font-size: 14px;  }
-
-
-table {
-  font-family: times, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
+    
 
 
 </style>
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Torogoz App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a href="/"><button class="btn"><i class="fa fa-home" ></i></button> </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/resumen{{date('Y-m-d')}}">Control de Procesos</a>
+      </li>
+         <li class="nav-item">
+        <a class="nav-link" href="/calidad">Calidades</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/cargas">Carga de Químicos</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/paros">Paros de Operación</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/producciones">Producciones</a>
+      </li>
+
+   
+      <li class="nav-item">
+        <a class="nav-link" href="/operacion">Operación Equipos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/bitacora">Bitacora</a>
+      </li>
+     
+      <li class="nav-item">
+        
+         <a class="nav-link"  href="/horas-trabajadas/{{date('Y-m-d')}}/{{date('m')}}">Horas trabajadas/Eq.</a>
+      </li>
+    </ul>
+
+    
+  
+
+    
+  </div>
+</nav>
 
 
 </head>
 <body>
 <br>
- <a href="/">Home</a>
-<div>
+ 
+<div id="datos">
      <form name="" id="" method="post" action="{{url('worktime')}}">
         @csrf
         <label>Horas Trabajadas:</label> 
@@ -70,7 +81,7 @@ tr:nth-child(even) {
                     
                    
         <button class="btn btn-outline-success my-2 my-sm-0">Ver</button>
-        {{$mes}}
+        
 
     </form>
 </div>
@@ -353,11 +364,7 @@ tr:nth-child(even) {
     </div>
 
 
-    <div class="Global">
-
-        <label>Global Horas Trabajadas</label>
-
-    </div>
+    
 
 
 

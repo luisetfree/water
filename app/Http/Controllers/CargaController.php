@@ -58,7 +58,6 @@ public function sumaCargas($id_quimico,$fecha)
                 ->join('quimicos', 'cargas.id_quimico', '=', 'quimicos.id')
                 ->whereRaw('month(fecha) = month(?)',[$fecha])
                  ->whereRaw('year(fecha) = year(?)',[$fecha])  
-
                 ->where('id_quimico','=', $id_quimico)
                  ->select('cargas.fecha','quimicos.nombre','cargas.cantidad','cargas.hora','cargas.grupo','cargas.id')
                  

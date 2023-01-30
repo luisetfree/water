@@ -1,0 +1,41 @@
+ /*vista Horas-trabajadas*/
+
+ /*Controles de fecha y busqueda*/  
+    #datos{
+        padding: 10px;
+    }
+
+/*Maneja los encabezados bocatoma-eb1-2-3*/
+.grid-container {
+  display: grid;
+  /*auto representa cada columna*/
+  grid-template-columns: auto auto auto auto;
+  
+  gap: 10px;
+  
+  padding: 10px;
+
+}
+
+.button { font-size: 14px;  }
+
+table {
+  font-family: times, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+
+/*fin vista Horas-trabajadas*/
+
+
