@@ -15,53 +15,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Fin barra menu -->
 
-    <style>
-        table {
-          font-family: times, sans-serif;
-          border-collapse: collapse;
-          width: 100%;
-        }
-
-        td, th {
-          border: 1px solid black;
-          text-align: center;
-          padding: 4px;
-          font-size: 14px;
-        }
-        /*maneja los encabezados de las tablas*/
-        th {
-        background-color: #dddddd;
-        }
-
-        tr:nth-child(even) {
-          /* background-color: #dddddd;*/
-
-        }
-
-
-
-            /*Maneja los encabezados bocatoma-eb1-2-3*/
-            .grid-container {
-              display: grid;
-              /*auto representa cada columna*/
-              grid-template-columns: auto auto auto auto auto auto auto auto auto;
-              grid-template-rows: 80px 120px;
-              gap: 10px;
-              
-              padding: 10px;
-            }
-
-
-            .checkbox{
-              font-size: 15px;
-            }
-
-
-
-
-
-
-    </style>
+<link rel="stylesheet" href="{{ asset('css/bitacora.css') }}" />
 
 
 

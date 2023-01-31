@@ -7,50 +7,8 @@
     <!-- Libreria para iconos -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <style>
-        table {
-          font-family: times, sans-serif;
-          border-collapse: collapse;
-          width: 100%;
+<link rel="stylesheet" href="{{ asset('css/edit-equipos.css') }}" />
 
-        }
-
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: center;
-          padding: 8px;
-        }
-
-        tr:nth-child(even) {
-          background-color: #dddddd;
-
-        }
-
-
-
-/*Maneja los encabezados bocatoma-eb1-2-3*/
-.grid-container {
-  display: grid;
-  /*auto representa cada columna*/
-  grid-template-columns: auto auto auto ;
-  grid-template-rows: 80px 90px;
-  gap: 10px;
-  
-  padding: 10px;
-}
-
-
-.checkbox{
-  font-size: 15px;
-}
-
-
-
-
-
-
-
-</style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Torogoz App</a>

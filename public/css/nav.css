@@ -1,0 +1,22 @@
+
+
+img{
+border-radius: 10px;
+}
+
+
+
+a:focus {
+  border-bottom: 1px solid;
+  background: #e0ebeb;
+  border-radius: 10px;
+
+}
+
+a:hover {
+  
+  background: #e0ebeb;
+ font-weight:bold;
+ border-radius: 10px;
+}
+

@@ -10,11 +10,7 @@
 
 <link rel="stylesheet" href="{{ asset('css/stilo.css') }}" />
 
-<style>
-    
 
-
-</style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Torogoz App</a>

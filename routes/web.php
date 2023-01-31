@@ -32,6 +32,10 @@ Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');
 
+Route::get('/app', function () {
+    return view('/layouts/app');
+});
+
 /*Route::get('login', function () {
     return view('login');
 });

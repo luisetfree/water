@@ -20,53 +20,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Fin barra menu -->
 
-    <style>
-        
+  <link rel="stylesheet" href="{{ asset('css/edit-carga.css') }}" />
 
-          .card{
-            margin: 2%;
-            
-            display: flex;
-            justify-content: center;
-            
-            border-radius: 30px;
-            border: solid #e5e3e3;
-
-
-  
-          }
-
-         
-
-              /*Div donde estan internamente los elementos del formulario*/
-            .grid-container {
-                /*grid*/
-                display: grid;
-                justify-content: center;
-                grid-template-columns: 30% ;
-                gap: 10px;
-                
-                padding: 10px;
-              
-  
-            }
-            
-           input {
-                  width: 90%;
-                  height: 30px;
-                  margin: 0.5rem;
-                }
-
-
-            /*Boton de eliminar */
-            .card-footer{
-
-              text-align: center;
-            }
-
-
-
-    </style>
+   
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Torogoz App</a>
@@ -80,31 +36,34 @@
         <a href="/"><button class="btn"><i class="fa fa-home" ></i></button> </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="/resumen{{date('Y-m-d')}}">Control de Procesos</a>
+      </li>
+         <li class="nav-item">
         <a class="nav-link" href="/calidad">Calidades</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/operacion">Equipos</a>
+        <li class="nav-item">
+        <a class="nav-link" href="/cargas">Carga de Químicos</a>
       </li>
-       
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Herramientas
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/producciones">Producciones</a>
-          <a class="dropdown-item" href="#">Bitacora</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+        <li class="nav-item">
+        <a class="nav-link" href="/paros">Paros de Operación</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Más</a>
+        <a class="nav-link" href="/producciones">Producciones</a>
       </li>
-    </ul>
+
    
+      <li class="nav-item">
+        <a class="nav-link" href="/operacion">Operación Equipos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/bitacora">Bitacora</a>
+      </li>
+     
+  
+    </ul>
+    
   </div>
 </nav>
-
 
 
 

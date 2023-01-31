@@ -4,7 +4,7 @@
     <title>Produccion Torogoz</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
+ 
 
 <!-- para iconos y barra -->
   <meta charset="utf-8">
@@ -15,80 +15,34 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-
-<style>
-
-  table, td, th {
-  border: 1px solid #dddddd;
-  font-size: 10px;
-  font-family: times;
-}
-          
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-th {
-  height: 10px;
-  width: 10px;
-}
-/*Fecha y boton ver*/   
-.form-group{
-  padding: 1%;
-}
-
-  .card{
-    width: 100%;          
-    text-align: center;
-     height: 100%;
-
-
-   }
-
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto auto auto;
-  margin-left: 3%;
-}
-
-#dia{
-width: 5px;
-
-}
-/*Controla los totales de las tablas*/
-#totales{
-
-font-weight: bold;
-}
-
-</style>
-
+<link rel="stylesheet" href="{{ asset('css/dash.css') }}" />
 
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Torogoz App</a>
+    
+<a class="navbar-brand" href="/">
+    <img src="{{ asset('img/logo.JPG') }}" width="30" height="30" alt="">
+    Torogoz App
+</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a href="/"><button class="btn"><i class="fa fa-home" ></i></button> </a>
-      </li>
+      
       <li class="nav-item">
-        <a class="nav-link" href="/resumen{{date('Y-m-d')}}">Control de Procesos</a>
+        <a class="nav-link" href="/resumen{{date('Y-m-d')}}">Procesos</a>
       </li>
          <li class="nav-item">
         <a class="nav-link" href="/calidad">Calidades</a>
       </li>
         <li class="nav-item">
-        <a class="nav-link" href="/cargas">Carga de Químicos</a>
+        <a class="nav-link" href="/cargas">Carga-Químicos</a>
       </li>
         <li class="nav-item">
-        <a class="nav-link" href="/paros">Paros de Operación</a>
+        <a class="nav-link" href="/paros">Paros-Operación</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/producciones">Producciones</a>
@@ -103,22 +57,26 @@ font-weight: bold;
       </li>
      
       <li class="nav-item">
-        
          <a class="nav-link"  href="/horas-trabajadas/{{date('Y-m-d')}}/{{date('m')}}">Horas trabajadas/Eq.</a>
       </li>
     </ul>
 
-    
-  
-
-    
+   
   </div>
 </nav>
 
+ 
+
+
+ 
 
 
 </head>
 <body>
+
+
+
+
 <!-- Controla la fecha que se desea ver -->
  <form name="" id="" method="post" action="{{url('dashboard') }}">
        @csrf
@@ -534,3 +492,5 @@ font-weight: bold;
 
 </body>
 </html>
+
+

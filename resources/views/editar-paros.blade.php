@@ -9,7 +9,7 @@
     <!-- Libreria para iconos -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
+<link rel="stylesheet" href="{{ asset('css/edit-paro.css') }}" />
 
 
 
@@ -22,51 +22,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Fin barra menu -->
 
-    <style>
-        
-
-          .card{
-            margin: 2%;
-            display: flex;
-            
-            
-            border-radius: 30px;
-            border: solid #e5e3e3;
-  
-          }
-
-         
-
-              /*Div donde estan internamente los elementos del formulario*/
-            .grid-container {
-                /*grid*/
-              display: grid;
-              grid-template-columns: 750px ;
-              
-              /*border: solid #e5e3e3;*/
-             
-              justify-content: center;
-
-              padding: 5%;
-              
-  
-            }
-            
-          input {
-                  width: 90%;
-                  height: 30px;
-                  margin: 0.5rem;
-                }
-
-            /*Boton de eliminar */
-            .card-footer{
-
-              text-align: center;
-            }
-
-
-
-    </style>
+    
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Torogoz App</a>
@@ -121,6 +77,8 @@
 
 </head>
 <body>
+
+
    
 <div class="grid-container"> 
 
@@ -279,3 +237,7 @@
      
 </body>
 </html>
+
+
+
+
