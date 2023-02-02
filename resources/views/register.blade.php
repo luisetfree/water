@@ -337,8 +337,9 @@ input[type=password]:placeholder {
         <form method="post" action="{{url('register')}}">
             @csrf
             <br>
-          <input type="text" id="login" class="fadeIn second" name="name" placeholder="Usuario" value="{{old('name')}}">
-          <input type="text" id="login" class="fadeIn second" name="email" placeholder="em@il" value="{{old('email')}}">
+          <input type="text" id="login" class="fadeIn second" name="name" placeholder="Usuario" >
+          <input type="text" id="login" class="fadeIn second" name="email" placeholder="em@il" >
+          <input type="text" id="login" class="fadeIn second" name="rol" placeholder="Rol: 1,2,3" >
           <input type="password" id="password" class="fadeIn third" name="password"  placeholder="Contraseña"  >
           <input type="password" id="password" class="fadeIn third" name="password_confirmation"   placeholder="Repetir Contraseña" >
 

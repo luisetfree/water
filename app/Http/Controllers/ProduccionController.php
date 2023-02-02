@@ -1794,7 +1794,7 @@ $suma_caudal=DB::table('produccions')
      */
 
 
-public function dashboard(Request  $request){
+public function dashboard(Request  $request){ 
 
 /*Validando si el usuario ha pedido una fecha en particular, de lo contrario la fecha que se muestra es la del mes actual*/
     if (empty($request->fecha)) {
@@ -1804,7 +1804,7 @@ public function dashboard(Request  $request){
     }
 
 
-//$fecha="2023-05-01";
+
 
 $id_bocatoma=1;
 $id_eb1=2;

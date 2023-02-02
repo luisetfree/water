@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\ValidatedInput;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,7 +30,10 @@ use Illuminate\Support\ValidatedInput;
 //Auth::routes();
 
 Route::get('/', function () {
-    return view('welcome');
+    //obteniendo los datos del usuario logueado
+    $user = Auth::user();
+
+    return view('welcome',compact('user'));
 })->middleware('auth');
 
 Route::get('/app', function () {
@@ -72,7 +76,14 @@ Route::get('/editardosis{id_dosis}', [ConsumoController::class, 'show'])->middle
 Route::get('/paros', [SuspensionController::class, 'index'])->middleware('auth');
 
 /*Muestra el dashboard resumen*/
+
+
 Route::get('/dashboard', [ProduccionController::class, 'dashboard'])->middleware('auth');
+    
+   
+
+
+
 
 /*Maneja la ruta de la vista bitacora*/
 Route::get('/bitacora', [CalidadController::class, 'cargarBitacora'])->middleware('auth');

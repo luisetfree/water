@@ -53,9 +53,6 @@
                     @endauth
 
 
-               
-            
-
 
 
 
@@ -69,8 +66,11 @@
 
                 </div>
 
+
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                     <div class="grid grid-cols-1 md:grid-cols-2">
+                         <!-- Pestañas a mostrar a los administradores -->
+                       @if(($user->rol)==1)
                         <div class="p-6">
                             <div class="flex items-center">
                             
@@ -171,7 +171,8 @@
                                 </div>
                             </div>
                         </div>
-
+                        <!-- Restriccion para el usuario logueado, solo administrador puede entrar a esta pestaña -->
+                        
                         <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
                             <div class="flex items-center">
                              
@@ -182,11 +183,134 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Resumen admin
+                                    Resumen admin. 
                                 </div>
                             </div>
                         </div>
 
+                        
+                          <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
+                            <div class="flex items-center">
+                        
+                              <img src="{{ asset('img/time-stop.png')}}">
+
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="/paros" class="underline text-gray-900 dark:text-white">Paros de operación</a></div>
+                            </div>
+
+                            <div class="ml-12">
+                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                    Registro y visualización de cortes de operación
+                                </div>
+                            </div>
+                        </div>
+                      
+                    @endif
+                    <!-- Pestañas a mostrar solo a personal de produccion -->
+                    @if(($user->rol)==2)
+
+                     <div class="p-6">
+                            <div class="flex items-center">
+                            
+                             <img src="{{ asset('img/proceso.png')}}">
+                             <!-- se envia por parametro la fecha actual por defecto -->
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="/resumen{{date('Y-m-d')}}" class="underline text-gray-900 dark:text-white">Control de procesos</a></div>
+                            </div>
+
+                            <div class="ml-12">
+                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                    Muestra y permite ingresar el reporte hora por hora de la operación de la planta de tratamiento.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-6">
+                            <div class="flex items-center">
+                   
+                            <img src="{{ asset('img/chemical.png')}}">
+
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="/calidad" class="underline text-gray-900 dark:text-white">Parametros de calidad</a></div>
+                            </div>
+
+                            <div class="ml-12">
+                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                    
+                                    Manejo de la calidad del agua: Cruda, Clarificada, Filtrada y Tratada.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+                            <div class="flex items-center">
+                               
+                               <img src="{{ asset('img/warehouse.png')}}">
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="/cargas" class="underline text-gray-900 dark:text-white">Químicos</a></div>
+                            </div>
+
+                            <div class="ml-12">
+                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                    Creación de requisiciones e ingreso de químicos.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
+                            <div class="flex items-center">
+                             
+
+                                    <img src="{{ asset('img/water_pump.png')}}">
+
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="/operacion" class="underline text-gray-900 dark:text-white">Operación de Equipos</a></div>
+
+                           
+
+                              
+                            </div>
+
+                            <div class="ml-12">
+                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                    Ver la operación de los equipos de bombeo por estación.
+                                    
+                                </div>
+                            </div>
+                        </div>
+                         <div class="p-6 border-t border-gray-200 dark:border-gray-700">
+                            <div class="flex items-center">
+                          
+                               
+
+                                <img src="{{ asset('img/water.png')}}">
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="/producciones" class="underline text-gray-900 dark:text-white">Producciones</a></div>
+
+
+                            </div>
+
+                            <div class="ml-12">
+                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                    Muestra las producciones del dia.
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
+                            <div class="flex items-center">
+                          
+                               
+
+                                <img src="{{ asset('img/folder.png')}}">
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="/bitacora" class="underline text-gray-900 dark:text-white">Bitacora</a></div>
+
+                            </div>
+
+                            <div class="ml-12">
+                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                    
+                                    Resumen mensual calidades y caudal BT.
+                                </div>
+                            </div>
+                        </div>
+                    
+
+                        
                           <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
                             <div class="flex items-center">
                         
@@ -204,6 +328,51 @@
                       
 
 
+                    @endif
+
+                    <!-- Pestañas a mostrar solo a visitantes -->
+                    @if(($user->rol)==3)
+
+                    <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
+                            <div class="flex items-center">
+                             
+                              <img src="{{ asset('img/admin.png')}}">
+
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="/dashboard" class="underline text-gray-900 dark:text-white">Admin</a></div>
+                            </div>
+
+                            <div class="ml-12">
+                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                    Resumen admin. 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
+                            <div class="flex items-center">
+                          
+                               
+
+                                <img src="{{ asset('img/folder.png')}}">
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="/bitacora" class="underline text-gray-900 dark:text-white">Bitacora</a></div>
+
+                            </div>
+
+                            <div class="ml-12">
+                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                    
+                                    Resumen mensual calidades y caudal BT.
+                                </div>
+                            </div>
+                        </div>
+
+
+                    @endif
+
+
+
+
+
                     </div>
                 </div>
 
@@ -217,7 +386,7 @@
                     </div>
 
                     <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Producción Torogoz v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+                        Producción Torogoz v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }}), Usuario: {{$user->name}}
                     </div>
                 </div>
             </div>

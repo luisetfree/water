@@ -25,31 +25,33 @@ class RegisterController extends Controller
        $credentials=$request->validate([
             'name' => ['required', 'string','max:255'],
             'email' => ['required', 'string','email','max:255'],
+            'rol' => ['required', 'string','max:10'],
             'password' => ['required','confirmed',Rules\Password::defaults()],
         ]);
  
 
        //Si la validacion es correcta se procede a crear el usuario, de lo contrario se devuelve a la pagina principal
-        if (attempt($credentials)) {
+        //if (attempt($credentials)) {
 
             //Creacion de usuario a partir de datos previamente validados
         User::create([
 
             'name' => $request->name,
             'email' => $request->email,
+            'rol' => $request->rol,
             'password' =>bcrypt($request->password),
 
-        ]);
+       ]);
 
            return view('login'); 
-        }
+      //  }
 
        
        /* return back()->withErrors([
             'name' => 'Error en registrar',
         ])->onlyInput('name');
 */
-          return view('register')->with('mensaje', 'Error en los datos');
+        //  return view('register')->with('mensaje', 'Error en los datos');
 
 
     }
