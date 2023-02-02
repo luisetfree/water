@@ -22,9 +22,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Fin barra menu -->
 
-    
+    @extends('layouts.app')
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Torogoz App</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -64,7 +64,7 @@
     
   </div>
 </nav>
-
+ -->
 
 
 
@@ -78,7 +78,7 @@
 </head>
 <body>
 
-
+@section('navegador')
    
 <div class="grid-container"> 
 
@@ -140,6 +140,7 @@
         
         <label for="">Hora arranque:</label>
          <input type="text" name="hora_fin" placeholder="00:00" value="{{$datos_paro->hora_fin}}" required> 
+         <br>
          <br>
          <label for="">Causa:</label>
          <select name="causa">
@@ -230,7 +231,7 @@
 
 
 
-
+@endsection
 
 
 

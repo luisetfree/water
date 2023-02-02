@@ -1,9 +1,10 @@
+body{
+  margin: 0;
 
-
+}
 img{
 border-radius: 10px;
 }
-
 
 
 a:focus {
@@ -20,3 +21,8 @@ a:hover {
  border-radius: 10px;
 }
 
+nav{
+
+
+
+}

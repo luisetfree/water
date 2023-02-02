@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-
+<link rel="stylesheet" href="{{ asset('css/edit-dosis.css') }}" />
 
 
 
@@ -20,123 +20,14 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Fin barra menu -->
 
-    <style>
-        
 
-          .card{
-            margin: 2%;
-            
-           /* display: flex;
-            justify-content: center;*/
-            
-            border-radius: 30px;
-            border: solid #e5e3e3;
-
-
-
-
-
-  
-          }
-
-         
-
-              /*Div donde estan internamente los elementos del formulario*/
-            .grid-container {
-                /*grid*/
-                display: grid;
-              
-                padding: 10px;
-
-
-              
-            
-            }
-            
-           input {
-                  width: 90%;
-                  height: 30px;
-                  margin: 0.5rem;
-                }
-
-                /*Contiene todos los inputs */
-              .form-principal{
-
-          display: grid;
-          grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
-          gap: 10px;
-          
-          padding: 10px;
-
-          
-                }
-                
-           
-
-
-            /*Boton de eliminar */
-            .card-footer{
-
-              text-align: center;
-            }
-
-
-
-    </style>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Torogoz App</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a href="/"><button class="btn"><i class="fa fa-home" ></i></button> </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/resumen{{date('Y-m-d')}}">Control de Procesos</a>
-      </li>
-         <li class="nav-item">
-        <a class="nav-link" href="/calidad">Calidades</a>
-      </li>
-        <li class="nav-item">
-        <a class="nav-link" href="/cargas">Carga de Químicos</a>
-      </li>
-        <li class="nav-item">
-        <a class="nav-link" href="/paros">Paros de Operación</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/producciones">Producciones</a>
-      </li>
-
-   
-      <li class="nav-item">
-        <a class="nav-link" href="/operacion">Operación Equipos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/bitacora">Bitacora</a>
-      </li>
-     
-  
-    </ul>
-    
-  </div>
-</nav>
-
-
-
-
-
-
-
-
+@extends('layouts.app')
 
 
 
 </head>
 <body>
+  @section('navegador')
    
 <div class=""> 
 
@@ -389,6 +280,8 @@
 
 
 </div>
+
+@endsection
      
 </body>
 </html>

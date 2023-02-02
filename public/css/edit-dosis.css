@@ -1,0 +1,58 @@
+  
+
+          .card{
+            margin: 2%;
+            
+           /* display: flex;
+            justify-content: center;*/
+            
+            border-radius: 30px;
+            border: solid #e5e3e3;
+
+
+
+
+
+  
+          }
+
+         
+
+              /*Div donde estan internamente los elementos del formulario*/
+            .grid-container {
+                /*grid*/
+                display: grid;
+              
+                padding: 10px;
+
+
+              
+            
+            }
+            
+           input {
+                  width: 90%;
+                  height: 30px;
+                  margin: 0.5rem;
+                }
+
+                /*Contiene todos los inputs */
+              .form-principal{
+
+          display: grid;
+          grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+          gap: 10px;
+          
+          padding: 10px;
+
+          
+                }
+                
+           
+
+
+            /*Boton de eliminar */
+            .card-footer{
+
+              text-align: center;
+            }
