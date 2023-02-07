@@ -28,6 +28,7 @@
 
 @section('navegador')
 
+ 
 
 <!-- Controla la fecha que se desea ver -->
  <form name="" id="" method="post" action="{{url('dashboard') }}">

@@ -26,25 +26,20 @@ table {
         }
 
           .card{
+            
+            display: grid;            
             margin: 2%;
-            display: flex;
-            grid-template-columns: 80% 80%;
-            width: 70%;
-            border-radius: 30px;
-            border: solid #e5e3e3;
-  
+        
           }
 
 
               /*Div donde estan internamente los elementos del formulario*/
             .grid-container {
-                /*grid*/
+              /*grid*/
               display: grid;
-              grid-template-columns: 750px 950px;
+              grid-template-columns: 550px 950px;
               
-              /*border: solid #e5e3e3;*/
-             
-              justify-content: start;
+              justify-content: center;
 
               padding: 5%;
               
@@ -53,6 +48,7 @@ table {
             
 
             .historial{
+
             border-radius: 30px;
             border: solid #e5e3e3;
             margin: 1%;
@@ -62,13 +58,6 @@ table {
 
             }
 
-            #formulario{
-
-                text-align: left;
-                display: grid;
-                padding: 5%;
-
-            }
 
  
  /*------------------------*/

@@ -1,7 +1,4 @@
-body{
-  margin: 0;
 
-}
 img{
 border-radius: 10px;
 }
@@ -14,6 +11,7 @@ a:focus {
 
 }
 
+
 a:hover {
   
   background: #e0ebeb;
@@ -21,8 +19,13 @@ a:hover {
  border-radius: 10px;
 }
 
-nav{
+#logo:hover{
+ background: none;
+  font-weight:;
+ text-decoration: none;
+}
 
-
+.usuario{
+font-weight:bold;
 
 }

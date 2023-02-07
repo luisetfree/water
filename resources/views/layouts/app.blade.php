@@ -14,7 +14,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     
-<a class="navbar-brand" href="/">
+<a id="logo" class="navbar-brand" href="/">
     <img src="{{ asset('img/logo.JPG') }}" width="30" height="30" alt="">
     Torogoz App
 </a>
@@ -23,12 +23,63 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+   
+<ul class="navbar-nav mr-auto">
+   <!-- 
+    * Roles de usuarios asignados:
+   Rol 1, Admin, Acceso completo a todos los apartados
+   Rol 2, Supervisor, Acceso completo a los datos de produccion exepto (Dashboard y horas trabajadas)
+   Rol 3, Visitante, solo podra ver dashboard y bitacora,
+
+   -->
+
+<!-- Switch que controla las opciones de menu que se mostraran de acuerdo al usuario logueado -->
+@switch(auth()->user()->rol )
+    @case(3)
+
+        <li class="nav-item">
+        <a class="nav-link" href="/dashboard">Resumen</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/bitacora">Bitacora</a>
+      </li>
+     
+        @break
+ 
+    @case(2)
+      <li class="nav-item">
+        <a class="nav-link" href="/resumen{{date('Y-m-d')}}">Procesos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/calidad">Calidades</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/cargas">Carga-Químicos</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/paros">Paros-Operación</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/producciones">Producciones</a>
+      </li>
+
+   
+      <li class="nav-item">
+        <a class="nav-link" href="/operacion">Operación Equipos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/bitacora">Bitacora</a>
+      </li>
+        @break
+ 
+    @default
+
       
       <li class="nav-item">
         <a class="nav-link" href="/resumen{{date('Y-m-d')}}">Procesos</a>
       </li>
-         <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" href="/calidad">Calidades</a>
       </li>
         <li class="nav-item">
@@ -52,10 +103,22 @@
       <li class="nav-item">
          <a class="nav-link"  href="/horas-trabajadas/{{date('Y-m-d')}}/{{date('m')}}">Horas trabajadas/Eq.</a>
       </li>
-    </ul>
+    
+        
+@endswitch
+
+</ul>
+
 
    
   </div>
+
+<section class="usuario">
+
+  <!-- Nombre de Usuario  -->
+ {{ auth()->user()->name}}
+
+ </section>
 </nav>
 <br>
  @yield('navegador')

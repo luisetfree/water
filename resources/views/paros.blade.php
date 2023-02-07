@@ -25,27 +25,24 @@
 
 
 
+
+ 
 <!-- container-fluid -->
-  <div class="">
-  @if(session('status'))
-    <div class="alert alert-success">
-        {{ session('status') }}
-    </div>
-  @endif
+
   <div class="card">
     <div class="card-header text-center font-weight-bold">
       Registro de paro de operación
 
     </div>
-    <div id="formulario" >
+    
 
-
+    <div id="formulario" class="card-body">  
 
 
       <form name="" id="" method="post" action="{{url('suspension')}}">
        @csrf
        
-       <div class="">
+       
 
         <!-- Fecha  -->
         
@@ -114,23 +111,13 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Guardar</button>
 
 
-      </div>
-
-
       </form>
 
+ </div>
 
-
-    </div>
+    
 
   </div>
-
-
-
-
-
-</div>
-
 
 
 <div class="historial ">
