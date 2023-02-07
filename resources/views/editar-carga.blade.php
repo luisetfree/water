@@ -76,7 +76,7 @@
 
         </select>
 <br>
-        <label for="">Fecha:</label>
+        <label for="">Fecha:</label><br>
         <input type="date" name="fecha" value="{{$carga->fecha}}" required>
         
 <br>
@@ -87,12 +87,12 @@
         
         <br>
         
-        <label for="">Hora:</label>
+        <label for="">Hora:</label> <br>
          <input type="text" name="hora" placeholder="00:00" value=" {{$carga->hora}}" required> 
          <br>
         
          
-        
+        <br>
         <label for="">Grupo de turno:</label>
         <select name="grupo" required>
                 <option value=" {{$carga->grupo}}" default > {{$carga->grupo}}</option>

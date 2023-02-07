@@ -540,6 +540,26 @@
 
 
     </div>
+<!-- Barra progresiva que indica el avance de la produccion diaria -->
+<div class="progress">
+    
+    
+   <div class="progress-bar progress-bar-striped progress-bar-animated" style="width : {{$progreso}}%">Produccion diaria  {{$progreso}}%</div>
+
+    
+</div>
+<!--  
+ <div class="progress">
+  <div class="progress-bar bg-success" style="width:40%">
+    Free Space
+  </div>
+  <div class="progress-bar bg-warning" style="width:10%">
+    Warning
+  </div>
+  <div class="progress-bar bg-danger" style="width:20%">
+    Danger
+  </div>
+</div>  -->
 
     <!-- Tabla que muestra los valores almacenados -->
 
