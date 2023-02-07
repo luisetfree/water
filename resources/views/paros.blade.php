@@ -3,6 +3,9 @@
 <head>
     <title>Paros de operación</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Libreria para iconos -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -66,16 +69,16 @@
         <label for="">Fecha:</label>
         <input type="date" name="fecha" value="{{$fecha}}" required>
 <br>
-        <label for="cantidad">Hora suspensión:</label>
+        <label for="cantidad">Hora suspensión:</label><br>
         <input id="cantidad" type="text" name="hora_inicio" placeholder="00:00" required>
         
         
         <br>
         
-        <label for="">Hora arranque:</label>
+        <label for="">Hora arranque:</label><br>
          <input type="text" name="hora_fin" placeholder="00:00" required> 
          <br>
-         <label for="">Causa:</label>
+         <label for="">Causa:</label><br>
          <select name="causa">
          
             <option value="Corte de energía en BT">Corte de energía en BT</option>
@@ -95,7 +98,7 @@
         
          </select>
          
-         <br>
+         <br><br>
         
         <label for="">Grupo de turno:</label>
         <select name="grupo">
@@ -130,7 +133,7 @@
 
 
 
-<div class="historial">
+<div class="historial ">
   
   
 

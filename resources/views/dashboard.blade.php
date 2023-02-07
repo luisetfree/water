@@ -324,7 +324,8 @@
               <tr>
                 <td scope="row">{{$i}} </td>
                 <td>{{$nivel_reservorio[$i]}}%</td>
-
+                <td>{{$nivel_eb2[$i]}}%</td>
+                <td>{{$nivel_eb3[$i]}}%</td>
               </tr>
             @endfor
       
@@ -334,6 +335,8 @@
             <tr id="totales">
               <td>Mínimo</td>
               <td>{{$nivel_reser_min}}</td>
+              <td>{{$nivel_eb2_min}}</td>
+              <td>{{$nivel_eb3_min}}</td>
               
               
             </tr>
@@ -341,12 +344,16 @@
              
               <td>Máximo</td>
               <td>{{$nivel_reser_max}}</td>
+              <td>{{$nivel_eb2_max}}</td>
+              <td>{{$nivel_eb3_max}}</td>
               
             </tr>
              <tr id="totales">
              
               <td>Promedio</td>
               <td>{{$nivel_reser_prom}}</td>
+              <td>{{$nivel_eb2_prom}}</td>
+              <td>{{$nivel_eb3_prom}}</td>
               
             </tr>
 

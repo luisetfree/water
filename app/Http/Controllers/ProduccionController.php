@@ -1997,8 +1997,8 @@ $promedio_nivel_rio=$this->promedioRioTotal($dias,$id_bocatoma,$nivel);
 
 
 
-/*NIVEL DEL RESERVORIO*/
-//en este caso utilizaremos las mismas funciones anteriores, solamente modificamos EB1 y nivel_camara
+/*NIVEL DEL RESERVORIO - CAMARAS DE ESTACIONES*/
+//en este caso utilizaremos las mismas funciones anteriores, solamente modificamos EB1,EB2,EB3 nivel_camara
 $camara_nivel='nivel_camara';
 $nivel_reservorio=array();
 //utilizando la misma funcion solamente se cambio los datos a consultar, en este caso nivel de camara de EB1 que hace referencia al nivel del reservorio
@@ -2007,6 +2007,20 @@ $nivel_reservorio=$this->promedioDiaRio($dias,$id_eb1,$camara_nivel);
 $nivel_reser_min=min($nivel_reservorio);
 $nivel_reser_max=max($nivel_reservorio);
 $nivel_reser_prom= round((array_sum($nivel_reservorio)/count($nivel_reservorio)),2);//calculando promedio y redondeando a 2 decimales
+
+/*Nivel  camara de EB2*/
+$nivel_eb2=$this->promedioDiaRio($dias,$id_eb2,$camara_nivel);
+//Calculos de minimo-maximo-promedio del nivel de camara de eb2
+$nivel_eb2_min=min($nivel_eb2);
+$nivel_eb2_max=max($nivel_eb2);
+$nivel_eb2_prom= round((array_sum($nivel_eb2)/count($nivel_eb2)),2);//calculando promedio y redondeando a 2 decimales
+
+/*Nivel  camara de EB3*/
+$nivel_eb3=$this->promedioDiaRio($dias,$id_eb3,$camara_nivel);
+//Calculo de minimo-maximo-promedio del nivel de camara de eb3
+$nivel_eb3_min=min($nivel_eb3);
+$nivel_eb3_max=max($nivel_eb3);
+$nivel_eb3_prom= round((array_sum($nivel_eb3)/count($nivel_eb3)),2);//calculando promedio y redondeando a 2 decimales
 
 
 
@@ -2041,7 +2055,7 @@ for ($i=1; $i < count($dias); $i++) {
 $suma_pavas=array_sum($pavas_aporte);
 
 
-return view('dashboard', compact('fecha','bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph','nivel_rio','nivel_reservorio','nivel_reser_min','nivel_reser_max','nivel_reser_prom','poli_alta','sulf','pol_b','perma','carbon_','hipo','cal_','pac_','clor_','total_bt','total_eb1','total_eb2','total_eb3','promedio_nivel_rio','min_cruda_t','max_cruda_t','prom_cruda_t','min_cruda_m','max_cruda_m','prom_cruda_m','min_crud_ph_t','max_crud_ph_t','min_crud_ph_t1','max_crud_ph_t1','min_prom_ph_t','max_prom_ph_t','prom_max_prom_ph_t','min_cruda_t_prom','max_cruda_t_prom','prom_prom_cruda','prom_min_crud_ph_t','prom_max_ph_t','min_trat_t','max_trat_t','prom_min_trat_t','min_trat_m_t','max_trat_m_t','prom_min_trat_m_t','min_trat_p_t','max_trat_p_t','prom_min_trat_p_t','min_trat_t_ph','max_trat_t_ph','prom_min_trat_t_ph','min_trat_m_ph','max_trat_m_ph','prom_max_trat_m_ph','min_trat_prom_ph','max_trat_prom_ph','prom_prom_trat_ph','pavas_aporte','suma_pavas'));
+return view('dashboard', compact('fecha','bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph','nivel_rio','nivel_reservorio','nivel_reser_min','nivel_reser_max','nivel_reser_prom','poli_alta','sulf','pol_b','perma','carbon_','hipo','cal_','pac_','clor_','total_bt','total_eb1','total_eb2','total_eb3','promedio_nivel_rio','min_cruda_t','max_cruda_t','prom_cruda_t','min_cruda_m','max_cruda_m','prom_cruda_m','min_crud_ph_t','max_crud_ph_t','min_crud_ph_t1','max_crud_ph_t1','min_prom_ph_t','max_prom_ph_t','prom_max_prom_ph_t','min_cruda_t_prom','max_cruda_t_prom','prom_prom_cruda','prom_min_crud_ph_t','prom_max_ph_t','min_trat_t','max_trat_t','prom_min_trat_t','min_trat_m_t','max_trat_m_t','prom_min_trat_m_t','min_trat_p_t','max_trat_p_t','prom_min_trat_p_t','min_trat_t_ph','max_trat_t_ph','prom_min_trat_t_ph','min_trat_m_ph','max_trat_m_ph','prom_max_trat_m_ph','min_trat_prom_ph','max_trat_prom_ph','prom_prom_trat_ph','pavas_aporte','suma_pavas','nivel_eb2','nivel_eb2_min','nivel_eb2_max','nivel_eb2_prom','nivel_eb3','nivel_eb3_min','nivel_eb3_max','nivel_eb3_prom'));
 }
 
 /*Obtiene el Aporte a tanque Las Pavas para una fecha determinada*/

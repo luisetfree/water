@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+
+}
+
 table {
           font-family: times, sans-serif;
           border-collapse: collapse;
@@ -23,7 +28,7 @@ table {
           .card{
             margin: 2%;
             display: flex;
-            grid-template-columns: 60% 60%;
+            grid-template-columns: 80% 80%;
             width: 70%;
             border-radius: 30px;
             border: solid #e5e3e3;
@@ -47,11 +52,6 @@ table {
             }
             
 
-            .checkbox{
-              font-size: 15px;
-            }
-
-
             .historial{
             border-radius: 30px;
             border: solid #e5e3e3;
@@ -63,13 +63,14 @@ table {
             }
 
             #formulario{
-            
+
                 text-align: left;
                 display: grid;
                 padding: 5%;
 
-
-
             }
 
  
+ /*------------------------*/
+
+
