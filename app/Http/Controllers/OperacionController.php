@@ -949,11 +949,11 @@ $conteo= DB::table('operacions')
             $this->actualizarEquipo($id_29,$est37,$hora,$fecha);
         
 
-        /*FIN ACTUALIZACION DE EQUIPOS DE EB3*/
+    /*FIN ACTUALIZACION DE EQUIPOS DE EB3*/
 
 
-    return view('welcome');
-
+    //return view('welcome');
+    return redirect('/operacion');
 
 
     }
@@ -1038,7 +1038,7 @@ public function horasTrabajadas($fechas,$mes)
     $bt_horas_ordenado=arsort($eq_bt_mas_trabajo);
 
 
-    
+
     //Obteniendo los equipos de EB1
     $eqeb1=$this->equipos($id_eb1);
     //Obteniendo las horas trabajadas de los equipos de EB1

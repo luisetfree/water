@@ -355,7 +355,7 @@
                 </script>
 
             </div>
-
+            
             <div class="container">
 
                     <!-- Manejo del grafico para EB1 -->
