@@ -35,6 +35,16 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
+.graficos{
+  display: flex;  
+  
+    margin: .5em .5em .5m 1em;
+    padding: 1em;
+  
+  
+/*border: solid black;*/
+}
+
 
 /*fin vista Horas-trabajadas*/
 

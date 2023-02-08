@@ -323,11 +323,11 @@
 </div>
 
 
-<div class="grid-container">
+<div class="graficos">
 
-            <div class="container">
+            
                 <!-- Manejo del grafico para BT -->
-                <canvas id="myChart" style="width:80%;max-width:450px"></canvas>
+                <canvas id="myChart" style="width:100%;max-width:550px"></canvas>
 
                 
                 <script>
@@ -354,12 +354,12 @@
                 });
                 </script>
 
-            </div>
             
-            <div class="container">
+
+            
 
                     <!-- Manejo del grafico para EB1 -->
-                    <canvas id="myChart_eb1" style="width:80%;max-width:450px"></canvas>
+                    <canvas id="myChart_eb1" style="width:100%;max-width:550px"></canvas>
 
                    
                     <script>
@@ -386,12 +386,12 @@
                     });
                     </script>
 
-            </div>
+            
 
-            <div class="container">
+            
 
                      <!-- Manejo del grafico para EB2 -->
-                    <canvas id="myChart_eb2" style="width:80%;max-width:400px"></canvas>
+                    <canvas id="myChart_eb2" style="width:100%;max-width:550px"></canvas>
 
                    
                     <script>
@@ -418,12 +418,12 @@
                     });
                     </script>
 
-            </div>
+            
 
-        <div class="container">
+        
 
                     <!-- Manejo del grafico para EB3 -->
-                    <canvas id="myChart_eb3" style="width:80%; max-width:450px"></canvas>
+                    <canvas id="myChart_eb3" style="width:100%; max-width:550px"></canvas>
 
                    
                     <script>
@@ -449,7 +449,7 @@
                       }
                     });
                     </script>
-        </div>
+        
 
 
 </div>
