@@ -4,8 +4,8 @@
     <title>Produccion Torogoz</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-
+    <!-- Exclusivo para el grafico -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
 
 <link rel="stylesheet" href="{{ asset('css/stilo.css') }}" />
@@ -321,6 +321,139 @@
 
 
 </div>
+
+
+<div class="grid-container">
+
+            <div class="container">
+                <!-- Manejo del grafico para BT -->
+                <canvas id="myChart" style="width:80%;max-width:450px"></canvas>
+
+                
+                <script>
+                var xValues = ["Eq.1", "Eq.2", "Eq.3", "Eq.4", "Eq.5", "Eq.6", "Eq.7", "Eq.8"];
+                var yValues = [{{$eq1_bt}},{{$eq2_bt}},{{$eq3_bt}},{{$eq4_bt}},{{$eq5_bt}},{{$eq6_bt}},{{$eq7_bt}},{{$eq8_bt}}];
+                var barColors = ["#ff3333", "#00e64d","#00b8e6","#cccc00","#dfbf9f","#4d4dff","#ff9900","#00b33c"];
+
+                new Chart("myChart", {
+                  type: "bar",
+                  data: {
+                    labels: xValues,
+                    datasets: [{
+                      backgroundColor: barColors,
+                      data: yValues
+                    }]
+                  },
+                  options: {
+                    legend: {display: false},
+                    title: {
+                      display: true,
+                      text: "Equipos Bocatoma"
+                    }
+                  }
+                });
+                </script>
+
+            </div>
+
+            <div class="container">
+
+                    <!-- Manejo del grafico para EB1 -->
+                    <canvas id="myChart_eb1" style="width:80%;max-width:450px"></canvas>
+
+                   
+                    <script>
+                    var xValues = ["Eq.1", "Eq.2", "Eq.3", "Eq.4", "Eq.5", "Eq.6", "Eq.7"];
+                    var yValues = [{{$eq1_eb1}},{{$eq2_eb1}},{{$eq3_eb1}},{{$eq4_eb1}},{{$eq5_eb1}},{{$eq6_eb1}},{{$eq7_eb1}}];
+                    var barColors = ["#ff3333", "#00e64d","#00b8e6","#cccc00","#dfbf9f","#4d4dff","#ff9900"];
+
+                    new Chart("myChart_eb1", {
+                      type: "bar",
+                      data: {
+                        labels: xValues,
+                        datasets: [{
+                          backgroundColor: barColors,
+                          data: yValues
+                        }]
+                      },
+                      options: {
+                        legend: {display: false},
+                        title: {
+                          display: true,
+                          text: "Equipos EB1"
+                        }
+                      }
+                    });
+                    </script>
+
+            </div>
+
+            <div class="container">
+
+                     <!-- Manejo del grafico para EB2 -->
+                    <canvas id="myChart_eb2" style="width:80%;max-width:400px"></canvas>
+
+                   
+                    <script>
+                    var xValues = ["Eq.1", "Eq.2", "Eq.3", "Eq.4", "Eq.5", "Eq.6", "Eq.7"];
+                    var yValues = [{{$eq1_eb2}},{{$eq2_eb2}},{{$eq3_eb2}},{{$eq4_eb2}},{{$eq5_eb2}},{{$eq6_eb2}},{{$eq7_eb2}}];
+                    var barColors = ["#ff3333", "#00e64d","#00b8e6","#cccc00","#dfbf9f","#4d4dff","#ff9900"];
+
+                    new Chart("myChart_eb2", {
+                      type: "bar",
+                      data: {
+                        labels: xValues,
+                        datasets: [{
+                          backgroundColor: barColors,
+                          data: yValues
+                        }]
+                      },
+                      options: {
+                        legend: {display: false},
+                        title: {
+                          display: true,
+                          text: "Equipos EB2"
+                        }
+                      }
+                    });
+                    </script>
+
+            </div>
+
+        <div class="container">
+
+                    <!-- Manejo del grafico para EB3 -->
+                    <canvas id="myChart_eb3" style="width:80%; max-width:450px"></canvas>
+
+                   
+                    <script>
+                    var xValues = ["Eq.1", "Eq.2", "Eq.3", "Eq.4", "Eq.5", "Eq.6", "Eq.7"];
+                    var yValues = [{{$eq1_eb3}},{{$eq2_eb3}},{{$eq3_eb3}},{{$eq4_eb3}},{{$eq5_eb3}},{{$eq6_eb3}},{{$eq7_eb3}}];
+                    var barColors = ["#ff3333", "#00e64d","#00b8e6","#cccc00","#dfbf9f","#4d4dff","#ff9900"];
+
+                    new Chart("myChart_eb3", {
+                      type: "bar",
+                      data: {
+                        labels: xValues,
+                        datasets: [{
+                          backgroundColor: barColors,
+                          data: yValues
+                        }]
+                      },
+                      options: {
+                        legend: {display: false},
+                        title: {
+                          display: true,
+                          text: "Equipos EB3"
+                        }
+                      }
+                    });
+                    </script>
+        </div>
+
+
+</div>
+
 
 @endsection
 </body>

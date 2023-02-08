@@ -182,6 +182,8 @@ Route::post('actualizar-carga', [CargaController::class, 'update'])->middleware(
 /*Captura y actualiza las dosis de quimicos*/
 Route::post('actualizar-dosis', [ConsumoController::class, 'update'])->middleware('auth');
 
+
+
 /*Muestra las horas trabajadas de los equipos segun la fecha requerida*/
 Route::post('worktime', [OperacionController::class, 'horasTrabajo'])->middleware('auth');
 

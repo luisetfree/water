@@ -1000,6 +1000,7 @@ $conteo= DB::table('operacions')
 
     }
 
+/*EXCLUSIVO DE LA VISTA HORAS TRABAJADAS*/
 /*Muestra la vista de horas trabajadas para los equipos de bombeo segun fecha que recibe por parametro*/
 public function horasTrabajadas($fechas,$mes)
 {
@@ -1032,6 +1033,12 @@ public function horasTrabajadas($fechas,$mes)
     $id_eq8_bt=8;
     $eq8_bt=$this->workTime($id_eq8_bt,$fecha,$estado,$mes);
 
+    $eq_bt_mas_trabajo=array( $eq1_bt, $eq2_bt, $eq3_bt, $eq4_bt, $eq5_bt, $eq6_bt, $eq7_bt, $eq8_bt);
+    /*ordenando de mayor a menor los equipos con mayor horas de trabajo*/
+    $bt_horas_ordenado=arsort($eq_bt_mas_trabajo);
+
+
+    
     //Obteniendo los equipos de EB1
     $eqeb1=$this->equipos($id_eb1);
     //Obteniendo las horas trabajadas de los equipos de EB1
@@ -1088,7 +1095,7 @@ public function horasTrabajadas($fechas,$mes)
 
 
 
-    return view('horas-trabajadas',compact('eqbt','eqeb1','eq1_bt','fecha','eq2_bt','eq3_bt','eq4_bt','eq5_bt','eq6_bt','eq7_bt','eq8_bt','eq1_eb1','eq2_eb1','eq3_eb1','eq4_eb1','eq5_eb1','eq6_eb1','eq7_eb1','eq1_eb2','eq2_eb2','eq3_eb2','eq4_eb2','eq5_eb2','eq6_eb2','eq7_eb2','eqeb2','eq1_eb3','eq2_eb3','eq3_eb3','eq4_eb3','eq5_eb3','eq6_eb3','eq7_eb3','eqeb3','mes'));
+    return view('horas-trabajadas',compact('eqbt','eqeb1','eq1_bt','fecha','eq2_bt','eq3_bt','eq4_bt','eq5_bt','eq6_bt','eq7_bt','eq8_bt','eq1_eb1','eq2_eb1','eq3_eb1','eq4_eb1','eq5_eb1','eq6_eb1','eq7_eb1','eq1_eb2','eq2_eb2','eq3_eb2','eq4_eb2','eq5_eb2','eq6_eb2','eq7_eb2','eqeb2','eq1_eb3','eq2_eb3','eq3_eb3','eq4_eb3','eq5_eb3','eq6_eb3','eq7_eb3','eqeb3','mes','eq_bt_mas_trabajo'));
 
 
 }
