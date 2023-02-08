@@ -544,7 +544,7 @@
 <div class="progress">
     
     
-   <div class="progress-bar progress-bar-striped progress-bar-animated" style="width : {{$progreso}}%">Produccion diaria  {{$progreso}}%</div>
+   <div title="Producción Bocatoma: {{$caudal_bt}} m³ " class="progress-bar progress-bar-striped progress-bar-animated" style="width : {{$progreso}}%">Producción {{$progreso}}%</div>
 
     
 </div>
