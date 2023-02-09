@@ -17,6 +17,10 @@
 
 <link rel="stylesheet" href="{{ asset('css/dash.css') }}" />
 
+<!-- Controla ventana Modal -->
+<link rel="stylesheet" href="{{ asset('css/w3.css') }}">
+<!-- Controla gráfico de paro Operaciones -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
  
 
 @extends('layouts.app')
@@ -46,8 +50,53 @@
 
   </form>
 
-<section>
- 
+<!-- Inicio ventana Modal -->
+<div class="w3-container">
+  
+  
+  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Estadisticas</button>
+
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-4">
+      <header class="w3-container w3-teal"> 
+        <span onclick="document.getElementById('id01').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+        <h2>Estadisticas</h2>
+      </header>
+      <div class="container">
+       
+       <!-- Inicio Grafico dona Paro de operaciones -->
+
+          <div id="myPlot" style="width:100%;max-width:700px"></div>
+
+          <script>
+          var xArray = ["Corte Energia", "Variación Voltaje", "Turbidez", "Paro Programado", "Producción"];
+          var yArray = [1, 2, 5, 4, 6];
+
+          var layout = {title:"Causas de Paros"};
+
+          var data = [{labels:xArray, values:yArray, hole:.4, type:"pie"}];
+
+          Plotly.newPlot("myPlot", data, layout);
+          </script>
+
+        <!-- Fin Grafico dona Paro de operaciones -->
+
+
+
+
+      </div>
+      <footer class="w3-container w3-teal">
+        <p>Estadísticas Producción: {{$fecha}}</p>
+      </footer>
+    </div>
+  </div>
+</div>
+<!-- Fin ventana Modal -->
+
+<section class="alert-success">
+ <label>Tendencias...agregar el ultimo dato de turbidez actual cruda---ppm y tratada</label> <br>
+ <label>Modal para ver estadisticas---grafico mensual y otros, grafico dona con las causas frecuentes de los paros de op</label>
 
  </section>
 
