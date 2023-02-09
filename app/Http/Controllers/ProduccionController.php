@@ -2087,7 +2087,33 @@ for ($i=1; $i < count($dias); $i++) {
 $suma_pavas=array_sum($pavas_aporte);
 
 
-return view('dashboard', compact('fecha','bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph','nivel_rio','nivel_reservorio','nivel_reser_min','nivel_reser_max','nivel_reser_prom','poli_alta','sulf','pol_b','perma','carbon_','hipo','cal_','pac_','clor_','total_bt','total_eb1','total_eb2','total_eb3','promedio_nivel_rio','min_cruda_t','max_cruda_t','prom_cruda_t','min_cruda_m','max_cruda_m','prom_cruda_m','min_crud_ph_t','max_crud_ph_t','min_crud_ph_t1','max_crud_ph_t1','min_prom_ph_t','max_prom_ph_t','prom_max_prom_ph_t','min_cruda_t_prom','max_cruda_t_prom','prom_prom_cruda','prom_min_crud_ph_t','prom_max_ph_t','min_trat_t','max_trat_t','prom_min_trat_t','min_trat_m_t','max_trat_m_t','prom_min_trat_m_t','min_trat_p_t','max_trat_p_t','prom_min_trat_p_t','min_trat_t_ph','max_trat_t_ph','prom_min_trat_t_ph','min_trat_m_ph','max_trat_m_ph','prom_max_trat_m_ph','min_trat_prom_ph','max_trat_prom_ph','prom_prom_trat_ph','pavas_aporte','suma_pavas','nivel_eb2','nivel_eb2_min','nivel_eb2_max','nivel_eb2_prom','nivel_eb3','nivel_eb3_min','nivel_eb3_max','nivel_eb3_prom'));
+/*Varibles para el grafico de estadisticas CAUSAS PARO*/
+$variacion='Variación';
+$paro_variacion=$this->contarCausaParo($fecha,$variacion);
+$corte='Corte';
+$paro_corte=$this->contarCausaParo($fecha,$corte);
+$turbidez='turbidez';
+$paro_turbidez=$this->contarCausaParo($fecha,$turbidez);
+$programado='programado';
+$paro_programado=$this->contarCausaParo($fecha,$programado);
+$produccion='producción';
+$paro_produccion=$this->contarCausaParo($fecha,$produccion);
+
+
+return view('dashboard', compact('fecha','bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph','nivel_rio','nivel_reservorio','nivel_reser_min','nivel_reser_max','nivel_reser_prom','poli_alta','sulf','pol_b','perma','carbon_','hipo','cal_','pac_','clor_','total_bt','total_eb1','total_eb2','total_eb3','promedio_nivel_rio','min_cruda_t','max_cruda_t','prom_cruda_t','min_cruda_m','max_cruda_m','prom_cruda_m','min_crud_ph_t','max_crud_ph_t','min_crud_ph_t1','max_crud_ph_t1','min_prom_ph_t','max_prom_ph_t','prom_max_prom_ph_t','min_cruda_t_prom','max_cruda_t_prom','prom_prom_cruda','prom_min_crud_ph_t','prom_max_ph_t','min_trat_t','max_trat_t','prom_min_trat_t','min_trat_m_t','max_trat_m_t','prom_min_trat_m_t','min_trat_p_t','max_trat_p_t','prom_min_trat_p_t','min_trat_t_ph','max_trat_t_ph','prom_min_trat_t_ph','min_trat_m_ph','max_trat_m_ph','prom_max_trat_m_ph','min_trat_prom_ph','max_trat_prom_ph','prom_prom_trat_ph','pavas_aporte','suma_pavas','nivel_eb2','nivel_eb2_min','nivel_eb2_max','nivel_eb2_prom','nivel_eb3','nivel_eb3_min','nivel_eb3_max','nivel_eb3_prom','paro_variacion','paro_corte','paro_turbidez','paro_programado','paro_produccion'));
+}
+
+
+/*funcion que se encarga de contar cuantas veces se repite en un mes una causa determinada de paro*/
+public function contarCausaParo($fecha,$causa)
+{   
+    //El conteo se realiza a partir de la primera frase que tenga la causa
+    $conteo_causa = DB::table('suspensions')
+                ->whereRaw('month(fecha) = month(?)',[$fecha])
+                ->where('causa', 'like', '%'.$causa.'%' )//los simbolos % significan que la causa (palabra) se buscará entre una frase
+                ->count();
+
+                return $conteo_causa;
 }
 
 /*Obtiene el Aporte a tanque Las Pavas para una fecha determinada*/

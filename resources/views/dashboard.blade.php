@@ -54,7 +54,9 @@
 <div class="w3-container">
   
   
-  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Estadisticas</button>
+  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button ">
+    <img src="{{ asset('img/grafico.png') }}">
+  </button>
 
   <div id="id01" class="w3-modal">
     <div class="w3-modal-content w3-animate-zoom w3-card-4">
@@ -62,6 +64,7 @@
         <span onclick="document.getElementById('id01').style.display='none'" 
         class="w3-button w3-display-topright">&times;</span>
         <h2>Estadisticas</h2>
+
       </header>
       <div class="container">
        
@@ -71,7 +74,7 @@
 
           <script>
           var xArray = ["Corte Energia", "Variación Voltaje", "Turbidez", "Paro Programado", "Producción"];
-          var yArray = [1, 2, 5, 4, 6];
+          var yArray = [{{$paro_corte}}, {{$paro_variacion}}, {{$paro_turbidez}}, {{$paro_programado}}, {{$paro_produccion}}];
 
           var layout = {title:"Causas de Paros"};
 
@@ -88,6 +91,11 @@
       </div>
       <footer class="w3-container w3-teal">
         <p>Estadísticas Producción: {{$fecha}}</p>
+        Variacion:{{$paro_variacion}}
+        Corte: {{$paro_corte}}
+       Turbidez: {{ $paro_turbidez}}
+       Programado: {{$paro_programado}}
+       Produccion: {{$paro_produccion}}
       </footer>
     </div>
   </div>
@@ -96,7 +104,7 @@
 
 <section class="alert-success">
  <label>Tendencias...agregar el ultimo dato de turbidez actual cruda---ppm y tratada</label> <br>
- <label>Modal para ver estadisticas---grafico mensual y otros, grafico dona con las causas frecuentes de los paros de op</label>
+ 
 
  </section>
 
