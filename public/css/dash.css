@@ -41,3 +41,10 @@ width: 5px;
 
 font-weight: bold;
 }
+
+/*Contiene el Formulario de fecha y busqueda y boton grafico de modal */
+.controles{
+ display: grid;
+ grid-template-columns: 90% 10%;
+}
+

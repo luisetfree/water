@@ -21,6 +21,9 @@
 <link rel="stylesheet" href="{{ asset('css/w3.css') }}">
 <!-- Controla gráfico de paro Operaciones -->
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<!-- Grafico turbidez -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
  
 
 @extends('layouts.app')
@@ -35,28 +38,34 @@
  
 
 <!-- Controla la fecha que se desea ver -->
- <form name="" id="" method="post" action="{{url('dashboard') }}">
-       @csrf
+<div class="controles">
 
-      <div class="form-group">
-        
-        
-        <!-- Fecha -->
-        <label >Fecha:</label>
 
-        <input class="" type="date" name="fecha" value="{{$fecha}}">
-        <button class="btn btn-outline-success" type="submit">Ver</button>
-      </div>
+       <form name="" id="" method="post" action="{{url('dashboard') }}">
+             @csrf
 
-  </form>
+            <div class="form-group">
+              
+              
+              <!-- Fecha -->
+              <label >Fecha:</label>
 
-<!-- Inicio ventana Modal -->
-<div class="w3-container">
+              <input class="" type="date" name="fecha" value="{{$fecha}}">
+              <button class="btn btn-outline-success" type="submit">Ver</button>
+            </div>
+
+        </form>
+
+
+      <!-- Inicio ventana Modal -->
+       <button onclick="document.getElementById('id01').style.display='block'" class="w3-button btn-grafico">
+          <img src="{{ asset('img/grafico.png') }}">
+        </button>
+  </div>
+<div class="container ">
   
-  
-  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button ">
-    <img src="{{ asset('img/grafico.png') }}">
-  </button>
+
+ 
 
   <div id="id01" class="w3-modal">
     <div class="w3-modal-content w3-animate-zoom w3-card-4">
@@ -66,11 +75,11 @@
         <h2>Estadisticas</h2>
 
       </header>
-      <div class="container">
+      <div class="w3-container">
        
        <!-- Inicio Grafico dona Paro de operaciones -->
 
-          <div id="myPlot" style="width:100%;max-width:700px"></div>
+          <div id="myPlot" style="width:100%;max-width:500px"></div>
 
           <script>
           var xArray = ["Corte Energia", "Variación Voltaje", "Turbidez", "Paro Programado", "Producción"];
@@ -85,10 +94,66 @@
 
         <!-- Fin Grafico dona Paro de operaciones -->
 
+    
+
+          <!-- Inicio Grafico turbidez -->
+
+        <canvas id="turbidezChart" style="width:100%;max-width:500px"></canvas>
+
+              <script>
+                /*Dias en eje x, generados por el for*/
+              var xValues = [
+
+                        @for ($i = 1; $i < 32; $i++)
+                           {{ $i }},
+                        @endfor
+ ];
+              /*Valores del eje Y, representan el promedio de la turbidez que se refleja en la tabla calidades*/
+               var yValues = [
+                  @for ($i = 1; $i < 32; $i++)
+                           {{$prom_cruda[$i]}},
+                        @endfor
+ ];
+
+              new Chart("turbidezChart", {
+                type: "line",
+                data: {
+                  labels: xValues,
+                  datasets: [{
+                    fill: false,
+                    lineTension: 0,
+                    backgroundColor: "rgba(0,0,255,1.0)",
+                    borderColor: "rgba(0,0,255,0.1)",
+                    data: yValues
+                  }]
+                },
+                options: {
+                  legend: {display: false},
+                  title: {
+                      display: true,
+                      text: "Turbidez Agua Cruda"
+                    },
+                    scales: {
+                    yAxes: [{ticks: {min: 6, max:16}}],
+                  }
+                }
+              });
+              </script>
+
+    <!-- Fin Grafico turbidez -->
 
 
 
       </div>
+      <br>
+      <br>
+
+
+      
+      
+
+      
+
       <footer class="w3-container w3-teal">
         <p>Estadísticas Producción: {{$fecha}}</p>
         Variacion:{{$paro_variacion}}
@@ -102,11 +167,7 @@
 </div>
 <!-- Fin ventana Modal -->
 
-<section class="alert-success">
- <label>Tendencias...agregar el ultimo dato de turbidez actual cruda---ppm y tratada</label> <br>
- 
 
- </section>
 
   <div class="grid-container">
       @if(session('status'))
