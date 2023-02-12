@@ -19,9 +19,13 @@
         }
 
         tr:nth-child(even) {
-          /* background-color: #dddddd;*/
+           /*background-color: #dddddd;*/
 
 
+        }
+        /*Sombreado de las finas cuando se pasa el mouse sobre el*/
+        tr:hover{
+          background-color: #e6ecff;
         }
 
 
@@ -72,5 +76,12 @@ opacity: 40%;
 
     text-align: center;
     font-weight: bold;
+
+}
+
+.entradas:hover{
+
+  background-color: #e6ffe6;
+  border-radius: 10px;
 
 }

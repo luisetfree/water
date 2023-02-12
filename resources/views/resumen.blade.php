@@ -244,7 +244,7 @@
        <!-- Inicio inputs -->
         <div class="grid-container" >
        
-           <div class="form-group" >
+           <div class="form-group entradas" >
 
                 <h5>Dosificaciones</h5>
 
@@ -302,7 +302,7 @@
 
 
 
-            <div class="form-group" >
+            <div class="form-group entradas" >
                 <h5 >Bocatoma</h5>
               
               <input type="number" id="" min="0" name="caudal" class="form-control" required="" placeholder="Caudal">
@@ -343,7 +343,7 @@
                 </div>
 
             </div>
-            <div class="form-group" >
+            <div class="form-group entradas" >
                 <h5>EB1</h5>
               
              <input type="number" id="" min="0" name="caudaleb1" class="form-control" placeholder="Caudal">
@@ -384,7 +384,7 @@
               <input type="hidden" id="" name="id_eb1" class="form-control" value="2" >
               
             </div>
-            <div class="form-group" >
+            <div class="form-group entradas" >
                 <h5>EB2</h5>
               
               <input type="number" id="" min="0" name="caudaleb2" class="form-control" placeholder="Caudal">
@@ -426,7 +426,7 @@
               
               
             </div>
-             <div class="form-group" >
+             <div class="form-group entradas" >
                 <h5>EB3</h5>
                 <input type="number" id="" min="0" name="caudaleb3" class="form-control" placeholder="Caudal">
                 <input type="number" id="" min="0" name="nivel3" class="form-control" placeholder="N.Camara">
@@ -463,7 +463,7 @@
               
             </div>
 
-             <div class="form-group" >
+             <div class="form-group entradas" >
                 <h5>Terminales</h5>
               
               <label for="">Nivel</label>
@@ -474,7 +474,7 @@
               <input type="hidden" id="" name="id_terminal" class="form-control" value="5" >
               
             </div>
-            <div class="form-group" >
+            <div class="form-group entradas" >
                 <h5>B.V. Nuevo </h5>
               
               <label for="">Nivel</label>
@@ -485,7 +485,7 @@
               <input type="hidden" id="" name="id_nuevo" class="form-control" value="6" >
               
             </div>
-            <div class="form-group" >
+            <div class="form-group entradas" >
                 <h5>B.V. Viejo </h5>
               
               <label for="">Nivel</label>
@@ -500,7 +500,7 @@
 
             <!-- Se verifica que no se haya agregado un valor anteriormente a Tanque Las Pavas durante el dia, de lo contrario no se mostrarán los controles en la vista -->
             @if( empty($tanque_pavas ))
-             <div class="form-group" >
+             <div class="form-group entradas" >
                 <h5>Tanque Las Pavas</h5>
               
               <label for="">Aporte (m³/d)</label>

@@ -37,3 +37,7 @@
             .checkbox{
               font-size: 15px;
             }
+
+  tr:hover{
+          background-color: #e6ecff;
+        }
