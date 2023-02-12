@@ -25,7 +25,8 @@
 <!-- Grafico turbidez -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
  
-
+<!-- Maneja grafico de pastel -->
+<script type="text/javascript" src="{{ asset('js/loader.js') }}"></script>
 @extends('layouts.app')
  
 
@@ -62,7 +63,7 @@
           <img src="{{ asset('img/grafico.png') }}">
         </button>
   </div>
-<div class="container ">
+<div class="w3-container">
   
 
  
@@ -79,7 +80,7 @@
        
        <!-- Inicio Grafico dona Paro de operaciones -->
 
-          <div id="myPlot" style="width:100%;max-width:500px"></div>
+         <!--  <div id="myPlot" style="width:80%;max-width:400px"></div>
 
           <script>
           var xArray = ["Corte Energia", "Variación Voltaje", "Turbidez", "Paro Programado", "Producción"];
@@ -90,15 +91,47 @@
           var data = [{labels:xArray, values:yArray, hole:.4, type:"pie"}];
 
           Plotly.newPlot("myPlot", data, layout);
-          </script>
+          </script> -->
 
         <!-- Fin Grafico dona Paro de operaciones -->
+
+
+<!-- Inicio Grafico pastel Paro de operaciones -->
+              <div
+              id="parosChart" style="width:100%; max-width:600px; height:500px;">
+              </div>
+
+              <script>
+              google.charts.load('current', {'packages':['corechart']});
+              google.charts.setOnLoadCallback(drawChart);
+
+              function drawChart() {
+              var data = google.visualization.arrayToDataTable([
+                ['Contry', 'Mhl'],
+                ['Corte Energia',{{$paro_corte}}],
+                ['Variación Voltaje',{{$paro_variacion}}],
+                ['Turbidez',{{$paro_turbidez}}],
+                ['Paro Programado',{{$paro_programado}}],
+                ['Producción',{{$paro_produccion}}]
+              ]);
+
+              var options = {
+                title:'Causas de Paros de Operación',
+                is3D:true
+              };
+
+              var chart = new google.visualization.PieChart(document.getElementById('parosChart'));
+                chart.draw(data, options);
+              }
+              </script>
+
+<!-- Fin Grafico pastel Paro de operaciones -->
 
     
 
           <!-- Inicio Grafico turbidez -->
 
-        <canvas id="turbidezChart" style="width:100%;max-width:500px"></canvas>
+        <canvas id="turbidezChart" style="width:100%;max-width:400px"></canvas>
 
               <script>
                 /*Dias en eje x, generados por el for*/
@@ -134,7 +167,8 @@
                       text: "Turbidez Agua Cruda"
                     },
                     scales: {
-                    yAxes: [{ticks: {min: 6, max:16}}],
+                    yAxes: [{ticks: {min: 6, max:16}}]
+
                   }
                 }
               });
