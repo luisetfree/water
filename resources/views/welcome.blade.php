@@ -67,19 +67,37 @@
                 }
 
 
+         /*       #padre{
+                  position:relative;
+                  background-color: green;
+                    }
+
+                #uno {
+                  position: absolute;
+                  background-color: red;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  margin: 0 auto;
+                  width: 20px;
+                  opacity: 30%;
+                }
+*/
+
+
 
         </style>
 
      
     </head>
     <body class="antialiased"   >
-        
-        
 
-        <div id="" class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0" 
-        
-        >
+            
 
+        <div id="" class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+
+
+    
            <!--
              @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -463,7 +481,7 @@
     </body>
 
 
-<!-- <img class="back" src="{{ asset('img/planta.jpg')}}" > -->
+ <!-- <img class="back" src="{{ asset('img/planta.jpg')}}" >  -->
 
 <div class="fondo">
 

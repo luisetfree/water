@@ -44,11 +44,11 @@
    
 <!-- container-fluid -->
   <div class="container">
-  @if(session('status'))
+<!--   @if(session('status'))
     <div class="alert alert-success">
         {{ session('status') }}
     </div>
-  @endif
+  @endif -->
   <div class="card">
     <div class="card-header text-center font-weight-bold">
       Registrar consumo de químicos
@@ -111,14 +111,6 @@
 
 
       </form>
-
-
-
-
-
-     
-
-
 
     </div>
 

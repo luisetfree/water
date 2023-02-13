@@ -23,7 +23,7 @@
 
 
         }
-        /*Sombreado de las finas cuando se pasa el mouse sobre el*/
+        /*Sombreado de las filas cuando se pasa el mouse sobre el*/
         tr:hover{
           background-color: #e6ecff;
         }
@@ -79,9 +79,23 @@ opacity: 40%;
 
 }
 
+/*Caja de fondo para los inputs*/
+.entradas{
+  background-color: #ffffff;
+  padding: 15px;
+  color: black;
+  text-align: center;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.24);
+  height: 290px;
+
+
+
+}
+
 .entradas:hover{
 
-  background-color: #e6ffe6;
+  background-color: #e6f0ff;
   border-radius: 10px;
 
 }
