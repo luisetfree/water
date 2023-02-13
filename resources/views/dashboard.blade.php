@@ -63,7 +63,7 @@
           <img src="{{ asset('img/grafico.png') }}">
         </button>
   </div>
-<div class="w3-container">
+<div class="graficos">
   
 
  
@@ -76,7 +76,7 @@
         <h2>Estadisticas</h2>
 
       </header>
-      <div class="w3-container">
+      <div class="graficos">
        
        <!-- Inicio Grafico dona Paro de operaciones -->
 
@@ -96,9 +96,10 @@
         <!-- Fin Grafico dona Paro de operaciones -->
 
 
-<!-- Inicio Grafico pastel Paro de operaciones -->
-              <div
-              id="parosChart" style="width:100%; max-width:600px; height:500px;">
+<!-- Inicio Grafico pastel Paro de operaciones    style="width:100%; max-width:600px; height:500px;" -->
+
+
+              <div id="parosChart" > 
               </div>
 
               <script>
@@ -127,18 +128,51 @@
 
 <!-- Fin Grafico pastel Paro de operaciones -->
 
+
+
+<!-- Tendencia turbidez  style="width:100%; max-width:600px; height:500px;"-->
+    <div id="tendenciaTurbidez" ></div>
+
+    <script>
+    google.charts.load('current',{packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+    // Set Data
+    var data = google.visualization.arrayToDataTable([
+      ['Día', 'Turbidez'],
+      
+      @for ($i = 1; $i < 32; $i++)
+                          [{{$i}},{{$prom_cruda[$i]}}],
+      @endfor
+
+    ]);
+    // Set Options
+    var options = {
+      title: 'Turbidez Agua Cruda',
+      hAxis: {title: 'Días'},
+      vAxis: {title: 'NTU'},
+      legend: 'none'
+    };
+    // Draw
+    var chart = new google.visualization.LineChart(document.getElementById('tendenciaTurbidez'));
+    chart.draw(data, options);
+    }
+    </script> 
+
+<!-- Fin tendencia turbidez -->
     
 
           <!-- Inicio Grafico turbidez -->
 
-        <canvas id="turbidezChart" style="width:100%;max-width:400px"></canvas>
+       <!--  <canvas id="turbidezChart" style="width:100%;max-width:400px"></canvas>
 
               <script>
                 /*Dias en eje x, generados por el for*/
               var xValues = [
 
                         @for ($i = 1; $i < 32; $i++)
-                           {{ $i }},
+                          {{$i }},
                         @endfor
  ];
               /*Valores del eje Y, representan el promedio de la turbidez que se refleja en la tabla calidades*/
@@ -152,6 +186,7 @@
                 type: "line",
                 data: {
                   labels: xValues,
+
                   datasets: [{
                     fill: false,
                     lineTension: 0,
@@ -161,19 +196,22 @@
                   }]
                 },
                 options: {
-                  legend: {display: false},
+                  legend: {display: false,
+
+                      },
+
                   title: {
                       display: true,
                       text: "Turbidez Agua Cruda"
                     },
                     scales: {
-                    yAxes: [{ticks: {min: 6, max:16}}]
+                    yAxes: [{ticks: {min: 0, max:{{$max_cruda_t}}}}]
 
                   }
                 }
               });
-              </script>
-
+              </script> -->
+ 
     <!-- Fin Grafico turbidez -->
 
 

@@ -48,3 +48,18 @@ font-weight: bold;
  grid-template-columns: 90% 10%;
 }
 
+ tr:hover{
+          background-color: #e6ecff;
+        }
+
+.graficos{
+
+  display: grid;
+  grid-template-columns: auto auto;
+  width:1000px;
+  
+  margin: 15px auto;
+
+  
+
+}
