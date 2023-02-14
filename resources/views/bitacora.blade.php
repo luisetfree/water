@@ -90,7 +90,7 @@
                   <!-- Encabezados principales -->  
             <TR>
               <th rowspan="3">Fecha</th>
-              <th rowspan="3">Caudal BT(m³/h) - X̅</th>
+              <th rowspan="3">Caudal BT(m³/h)-X̅</th>
               <th rowspan="3">Cloro</th>
               <TH COLSPAN=6>PPM</TH>
               <th rowspan="3">Caudal BT (m³/d)</th>
@@ -147,7 +147,7 @@
               <td>{{$cloro[$i]}}</td>
               <td>{{$cloro_eb1_min[$i]}}</td><td>{{$cloro_eb1_max[$i]}}</td><td>{{$cloro_eb1_prom[$i]}}</td>
               <td>{{$coag_min[$i]}}</td><td>{{$coag_max[$i]}}</td><td>{{ round($coag_prom[$i],2)}}</td>
-              <td>{{$bt_suma[$i]}}</td>
+              <td>{{ number_format($bt_suma[$i])}}</td>
               <td>{{$bt_horas[$i]}}</td>
               <td>{{$cruda_min[$i]}}</td><td>{{$cruda_max[$i]}}</td><td>{{$cruda_prom[$i]}}</td>
               <td>{{$cruda_ph_m[$i]}}</td><td>{{$cruda_ph_mx[$i]}}</td><td>{{$cruda_ph_p[$i]}}</td>

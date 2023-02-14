@@ -228,11 +228,7 @@
 
       <footer class="w3-container w3-teal">
         <p>Estadísticas Producción: {{$fecha}}</p>
-        Variacion:{{$paro_variacion}}
-        Corte: {{$paro_corte}}
-       Turbidez: {{ $paro_turbidez}}
-       Programado: {{$paro_programado}}
-       Produccion: {{$paro_produccion}}
+    
       </footer>
     </div>
   </div>

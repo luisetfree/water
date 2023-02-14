@@ -161,7 +161,7 @@ for ($i=1; $i <32 ; $i++) {
                 //PROMEDIO
     $bt_suma[$i] = DB::table('produccions')
                 ->where('fecha' ,'=', $fecha_[$i])//array hace referencia a la fecha que se llena segun el mes
-                ->where('id_estacion' ,'=' ,1)//1 es el id del sulfato
+                ->where('id_estacion' ,'=' ,1)//1 es el id de BT
                 ->sum('caudal');
 
     
