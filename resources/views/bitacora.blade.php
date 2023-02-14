@@ -143,7 +143,7 @@
 
             <TR>
               <td>{{$fecha_[$i]}}</td><!-- Es fecha -->
-              <td>{{$bt_caudal[$i]}}</td>
+              <td>{{number_format($bt_caudal[$i])}}</td>
               <td>{{$cloro[$i]}}</td>
               <td>{{$cloro_eb1_min[$i]}}</td><td>{{$cloro_eb1_max[$i]}}</td><td>{{$cloro_eb1_prom[$i]}}</td>
               <td>{{$coag_min[$i]}}</td><td>{{$coag_max[$i]}}</td><td>{{ round($coag_prom[$i],2)}}</td>

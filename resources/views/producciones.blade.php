@@ -74,10 +74,10 @@
                     </tr>
 
                     <tr>
-                        <td>{{number_format($suma_bocatoma)}} m³/d</td>
-                        <td>{{number_format($suma_eb1)}} m³/d</td>
-                        <td>{{number_format($suma_eb2)}} m³/d</td>
-                        <td>{{number_format($suma_eb3)}} m³/d</td>
+                        <td title="{{$bt_m3_s}} m³/s">{{number_format($suma_bocatoma)}} m³/d</td>
+                        <td title="{{$eb1_m3_s}} m³/s">{{number_format($suma_eb1)}} m³/d</td>
+                        <td title="{{$eb2_m3_s}} m³/s"> {{number_format($suma_eb2)}} m³/d</td>
+                        <td title="{{$eb3_m3_s}} m³/s"> {{number_format($suma_eb3)}} m³/d</td>
                         <td>{{number_format($aporte_zn)}} m³/d</td>
                         <td> {{number_format($aporte_tanque_pavas) }} m³/d</td>
                     </tr>

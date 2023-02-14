@@ -1473,6 +1473,12 @@ $suma_eb2= $this->sumatoriaCaudales($fecha,$id_eb2);
 $suma_eb3= $this->sumatoriaCaudales($fecha,$id_eb3);
 $aporte_zn=$suma_eb2-$suma_eb3;
 
+/*Calculos de caudal en m3/s, 86400 son los segundos del día*/
+$bt_m3_s= round(($suma_bocatoma/86400),2);
+$eb1_m3_s=round(($suma_eb1/86400),2);
+$eb2_m3_s=round(($suma_eb2/86400),2);
+$eb3_m3_s=round(($suma_eb3/86400),2);
+
 
 /*Aporte a Tanque Las Pavas 
 */
@@ -1480,7 +1486,7 @@ $aporte_tanque_pavas=$this->caudalAportePavas($fecha,$id_las_pavas);
 
 
         return view('producciones',compact('fecha','c_bt_1','c_bt_2','c_bt_3','c_bt_4','c_bt_5'
-    ,'c_bt_6','c_bt_7','c_bt_8','c_bt_9','c_bt_10','c_bt_11','c_bt_12','c_bt_13','c_bt_14','c_bt_15','c_bt_16','c_bt_17','c_bt_18','c_bt_19','c_bt_20','c_bt_21','c_bt_22','c_bt_23','c_bt_24','c_eb1_1','c_eb1_2','c_eb1_3','c_eb1_4','c_eb1_5','c_eb1_6','c_eb1_7','c_eb1_8','c_eb1_9','c_eb1_10','c_eb1_11','c_eb1_12','c_eb1_13','c_eb1_14','c_eb1_15','c_eb1_16','c_eb1_17','c_eb1_18','c_eb1_19','c_eb1_20','c_eb1_21','c_eb1_22','c_eb1_23','c_eb1_24','c_eb2_1','c_eb2_2','c_eb2_3','c_eb2_4','c_eb2_5','c_eb2_6','c_eb2_7','c_eb2_8','c_eb2_9','c_eb2_10','c_eb2_11','c_eb2_12','c_eb2_13','c_eb2_14','c_eb2_15','c_eb2_16','c_eb2_17','c_eb2_18','c_eb2_19','c_eb2_20','c_eb2_21','c_eb2_22','c_eb2_23','c_eb2_24','c_eb3_1','c_eb3_2','c_eb3_3','c_eb3_4','c_eb3_5','c_eb3_6','c_eb3_7','c_eb3_8','c_eb3_9','c_eb3_10','c_eb3_11','c_eb3_12','c_eb3_13','c_eb3_14','c_eb3_15','c_eb3_16','c_eb3_17','c_eb3_18','c_eb3_19','c_eb3_20','c_eb3_21','c_eb3_22','c_eb3_23','c_eb3_24','suma_bocatoma','suma_eb1','suma_eb2','suma_eb3','aporte_zn','aporte_tanque_pavas'));
+    ,'c_bt_6','c_bt_7','c_bt_8','c_bt_9','c_bt_10','c_bt_11','c_bt_12','c_bt_13','c_bt_14','c_bt_15','c_bt_16','c_bt_17','c_bt_18','c_bt_19','c_bt_20','c_bt_21','c_bt_22','c_bt_23','c_bt_24','c_eb1_1','c_eb1_2','c_eb1_3','c_eb1_4','c_eb1_5','c_eb1_6','c_eb1_7','c_eb1_8','c_eb1_9','c_eb1_10','c_eb1_11','c_eb1_12','c_eb1_13','c_eb1_14','c_eb1_15','c_eb1_16','c_eb1_17','c_eb1_18','c_eb1_19','c_eb1_20','c_eb1_21','c_eb1_22','c_eb1_23','c_eb1_24','c_eb2_1','c_eb2_2','c_eb2_3','c_eb2_4','c_eb2_5','c_eb2_6','c_eb2_7','c_eb2_8','c_eb2_9','c_eb2_10','c_eb2_11','c_eb2_12','c_eb2_13','c_eb2_14','c_eb2_15','c_eb2_16','c_eb2_17','c_eb2_18','c_eb2_19','c_eb2_20','c_eb2_21','c_eb2_22','c_eb2_23','c_eb2_24','c_eb3_1','c_eb3_2','c_eb3_3','c_eb3_4','c_eb3_5','c_eb3_6','c_eb3_7','c_eb3_8','c_eb3_9','c_eb3_10','c_eb3_11','c_eb3_12','c_eb3_13','c_eb3_14','c_eb3_15','c_eb3_16','c_eb3_17','c_eb3_18','c_eb3_19','c_eb3_20','c_eb3_21','c_eb3_22','c_eb3_23','c_eb3_24','suma_bocatoma','suma_eb1','suma_eb2','suma_eb3','aporte_zn','aporte_tanque_pavas','bt_m3_s','eb1_m3_s','eb2_m3_s','eb3_m3_s'));
 
 
 
