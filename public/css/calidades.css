@@ -2,6 +2,7 @@
           font-family: times, sans-serif;
           border-collapse: collapse;
           width: 100%;
+          text-align: center;
 
         }
 
@@ -39,3 +40,10 @@
           background-color: #e6ecff;
         }
 
+/*Activa la pestaña calidad del menu*/
+#calidad{
+background: #80ccff;
+border-radius: 10px;
+font-weight:bold;
+
+}

@@ -48,4 +48,10 @@ tr:nth-child(even) {
 
 /*fin vista Horas-trabajadas*/
 
+/*Activa la pestaña horas del menu*/
+#horas{
+background: #80ccff;
+border-radius: 10px;
+font-weight:bold;
 
+}

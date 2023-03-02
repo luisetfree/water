@@ -19,8 +19,7 @@
 
   <link rel="stylesheet" href="{{ asset('css/control-procesos.css') }}" />
   @extends('layouts.app')
-
-
+  
 
 
 </head>

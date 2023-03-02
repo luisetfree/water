@@ -1,4 +1,18 @@
 
+nav {
+
+width: 70%;
+
+margin-left: 15%;
+border-radius: 30px;
+opacity: 70%;
+
+}
+nav:hover{
+opacity: 100%;
+
+}
+
 img{
 border-radius: 10px;
 }
@@ -11,22 +25,66 @@ a:focus {
 
 }
 
+/*li.active{
+  background-color: red;
+  padding: 1px;
+  text-decoration: none;
+  transition: all .5s;
+  
+}
+
+ li:focus, li:hover, li:active{
+  
+  padding: 1px;
+  text-decoration: none;
+  transition: all .5s;
+  
+}*/
+
+
+
+.botones{
+ 
+ /*border: solid black;*/
+ 
+}
+
+ul{
+/*border: solid green;*/
+margin: 5px;
+
+
+}
 
 
 a:hover {
   
-  background: #e0ebeb;
+background: #e6f0ff;
  font-weight:bold;
  border-radius: 10px;
+
+}
+
+#logo{
+ margin: auto;
+ /*border: solid red;*/
 }
 
 #logo:hover{
  background: none;
-  font-weight:;
+  font-weight:none;
  text-decoration: none;
+
 }
 
+/*Usuario Activo*/
 .usuario{
 font-weight:bold;
-
+/*border: solid yellow;*/
+opacity: 35%;
 }
+
+.usuario:hover{
+ opacity: 100%;
+}
+

@@ -1,8 +1,10 @@
- 
+
+   
  table {
           font-family: times, sans-serif;
           border-collapse: collapse;
           width: 100%;
+          text-align: center;
 
         }
 
@@ -17,6 +19,38 @@
         th {
         background-color: #dddddd;
         }
+
+@media only screen and (max-width: 1000px) {
+ table {
+       display: none;
+        }
+.container-fluid{
+
+font-size: 10px;
+}
+.card{
+font-size: 10px;
+}
+
+.card-body{
+font-size: 10px;
+}
+
+h5{
+font-size: 8px;
+}
+
+button{
+
+font-size: 8px;}
+
+
+
+}
+
+
+
+
 
         tr:nth-child(even) {
            /*background-color: #dddddd;*/
@@ -62,6 +96,7 @@
 
 border-radius: 30px;
 border: solid #e5e3e3;
+
 }
 
 /*Division entre controles y tabla de datos*/
@@ -97,5 +132,14 @@ opacity: 40%;
 
   background-color: #e6f0ff;
   border-radius: 10px;
+
+}
+
+
+/*Activa la pestaña Procesos del menu*/
+#procesos{
+background: #80ccff;
+border-radius: 10px;
+font-weight:bold;
 
 }

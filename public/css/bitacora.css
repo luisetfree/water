@@ -2,6 +2,7 @@
           font-family: times, sans-serif;
           border-collapse: collapse;
           width: 100%;
+          text-align: center;
         }
 
         td, th {
@@ -13,6 +14,7 @@
         /*maneja los encabezados de las tablas*/
         th {
         background-color: #dddddd;
+
         }
 
         tr:nth-child(even) {
@@ -41,3 +43,11 @@
   tr:hover{
           background-color: #e6ecff;
         }
+
+        /*Activa la pestaña bitacora del menu*/
+#bitacora{
+background: #80ccff;
+border-radius: 10px;
+font-weight:bold;
+
+}

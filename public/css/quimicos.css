@@ -4,7 +4,7 @@
           font-family: times, sans-serif;
           border-collapse: collapse;
           width: 100%;
-        
+        text-align: center;
         }
 
         td, th {
@@ -95,6 +95,12 @@ align-content: center;
 }
 
 
+/*Activa la pestaña quimico del menu*/
+#quimico{
+background: #80ccff;
+border-radius: 10px;
+font-weight:bold;
 
+}
 
 

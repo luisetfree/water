@@ -22,13 +22,13 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+<div class="collapse navbar-collapse botones" id="navbarSupportedContent">
    
-<ul class="navbar-nav mr-auto">
+<ul class="navbar-nav mr-auto "> 
    <!-- 
     * Roles de usuarios asignados:
    Rol 1, Admin, Acceso completo a todos los apartados
-   Rol 2, Supervisor, Acceso completo a los datos de produccion exepto (Dashboard y horas trabajadas)
+   Rol 2, Supervisor, Acceso completo a los datos de produccion excepto (Dashboard y horas trabajadas)
    Rol 3, Visitante, solo podra ver dashboard y bitacora,
 
    -->
@@ -48,27 +48,27 @@
         @break
  
     @case(2)
-      <li class="nav-item">
-        <a class="nav-link" href="/resumen{{date('Y-m-d')}}">Procesos</a>
+      <li class="nav-item" id="procesos">
+        <a class="nav-link " href="/resumen{{date('Y-m-d')}}">Procesos</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" id="calidad">
         <a class="nav-link" href="/calidad">Calidades</a>
       </li>
-        <li class="nav-item">
+        <li class="nav-item" id="quimico">
         <a class="nav-link" href="/cargas">Carga-Químicos</a>
       </li>
-        <li class="nav-item">
+        <li class="nav-item" id="paro">
         <a class="nav-link" href="/paros">Paros-Operación</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" id="produccion">
         <a class="nav-link" href="/producciones">Producciones</a>
       </li>
 
    
-      <li class="nav-item">
+      <li class="nav-item" id="equipo">
         <a class="nav-link" href="/operacion">Operación Equipos</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" id="bitacora">
         <a class="nav-link" href="/bitacora">Bitacora</a>
       </li>
         @break
@@ -76,31 +76,31 @@
     @default
 
       
-      <li class="nav-item">
+      <li class="nav-item" id="procesos">
         <a class="nav-link" href="/resumen{{date('Y-m-d')}}">Procesos</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" id="calidad">
         <a class="nav-link" href="/calidad">Calidades</a>
       </li>
-        <li class="nav-item">
+        <li class="nav-item" id="quimico">
         <a class="nav-link" href="/cargas">Carga-Químicos</a>
       </li>
-        <li class="nav-item">
+        <li class="nav-item" id="paro">
         <a class="nav-link" href="/paros">Paros-Operación</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" id="produccion">
         <a class="nav-link" href="/producciones">Producciones</a>
       </li>
 
    
-      <li class="nav-item">
+      <li class="nav-item" id="equipo">
         <a class="nav-link" href="/operacion">Operación Equipos</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" id="bitacora">
         <a class="nav-link" href="/bitacora">Bitacora</a>
       </li>
      
-      <li class="nav-item">
+      <li class="nav-item" id="horas">
          <a class="nav-link"  href="/horas-trabajadas/{{date('Y-m-d')}}/{{date('m')}}">Horas trabajadas/Eq.</a>
       </li>
     
@@ -113,7 +113,7 @@
    
   </div>
 
-<section class="usuario">
+<section title="Usuario activo" class="usuario">
 
   <!-- Nombre de Usuario  -->
  {{ auth()->user()->name}}
