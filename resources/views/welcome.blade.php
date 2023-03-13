@@ -459,7 +459,8 @@
                     </div>
 
                     <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Producción Torogoz v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }}), Usuario: {{$user->name}}
+                       {{env("APP_NAME")}} - v {{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }}), Usuario: {{$user->name}}
+
                     </div>
 
 
