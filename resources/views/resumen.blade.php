@@ -304,7 +304,7 @@
             <div class="form-group entradas" >
                 <h5 >Bocatoma</h5>
               
-              <input type="number" id="" min="0" name="caudal" class="form-control" required="" placeholder="Caudal">
+              <input type="number" id="" min="0" name="caudal" class="form-control"  placeholder="Caudal">
               <input type="number" id="" min="0" name="nivel_camara" class="form-control" placeholder="N.Camara">
               <input type="text" id=""  name="nivel_rio" class="form-control" placeholder="N.Rio">
               
