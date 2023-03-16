@@ -480,7 +480,7 @@ $conteo= DB::table('operacions')
         ->join('equipos', 'operacions.id_equipo', '=', 'equipos.id')
         ->select('operacions.*','equipos.*')
         ->where('estado','=','Operando')
-        ->whereDate('operacions.created_at','=',$fecha)
+        ->whereDate('operacions.fecha','=',$fecha)
         ->where('operacions.hora','=',$hora)
         ->where('equipos.id_estacion','=',$id_estacion)
                             ->get()->count();
