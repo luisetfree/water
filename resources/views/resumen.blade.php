@@ -477,7 +477,7 @@
                 <h5>B.V. Nuevo </h5>
               
               <label for="">Nivel</label>
-              <input type="number" id="" min="0" name="nivel5" class="form-control" placeholder="Nuevo" >
+              <input type="number" id="" min="0" name="nivel5" class="form-control" placeholder="Nuevo" value="0">
               <label for="">Cloro</label>
               <input type="text" id=""  name="cloro5" class="form-control" placeholder="B.V.Nuevo">
                <!-- Representa el id de Bella vista nuevo -->
@@ -488,7 +488,7 @@
                 <h5>B.V. Viejo </h5>
               
               <label for="">Nivel</label>
-              <input type="number" id="" min="0" name="nivel6" class="form-control" placeholder="Viejo">
+              <input type="number" id="" min="0" name="nivel6" class="form-control" placeholder="Viejo" value="0">
              <!--  <label for="">Cloro</label>
               <input type="text" id="" name="cloro6" class="form-control" placeholder="B.V.Viejo"> -->
                <!-- Representa el id de Bella vista viejo -->
