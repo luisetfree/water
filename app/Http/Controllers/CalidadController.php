@@ -972,7 +972,7 @@ public function minimos($fecha,$id_aguas,$campo_consultar)
          $id_cruda_=$this->obtenerID($fecha,$hora,$id_agua);
        $this->actualizar($id_cruda_,$turb,$hora,$ph,$temp,$col);
 
-        return  $this->index();
+         return $this->verCalidades($fecha);
 
         break;
     case 2:
@@ -980,21 +980,21 @@ public function minimos($fecha,$id_aguas,$campo_consultar)
         
         $this->actualizar($id_clarificada_,$turb,$hora,$ph,$temp,$col);
          
-        return  $this->index();//retorna a la vista CALIDAD
+         return $this->verCalidades($fecha);//retorna a la vista CALIDAD
         break;
     case 3:
       $id_filtrada_=$this->obtenerID($fecha,$hora,$id_agua);
         
         $this->actualizar($id_filtrada_,$turb,$hora,$ph,$temp,$col);
          
-        return  $this->index();//retorna a la vista CALIDAD
+         return $this->verCalidades($fecha);//retorna a la vista CALIDAD
         break;
     case 4:
          $id_tratada=$this->obtenerID($fecha,$hora,$id_agua);
         
         $this->actualizar($id_tratada,$turb,$hora,$ph,$temp,$col);
          
-        return  $this->index();//retorna a la vista CALIDAD
+         return $this->verCalidades($fecha);//retorna a la vista CALIDAD
         break;
         }
 
