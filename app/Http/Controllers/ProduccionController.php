@@ -812,8 +812,14 @@ $caudal_eb1=DB::table('produccions')
 
             foreach ($caudal_eb1 as $eb1) {
 
-                //se retorna el valor utilizando caudal de EB1
+                if (($eb1->caudal) > 0){
+                    //se retorna el valor utilizando caudal de EB1
                 return round((($dato->dosis)*1000)/($eb1->caudal), 2);
+                }else{
+                    //En caso que por alguna razon no se tenga caudal se devolvera el valor de 0, para evitar errores
+                    return 0;
+                }
+                
 
                 
             }
