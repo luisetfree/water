@@ -799,7 +799,15 @@ $fecha=$fechas;//fecha actual
          //guardando los datos del agua cruda
         $cruda = new Calidad;
             //asignando los datos del formulario a los campos de la tabla calidads
-        $cruda->turbidez = $request->turb_c;
+        //Para valores menores a 10 se antepondra un cero, esto para evitar malos resultados al mostrar los valores maximos y minimos en las tablas de informacion.
+        if (($request->turb_c) < 10) {
+            //se antepone un cero
+            $cruda->turbidez = '0'.$request->turb_c;
+        }else{
+            $cruda->turbidez = $request->turb_c;
+        }
+        
+        //$cruda->turbidez = $request->turb_c;
         $cruda->fecha=$request->fecha_calidad;
         $cruda->hora = $request->hora;
         $cruda->ph = $request->ph_c;
@@ -813,7 +821,15 @@ $fecha=$fechas;//fecha actual
     /*Guardando agua Clarificada*/
          $clarificada = new Calidad;
             
-        $clarificada->turbidez = $request->turb_cl;
+          if (($request->turb_cl) < 10) {
+            //se antepone un cero
+             $clarificada->turbidez = '0'.$request->turb_cl;
+        }else{
+             $clarificada->turbidez= $request->turb_cl;
+        }
+
+
+        //$clarificada->turbidez = $request->turb_cl;
         $clarificada->fecha=$request->fecha_calidad;
         $clarificada->hora = $request->hora;
         $clarificada->ph = $request->ph_cl;
@@ -904,7 +920,12 @@ public function promedio($fecha,$id_aguas,$campo_consultar)
 public function maximo($fecha,$id_aguas,$campo_consultar)
     {
         //
-        $dato= DB::table('calidads')        
+
+        $valor_Maximo = Calidad::where('fecha',$fecha)->where('id_agua',$id_aguas)->max($campo_consultar);
+        
+
+
+       /* $dato= DB::table('calidads')        
         //->whereDate('created_at','=',$fecha)
         ->where('fecha','=',$fecha)
         ->where('id_agua','=',$id_aguas)
@@ -912,8 +933,8 @@ public function maximo($fecha,$id_aguas,$campo_consultar)
         ->max($campo_consultar)
             ;//obteniendo el valor máximo
 
-            return $dato;//Dio error al redondearlo...porque se inserta un simbolo <5 
-         //return   max($dato);
+            return $dato;//Dio error al redondearlo...porque se inserta un simbolo <5 */
+         return   $valor_Maximo;
     }
 
 
