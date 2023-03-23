@@ -920,9 +920,23 @@ public function cloroEstaciones($fecha,$hora,$id_estac){
         $produccion->nivel_rio = $request->nivel_rio;
         $produccion->presion_linea = $request->presion_linea;//se eliminara?
         $produccion->id_estacion = $request->id_estacion;
- 
-        $produccion->save();
 
+        $produccion->save();
+ 
+       /* $produccion->updateOrCreate(
+
+             [$produccion->caudal => $request->caudal],
+            [$produccion->fecha => $request->fecha],
+            [$produccion->hora => $request->hora],
+            [ $produccion->cloro_residual => $request->cloro_residual],
+            [$produccion->nivel_camara => $request->nivel_camara],
+            [$produccion->nivel_rio => $request->nivel_rio],
+            [ $produccion->presion_linea=> $request->presion_linea],
+            [$produccion->id_estacion=> $request->id_estacion],
+
+
+        );
+*/
         /*Recibe y guarda los valores de EB1*/
         $proEB1=new Produccion;
         $proEB1->caudal = $request->caudaleb1;
@@ -2111,8 +2125,13 @@ $paro_programado=$this->contarCausaParo($fecha,$programado);
 $produccion='producción';
 $paro_produccion=$this->contarCausaParo($fecha,$produccion);
 
+//Funcionalidad para el grafico de dashboard de turbidez vs coagualnte
+$maximo_coagulante=array();
+$maximo_coagulante=$this->maximoSulfatoMes($dias,$id_sulfato);
 
-return view('dashboard', compact('fecha','bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph','nivel_rio','nivel_reservorio','nivel_reser_min','nivel_reser_max','nivel_reser_prom','poli_alta','sulf','pol_b','perma','carbon_','hipo','cal_','pac_','clor_','total_bt','total_eb1','total_eb2','total_eb3','promedio_nivel_rio','min_cruda_t','max_cruda_t','prom_cruda_t','min_cruda_m','max_cruda_m','prom_cruda_m','min_crud_ph_t','max_crud_ph_t','min_crud_ph_t1','max_crud_ph_t1','min_prom_ph_t','max_prom_ph_t','prom_max_prom_ph_t','min_cruda_t_prom','max_cruda_t_prom','prom_prom_cruda','prom_min_crud_ph_t','prom_max_ph_t','min_trat_t','max_trat_t','prom_min_trat_t','min_trat_m_t','max_trat_m_t','prom_min_trat_m_t','min_trat_p_t','max_trat_p_t','prom_min_trat_p_t','min_trat_t_ph','max_trat_t_ph','prom_min_trat_t_ph','min_trat_m_ph','max_trat_m_ph','prom_max_trat_m_ph','min_trat_prom_ph','max_trat_prom_ph','prom_prom_trat_ph','pavas_aporte','suma_pavas','nivel_eb2','nivel_eb2_min','nivel_eb2_max','nivel_eb2_prom','nivel_eb3','nivel_eb3_min','nivel_eb3_max','nivel_eb3_prom','paro_variacion','paro_corte','paro_turbidez','paro_programado','paro_produccion'));
+
+
+return view('dashboard', compact('fecha','bt_prod','dias','eb1_prod','eb2_prod','eb3_prod','sulfato','polimero','perm','carbon','hip','cal','pac','cloro','polimeroA','min_cruda','max_cruda','prom_cruda','min_trat','min_c_ph','max_cruda_ph','prom_cruda_ph','max_trat','prom_trat','min_t_ph','max_trat_ph','prom_trat_ph','nivel_rio','nivel_reservorio','nivel_reser_min','nivel_reser_max','nivel_reser_prom','poli_alta','sulf','pol_b','perma','carbon_','hipo','cal_','pac_','clor_','total_bt','total_eb1','total_eb2','total_eb3','promedio_nivel_rio','min_cruda_t','max_cruda_t','prom_cruda_t','min_cruda_m','max_cruda_m','prom_cruda_m','min_crud_ph_t','max_crud_ph_t','min_crud_ph_t1','max_crud_ph_t1','min_prom_ph_t','max_prom_ph_t','prom_max_prom_ph_t','min_cruda_t_prom','max_cruda_t_prom','prom_prom_cruda','prom_min_crud_ph_t','prom_max_ph_t','min_trat_t','max_trat_t','prom_min_trat_t','min_trat_m_t','max_trat_m_t','prom_min_trat_m_t','min_trat_p_t','max_trat_p_t','prom_min_trat_p_t','min_trat_t_ph','max_trat_t_ph','prom_min_trat_t_ph','min_trat_m_ph','max_trat_m_ph','prom_max_trat_m_ph','min_trat_prom_ph','max_trat_prom_ph','prom_prom_trat_ph','pavas_aporte','suma_pavas','nivel_eb2','nivel_eb2_min','nivel_eb2_max','nivel_eb2_prom','nivel_eb3','nivel_eb3_min','nivel_eb3_max','nivel_eb3_prom','paro_variacion','paro_corte','paro_turbidez','paro_programado','paro_produccion','maximo_coagulante'));
 }
 
 
@@ -2262,6 +2281,39 @@ public function promedioAgua($fecha, $id_agua, $campo){
                 
 
 }
+
+//Llena en un arreglo los valores del coagulante durante todo un mes para ser utilizado en vista dashboard y mostrarse en el grafico
+public function maximoSulfatoMes($dia, $id_sulfato){
+
+// code...
+    $maximo=array();
+
+//llenando el arreglo con los  valores promedios (dia a dia)
+    //count($dia)
+for ($i=1; $i < count($dia) ; $i++) { 
+    //llenando el arreglo con los valores promedios dia por dia
+    $maximo[$i]= $this->maximoSulfato($dia[$i],$id_sulfato);
+}
+
+return $maximo;
+   
+                
+
+}
+
+//Busca y obtiene el valor maximo de la dosis aplicada de coagulante en un dia especifico
+public function maximoSulfato($fecha, $id_sulfato){
+
+    $valor_maximo = DB::table('consumos')
+                ->where('fecha' ,'=', $fecha)
+                ->where('id_quimico' ,'=' ,$id_sulfato)
+                ->max('dosis');
+
+                return $valor_maximo;
+                
+
+}
+
 
 
 
