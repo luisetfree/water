@@ -133,7 +133,7 @@
 <!-- Tendencia turbidez  style="width:100%; max-width:600px; height:500px;"-->
     <div id="tendenciaTurbidez" ></div>
 
-    <script>
+   <!--  <script>
     google.charts.load('current',{packages:['corechart']});
     google.charts.setOnLoadCallback(drawChart);
 
@@ -158,10 +158,115 @@
     var chart = new google.visualization.LineChart(document.getElementById('tendenciaTurbidez'));
     chart.draw(data, options);
     }
-    </script> 
+    </script>  -->
 
 <!-- Fin tendencia turbidez -->
-    
+
+<!-- Seccion exclusiva que muestra un grafico de produccion anual -->
+    <!-- <canvas id="myChart"></canvas>
+    <script >
+
+// Datos de producción 
+const produccion = [20, 35, 50, 45, 30, 60, 70, 65, 55, 40, 25, 15];
+
+// Configuración del gráfico
+const config = {
+  type: 'bar',
+  data: {
+    labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+    datasets: [{
+      label: 'Producción',
+      data: produccion,
+      backgroundColor: 'rgba(54, 162, 235, 0.5)',
+      borderColor: 'rgba(54, 162, 235, 1)',
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+};
+
+// Crear instancia de Chart.js
+const chart = new Chart(document.getElementById('myChart'), config);
+
+
+    </script> -->
+
+    <canvas id="grafica"></canvas>
+
+    <script>
+
+        // Obtener una referencia al elemento canvas del DOM
+        const $grafica = document.querySelector("#grafica");
+        // Las etiquetas son las que van en el eje X. 
+        const etiquetas = [
+          //imprimiendo dias
+      @for ($i = 1; $i < 32; $i++)
+                          {{$i}},
+      @endfor
+
+          ]
+        // Podemos tener varios conjuntos de datos
+        const prom_turbidez = {
+            label: "Turbidez",
+            data: [
+              //Imprimiendo valores de turbidez
+               @for ($i = 1; $i < 32; $i++)
+                          {{$prom_cruda[$i]}},
+                @endfor
+ ],
+  // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+            backgroundColor: 'rgba(54, 162, 235, 0)', // Color de fondo
+            borderColor: 'rgba(54, 162, 235,1)', // Color del borde
+            borderWidth: 1,// Ancho del borde
+        };
+        const prom_sulfato = {
+            label: "Sulfato",
+            data: [
+
+               @for ($i = 1; $i < 32; $i++)
+                          {{$maximo_coagulante[$i]}},
+                @endfor
+              
+
+            ], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+            backgroundColor: 'rgba(255, 159, 64, 0)',// Color de fondo
+            borderColor: 'rgba(255, 159, 64,1)',// Color del borde
+            borderWidth: 1,// Ancho del borde
+        };
+
+        new Chart($grafica, {
+            type: 'line',// Tipo de gráfica
+            data: {
+                labels: etiquetas,
+                datasets: [
+                    prom_turbidez,
+                    prom_sulfato,
+                    // Aquí más datos...
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                },
+            }
+        });
+
+
+    </script>
+
+
+
+    <!-- Fin de Seccion exclusiva que muestra un grafico de produccion anual -->
 
           <!-- Inicio Grafico turbidez -->
 
