@@ -131,7 +131,7 @@
 
 
 <!-- Tendencia turbidez  style="width:100%; max-width:600px; height:500px;"-->
-    <div id="tendenciaTurbidez" ></div>
+    <!-- <div id="tendenciaTurbidez" ></div> -->
 
    <!--  <script>
     google.charts.load('current',{packages:['corechart']});
@@ -197,8 +197,9 @@ const chart = new Chart(document.getElementById('myChart'), config);
 
     </script> -->
 
+<div>
     <canvas id="grafica"></canvas>
-
+</div>
     <script>
 
         // Obtener una referencia al elemento canvas del DOM
