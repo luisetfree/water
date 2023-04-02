@@ -158,7 +158,7 @@
               
               <label >Nivel cámara</label>
               <input type="text" id="" name="nivel2" class="form-control" value="{{$eb2->nivel_camara}}" placeholder="N.Camara">
-              <label >Caudal</label>
+              <label >Cloro</label>
               <input type="text" id="" name="cloro2" class="form-control" value="{{$eb2->cloro_residual}}" placeholder="Cloro">
                 <input type="hidden" name="ideb2" value="{{$eb2->id}}"> 
               
