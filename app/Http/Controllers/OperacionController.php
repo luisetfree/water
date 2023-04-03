@@ -953,8 +953,8 @@ $conteo= DB::table('operacions')
 
 
     //return view('welcome');
-    return redirect('/operacion');
-
+    //return redirect('/operacion');
+    return $this->index($request);
 
     }
 
