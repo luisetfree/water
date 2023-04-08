@@ -78,128 +78,210 @@
       </header>
       <div class="graficos">
        
-       <!-- Inicio Grafico dona Paro de operaciones -->
+        <div class="row">
+            <div class="col-md-6">
+              <!-- Contenido de la columna 1 -->
+              <div>
 
-         <!--  <div id="myPlot" style="width:80%;max-width:400px"></div>
+                 <label>Producciones</label>
+                      <table>
+                            <thead>
+                              <tr>
+                                <th>Planta</th>
+                                <th>m³/mes</th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>BT</td>
+                                <td>{{number_format($total_bt)}}</td>
+                                
+                              </tr>
+                              <tr>
+                                <td>EB1</td>
+                                <td>{{number_format($total_eb1)}}</td>
+                             
+                                
+                              </tr>
+                              <tr>
+                                <td>EB2</td>
+                                 <td>{{number_format($total_eb2)}}</td>
+                              
+                                
+                              </tr>
+                               <tr>
+                                <td>EB3</td>
+                                <td>{{number_format($total_eb3)}}</td>
+                                
+                              </tr>
+                            </tbody>
+                      </table>
 
-          <script>
-          var xArray = ["Corte Energia", "Variación Voltaje", "Turbidez", "Paro Programado", "Producción"];
-          var yArray = [{{$paro_corte}}, {{$paro_variacion}}, {{$paro_turbidez}}, {{$paro_programado}}, {{$paro_produccion}}];
-
-          var layout = {title:"Causas de Paros"};
-
-          var data = [{labels:xArray, values:yArray, hole:.4, type:"pie"}];
-
-          Plotly.newPlot("myPlot", data, layout);
-          </script> -->
-
-        <!-- Fin Grafico dona Paro de operaciones -->
+                </div>
 
 
-<!-- Inicio Grafico pastel Paro de operaciones    style="width:100%; max-width:600px; height:500px;" -->
+                <div><!-- parametros de calidad -->
+
+              <label>Parámetros de calidad de agua</label>
+              <br>
+              <label>Cruda</label>
+                  <table class="">
+
+                        <thead>
+                          <tr>
+                            <th></th>
+                            <th>Turbidez</th>
+                            <th>pH</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Mínimo</td>
+                            <td> @if(empty($min_cruda_t))
+                            0
+                            @else
+                            {{$min_cruda_t}}
+                            @endif
+                            NTU
+                          </td>
+                            <td>{{$min_crud_ph_t}}</td>
+                          </tr>
+                          <tr>
+                            <td>Máximo</td>
+                            <td>{{$max_cruda_t}} NTU</td>
+                            <td>{{$max_crud_ph_t}}</td>
+                          </tr>
+                          <tr>
+                            <td>Promedio</td>
+                            <td>{{$prom_prom_cruda}} NTU</td>
+                            <td>{{$prom_max_prom_ph_t}}</td>
+                          </tr>
+                        </tbody>
+                  </table>
+                  <div></div>
+                  <label>Tratada</label>
+                  <table>
+                        <thead>
+                          <tr>
+                            <th></th>
+                            <th>Turbidez</th>
+                            <th>pH</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Mínimo</td>
+                            <td>
+                              @if(empty($min_trat_t))
+                            0
+                            @else
+                            {{$min_trat_t}}
+                            @endif
+
+                             NTU</td>
+                            <td> 
+                            @if(empty($min_trat_t_ph))
+                             -
+                            @else
+                            {{$min_trat_t_ph}}
+                            @endif
 
 
-              <div id="parosChart" > 
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Máximo</td>
+                            <td>{{$max_trat_t}} NTU</td>
+                            <td>{{$max_trat_t_ph}}</td>
+                          </tr>
+                          <tr>
+                            <td>Promedio</td>
+                            <td>{{$prom_min_trat_p_t}} NTU</td>
+                            <td>{{$prom_prom_trat_ph}}</td>
+                          </tr>
+                        </tbody>
+                  </table>
+
+ 
+
+                </div><!-- Fin Parametros de calidad -->
+
+                <!-- Tabla resumen equipos -->
+
+                <label>Operación de equipos</label>
+                <table>
+
+                    <tr>
+                        <th>Estación</th>
+                        
+                        <th>6 eq.</th>
+                        <th>5 eq.</th>
+                        <th>4 eq.</th>
+                        <th>3 eq.</th>
+                        <th>2 eq.</th>
+                        <th>1 eq.</th>
+                        <th>0 eq.</th>
+                       
+                    
+                    </tr>
+                    <tr>
+                        <th>Bocatoma</th>
+                          <th>h</th>
+                          <th>h</th>
+                          <th>h</th>
+                          <th>h</th>
+                          <th>h</th>
+                          <th>h</th>                          
+                          <th>h</th>
+                       
+                    </tr>
+                    <tr>
+                        <th>EB1</th>
+                          <th>h</th>
+                          <th>h</th>
+                          <th>h</th>
+                          <th>h</th>
+                          <th>h</th>
+                          <th>h</th>                          
+                          <th>h</th>
+                    </tr>
+                     <tr>
+                        <th>EB2</th>
+                          <th>h</th>
+                          <th>h</th>
+                          <th>h</th>
+                          <th>h</th>
+                          <th>h</th>
+                          <th>h</th>                          
+                          <th>h</th>
+                        
+                    </tr>
+                    <tr>
+                        <th>EB3</th>
+                          <th>h</th>
+                          <th>h</th>
+                          <th>h</th>
+                          <th>h</th>
+                          <th>h</th>
+                          <th>h</th>                          
+                          <th>h</th>
+                        
+                    </tr>
+                </table>
+                <!-- Fin tabla resumen equipos -->
+
+
+            </div>
+            <div class="col-md-6">
+              <!-- Contenido de la columna 2 -->
+              <div>
+
+               <canvas id="grafica"></canvas>
+
               </div>
+   
 
-              <script>
-              google.charts.load('current', {'packages':['corechart']});
-              google.charts.setOnLoadCallback(drawChart);
-
-              function drawChart() {
-              var data = google.visualization.arrayToDataTable([
-                ['Contry', 'Mhl'],
-                ['Corte Energia',{{$paro_corte}}],
-                ['Variación Voltaje',{{$paro_variacion}}],
-                ['Turbidez',{{$paro_turbidez}}],
-                ['Paro Programado',{{$paro_programado}}],
-                ['Producción',{{$paro_produccion}}]
-              ]);
-
-              var options = {
-                title:'Causas de Paros de Operación',
-                is3D:true
-              };
-
-              var chart = new google.visualization.PieChart(document.getElementById('parosChart'));
-                chart.draw(data, options);
-              }
-              </script>
-
-<!-- Fin Grafico pastel Paro de operaciones -->
-
-
-
-<!-- Tendencia turbidez  style="width:100%; max-width:600px; height:500px;"-->
-    <!-- <div id="tendenciaTurbidez" ></div> -->
-
-   <!--  <script>
-    google.charts.load('current',{packages:['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
-
-    function drawChart() {
-    // Set Data
-    var data = google.visualization.arrayToDataTable([
-      ['Día', 'Turbidez'],
-      
-      @for ($i = 1; $i < 32; $i++)
-                          [{{$i}},{{$prom_cruda[$i]}}],
-      @endfor
-
-    ]);
-    // Set Options
-    var options = {
-      title: 'Turbidez Agua Cruda',
-      hAxis: {title: 'Días'},
-      vAxis: {title: 'NTU'},
-      legend: 'none'
-    };
-    // Draw
-    var chart = new google.visualization.LineChart(document.getElementById('tendenciaTurbidez'));
-    chart.draw(data, options);
-    }
-    </script>  -->
-
-<!-- Fin tendencia turbidez -->
-
-<!-- Seccion exclusiva que muestra un grafico de produccion anual -->
-    <!-- <canvas id="myChart"></canvas>
-    <script >
-
-// Datos de producción 
-const produccion = [20, 35, 50, 45, 30, 60, 70, 65, 55, 40, 25, 15];
-
-// Configuración del gráfico
-const config = {
-  type: 'bar',
-  data: {
-    labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-    datasets: [{
-      label: 'Producción',
-      data: produccion,
-      backgroundColor: 'rgba(54, 162, 235, 0.5)',
-      borderColor: 'rgba(54, 162, 235, 1)',
-      borderWidth: 1
-    }]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  }
-};
-
-// Crear instancia de Chart.js
-const chart = new Chart(document.getElementById('myChart'), config);
-
-
-    </script> -->
-
-<div>
-    <canvas id="grafica"></canvas>
-</div>
     <script>
 
         // Obtener una referencia al elemento canvas del DOM
@@ -266,61 +348,133 @@ const chart = new Chart(document.getElementById('myChart'), config);
     </script>
 
 
-
-    <!-- Fin de Seccion exclusiva que muestra un grafico de produccion anual -->
-
-          <!-- Inicio Grafico turbidez -->
-
-       <!--  <canvas id="turbidezChart" style="width:100%;max-width:400px"></canvas>
+          <!-- Grafico de paros -->
+          <div id="parosChart" > 
+          </div>
 
               <script>
-                /*Dias en eje x, generados por el for*/
-              var xValues = [
+              google.charts.load('current', {'packages':['corechart']});
+              google.charts.setOnLoadCallback(drawChart);
 
-                        @for ($i = 1; $i < 32; $i++)
-                          {{$i }},
-                        @endfor
- ];
-              /*Valores del eje Y, representan el promedio de la turbidez que se refleja en la tabla calidades*/
-               var yValues = [
-                  @for ($i = 1; $i < 32; $i++)
-                           {{$prom_cruda[$i]}},
-                        @endfor
- ];
+              function drawChart() {
+              var data = google.visualization.arrayToDataTable([
+                ['Contry', 'Mhl'],
+                ['Corte Energia',{{$paro_corte}}],
+                ['Variación Voltaje',{{$paro_variacion}}],
+                ['Turbidez',{{$paro_turbidez}}],
+                ['Paro Programado',{{$paro_programado}}],
+                ['Producción',{{$paro_produccion}}]
+              ]);
 
-              new Chart("turbidezChart", {
-                type: "line",
-                data: {
-                  labels: xValues,
+              var options = {
+                title:'Causas de Paros de Operación',
+                is3D:true
+              };
 
-                  datasets: [{
-                    fill: false,
-                    lineTension: 0,
-                    backgroundColor: "rgba(0,0,255,1.0)",
-                    borderColor: "rgba(0,0,255,0.1)",
-                    data: yValues
-                  }]
-                },
-                options: {
-                  legend: {display: false,
+              var chart = new google.visualization.PieChart(document.getElementById('parosChart'));
+                chart.draw(data, options);
+              }
+              </script>
 
-                      },
+          <!-- Datos reservorio -->
+            <div>
+              <label>Nivel Reservorio</label>
+             <table>
+                        <thead>
+                          <tr>
+                            <th>Minimo</th>
+                            <th>Máximo</th>
+                            <th>Promedio</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                          <td>{{$nivel_reser_min}} %</td>
+                           <td>{{$nivel_reser_max}} %</td>
+                            <td>{{$nivel_reser_prom}} %</td>
+                          </tr>
+                          
+                        </tbody>
+              </table>
+            </div>
 
-                  title: {
-                      display: true,
-                      text: "Turbidez Agua Cruda"
-                    },
-                    scales: {
-                    yAxes: [{ticks: {min: 0, max:{{$max_cruda_t}}}}]
 
-                  }
-                }
-              });
-              </script> -->
- 
-    <!-- Fin Grafico turbidez -->
+            <!-- Quimicos consumidos -->
 
 
+<div>
+  <label>Químicos Consumidos</label>
+      <table>
+            <thead>
+              <tr>
+                <th>Químico</th>
+                <th>Total</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <td>Sulfato</td>
+              
+              <td>{{$sulf}}</td>
+                
+                
+              </tr>
+              <tr>
+              <td>Polimero B</td>
+              <td>{{$pol_b}}</td>
+                
+                
+              </tr>
+               <tr>
+              <td>Polimero A</td>
+              <td>{{$poli_alta}}</td>
+                
+                
+              </tr>
+              <tr>
+              <td>Permanganato</td>
+              <td>{{$perma}}</td>
+                
+                
+              </tr>
+              <tr>
+              <td>Carbón</td>
+              <td>{{$carbon_}}</td>
+                
+               
+              </tr>
+              <tr>
+              <td>Hipoclorito</td>
+              <td>{{$hipo}}</td>
+                
+              </tr>
+               <tr>
+              <td>Cal</td>
+              <td>{{$cal_}}</td>
+                
+               
+              </tr>
+               <tr>
+              <td>PAC</td>
+              <td>{{$pac_}}</td>
+                
+               
+              </tr>
+               <tr>
+              <td>Cloro</td>
+              <td>{{$clor_}}</td> 
+               
+              </tr>
+              
+            </tbody>
+      </table>
+</div>
+
+
+            </div>
+  </div>
+      
 
       </div>
       <br>
