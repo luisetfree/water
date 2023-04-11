@@ -222,30 +222,30 @@
                         Cruda
                         <!-- este input hace referencia al id del agua cruda 1 -->
                         <input type="hidden" name="id_agua_c" value="1" >
-                        <input type="text" min="0"  name="turb_c" placeholder="Turbidez" >
-                        <input type="text" min="0"  name="ph_c" placeholder="PH" >
-                        <input type="text" min="0"  name="temp_c" placeholder="temperatura" >
-                        <input type="text" min="0"  name="color_c" placeholder="Color">
+                        <input type="number" step="0.01" min="0"  name="turb_c" placeholder="Turbidez" >
+                        <input type="number" step="0.01" min="0"  name="ph_c" placeholder="PH" >
+                        <input type="number" step="0.01" min="0"  name="temp_c" placeholder="temperatura" >
+                        <input type="number" step="0.01"  min="0"  name="color_c" placeholder="Color">
 
                     </section>
                 
                     <section class="card">
                         Clarificada
                         <input type="hidden" name="id_agua_cl" value="2" >
-                        <input type="text" min="0" name="turb_cl" placeholder="Turbidez" >
-                        <input type="text" min="0" name="ph_cl" placeholder="PH" >
-                        <input type="text" min="0" name="temp_cl" placeholder="temperatura"  >
-                        <input type="text" min="0" name="color_cl" placeholder="Color">
+                        <input type="number" step="0.01" min="0" name="turb_cl" placeholder="Turbidez" >
+                        <input type="number" step="0.01" min="0" name="ph_cl" placeholder="PH" >
+                        <input type="number" step="0.01" min="0" name="temp_cl" placeholder="temperatura"  >
+                        <input type="number" step="0.01" min="0" name="color_cl" placeholder="Color">
 
                     </section>
                     <section class="card">
                         Filtrada
 
                         <input type="hidden" name="id_agua_f" value="3" >
-                        <input type="text" min="0"name="turb_f" placeholder="Turbidez" >
-                        <input type="text" min="0" name="ph_f" placeholder="PH" >
-                        <input type="text" min="0" name="temp_f" placeholder="temperatura" >
-                        <input type="text" name="color_f" placeholder="Color">
+                        <input type="number" step="0.01" min="0"name="turb_f" placeholder="Turbidez" >
+                        <input type="number" step="0.01" min="0" name="ph_f" placeholder="PH" >
+                        <input type="number" step="0.01" min="0" name="temp_f" placeholder="temperatura" >
+                        <input type="number" step="0.01" name="color_f" placeholder="Color">
 
                     </section>
                     <section class="card">
