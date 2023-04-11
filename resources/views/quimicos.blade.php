@@ -88,7 +88,9 @@
               <label for="">Fecha</label>
               <input type="date" name="fecha" required>
               <label for="">Hora</label>
-               <input type="text" name="hora" placeholder="Formato: 00:00" required> 
+               <input type="text" pattern="\d{2}:\d{2}" title="Introduce una hora en formato hh:mm" name="hora" placeholder="Formato: 00:00" required> 
+               
+
              
               <label for="">Grupo de turno</label>
               <select name="grupo">
