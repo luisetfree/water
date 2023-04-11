@@ -304,8 +304,8 @@
             <div class="form-group entradas" >
                 <h5 >Bocatoma</h5>
               
-              <input type="number" id="" min="0" name="caudal" class="form-control"  placeholder="Caudal">
-              <input type="number" id="" min="0" name="nivel_camara" class="form-control" placeholder="N.Camara">
+              <input type="number" id="" min="0" max="12000" name="caudal" class="form-control" placeholder="Caudal">
+              <input type="number" id="" min="0" max="100" name="nivel_camara" class="form-control" placeholder="N.Camara">
               <input type="text" id=""  name="nivel_rio" class="form-control" placeholder="N.Rio">
               
               
@@ -345,8 +345,8 @@
             <div class="form-group entradas" >
                 <h5>EB1</h5>
               
-             <input type="number" id="" min="0" name="caudaleb1" class="form-control" placeholder="Caudal">
-              <input type="number" id="" min="0" name="nivel1" class="form-control" placeholder="N.Camara">
+             <input type="number" id="" min="0" max="10000" name="caudaleb1" class="form-control" placeholder="Caudal">
+              <input type="number" id="" min="0" max="100" name="nivel1" class="form-control" placeholder="N.Camara">
               <input type="text" id=""  name="cloro1" class="form-control" placeholder="Cloro">
               
               <label>Equipos Operando</label>
@@ -386,8 +386,8 @@
             <div class="form-group entradas" >
                 <h5>EB2</h5>
               
-              <input type="number" id="" min="0" name="caudaleb2" class="form-control" placeholder="Caudal">
-              <input type="number" id="" min="0" name="nivel2" class="form-control" placeholder="N.Camara">
+              <input type="number" id="" min="0" max="10000" name="caudaleb2" class="form-control" placeholder="Caudal">
+              <input type="number" id="" min="0" max="100" name="nivel2" class="form-control" placeholder="N.Camara">
               <input type="text" id=""  name="cloro2" class="form-control" placeholder="Cloro">
               
               <!-- EB2 -->
@@ -427,8 +427,8 @@
             </div>
              <div class="form-group entradas" >
                 <h5>EB3</h5>
-                <input type="number" id="" min="0" name="caudaleb3" class="form-control" placeholder="Caudal">
-                <input type="number" id="" min="0" name="nivel3" class="form-control" placeholder="N.Camara">
+                <input type="number" id="" min="0" max="10000" name="caudaleb3" class="form-control" placeholder="Caudal">
+                <input type="number" id="" min="0" max="100" name="nivel3" class="form-control" placeholder="N.Camara">
               <input type="text" id=""  name="cloro3" class="form-control" placeholder="Cloro">
                <!-- Representa el id de EB3 -->
               <input type="hidden" id="" name="id_eb3" class="form-control" value="4" >
@@ -466,7 +466,7 @@
                 <h5>Terminales</h5>
               
               <label for="">Nivel</label>
-              <input type="number" id="" min="0" name="nivel4" class="form-control" placeholder="Terminales">
+              <input type="number" id="" min="0" max="100" name="nivel4" class="form-control" placeholder="Terminales">
               <label for="">Cloro</label>
               <input type="text" id="" name="cloro4" class="form-control" placeholder="Terminales">
                <!-- Representa el id de tanques terminales -->
@@ -477,7 +477,7 @@
                 <h5>B.V. Nuevo </h5>
               
               <label for="">Nivel</label>
-              <input type="number" id="" min="0" name="nivel5" class="form-control" placeholder="Nuevo" value="0">
+              <input type="number" id="" min="0" max="100" name="nivel5" class="form-control" placeholder="Nuevo" value="0">
               <label for="">Cloro</label>
               <input type="text" id=""  name="cloro5" class="form-control" placeholder="B.V.Nuevo">
                <!-- Representa el id de Bella vista nuevo -->
@@ -488,7 +488,7 @@
                 <h5>B.V. Viejo </h5>
               
               <label for="">Nivel</label>
-              <input type="number" id="" min="0" name="nivel6" class="form-control" placeholder="Viejo" value="0">
+              <input type="number" id="" min="0" max="100" name="nivel6" class="form-control" placeholder="Viejo" value="0">
              <!--  <label for="">Cloro</label>
               <input type="text" id="" name="cloro6" class="form-control" placeholder="B.V.Viejo"> -->
                <!-- Representa el id de Bella vista viejo -->
