@@ -260,7 +260,7 @@
                        
 
                      <!-- coagulante cambiar a un select para tomar en cuenta el PAC tambien-->
-                <input type="text" id=""  name="dosificacion_coagulante" class="form-control" placeholder="Coagulante - PPM" required="">
+                <input type="number" max="150" id=""  name="dosificacion_coagulante" class="form-control" placeholder="Coagulante - PPM" required="">
                 
                         
                 
