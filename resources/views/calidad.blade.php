@@ -242,7 +242,7 @@
                         Filtrada
 
                         <input type="hidden" name="id_agua_f" value="3" >
-                        <input type="text" min="0" name="turb_f" placeholder="Turbidez" >
+                        <input type="text" min="0"name="turb_f" placeholder="Turbidez" >
                         <input type="text" min="0" name="ph_f" placeholder="PH" >
                         <input type="text" min="0" name="temp_f" placeholder="temperatura" >
                         <input type="text" name="color_f" placeholder="Color">
@@ -251,10 +251,10 @@
                     <section class="card">
                         Tratada
                         <input type="hidden" name="id_agua_t" value="4" >
-                        <input type="text"  min="0"  name="turb_t" placeholder="Turbidez" >
-                        <input type="text"  min="0"  name="ph_t" placeholder="PH" required="">
+                        <input type="number"  min="0" max="5" step="0.01" name="turb_t" placeholder="Turbidez" >
+                        <input type="number"  min="6" max="8.5" step="0.01" name="ph_t" placeholder="PH" required="">
                         <input type="text"  min="0"  name="temp_t" placeholder="temperatura" required="">
-                        <input type="text"    name="color_t" placeholder="Color">
+                        <input type="text"   name="color_t" placeholder="Color">
 
                     </section>
 
