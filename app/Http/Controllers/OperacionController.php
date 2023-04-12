@@ -421,13 +421,67 @@ $conteo_eb3=$this->contarEquipos($fechas,$id_eb3);
 /*FIN DE VALIDACION DE EQUIPOS TRABAJANDO POR HORAS EB3*/
 
 
+
+/*Exclusivo para activar la funcion de editar equipos*/
+//se cuenta hora por hota el total de equipos operando, quiere decir que si hay equipos en operacion en cualquier estacion, se habilita la opcion de editar equipos
+$operacion= $this->equiposOperan($fechas,$id_bocatoma,$id_eb1,$id_eb2,$id_eb3);
           
-        return view ('equipos',compact('estacion','equipo_0','equipo_1','equipo_2','equipo_3','equipo_4','equipo_5','equipo_6','equipo_7','equipo_8','equipo_9','equipo_10','equipo_11','equipo_12','equipo_13','equipo_14','equipo_15','equipo_16','equipo_17','equipo_18','equipo_19','equipo_20','equipo_21','equipo_22','equipo_23','eq_eb1_0','eq_eb1_1','eq_eb1_2','eq_eb1_3','eq_eb1_4','eq_eb1_5','eq_eb1_6','eq_eb1_7','eq_eb1_8','eq_eb1_9','eq_eb1_10','eq_eb1_11','eq_eb1_12','eq_eb1_13','eq_eb1_14','eq_eb1_15','eq_eb1_16','eq_eb1_17','eq_eb1_18','eq_eb1_19','eq_eb1_20','eq_eb1_21','eq_eb1_22','eq_eb1_23','eq_eb2_0','eq_eb2_1','eq_eb2_2','eq_eb2_3','eq_eb2_4','eq_eb2_5','eq_eb2_6','eq_eb2_7','eq_eb2_8','eq_eb2_9','eq_eb2_10','eq_eb2_11','eq_eb2_12','eq_eb2_13','eq_eb2_14','eq_eb2_15','eq_eb2_16','eq_eb2_17','eq_eb2_18','eq_eb2_19','eq_eb2_20','eq_eb2_21','eq_eb2_22','eq_eb2_23','eq_eb3_0','eq_eb3_1','eq_eb3_2','eq_eb3_3','eq_eb3_4','eq_eb3_5','eq_eb3_6','eq_eb3_7','eq_eb3_8','eq_eb3_9','eq_eb3_10','eq_eb3_11','eq_eb3_12','eq_eb3_13','eq_eb3_14','eq_eb3_15','eq_eb3_16','eq_eb3_17','eq_eb3_18','eq_eb3_19','eq_eb3_20','eq_eb3_21','eq_eb3_22','eq_eb3_23','fechas','cont_bt_1','bt_0_h','bt_1_h','bt_2_h','bt_3_h','bt_4_h','bt_5_h','bt_6_h','eb1_0_h','eb1_1_h','eb1_2_h','eb1_3_h','eb1_4_h','eb1_5_h','eb1_6_h','eb2_0_h','eb2_1_h','eb2_2_h','eb2_3_h','eb2_4_h','eb2_5_h','eb2_6_h','eb3_0_h','eb3_1_h','eb3_2_h','eb3_3_h','eb3_4_h','eb3_5_h','eb3_6_h','fechas'));           
+        return view ('equipos',compact('estacion','equipo_0','equipo_1','equipo_2','equipo_3','equipo_4','equipo_5','equipo_6','equipo_7','equipo_8','equipo_9','equipo_10','equipo_11','equipo_12','equipo_13','equipo_14','equipo_15','equipo_16','equipo_17','equipo_18','equipo_19','equipo_20','equipo_21','equipo_22','equipo_23','eq_eb1_0','eq_eb1_1','eq_eb1_2','eq_eb1_3','eq_eb1_4','eq_eb1_5','eq_eb1_6','eq_eb1_7','eq_eb1_8','eq_eb1_9','eq_eb1_10','eq_eb1_11','eq_eb1_12','eq_eb1_13','eq_eb1_14','eq_eb1_15','eq_eb1_16','eq_eb1_17','eq_eb1_18','eq_eb1_19','eq_eb1_20','eq_eb1_21','eq_eb1_22','eq_eb1_23','eq_eb2_0','eq_eb2_1','eq_eb2_2','eq_eb2_3','eq_eb2_4','eq_eb2_5','eq_eb2_6','eq_eb2_7','eq_eb2_8','eq_eb2_9','eq_eb2_10','eq_eb2_11','eq_eb2_12','eq_eb2_13','eq_eb2_14','eq_eb2_15','eq_eb2_16','eq_eb2_17','eq_eb2_18','eq_eb2_19','eq_eb2_20','eq_eb2_21','eq_eb2_22','eq_eb2_23','eq_eb3_0','eq_eb3_1','eq_eb3_2','eq_eb3_3','eq_eb3_4','eq_eb3_5','eq_eb3_6','eq_eb3_7','eq_eb3_8','eq_eb3_9','eq_eb3_10','eq_eb3_11','eq_eb3_12','eq_eb3_13','eq_eb3_14','eq_eb3_15','eq_eb3_16','eq_eb3_17','eq_eb3_18','eq_eb3_19','eq_eb3_20','eq_eb3_21','eq_eb3_22','eq_eb3_23','fechas','cont_bt_1','bt_0_h','bt_1_h','bt_2_h','bt_3_h','bt_4_h','bt_5_h','bt_6_h','eb1_0_h','eb1_1_h','eb1_2_h','eb1_3_h','eb1_4_h','eb1_5_h','eb1_6_h','eb2_0_h','eb2_1_h','eb2_2_h','eb2_3_h','eb2_4_h','eb2_5_h','eb2_6_h','eb3_0_h','eb3_1_h','eb3_2_h','eb3_3_h','eb3_4_h','eb3_5_h','eb3_6_h','fechas','operacion'));           
 
 
 
         
       
+
+    }
+
+/*Funcion que verifica si hay equipos operando, esto sirve unicamente para mostrar el boton editar equipos...si en una hora especifica no hay equipos operando
+, no se mostrara la informacion que permite la edicion de los equipos */
+    public function equiposOperan($fecha,$id_estacion1,$id_estacion2,$id_estacion3,$id_estacion4){
+
+        $uno=''; $dos=''; $tres=''; $cuatro=''; $cinco=''; $seis=''; $siete=''; $ocho=''; $nueve=''; $diez=''; $once=''; $doce=''; $trece=''; $catorce=''; $quince='';
+         $dieciceis=''; $dieciciete=''; $dieciocho=''; $diecinueve=''; $veinte=''; $veintiuno=''; $veintidos=''; $veintitres=''; $veinticuatro='';
+
+         //arreglo que almacenara los conteos existentes hora por hora
+         $conteoEquipos= array();
+         $suma=0;
+
+for ($i=0; $i <25 ; $i++) { 
+    // code...
+    if ($i<10) {
+         $hora='0'.$i.':00';
+    } else {
+        $hora=$i.':00';
+    }
+    
+   
+for ($j=1; $j < 5; $j++) { 
+    // code...
+
+    $conteo= DB::table('operacions')
+        ->join('equipos', 'operacions.id_equipo', '=', 'equipos.id')
+        ->select('operacions.*','equipos.*')
+        ->where('estado','=','Operando')
+        ->whereDate('operacions.fecha','=',$fecha)
+        ->where('operacions.hora','=',$hora)
+        ->where('equipos.id_estacion','=',$j)
+        /*->where('equipos.id_estacion','=',$id_estacion2)
+        ->where('equipos.id_estacion','=',$id_estacion3)
+        ->where('equipos.id_estacion','=',$id_estacion4)*/
+        ->get()->count();
+
+            $suma +=$conteo;
+
+       } 
+
+      $conteoEquipos[$i]=$suma;
+
+      //reiniciando el valor de suma, de lo contrario el valor se mantiene y va acumulando los valores
+      $suma=0;
+
+}
+        
+    return  $conteoEquipos;
 
     }
 
@@ -466,7 +520,7 @@ public function contarEquipos($fecha,$id_estacion){
 
                          
 
-//contarà las veces que se repiten los equipos operando por hora se devulve en forma de arreglo
+//contarà las veces que se repiten los equipos operando por hora se devuelve en forma de arreglo
 return $valores=array_count_values($array);
         
         
@@ -476,11 +530,17 @@ return $valores=array_count_values($array);
 /*cuenta por hora los equipos operando*/
 public function equipoPorHora($fecha,$hora,$id_estacion){
 
+/*$inicio_mes = date('Y-m-01', strtotime($fecha));
+$fin_mes = date('Y-m-t', strtotime($fecha));*/
+
+
 $conteo= DB::table('operacions')
         ->join('equipos', 'operacions.id_equipo', '=', 'equipos.id')
         ->select('operacions.*','equipos.*')
         ->where('estado','=','Operando')
-        ->whereDate('operacions.fecha','=',$fecha)
+       ->whereDate('operacions.fecha','=',$fecha)
+        //->whereBetween('operacions.fecha', [$inicio_mes, $fin_mes])
+        //->whereRaw('month(operacions.fecha) = month('.$fecha.')')
         ->where('operacions.hora','=',$hora)
         ->where('equipos.id_estacion','=',$id_estacion)
                             ->get()->count();
@@ -954,8 +1014,8 @@ $conteo= DB::table('operacions')
 
     //return view('welcome');
     //return redirect('/operacion');
-    return $this->index($request);
 
+    return $this->index($request);
     }
 
 
