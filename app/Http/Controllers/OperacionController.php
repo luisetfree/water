@@ -436,11 +436,9 @@ $operacion= $this->equiposOperan($fechas,$id_bocatoma,$id_eb1,$id_eb2,$id_eb3);
     }
 
 /*Funcion que verifica si hay equipos operando, esto sirve unicamente para mostrar el boton editar equipos...si en una hora especifica no hay equipos operando
-, no se mostrara la informacion que permite la edicion de los equipos */
+, no se mostrara la informacion que permite la edicion de los equipos. El arreglo de datos que proporciona este metodo hace referencia al total de equipos operando por hora */
     public function equiposOperan($fecha,$id_estacion1,$id_estacion2,$id_estacion3,$id_estacion4){
 
-        $uno=''; $dos=''; $tres=''; $cuatro=''; $cinco=''; $seis=''; $siete=''; $ocho=''; $nueve=''; $diez=''; $once=''; $doce=''; $trece=''; $catorce=''; $quince='';
-         $dieciceis=''; $dieciciete=''; $dieciocho=''; $diecinueve=''; $veinte=''; $veintiuno=''; $veintidos=''; $veintitres=''; $veinticuatro='';
 
          //arreglo que almacenara los conteos existentes hora por hora
          $conteoEquipos= array();
@@ -454,7 +452,7 @@ for ($i=0; $i <25 ; $i++) {
         $hora=$i.':00';
     }
     
-   
+   //este for itera hasta el 4 pues de esta forma se puede jugar con los id de las estaciones 
 for ($j=1; $j < 5; $j++) { 
     // code...
 
@@ -464,12 +462,9 @@ for ($j=1; $j < 5; $j++) {
         ->where('estado','=','Operando')
         ->whereDate('operacions.fecha','=',$fecha)
         ->where('operacions.hora','=',$hora)
-        ->where('equipos.id_estacion','=',$j)
-        /*->where('equipos.id_estacion','=',$id_estacion2)
-        ->where('equipos.id_estacion','=',$id_estacion3)
-        ->where('equipos.id_estacion','=',$id_estacion4)*/
+        ->where('equipos.id_estacion','=',$j)//ids de las estaciones insertadas desde el for
         ->get()->count();
-
+            //almacenando la suma de equipos operando para una hora en especifico y estacion
             $suma +=$conteo;
 
        } 
