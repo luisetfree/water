@@ -1012,7 +1012,7 @@
                             
                                         
                                                                                           
-                            
+                          
 
                             @switch($i)
 
@@ -1020,81 +1020,131 @@
 
                                  
                                 @case(1)
-                                  
-                                    <a href="/editar-equipos/01:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>                              
+                                <!-- ayudados del arreglo llamado operacion nos encargamos de validar que existan equipos operando, de lo contrario no se mostrara la opcion
+                                de editar -->
+                                 
+                                
+                                 @if($operacion[1] > 0)  
+                                 <a href="/editar-equipos/01:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>  
+                                  @endif                         
                                 @break
                              
                                 @case(2)
+                                @if($operacion[2] > 0)
                                 <a href="/editar-equipos/02:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
-                                     
-                                @break
-                                @case(3)
-                                <a href="/editar-equipos/03:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                   @endif    
                                    
                                 @break
+                                @case(3)
+                                
+                                @if($operacion[3] > 0)
+                                <a href="/editar-equipos/03:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                   @endif  
+                                @break
                                  @case(4)
-                                 <a href="/editar-equipos/04:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                 
+                                    @if($operacion[4] > 0)
+                                    <a href="/editar-equipos/04:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                    @endif  
+                                 
                                     
                                 @break
                                  @case(5)
+                                    @if($operacion[5] > 0)
                                      <a href="/editar-equipos/05:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                     @endif 
                                 @break
                                 @case(6)
-                                   <a href="/editar-equipos/06:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @if($operacion[6] > 0)
+                                   <a href="/editar-equipos/06:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a> 
+                                   @endif   
                                 @break
                                 @case(7)
-                                     <a href="/editar-equipos/07:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @if($operacion[7] > 0)
+                                     <a href="/editar-equipos/07:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a> 
+                                     @endif   
                                 @break
                                 @case(8)
-                                    <a href="/editar-equipos/08:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                @if($operacion[8] > 0)
+                                    <a href="/editar-equipos/08:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>  
+                                    @endif  
                                 @break
                                 @case(9)
-                                    <a href="/editar-equipos/09:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                
+                                @if($operacion[9] > 0)
+                                    <a href="/editar-equipos/09:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>
+                                    @endif    
                                 @break
                                   @case(10)
-                                    <a href="/editar-equipos/10:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                  @if($operacion[10] > 0)
+                                    <a href="/editar-equipos/10:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>  
+                                    @endif  
                                 @break
                                   @case(11)
-                                    <a href="/editar-equipos/11:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                  @if($operacion[11] > 0)
+                                    <a href="/editar-equipos/11:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a> 
+                                    @endif   
                                 @break
                                   @case(12)
-                                    <a href="/editar-equipos/12:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                  @if($operacion[12] > 0)
+                                    <a href="/editar-equipos/12:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>  
+                                    @endif  
                                 @break
                                   @case(13)
-                                    <a href="/editar-equipos/13:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                  @if($operacion[13] > 0)
+                                    <a href="/editar-equipos/13:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>
+                                    @endif    
                                 @break
                                   @case(14)
-                                    <a href="/editar-equipos/14:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                  @if($operacion[14] > 0)
+                                    <a href="/editar-equipos/14:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>  
+                                    @endif  
                                 @break
-                                  @case(15)
-                                    <a href="/editar-equipos/15:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                  @case(15)@if($operacion[15] > 0)
+                                    <a href="/editar-equipos/15:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>@endif    
                                 @break
                                   @case(16)
-                                    <a href="/editar-equipos/16:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                  @if($operacion[16] > 0)
+                                    <a href="/editar-equipos/16:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>  
+                                    @endif  
                                 @break
                                   @case(17)
-                                    <a href="/editar-equipos/17:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                  @if($operacion[17] > 0)
+                                    <a href="/editar-equipos/17:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a> 
+                                    @endif   
                                 @break
                                   @case(18)
-                                    <a href="/editar-equipos/18:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                  @if($operacion[18] > 0)
+                                    <a href="/editar-equipos/18:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a> 
+                                    @endif   
                                 @break
                                   @case(19)
-                                    <a href="/editar-equipos/19:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                  @if($operacion[19] > 0)
+                                    <a href="/editar-equipos/19:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a> 
+                                    @endif   
                                 @break
                                   @case(20)
-                                    <a href="/editar-equipos/20:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                  @if($operacion[20] > 0)
+                                    <a href="/editar-equipos/20:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>
+                                    @endif    
                                 @break
-                                  @case(21)
-                                    <a href="/editar-equipos/21:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                  @case(21)@if($operacion[21] > 0)
+                                    <a href="/editar-equipos/21:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a> @endif   
                                 @break
                                   @case(22)
-                                    <a href="/editar-equipos/22:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                  @if($operacion[22] > 0)
+                                    <a href="/editar-equipos/22:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>
+                                    @endif    
                                 @break
                                   @case(23)
-                                    <a href="/editar-equipos/23:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                  @if($operacion[23] > 0)
+                                    <a href="/editar-equipos/23:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>  
+                                    @endif  
                                 @break
                                   @case(24)
-                                    <a href="/editar-equipos/24:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>   
+                                  @if($operacion[24] > 0)
+                                    <a href="/editar-equipos/24:00/{{$fechas}}/1"> <img src="{{ asset('img/editar.png')}}" />  </a>
+                                    @endif    
                                 @break
                              
                                 @default
@@ -1102,7 +1152,7 @@
                         @endswitch
 
 
-
+              
 
                         </th>
 
