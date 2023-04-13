@@ -41,6 +41,79 @@
 <div class="grid-container">
     
 
+<div class="card">
+
+    <!-- Tabla resumen operacion de equipos por mes -->
+        <div class="card-header text-center font-weight-bold">
+            <label>Operación de equipos</label>
+        </div>
+
+                
+                <table>
+
+                    <tr>
+                        <th>Estación</th>
+                        
+                        <th>6 eq.</th>
+                        <th>5 eq.</th>
+                        <th>4 eq.</th>
+                        <th>3 eq.</th>
+                        <th>2 eq.</th>
+                        <th>1 eq.</th>
+                        <th>0 eq.</th>
+                       
+                    
+                    </tr>
+                    <tr>
+                        <th>Bocatoma</th>
+                         <th>{{$bt_h_mes[6]}}h</th><!-- Con 6 equipos -->
+                          <th>{{$bt_h_mes[5]}}h</th><!-- Con 5 equipos -->
+                          <th>{{$bt_h_mes[4]}}h</th><!-- Con 4 equipos -->
+                          <th>{{$bt_h_mes[3]}}h</th><!-- Con 3 equipos -->
+                          <th>{{$bt_h_mes[2]}}h</th><!-- Con 2 equipos -->
+                          <th>{{$bt_h_mes[1]}}h</th><!-- Con 1 equipos -->                          
+                          <th>{{$bt_h_mes[0]}}h</th><!-- Con 0 equipos -->
+
+
+                       
+                    </tr>
+                    <tr>
+                        <th>EB1</th>
+                          <th></th>
+                          <th></th>
+                          <th>{{$eb1_h_mes[4]}}h</th><!-- Con 4 equipos -->
+                          <th>{{$eb1_h_mes[3]}}h</th><!-- Con 3 equipos -->
+                          <th>{{$eb1_h_mes[2]}}h</th><!-- Con 2 equipos -->
+                          <th>{{$eb1_h_mes[1]}}h</th><!-- Con 1 equipos -->                          
+                          <th>{{$eb1_h_mes[0]}}h</th><!-- Con 0 equipos -->
+                    </tr>
+                     <tr>
+                        <th>EB2</th>
+                          <th></th>
+                          <th></th>
+                         <th>{{$eb2_h_mes[4]}}h</th><!-- Con 4 equipos -->
+                          <th>{{$eb2_h_mes[3]}}h</th><!-- Con 3 equipos -->
+                          <th>{{$eb2_h_mes[2]}}h</th><!-- Con 2 equipos -->
+                          <th>{{$eb2_h_mes[1]}}h</th><!-- Con 1 equipos -->                          
+                          <th>{{$eb2_h_mes[0]}}h</th><!-- Con 0 equipos -->
+                        
+                    </tr>
+                    <tr>
+                        <th>EB3</th>
+                          <th></th>
+                          <th></th>
+                           <th>{{$eb3_h_mes[4]}}h</th><!-- Con 4 equipos -->
+                          <th>{{$eb3_h_mes[3]}}h</th><!-- Con 3 equipos -->
+                          <th>{{$eb3_h_mes[2]}}h</th><!-- Con 2 equipos -->
+                          <th>{{$eb3_h_mes[1]}}h</th><!-- Con 1 equipos -->                          
+                          <th>{{$eb3_h_mes[0]}}h</th><!-- Con 0 equipos -->
+                    </tr>
+                </table>
+                <!-- Fin tabla resumen equipos -->
+
+</div>
+
+
         
     <div class="card">
         <div class="card-header text-center font-weight-bold">

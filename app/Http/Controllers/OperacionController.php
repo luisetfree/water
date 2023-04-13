@@ -1148,12 +1148,118 @@ public function horasTrabajadas($fechas,$mes)
     $id_eq7_eb3=29;
     $eq7_eb3=$this->workTime($id_eq7_eb3,$fecha,$estado,$mes);
 
+/*EXCLUSIVO PARA EL CONTEO DE LA OPERACION DE EQUIPOS DE LAS ESTACIONES-CONTEO MENSUAL-*/
 
+//Consolidado de conteo mensual de los equipos operando para BT
+$bt_h_mes=$this->OperacionEquiposMes($fecha,$id_bt);
+//Consolidado de conteo mensual de los equipos operando para EB1
+$eb1_h_mes=$this->OperacionEquiposMes($fecha,$id_eb1);
+//Consolidado de conteo mensual de los equipos operando para EB2
+$eb2_h_mes=$this->OperacionEquiposMes($fecha,$id_eb2);
+//Consolidado de conteo mensual de los equipos operando para EB2
+$eb3_h_mes=$this->OperacionEquiposMes($fecha,$id_eb3);
 
-    return view('horas-trabajadas',compact('eqbt','eqeb1','eq1_bt','fecha','eq2_bt','eq3_bt','eq4_bt','eq5_bt','eq6_bt','eq7_bt','eq8_bt','eq1_eb1','eq2_eb1','eq3_eb1','eq4_eb1','eq5_eb1','eq6_eb1','eq7_eb1','eq1_eb2','eq2_eb2','eq3_eb2','eq4_eb2','eq5_eb2','eq6_eb2','eq7_eb2','eqeb2','eq1_eb3','eq2_eb3','eq3_eb3','eq4_eb3','eq5_eb3','eq6_eb3','eq7_eb3','eqeb3','mes','eq_bt_mas_trabajo'));
+    return view('horas-trabajadas',compact('eqbt','eqeb1','eq1_bt','fecha','eq2_bt','eq3_bt','eq4_bt','eq5_bt','eq6_bt','eq7_bt','eq8_bt','eq1_eb1','eq2_eb1','eq3_eb1','eq4_eb1','eq5_eb1','eq6_eb1','eq7_eb1','eq1_eb2','eq2_eb2','eq3_eb2','eq4_eb2','eq5_eb2','eq6_eb2','eq7_eb2','eqeb2','eq1_eb3','eq2_eb3','eq3_eb3','eq4_eb3','eq5_eb3','eq6_eb3','eq7_eb3','eqeb3','mes','eq_bt_mas_trabajo','bt_h_mes','eb1_h_mes','eb2_h_mes','eb3_h_mes'));
 
 
 }
+
+/*Funcion que realiza el conteo de los equipos operando por hora de todo un mes...recibe una fecha utiliza para obtener los datos del mes en cuestion; id_estacion
+que permite ubicar los equipos de dicho lugar*/
+public function OperacionEquiposMes($fecha,$id_estacion){
+
+
+
+
+$mes = date("m", strtotime($fecha)); // obtener el número del mes de la fecha dada
+$año = date("Y", strtotime($fecha)); // obtener el año de la fecha dada
+$total_dias = cal_days_in_month(CAL_GREGORIAN, $mes, $año); // obtener el total de días del mes
+
+$fechanew='';
+
+$sumatoria=0;
+$total=0;
+//Variables que hacen referencia a los equipos operando 0,1,2,3,4,5,6 equipos que se presentan en la vista modal de dashboard
+$cero=0;
+$uno=0;
+$dos=0;
+$tres=0;
+$cuatro=0;
+$cinco=0;
+$seis=0;
+
+//Primer for que hace que las horas sean dinámicas, esto es para la busqueda automatica de los datos en la DB
+for ($hora = 1; $hora <= 24; $hora++) {
+        //Variable hora que ayuda a que en la consulta que se hace a la BD, la $hora sea dinamica, es decir se busque desde las 01:00 hasta las 24:00hrs
+        $hora_str = str_pad($hora, 2, "0", STR_PAD_LEFT) . ":00"; // convierte el número de hora a formato hh:mm
+
+        //For que hace que la fecha sea dinámica, para ello se armo una fecha acorde al formato en que se encuentra la tupla 'fecha' en la BD
+        for ($i=1; $i <=$total_dias ; $i++) { 
+            // Armando la fecha para que en la consulta se realice en el formato correcto
+            $fechanew=$año.'-'.$mes.'-'.$i;
+            //If que es una restriccion para corregir errores con las fechas menores al dia 10
+            if ($i<10) {
+                $fechanew=$año.'-'.$mes.'-'.'0'.$i;
+            }else{
+                $fechanew=$año.'-'.$mes.'-'.$i;
+            }
+
+
+            //Consulta SQL que extrae (cuenta) los equipos operando para un dia y hora determinados
+            $conteo= DB::table('operacions')
+                        ->join('equipos', 'operacions.id_equipo', '=', 'equipos.id')
+                        ->select('operacions.*','equipos.*')
+                        ->where('estado','=','Operando')
+                        //->whereBetween('operacions.fecha', [$inicio_mes, $fin_mes])
+                        //->whereRaw('month(fecha) = month(?)',[$fecha])
+                        ->where('operacions.fecha','=',$fechanew)
+                        ->where('operacions.hora','=',$hora_str)
+                        ->where('equipos.id_estacion','=',$id_estacion)
+                        ->get()
+                        ->count();
+
+                        //Switch que suma las veces que repiten los equipos segun sea el caso del conteo obtenido para una fecha y hora determinada
+                       switch ($conteo) {
+                           case 0:
+                               $cero++;
+                               break;
+                           case 1:
+                               $uno++;
+                               break;
+                            case 2:
+                               $dos++;
+                               break;
+                            case 3:
+                               $tres++;
+                               break;
+                            case 4:
+                               $cuatro++;
+                               break;
+                            case 5:
+                               $cinco++;
+                               break;
+                            case 6:
+                               $seis++;
+                               break;
+                           
+                           default:
+                               echo "Opción no válida";
+                               break;
+                       }
+                    }
+                }
+
+
+
+        //almacenar en arreglo y retornar, en la vista se mostrara deacuerdo al orden del 0 al 6
+
+              return  $arreglo = array($cero,$uno,$dos,$tres,$cuatro,$cinco,$seis);
+                           // return $cero;
+
+}
+
+
+
 
 /*Devuelve los datos de los equipos de bombeo de una estación*/
 public function equipos($id_estacion)
