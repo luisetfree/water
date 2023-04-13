@@ -459,7 +459,7 @@ for ($j=1; $j < 5; $j++) {
     $conteo= DB::table('operacions')
         ->join('equipos', 'operacions.id_equipo', '=', 'equipos.id')
         ->select('operacions.*','equipos.*')
-        ->where('estado','=','Operando')
+        ->where('estado','<>','')//la restriccion es que no se encuentre este campo vacio
         ->whereDate('operacions.fecha','=',$fecha)
         ->where('operacions.hora','=',$hora)
         ->where('equipos.id_estacion','=',$j)//ids de las estaciones insertadas desde el for
