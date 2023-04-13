@@ -372,10 +372,7 @@ Funcion que calcula el cloro aplicado en un dia segun la formula (media de dosis
 
 public function calculoCloro($fecha,$id_cloro,$id_bocatoma,$id_eb1){
 
-$cloroAplicado=DB::table('consumos')
-                ->where('fecha','=',$fecha)
-                ->where('id_quimico', '=', $id_cloro)
-                ->avg('dosis');
+
 
 
 $caudal_bt=DB::table('produccions')
@@ -388,19 +385,114 @@ $caudal_eb1=DB::table('produccions')
                 ->where('id_estacion', '=', $id_eb1)
                 ->avg('caudal');
 
-//recorre los datos de ambas busquedas y realiza el calculo dosis_cloro/Caudal_bt
+                //array que sirve para almacenar los valores del cloro aplicado por hora para una fecha determinada
+           $valorCloroAplicado= array();
+           
+           for ($i=1; $i < 25; $i++) { 
+                    // code...
+            if ($i <10 ) {
+                // code...
+                $hora_='0'.$i.':00';
+            }else{
+                $hora_=$i.':00';
+            }
+            
+            $valorCloroAplicado[$i]=$this->calculoCloroAplicado($fecha,$hora_,$id_cloro,$id_bocatoma,$id_eb1);
+
+                }     
+
+                
+                    // Calcular la cantidad de elementos en el arreglo
+                    $totalElementos = count($valorCloroAplicado);
+
+                    // Calcular la suma de todos los valores en el arreglo
+                    $sumaValores = array_sum($valorCloroAplicado);
+
+                    // Calcular el valor promedio del cloro aplicado
+                    $valorPromedio = $sumaValores / $totalElementos;
+
+
+            //recorre los datos de ambas busquedas y realiza el calculo dosis_cloro/Caudal_bt
 
                 //retornando los valores y realizando calculo y division, round para redondear con 2 decimales
             if (($caudal_bt) > 0){
-            return round((($cloroAplicado)/1000)*($caudal_bt), 2);
+            return round((($valorPromedio)/1000)*($caudal_bt), 2);
         }else{
            //Se ha considerado el caudal de EB1 cuando BT esta suspendida
 
                 //se retorna el valor utilizando caudal de EB1
-                return round((($cloroAplicado)/1000)*($caudal_bt), 2);
+                return round((($valorPromedio)/1000)*($caudal_eb1), 2);
 
 
         }
+
+
+}
+
+
+/*
+Funcion que calcula el cloro aplicado segun la formula (dosis_cloro/Caudal_bt), se utiliza para complementar el dato que se muestra en bitacora
+*/
+public function calculoCloroAplicado($fecha,$hora,$id_cloro,$id_bocatoma,$id_eb1){
+
+$cloroAplicado=DB::table('consumos')
+                ->select('dosis')
+                ->where('hora','=',$hora)
+                //->whereDate('created_at', '=', $fecha)
+                ->where('fecha','=',$fecha)
+                ->where('id_quimico', '=', $id_cloro)
+                ->get();
+
+
+$caudal_bt=DB::table('produccions')
+                ->select('caudal')
+                ->where('hora','=',$hora)
+                //->whereDate('created_at', '=', $fecha)
+                ->where('fecha','=',$fecha)
+                ->where('id_estacion', '=', $id_bocatoma)
+                ->get();
+//En caso que BT este suspendida se debera considerar el caudal de Eb1
+$caudal_eb1=DB::table('produccions')
+                ->select('caudal')
+                ->where('hora','=',$hora)
+                //->whereDate('created_at', '=', $fecha)
+                ->where('fecha','=',$fecha)
+                ->where('id_estacion', '=', $id_eb1)
+                ->get();
+
+//recorre los datos de ambas busquedas y realiza el calculo dosis_cloro/Caudal_bt
+    foreach ($cloroAplicado as $dato) {
+    
+
+        foreach ($caudal_bt as $cau){
+                //retornando los valores y realizando calculo y division, round para redondear con 2 decimales
+            if (($cau->caudal) > 0){
+            return round((($dato->dosis)*1000)/($cau->caudal), 2);
+        }else{
+           //Se ha considerado el caudal de EB1 cuando BT esta suspendida
+
+            foreach ($caudal_eb1 as $eb1) {
+
+                if (($eb1->caudal) > 0){
+                    //se retorna el valor utilizando caudal de EB1
+                return round((($dato->dosis)*1000)/($eb1->caudal), 2);
+                }else{
+                    //En caso que por alguna razon no se tenga caudal se devolvera el valor de 0, para evitar errores
+                    return 0;
+                }
+                
+
+                
+            }
+
+
+
+        }
+
+        }
+
+    }
+
 
 
 }
