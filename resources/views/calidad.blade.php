@@ -245,7 +245,7 @@
                         <input type="number" step="0.01" min="0"name="turb_f" placeholder="Turbidez" >
                         <input type="number" step="0.01" min="0" name="ph_f" placeholder="PH" >
                         <input type="number" step="0.01" min="0" name="temp_f" placeholder="temperatura" >
-                        <input type="number" step="0.01" name="color_f" placeholder="Color">
+                        <input type="text"  name="color_f" placeholder="Color">
 
                     </section>
                     <section class="card">
@@ -4630,6 +4630,7 @@
         <td>{{$prom_t_ph}}</td>
         <td>{{$prom_t_temp}}</td>
         <td>{{$prom_t_col}}</td>
+        <td>{{$prom_cl_eb1}}</td>
       </tr>
 
 
@@ -4656,6 +4657,7 @@
         <td>{{$max_t_ph}}</td>
         <td>{{$max_t_tmp}}</td>
         <td>{{$max_t_col}}</td>
+        <td>{{$max_cl_eb1}}</td>
 
       </tr>
        <!--  Minimo  ---->
@@ -4680,6 +4682,7 @@
         <td>{{$min_t_ph}}</td>
         <td>{{$min_t_tmp}}</td>
         <td>{{$min_t_col}}</td>
+        <td>{{$min_cl_eb1}}</td>
 
         
 
